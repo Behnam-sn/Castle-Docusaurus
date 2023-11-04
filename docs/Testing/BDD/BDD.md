@@ -1,8 +1,10 @@
 # BDD
 
+Behavior Driven Development
+
 ## What is BDD?
 
-Behavior Driven Development (BDD) is an Agile software development methodology.
+BDD is an Agile software development methodology.
 
 BDD creates a shared understanding of how an application should be documented and designed around the expected behavior from a user when interacting with it.
 
