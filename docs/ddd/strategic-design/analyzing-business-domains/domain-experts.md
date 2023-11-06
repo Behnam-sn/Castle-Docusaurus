@@ -21,3 +21,7 @@ will have a detailed understanding of how the entire business domain operates, w
 others will specialize in particular subdomains. For example, in an online advertising
 agency, the domain experts would be campaign managers, media buyers, analysts,
 and other business stakeholders.
+
+domain experts are the business’s subject matter experts.
+They have in-depth knowledge of the company’s business domain or one or more of
+its subdomains and are critical to a project’s success.
