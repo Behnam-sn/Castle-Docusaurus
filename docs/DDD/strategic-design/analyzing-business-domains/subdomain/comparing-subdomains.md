@@ -77,3 +77,27 @@ In the former case, it’s a sign of a supporting subdomain, while the latter is
 
 When designing software, we have to choose tools and techniques that accommodate the complexity of the business requirements.  
 Therefore, identifying subdomains is essential for designing a sound software solution.
+
+## Volatility
+
+As mentioned previously, core subdomains can change often. If a problem can be
+solved on the first attempt, it’s probably not a good competitive advantage—competi‐
+tors will catch up fast. Consequently, solutions for core subdomains are emergent.
+Different implementations have to be tried out, refined, and optimized. Moreover, the
+work on core subdomains is never done. Companies continuously innovate and
+evolve core subdomains. The changes come in the form of adding new features or
+optimizing existing functionality. Either way, the constant evolution of its core sub‐
+domains is essential for a company to stay ahead of its competitors.
+Contrary to the core subdomains, supporting subdomains do not change often. They
+do not provide any competitive advantage for the company, and therefore the evolu‐
+tion of a supporting subdomain provides a minuscule business value compared to the
+same effort invested in a core subdomain.
+Despite having existing solutions, generic subdomains can change over time. The
+changes can come in the form of security patches, bug fixes, or entirely new solutions
+to the generic problems.
+
+| Subdomain type | Competitive advantage | Complexity | Volatility |   Implementation   |   Problem   |
+| :------------: | :-------------------: | :--------: | :--------: | :----------------: | :---------: |
+|      Core      |          Yes          |    High    |    High    |      In-house      | Interesting |
+|    Generic     |          No           |    High    |    Low     |     Buy/adopt      |   Solved    |
+|   Supporting   |          No           |    Low     |    Low     | In-house/outsource |   Obvious   |
