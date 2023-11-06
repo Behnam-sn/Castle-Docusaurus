@@ -48,6 +48,10 @@ Effective communication is the central theme of the domain-driven design tools a
 DDD will make you a more effective software engineer by alleviating the process of making sense of business domains and guiding the design decisions according to the business strategy.  
 The tighter the connection between the software design and its business strategy is, the easier it will be to maintain and evolve the system to meet the future needs of the business, ultimately leading to more successful software projects.
 
+DDD reminds us that software developers are not the only people involved in building software.  
+The domain experts, for whom the software is being built, bring critical understanding of the problems being solved.
+While tackling complexity and providing a path to clarity is the goal of domain driven design, there are so many great ideas that can be applied to even less complicated software projects.
+
 ## DDD Parts
 
 The domain-driven design (DDD) methodology can be divided into two main parts:
@@ -57,10 +61,28 @@ The domain-driven design (DDD) methodology can be divided into two main parts:
   The strategic aspect of DDD deals with answering the questions of “what?” and “why?”  
   what software we are building and why we are building it.
 
+  we first apply “strategic design” to understand the business problem, a.k.a. the domain, and break the problem down into smaller, solvable, interconnected problems. The partnership with the domain experts also drives us to communicate in the language of the domain, rather than forcing those on the business side to learn the technical language of software.
+
+  The strategic tools of DDD are used to analyze business domains and strategy, and to
+  foster a shared understanding of the business between the different stakeholders. We
+  will also use this knowledge of the business domain to drive high-level design deci‐
+  sions: decomposing systems into components and defining their integration patterns.
+
 - ### Tactical Design
 
   The tactical part is all about the “how?”  
   how each component is implemented.
+
+  The second stage of a DDD-based project is “tactical design,” where we transform the
+  discoveries of strategic design into software architecture and implementation. Again,
+  DDD provides guidance and patterns for organizing these domains and avoiding fur‐
+  ther complexity. Tactical design continues the partnership with the domain experts
+  who will recognize their domain language even as they look at the code built by the
+  software teams.
+
+  Domain-driven design’s tactical tools address a different aspect of communication
+  issues. DDD’s tactical patterns allow us to write code in a way that reflects the busi‐
+  ness domain, addresses its goals, and speaks the language of the business.
 
 Both the strategic and tactical patterns and practices of DDD align software design with its business domain.  
 That’s where the name comes from: (business) domain-driven (software) design.
