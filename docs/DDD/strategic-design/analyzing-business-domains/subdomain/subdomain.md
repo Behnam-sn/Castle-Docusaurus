@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Subdomain
 
 A subdomain is a fine-grained area of business activity.  
