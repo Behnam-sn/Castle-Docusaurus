@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Types of Subdomains
 
-Domain-driven design distinguishes between three types of subdomains:
+Domain-driven design distinguishes between 3 types of subdomains:
 
 - ## Core Subdomains
 
