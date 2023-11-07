@@ -84,8 +84,6 @@ You can learn more about SpecFlow in this page.
 
 ## References
 
-• https://specflow.org/learn/bdd
-
-• https://dannorth.net/introducing-bdd/
-
-• https://www.techtarget.com/searchsoftwarequality/definition/Behavior-driven-development-BDD
+- https://specflow.org/learn/bdd
+- https://dannorth.net/introducing-bdd/
+- https://www.techtarget.com/searchsoftwarequality/definition/Behavior-driven-development-BDD

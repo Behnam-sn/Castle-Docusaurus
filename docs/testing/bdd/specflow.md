@@ -22,4 +22,4 @@ allowing you to execute the tests using the testing framework of your choice.
 
 ## References
 
-• https://docs.specflow.org/projects/specflow/en/latest
+- https://docs.specflow.org/projects/specflow/en/latest
