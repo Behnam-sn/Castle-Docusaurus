@@ -61,13 +61,6 @@ The domain-driven design (DDD) methodology can be divided into two main parts:
   The strategic aspect of DDD deals with answering the questions of “what?” and “why?”  
   what software we are building and why we are building it.
 
-  we first apply “strategic design” to understand the business problem, a.k.a. the domain, and break the problem down into smaller, solvable, interconnected problems. The partnership with the domain experts also drives us to communicate in the language of the domain, rather than forcing those on the business side to learn the technical language of software.
-
-  The strategic tools of DDD are used to analyze business domains and strategy, and to
-  foster a shared understanding of the business between the different stakeholders. We
-  will also use this knowledge of the business domain to drive high-level design deci‐
-  sions: decomposing systems into components and defining their integration patterns.
-
 - ### Tactical Design
 
   The tactical part is all about the “how?”  
