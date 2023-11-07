@@ -22,4 +22,5 @@ Domain-driven design distinguishes between 3 types of subdomains:
 - ## Supporting Subdomains
 
   The problems with obvious solutions.  
-  These are the activities the company likely has to implement in-house, but that do not provide any competitive advantage.
+  These are the activities the company likely has to implement in-house,  
+  but that do not provide any competitive advantage.
