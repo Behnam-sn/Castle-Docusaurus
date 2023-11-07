@@ -8,8 +8,8 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Knowledge Base",
-  tagline: "Simply Organized",
+  title: "Castle",
+  tagline: "Simple, Organized, Knowledge Base",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -66,7 +66,7 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "KB",
+        title: "Castle",
         logo: {
           alt: "Knowledge Base Logo",
           src: "img/logo.svg",
