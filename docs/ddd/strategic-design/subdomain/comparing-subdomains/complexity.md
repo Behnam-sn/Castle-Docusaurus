@@ -10,8 +10,16 @@ because the different types of subdomains have different levels of complexity.
 - ## Core Subdomains
 
   Core subdomains are complex.  
-  They should be as hard for competitors to copy as possible the company’s profitability depends on it.  
-  That’s why strategically, companies are looking to solve complex problems as their core subdomains.
+   They should be as hard for competitors to copy as possible the company’s profitability depends on it.  
+   That’s why strategically, companies are looking to solve complex problems as their core subdomains.
+
+  Complexity. A core subdomain that is simple to implement can only provide a shortlived competitive advantage. Therefore, core subdomains are naturally complex.
+  Continuing with the Uber example, the company not only created a new marketspace
+  with ridesharing, it disrupted a decades-old monolithic architecture, the taxi indus‐
+  try, through targeted use of technology. By understanding its business domain, Uber
+  was able to design a more reliable and transparent method of transportation. There
+  should be high entry barriers for a company’s core business; it should be hard for
+  competitors to copy or imitate the company’s solution
 
 - ## Generic Subdomains
 
