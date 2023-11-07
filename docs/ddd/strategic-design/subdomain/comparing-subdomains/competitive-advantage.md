@@ -25,3 +25,13 @@ The complex problems are not limited to delivering services to consumers.
 
 A complex problem can be, for example, making the business more optimized and efficient.  
 Or, providing the same level of service as competitors do, but at lower operational costs, is a competitive advantage as well.
+
+It’s important to note that core subdomains are not
+necessarily technical. Not all business problems are solved through algorithms or
+other technical solutions. A company’s competitive advantage can come from various
+sources.
+Consider, for example, a jewelry maker selling its products online. The online shop is
+important, but it’s not a core subdomain. The jewelry design is. The company can use
+an existing off-the-shelf online shop engine, but it cannot outsource the design of its
+jewelry. The design is the reason customers buy the jewelry maker’s products and
+remember the brand
