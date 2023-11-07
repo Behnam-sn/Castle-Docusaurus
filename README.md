@@ -1,3 +1,3 @@
-# Knowledge Base
+# Castle
 
-Simply Organized
+Simple, Organized, Knowledge Base
