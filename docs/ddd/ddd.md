@@ -1,5 +1,7 @@
 # DDD
 
+## What Is DDD?
+
 Domain-driven design (DDD) provides a set of practices for a collaborative approach to building software from the perspective of the business.
 
 It was originally invented by Eric Evans in 2003 with
