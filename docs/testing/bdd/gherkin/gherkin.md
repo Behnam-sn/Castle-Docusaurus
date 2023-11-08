@@ -4,6 +4,8 @@ sidebar_position: 2
 
 # Gherkin
 
+## What Is Gherkin?
+
 Gherkin is the beating heart of BDD,  
 Gherkin makes test scenarios easy to read.
 
