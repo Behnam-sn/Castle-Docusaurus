@@ -2,9 +2,11 @@
 sidebar_position: 3
 ---
 
-# Domain Experts
+# Domain Expert
 
-Domain experts are the business’s subject matter experts.  
+## Who Is The Domain Expert?
+
+Domain expert is the business’s subject matter expert.  
 They have in-depth knowledge of the company’s business domain,  
 in one or more of its subdomains and are critical to a project’s success.
 
