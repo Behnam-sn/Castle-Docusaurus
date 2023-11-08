@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # Strategic Design
 
+## What Is Strategic Design?
+
 The strategic tools of DDD are used to analyze business domains and strategy,  
 and to foster a shared understanding of the business between the different stakeholders.
 
