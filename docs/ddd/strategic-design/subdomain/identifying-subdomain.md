@@ -73,3 +73,22 @@ All organizations likely have quite a few business functionalities that drive th
 
 The jewelry maker we discussed earlier is a example.  
 When looking for subdomains, it’s important to identify business functions that are not related to software, acknowledge them as such, and focus on aspects of the business that are relevant to the software system you are working on.
+
+## How to Identify Subdomains Type?
+
+As we discussed earlier, a core subdomain is not necessarily related to software.  
+Another useful guiding principle for identifying software related core subdomains is to evaluate the complexity of the business logic that you will have to model and implement in code.  
+Does the business logic resemble CRUD interfaces for data entry,  
+or do you have to implement complex algorithms or business processes orchestrated by complex business rules and invariants?
+In the former case, it’s a sign of a supporting subdomain, while the latter is a typical core subdomain.
+
+At times it may be challenging to differentiate between core and supporting subdomains.  
+Complexity is a useful guiding principle.
+
+Ask whether the subdomain in question can be turned into a side business.  
+Would someone pay for it on its own?  
+If so, this is a core subdomain.
+
+Similar reasoning applies for differentiating supporting and generic subdomains:  
+would it be simpler and cheaper to hack your own implementation, rather than integrating an external one?  
+If so, this is a supporting subdomain.
