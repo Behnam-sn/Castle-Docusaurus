@@ -25,7 +25,9 @@ The subdomains are like foundational building blocks: take one away and the whol
 That said, we can leverage the inherent properties of the different types of subdomains to choose implementation strategies to implement each type of subdomain in the most efficient manner.
 
 From a more technical perspective,  
-it’s important to identify the core subdomains whose complexity will affect software design.
+it’s important to identify the core subdomains whose complexity will affect software design.  
+because when we are designing the software,  
+we have to choose tools and techniques that accommodate the complexity of the business requirements.
 
 ## How differentiate Subdomains?
 
