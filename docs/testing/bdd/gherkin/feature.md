@@ -10,6 +10,8 @@ It’s unique
 and provides a high-level description of a software feature  
 to group related scenarios.
 
+## Example
+
 ```gherkin
 Feature: Calculator
 ```
