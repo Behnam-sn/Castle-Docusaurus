@@ -2,7 +2,9 @@
 sidebar_position: 3
 ---
 
-# Supporting Subdomains
+# Supporting Subdomain
+
+## What Is a Supporting Subdomain?
 
 As the name suggests, supporting subdomains support the company’s business.
 
