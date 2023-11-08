@@ -28,22 +28,3 @@ From a more technical perspective,
 it’s important to identify the core subdomains whose complexity will affect software design.  
 because when we are designing the software,  
 we have to choose tools and techniques that accommodate the complexity of the business requirements.
-
-## How differentiate Subdomains?
-
-As we discussed earlier, a core subdomain is not necessarily related to software.  
-Another useful guiding principle for identifying software related core subdomains is to evaluate the complexity of the business logic that you will have to model and implement in code.  
-Does the business logic resemble CRUD interfaces for data entry,  
-or do you have to implement complex algorithms or business processes orchestrated by complex business rules and invariants?
-In the former case, it’s a sign of a supporting subdomain, while the latter is a typical core subdomain.
-
-At times it may be challenging to differentiate between core and supporting subdomains.  
-Complexity is a useful guiding principle.
-
-Ask whether the subdomain in question can be turned into a side business.  
-Would someone pay for it on its own?  
-If so, this is a core subdomain.
-
-Similar reasoning applies for differentiating supporting and generic subdomains:  
-would it be simpler and cheaper to hack your own implementation, rather than integrating an external one?  
-If so, this is a supporting subdomain.
