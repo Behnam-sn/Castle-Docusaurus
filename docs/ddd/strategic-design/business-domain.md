@@ -4,6 +4,19 @@ sidebar_position: 1
 
 # Business Domain
 
+To design and build an effective solution, you have to understand the problem.  
+The problem, in our context, is the software system we have to build.
+
+To understand the problem,  
+you have to understand the context within which it exists the organization’s business strategy,  
+and what value it seeks to gain by building the software.
+
+This material is the groundwork for designing software.  
+you will learn how companies work:  
+why they exist, what goals they are pursuing, and their strategies for achieving their goals.
+
+## What Is a Business Domain?
+
 A business domain defines a company’s main area of activity.  
 Generally speaking, it’s the service the company provides to its clients. For example:
 
