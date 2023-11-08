@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Identifying Subdomain
+# Identifying Subdomains
 
 Identifying subdomains and their types can help considerably in making different design decisions when building software solutions.
 
@@ -26,7 +26,7 @@ Take, for example, the customer service department.
 It’s reasonable to assume that it would be a supporting, or even a generic subdomain, as this function is often outsourced to third-party vendors.  
 But is this information enough for us to make sound software design decisions?
 
-### Distilling subdomains
+### Distilling Subdomains
 
 Coarse-grained subdomains are a good starting point, but the devil is in the details.  
 We have to make sure we are not missing important information hidden in the intricacies of the business function.
@@ -46,7 +46,7 @@ Since the routing algorithm allows the company to provide a better customer expe
 On the other hand, we cannot drill down indefinitely, looking for insights at lower and lower levels of granularity.  
 When should you stop?
 
-### Subdomains as coherent use cases
+### Subdomains As Coherent Use Cases
 
 From a technical perspective, subdomains resemble sets of interrelated, coherent use cases.  
 Such sets of use cases usually involve the same actor, the business entities, and they all manipulate a closely related set of data.
@@ -66,7 +66,7 @@ This can happen, for example, when all of the finer-grained subdomains are of th
 Another important question to consider when identifying the subdomains is whether
 we need all of them.
 
-### Focus on the essentials
+### Focus On The Essentials
 
 Subdomains are a tool that alleviates the process of making software design decisions.  
 All organizations likely have quite a few business functionalities that drive their competitive advantage but have nothing to do with software.
@@ -74,7 +74,7 @@ All organizations likely have quite a few business functionalities that drive th
 The jewelry maker we discussed earlier is a example.  
 When looking for subdomains, it’s important to identify business functions that are not related to software, acknowledge them as such, and focus on aspects of the business that are relevant to the software system you are working on.
 
-## How to Identify Subdomains Type?
+## How To Identify Subdomains Type?
 
 As we discussed earlier, a core subdomain is not necessarily related to software.  
 Another useful guiding principle for identifying software related core subdomains is to evaluate the complexity of the business logic that you will have to model and implement in code.  
