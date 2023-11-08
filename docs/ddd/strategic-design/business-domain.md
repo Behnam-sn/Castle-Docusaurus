@@ -16,6 +16,8 @@ A company can operate in multiple business domains. For example:
 - Amazon provides both retail and cloud computing services
 - Uber is a ride share company that also provides food delivery and bicycle-sharing services
 
+:::note
 It’s important to note that companies may change their business domains often.  
 A canonical example of this is Nokia,  
 which over the years has operated in fields as diverse as wood processing, rubber manufacturing, telecommunications, and mobile communications.
+:::
