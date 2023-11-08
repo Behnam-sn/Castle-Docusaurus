@@ -2,7 +2,7 @@
 sidebar_position: 10
 ---
 
-# Delimited parameters
+# Delimited Parameters
 
 Delimited parameters \<\> are used as references which are referred to in the example tables.  
 SpecFlow will automatically replace these parameters when executing tests.
