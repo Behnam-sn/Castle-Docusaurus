@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # SpecFlow
 
+## What Is SpecFlow?
+
 SpecFlow is a test automation solution for .NET,
 built upon the BDD paradigm.
 
