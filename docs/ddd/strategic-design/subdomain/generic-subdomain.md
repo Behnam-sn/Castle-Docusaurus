@@ -2,7 +2,9 @@
 sidebar_position: 2
 ---
 
-# Generic Subdomains
+# Generic Subdomain
+
+## What Is a Generic Subdomain?
 
 Generic subdomains are business activities that all companies are performing in the same way.
 
