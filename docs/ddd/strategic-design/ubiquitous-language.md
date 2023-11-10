@@ -10,6 +10,8 @@ Domain-driven design’s ubiquitous language is an effective tool for bridging t
 
 It fosters communication and knowledge sharing by cultivating a shared language that can be used by all the stakeholders throughout the project: in conversations, documentation, tests, diagrams, source code, and so on.
 
+Using a ubiquitous language is the cornerstone practice of domain-driven design.
+
 ## What Problem is Ubiquitous Language Trying to Solve?
 
 ### Knowledge Discovery
@@ -29,23 +31,22 @@ Our solutions will be limited to “translating” business requirements into so
 What if the requirements miss a crucial edge case?  
 Or fail to describe a business concept and limiting our ability to implement a model that will support future requirements?
 
-As Alberto Brandolini said:
-
+> As Alberto Brandolini said:  
 > Software development is a learning process; working code is a side effect.  
 > A software project’s success depends on the effectiveness of knowledge sharing between domain experts and software engineers.  
 > We have to understand the problem in order to solve it.
 
+### Communication
+
 Effective knowledge sharing between domain experts and software engineers requires effective communication.  
 Let’s take a look at the common impediments to effective communication in software projects.
-
-### Communication
 
 It’s safe to say that almost all software projects require the collaboration of stakeholders in different roles: domain experts, product owners, engineers, UI and UX designers, project managers, testers, analysts, and others.
 
 As in any collaborative effort, the outcome depends on how well all those parties can work together.  
-For example,  
+For example:  
 do all stakeholders agree on what problem is being solved?  
-What about the solution they are building do they hold any conflicting assumptions about its functional and non-functional requirements?  
+What about the solution they are building, do they hold any conflicting assumptions about its functional and non-functional requirements?  
 Agreement and alignment on all project-related matters are essential to a project’s success.
 
 Research into why software projects fail has shown that effective communication is essential for knowledge sharing and project success.  
@@ -56,10 +57,9 @@ Instead, domain knowledge is pushed down from domain experts to engineers.
 It is delivered through people playing the role of mediators, or “translators,” systems/business analysts, product owners, and project managers.
 
 During the traditional software development lifecycle,  
-the domain knowledge is “translated” into an engineer-friendly form known as an analysis model,  
-which is a description of the system’s requirements rather than an understanding of the business domain behind it.  
-While the intentions may be good, such mediation is hazardous to knowledge sharing.
-
+The domain knowledge is “translated” into an engineer-friendly form known as an analysis model,  
+Which is a description of the system’s requirements rather than an understanding of the business domain behind it.  
+While the intentions may be good, such mediation is hazardous to knowledge sharing.  
 In any translation, information is lost;  
 in this case, domain knowledge that is essential for solving business problems gets lost on its way to the software engineers.  
 This is not the only such translation on a typical software project.
@@ -75,10 +75,14 @@ As often happens, documents go out of date quickly.
 The source code is used to communicate business domain knowledge to software engineers who will maintain the project later.
 
 Such a software development process resembles the children’s game Telephone:  
-the message, or domain knowledge, often becomes distorted.  
-The information leads to software engineers implementing the wrong solution, or the right solution but to the wrong problems.  
-In either case, the outcome is the same: a failed software project.  
-Domain-driven design proposes a better way to get the knowledge from domain experts to software engineers: by using a ubiquitous language.
+The message, or domain knowledge, often becomes distorted.
+
+The information leads to software engineers implementing the wrong solution,  
+Or the right solution but to the wrong problems.  
+In either case, the outcome is the same: a failed software project.
+
+Domain-driven design proposes a better way to get the knowledge from domain experts to software engineers:  
+By using a ubiquitous language.
 
 ## What is Ubiquitous Language Solution?
 
@@ -86,9 +90,8 @@ The idea is simple and straightforward:
 If parties need to communicate efficiently, instead of relying on translations, they have to speak the same language.
 
 Instead of continuously translating domain knowledge,  
-domain-driven design calls for cultivating a single language for describing the business domain: the ubiquitous language.
-
-Using a ubiquitous language is the cornerstone practice of domain-driven design.
+Domain-driven design calls for cultivating a single language for describing the business domain:  
+The ubiquitous language.
 
 ### Example of Ubiquitous Language
 
@@ -114,7 +117,7 @@ On the other hand, the following statements are strictly technical and thus do n
 
 ### Commitment
 
-All project-related stakeholders including software engineers, product owners, domain experts & UI/UX designers should consistently use the ubiquitous language when describing the business domain to spread knowledge about and foster a shared understanding of the business domain.
+All project-related stakeholders including software engineers, product owners, domain experts & UI/UX designers should consistently use the ubiquitous language when describing the business domain.
 
 The language should be continuously reinforced throughout the project: requirements, tests, documentation, and even the source code itself should
 use this language.
@@ -123,12 +126,12 @@ Only through the continuous use of the ubiquitous language and its terms can a s
 
 ### Interactions With Domain Experts
 
-Most importantly,  
 Formulation of a ubiquitous language requires interaction with its natural holders, the domain experts.  
 Only interactions with actual domain experts can uncover inaccuracies, wrong assumptions, or an overall flawed understanding of the business
 domain.
 
-domain experts must be comfortable using the ubiquitous language when reasoning about the business domain.  
+Most importantly,  
+Domain experts must be comfortable using the ubiquitous language when reasoning about the business domain.  
 This language will represent both the business domain and the domain experts’ mental models.
 
 ### Language of The Business
@@ -151,11 +154,13 @@ Let’s look at a few examples of unclear terminology and how it can be improved
 #### Ambiguous Terms
 
 Let’s say that in some business domain, the term policy has multiple meanings:  
-it can mean a regulatory rule or an insurance contract.  
+It can mean a regulatory rule or an insurance contract.
+
 The exact meaning can be worked out in human-to-human interaction, depending on the context.  
 Software, however, doesn’t cope well with ambiguity, and it can be cumbersome and challenging to model the “policy” entity in code.
 
-Ubiquitous language demands a single meaning for each term, so “policy” should be modeled explicitly using the two terms regulatory rule and insurance contract.
+Ubiquitous language demands a single meaning for each term,  
+so “policy” should be modeled explicitly using the two terms regulatory rule and insurance contract.
 
 #### Synonymous Terms
 
@@ -168,7 +173,8 @@ Synonymous terms can seem harmless at first.
 However, in most cases, they denote different concepts.  
 In this example, both visitor and account technically refer to the system’s users;  
 however, in most systems, unregistered and registered users represent different roles and have different behaviors.  
-For example, the “visitors” data is used mainly for analysis purposes, whereas “accounts” actually uses the system and its functionality.  
+For example, the “visitors” data is used mainly for analysis purposes, whereas “accounts” actually uses the system and its functionality.
+
 It is preferable to use each term explicitly in its specific context.  
 Understanding the differences between the terms in use allows for building simpler and clearer models and implementations of the business domain’s entities.
 
@@ -176,7 +182,7 @@ Understanding the differences between the terms in use allows for building simpl
 
 There are tools and technologies that can alleviate the processes of capturing and managing a ubiquitous language.
 
-#### Wiki
+#### Wikis
 
 For example, a wiki can be used as a glossary to capture and document the ubiquitous language.
 
@@ -219,16 +225,10 @@ However, it is definitely worth it for complex business domains.
 
 #### Static Code Analysis
 
-Finally, there are even static code analysis tools that can verify the usage of a ubiquitous language’s terms.  
+There are even static code analysis tools that can verify the usage of a ubiquitous language’s terms.  
 A notable example for such a tool is NDepend.
 
 ### Continuous Effort
-
-While these tools are useful, they are secondary to the actual use of a ubiquitous language in day-to-day interactions.  
-Use the tools to support the management of the ubiquitous language, but don’t expect the documentation to replace the actual usage.
-
-> As the Agile Manifesto says:  
-> Individuals and interactions over processes and tools.
 
 Cultivating a ubiquitous language is a continuous process.  
 As the project evolves, more domain knowledge will be discovered.  
@@ -243,6 +243,12 @@ Tools such as wiki-based glossaries and Gherkin tests can greatly alleviate the 
 However, the main prerequisite for an effective ubiquitous language is usage.  
 the language has to be used consistently in all project-related communications.
 
+Use the tools to support the management of the ubiquitous language,  
+but don’t expect the documentation to replace the actual usage.  
+As the Agile Manifesto says:
+
+> Individuals and interactions over processes and tools.
+
 ## Challenges of Ubiquitous Language
 
 In theory, cultivating a ubiquitous language sounds like a simple, straightforward process.  
@@ -251,21 +257,32 @@ In practice, it isn’t.
 The only reliable way to gather domain knowledge is to converse with domain experts.  
 Quite often, the most important knowledge is tacit.  
 It’s not documented or codified but resides only in the minds of domain experts.  
-The only way to access it is to ask questions.  
-As you gain experience in this practice, you will notice that frequently, this process involves not merely discovering knowledge that is already there, but rather co-creating the model in tandem with domain experts.  
+The only way to access it is to ask questions.
+
+As you gain experience in this practice, you will notice that frequently,  
+this process involves not merely discovering knowledge that is already there,  
+but rather co-creating the model in tandem with domain experts.
+
 There may be ambiguities and even white spots in domain experts’ own understanding of the business domain;  
-for example, defining only the “happy path” scenarios but not considering edge cases that challenge the accepted assumptions.  
+for example, defining only the “happy path” scenarios but not considering edge cases that challenge the accepted assumptions.
+
 Furthermore, you may encounter business domain concepts that lack explicit definitions.  
 Asking questions about the nature of the business domain often makes such implicit conflicts and white spots explicit.  
 This is especially common for core subdomains.  
-In such a case, the learning process is mutual—you are helping the domain experts better understand their field.
+In such a case, the learning process is mutual.  
+You are helping the domain experts better understand their field.
 
-When introducing domain-driven design practices to a brownfield project, you will notice that there is already a formed language for describing the business domain, and that the stakeholders use it.  
+When introducing domain-driven design practices to a brownfield project, you will notice that there is already a formed language for describing the business domain, and that the stakeholders use it.
+
 However, since DDD principles do not drive that language, it won’t necessarily reflect the business domain effectively.  
-For example, it may use technical terms, such as database table names.  
+For example, it may use technical terms, such as database table names.
+
 Changing a language that is already being used in an organization is not easy.  
 The essential tool in such a situation is patience.  
-You need to make sure the correct language is used where it’s easy to control it: in the documentation and source code.  
-Finally, the question about the ubiquitous language that I am asked often at conferences is what language should we use if the company is not in an English-speaking country.  
+You need to make sure the correct language is used where it’s easy to control it: in the documentation and source code.
+
+Finally, the question about the ubiquitous language that I am asked often at conferences is what language should we use  
+if the company is not in an English-speaking country.
+
 My advice is to at least use English nouns for naming the business domain’s entities.  
 This will alleviate using the same terminology in code.
