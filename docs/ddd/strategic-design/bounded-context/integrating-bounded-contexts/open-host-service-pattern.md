@@ -5,9 +5,10 @@ sidebar_position: 5
 # Open-Host Service Pattern
 
 This pattern addresses cases in which the power is skewed toward the consumers.
-The supplier is interested in protecting its consumers and providing the best service possible.
 
-To protect the consumers from changes in its implementation model, the upstream supplier decouples the implementation model from the public interface.  
+The supplier is interested in protecting its consumers and providing the best service possible.  
+To protect the consumers from changes in its implementation model,  
+The upstream supplier decouples the implementation model from the public interface.  
 This decoupling allows the supplier to evolve its implementation and public models at different rates.
 
 The supplier’s public interface is not intended to conform to its ubiquitous language.  

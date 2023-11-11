@@ -19,4 +19,8 @@ Well-established collaboration practices, high levels of commitment, and frequen
 
 From a technical perspective, continuous integration of the changes applied by both teams is needed to further minimize the integration feedback loop.
 
+:::warning
+
 This pattern might not be a good fit for geographically distributed teams since it may present synchronization and communication challenges.
+
+:::

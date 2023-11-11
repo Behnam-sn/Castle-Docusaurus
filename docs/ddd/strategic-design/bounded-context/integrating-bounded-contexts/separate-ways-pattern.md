@@ -28,12 +28,20 @@ It would make little sense for one of the bounded contexts to expose it as a ser
 
 The added complexity of integrating such a solution would outweigh the benefit of not duplicating the functionality in multiple contexts.
 
-Duplicating the functionality would be less expensive than collaborating.  
-Expensive than duplicating the functionality.  
-In such a case, it is again more cost effective for the teams to go their separate ways.
+Duplicating the functionality would be less expensive than collaborating.
+
+## Model Differences
+
+Differences in the bounded contexts’ models can also be a reason to go with a separate ways collaboration.
+
+The models may be so different that a conformist relationship is impossible, and implementing an anticorruption layer would be more expensive than duplicating the functionality.
+
+In such a case, it is again more cost-effective for the teams to go their separate ways.
 
 :::danger
+
 The separate ways pattern should be avoided when integrating core subdomains.  
 Duplicating the implementation of such subdomains would defy the company’s strategy to implement them in the most
 effective and optimized way.
+
 :::

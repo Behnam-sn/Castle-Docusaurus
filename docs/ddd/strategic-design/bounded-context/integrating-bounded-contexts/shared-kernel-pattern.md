@@ -51,7 +51,7 @@ leading to data corruption and/or runtime issues.
 The overarching applicability criterion for the shared kernel pattern is the cost of duplication versus the cost of coordination.
 
 Since the pattern introduces a strong dependency between the participating bounded contexts,  
-it should be applied only when the cost of duplication is higher than the cost of coordination.
+It should be applied only when the cost of duplication is higher than the cost of coordination.
 
 In other words, only when integrating changes applied to the shared model by both bounded contexts will require more effort than coordinating the changes in the shared codebase.
 
