@@ -1,6 +1,6 @@
 {
-  "name": "knowledge-base",
-  "version": "0.0.0",
+  "name": "castle",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
