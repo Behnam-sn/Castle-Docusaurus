@@ -14,7 +14,8 @@ These are called **contracts**.
 
 ## Why Do We Need Contracts?
 
-The need for contracts results from differences in bounded contexts’ models and languages.  
+The need for contracts results from differences in bounded contexts’ models and languages.
+
 Since each contract affects more than one party, they need to be defined and coordinated.
 
 Also, by definition, two bounded contexts are using different ubiquitous languages.  
@@ -33,54 +34,40 @@ We will divide the patterns into 3 groups, each representing a type of team coll
 
 Cooperation patterns relate to bounded contexts implemented by teams with well established communication.
 
-In the simplest case, these are bounded contexts implemented by a single team.
+In the simplest case, these are bounded contexts implemented by a single team.  
 This also applies to teams with dependent goals, where one team’s success depends on the success of the other, and vice versa.
 
 Again, the main criterion here is the quality of the teams’ communication and collaboration.
 
-Let’s look at 2 DDD patterns suitable for cooperating teams.
+Let’s look at 2 DDD patterns suitable for cooperating teams:
+
+- **Partnership**  
+  Bounded contexts are integrated in an ad hoc manner.
+
+- **Shared Kernel**  
+  Two or more bounded contexts are integrated by sharing a limited overlapping model that belongs to all participating bounded contexts.
 
 ### Customer–Supplier
-
-The second group of collaboration patterns we’ll examine is the customer–supplier patterns.
 
 One of the bounded contexts (the supplier) provides a service for its customers.  
 The service provider is “upstream” and the customer or consumer is “downstream.”
 
-Unlike in the cooperation case, both teams (upstream and downstream) can succeed independently.  
+Unlike in the cooperation case, both teams (upstream and downstream) can succeed independently.
+
 Consequently, in most cases we have an imbalance of power:  
 Either the upstream or the downstream team can dictate the integration contract.
 
-This section will discuss 3 patterns addressing such power differences:
+These 3 patterns will address such power differences:
 
-Conformist pattern  
-Anticorruption layer pattern  
-Open-host service pattern
+- **Conformist**  
+  The consumer conforms to the service provider’s model.
+
+- **Anticorruption Layer**  
+  The consumer translates the service provider’s model into a model that fits the consumer’s needs.
+
+- **Open-Host Service**  
+  The service provider implements a published language—a model optimized for its consumers’ needs.
 
 ### Separate Ways
 
-The last collaboration option is not to collaborate at all.  
-This pattern can arise for different reasons, in cases where the teams are unwilling or unable to collaborate.  
-We’ll look at a few of them here.
-
-#### Communication Issues
-
-A common reason for avoiding collaboration is communication difficulties driven by the organization’s size or internal politics.
-When teams have a hard time collaborating and agreeing, it may be more cost-effective to go their separate ways and duplicate functionality in multiple bounded contexts.
-
-#### Generic Subdomains
-
-The nature of the duplicated subdomain can also be a reason for teams to go their separate ways.
-When the subdomain in question is generic, and if the generic solution is easy to integrate, it may be more cost-effective to integrate it locally in each bounded context.
-An example is a logging framework; it would make little sense for one of the bounded contexts to expose it as a service.
-The added complexity of integrating such a solution would outweigh the benefit of not duplicating the functionality in
-multiple contexts.
-Duplicating the functionality would be less expensive than collaborating.
-expensive than duplicating the functionality.
-In such a case, it is again more cost effective for the teams to go their separate ways.
-
-:::danger
-The separate ways pattern should be avoided when integrating core subdomains.  
-Duplicating the implementation of such subdomains would defy the company’s strategy to implement them in the most
-effective and optimized way.
-:::
+It’s less expensive to duplicate particular functionality than to collaborate and integrate it.
