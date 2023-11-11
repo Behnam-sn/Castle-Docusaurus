@@ -88,7 +88,7 @@ const config = {
       },
       footer: {
         style: "dark",
-        copyright: `Copyright © ${new Date().getFullYear()} Castle, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Castle, Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
