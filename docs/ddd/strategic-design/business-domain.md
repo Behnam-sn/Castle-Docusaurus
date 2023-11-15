@@ -11,6 +11,8 @@ To understand the problem,
 you have to understand the context within which it exists the organization’s business strategy,  
 and what value it seeks to gain by building the software.
 
+A business problem can be challenges associated with optimizing workflows and processes, minimizing manual labor, managing resources, supporting decisions, managing data, and so on.
+
 This material is the groundwork for designing software.  
 you will learn how companies work:  
 why they exist, what goals they are pursuing, and their strategies for achieving their goals.
