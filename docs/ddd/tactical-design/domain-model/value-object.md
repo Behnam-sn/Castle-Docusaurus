@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Value Object
 
 ## What is a Value Object?
