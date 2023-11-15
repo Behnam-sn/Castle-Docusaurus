@@ -7,7 +7,7 @@ sidebar_position: 4
 Now that we have a greater understanding of the three types of business subdomains,  
 let’s explore their differences from additional angles and see how they affect strategic software design decisions.
 
-## The Table
+## The Comparison Table
 
 | Subdomain type | Competitive advantage | Complexity | Volatility |   Implementation   |   Problem   |
 | :------------: | :-------------------: | :--------: | :--------: | :----------------: | :---------: |
