@@ -43,25 +43,28 @@ Yet again, over the years, we have tried to improve inter and intra team communi
 Domain-driven design (DDD) proposes to attack the root cause for failed software projects from a different angle.  
 Effective communication is the central theme of the domain-driven design tools and practices.
 
-DDD will make you a more effective software engineer by alleviating the process of making sense of business domains and guiding the design decisions according to the business strategy.  
+Effective communication and knowledge sharing are crucial for a successful software project.  
+Software engineers have to understand the business domain in order to design and build a software solution.
+
+DDD will make you a more effective software engineer by alleviating the process of making sense of business domains and guiding the design decisions according to the business strategy.
+
 The tighter the connection between the software design and its business strategy is,  
-the easier it will be to maintain and evolve the system to meet the future needs of the business,  
-ultimately leading to more successful software projects.
+The easier it will be to maintain and evolve the system to meet the future needs of the business,  
+Ultimately leading to more successful software projects.
+
+## How to Use DDD?
 
 The domain-driven design (DDD) methodology can be divided into two main parts:
 
 - ### Strategic Design
 
   The strategic aspect of DDD deals with answering the questions of “what?” and “why?”  
-  what software we are building and why we are building it.
-
-  We use strategic design tools to understand the business problem (the domain),  
-  and break the problem down into smaller, solvable, interconnected problems.
+  What software we are building and Why we are building it.
 
 - ### Tactical Design
 
   The tactical part is all about the “how?”  
-  how each component is implemented.
+  How each component is implemented.
 
 Both the strategic and tactical patterns and practices of DDD align software design with its business domain.  
 That’s where the name comes from: (business) domain-driven (software) design.
