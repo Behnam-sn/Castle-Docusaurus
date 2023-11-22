@@ -24,7 +24,7 @@ For example:
 - Amazon provides both retail and cloud computing services
 - Uber is a ride share company that also provides food delivery and bicycle-sharing services
 
-### Can a Company Change it's Business Domains?
+### Can a Company Change its Business Domains?
 
 Yes, it’s important to note that companies may change their business domains often.
 
