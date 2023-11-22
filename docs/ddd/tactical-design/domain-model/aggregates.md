@@ -7,8 +7,7 @@ sidebar_position: 3
 ## What is an Aggregate?
 
 An aggregate is an entity.  
-It requires an explicit identification field and its state is expected to change during an instance’s lifecycle.
-
+It requires an explicit identification field and its state is expected to change during an instance’s lifecycle.  
 However, it is much more than just an entity.
 
 <!-- ## Why of Aggregate -->
