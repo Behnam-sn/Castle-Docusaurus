@@ -13,6 +13,34 @@ Tactical design continues the partnership with the domain experts who will recog
 
 Domain-driven design’s tactical tools address a different aspect of communication issues.
 
+## domain experts
+
+DDD reminds us that software developers are not the only
+people involved in building software.
+The domain experts, for whom the software is
+being built, bring critical understanding of the problems being solved. We create a
+partnership throughout the stages of creation as we first apply “strategic design” to
+understand the business problem, a.k.a. the domain, and break the problem down
+into smaller, solvable, interconnected problems. The partnership with the domain
+experts also drives us to communicate in the language of the domain, rather than
+forcing those on the business side to learn the technical language of software.
+
+The second stage of a DDD-based project is “tactical design,” where we transform the
+discoveries of strategic design into software architecture and implementation. Again,
+DDD provides guidance and patterns for organizing these domains and avoiding fur‐
+ther complexity. Tactical design continues the partnership with the domain experts
+who will recognize their domain language even as they look at the code built by the
+software teams.
+
+## crucial for a successful software project
+
+Effective communication and knowledge sharing are crucial for a successful software project.  
+Software engineers have to understand the business domain in order to design and build a software solution.
+
+## business problem
+
+A business problem can be challenges associated with optimizing workflows and processes, minimizing manual labor, managing resources, supporting decisions, managing data, and so on.
+
 ## application layer
 
 In essence, the application layer’s operations implement the transaction script pattern. It has to orchestrate the
