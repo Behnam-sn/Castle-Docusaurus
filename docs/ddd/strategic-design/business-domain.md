@@ -30,3 +30,7 @@ Yes, it’s important to note that companies may change their business domains o
 
 A canonical example of this is Nokia,  
 which over the years has operated in fields as diverse as wood processing, rubber manufacturing, telecommunications, and mobile communications.
+
+## References
+
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly
