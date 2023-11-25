@@ -30,14 +30,6 @@ It’s their job to specialize in and comprehend all the intricacies of the busi
 By no means should we, nor can we, become domain experts.  
 That said, it’s crucial for us to understand domain experts and to use the same business terminology they use.
 
-<!-- To be effective, the software has to mimic the domain experts’ way of thinking about the problem (their mental models).   -->
-
-<!-- Without an understanding of the business problem and the reasoning behind the requirements,
-Our solutions will be limited to “translating” business requirements into source code.
-
-What if the requirements miss a crucial edge case?
-Or fail to describe a business concept and limiting our ability to implement a model that will support future requirements? -->
-
 Effective knowledge sharing between domain experts and software engineers requires effective communication.
 
 ### Communication
@@ -57,13 +49,13 @@ Research into why software projects fail has shown that effective communication 
 
 Yet, despite its importance, effective communication is rarely observed in software projects.
 
-### Traditional Software Development Lifecycle
+### Translation
 
 Often, business people and engineers have no direct interaction with one another.  
 Instead, domain knowledge is pushed down from domain experts to engineers.
 
 During the traditional software development lifecycle,  
-The domain knowledge is “translated” into an engineer-friendly form known as an analysis model,
+The domain knowledge is “translated” into an engineer-friendly form known as an analysis model.
 
 Which is a description of the system’s requirements,  
 Rather than an understanding of the business domain behind it.
@@ -85,6 +77,14 @@ The traditional software development lifecycle implies the following translation
 
 As often happens, documents go out of date quickly.  
 The source code is used to communicate business domain knowledge to software engineers who will maintain the project later.
+
+To be effective, the software has to mimic the domain experts’ way of thinking about the problem (their mental models).
+
+Without an understanding of the business problem and the reasoning behind the requirements,  
+Our solutions will be limited to “translating” business requirements into source code.
+
+What if the requirements miss a crucial edge case?  
+Or fail to describe a business concept and limiting our ability to implement a model that will support future requirements?
 
 Such a software development process resembles the children’s game Telephone:  
 The message, or domain knowledge, often becomes distorted.
@@ -111,7 +111,8 @@ For describing the business domain.
 
 ## What is an Example of Ubiquitous Language?
 
-Let’s say we are working on an advertising campaign management system.  
+Let’s say we are working on an advertising campaign management system.
+
 Consider the following statements:
 
 - An advertising campaign can display different creative materials.
@@ -119,36 +120,35 @@ Consider the following statements:
 - Sales commissions are accounted for after transactions are approved.
 
 All of these statements are formulated in the language of the business.  
-That is, they reflect the domain experts’ view of the business domain.  
+That is, they reflect the domain experts’ view of the business domain.
+
 On the other hand, the following statements are strictly technical and thus do not fit the notion of the ubiquitous language:
 
 - The advertisement iframe displays an HTML file.
 - A campaign can be published only if it has at least one associated record in the active-placements table.
-- Sales commissions are based on correlated records from the transactions and approved-sales tables.  
-  These latter statements are purely technical and will be unclear to domain experts.  
-  Suppose engineers are only familiar with this technical, solution-oriented view of the business domain.  
-  In that case, they won’t be able to completely understand the business logic or why it operates the way it does, which will limit their ability to model and implement an effective solution.
+- Sales commissions are based on correlated records from the transactions and approved-sales tables.
+
+These latter statements are purely technical and will be unclear to domain experts.
+
+Suppose engineers are only familiar with this technical, solution-oriented view of the business domain.  
+In that case, they won’t be able to completely understand the business logic or why it operates the way it does,  
+Which will limit their ability to model and implement an effective solution.
 
 ## How To Use Ubiquitous Language?
 
-### Commitment
+### Continuous Usage
 
 All project-related stakeholders including software engineers, product owners, domain experts & UI/UX designers should consistently use the ubiquitous language when describing the business domain.
 
-The language should be continuously reinforced throughout the project: requirements, tests, documentation, and even the source code itself should
-use this language.
+The language should be continuously reinforced throughout the project:  
+Requirements, tests, documentation, and even the source code itself should use this language.
 
 Only through the continuous use of the ubiquitous language and its terms can a shared understanding among all of the project’s stakeholders be cultivated.
 
-### Interactions With Domain Experts
+### Continuous Interaction With Domain Experts
 
 Formulation of a ubiquitous language requires interaction with its natural holders, the domain experts.  
-Only interactions with actual domain experts can uncover inaccuracies, wrong assumptions, or an overall flawed understanding of the business
-domain.
-
-Most importantly,  
-Domain experts must be comfortable using the ubiquitous language when reasoning about the business domain.  
-This language will represent both the business domain and the domain experts’ mental models.
+Only interactions with actual domain experts can uncover inaccuracies, wrong assumptions, or an overall flawed understanding of the business domain.
 
 ### Language of The Business
 
@@ -157,6 +157,9 @@ As such, it should consist of business domain–related terms only. No technical
 
 Teaching business domain experts about singletons and abstract factories is not your goal.  
 The ubiquitous language aims to frame the domain experts’ understanding and mental models of the business domain in terms that are easy to understand.
+
+Domain experts must be comfortable using the ubiquitous language when reasoning about the business domain.  
+This language will represent both the business domain and the domain experts’ mental models.
 
 ### Consistency
 
@@ -173,55 +176,84 @@ Let’s say that in some business domain, the term policy has multiple meanings:
 It can mean a regulatory rule or an insurance contract.
 
 The exact meaning can be worked out in human-to-human interaction, depending on the context.  
-Software, however, doesn’t cope well with ambiguity, and it can be cumbersome and challenging to model the “policy” entity in code.
+Software, however, doesn’t cope well with ambiguity,  
+And it can be cumbersome and challenging to model the “policy” entity in code.
 
 Ubiquitous language demands a single meaning for each term,  
-so “policy” should be modeled explicitly using the two terms regulatory rule and insurance contract.
+So “policy” should be modeled explicitly using the two terms regulatory rule and insurance contract.
 
 #### Synonymous Terms
 
 Two terms cannot be used interchangeably in a ubiquitous language.
 
 For example, many systems use the term user.  
-However, a careful examination of the domain experts’ lingo may reveal that user and other terms are used interchangeably: for example, user, visitor, administrator, account, etc.
+However, a careful examination of the domain experts’ lingo may reveal that user and other terms are used interchangeably:  
+For example, user, visitor, administrator, account, etc.
 
 Synonymous terms can seem harmless at first.  
-However, in most cases, they denote different concepts.  
+However, in most cases, they denote different concepts.
+
 In this example, both visitor and account technically refer to the system’s users;  
 however, in most systems, unregistered and registered users represent different roles and have different behaviors.  
-For example, the “visitors” data is used mainly for analysis purposes, whereas “accounts” actually uses the system and its functionality.
+For example, the “visitors” data is used mainly for analysis purposes,  
+Whereas “accounts” actually uses the system and its functionality.
 
 It is preferable to use each term explicitly in its specific context.  
-Understanding the differences between the terms in use allows for building simpler and clearer models and implementations of the business domain’s entities.
+Understanding the differences between the terms in use,  
+Allows for building simpler and clearer models and implementations of the business domain’s entities.
 
-### Tools
+### Continuous Effort
 
-There are tools and technologies that can alleviate the processes of capturing and managing a ubiquitous language.
+Cultivating a ubiquitous language is a continuous process.  
+As the project evolves, more domain knowledge will be discovered.  
+It’s important for such insights to be reflected in the ubiquitous language.
 
-#### Wikis
+It should be constantly validated and evolved.  
+Everyday use of the language will, over time, reveal deeper insights into the business domain.  
+When such breakthroughs happen,  
+The ubiquitous language must evolve to keep pace with the newly acquired domain knowledge.
 
-For example, a wiki can be used as a glossary to capture and document the ubiquitous language.
+## Tools of Ubiquitous Language
+
+Tools such as wiki-based glossaries and Gherkin tests can greatly alleviate the process of documenting and maintaining a ubiquitous language.
+
+However, keep in mind the main prerequisite for an effective ubiquitous language is usage.  
+The language has to be used consistently in all project-related communications.
+
+Use the tools to support the management of the ubiquitous language,  
+But don’t expect the documentation to replace the actual usage.
+
+> Individuals and interactions over processes and tools.  
+> — Agile Manifesto
+
+### Wikis
+
+A wiki can be used as a glossary to capture and document the ubiquitous language.
 
 Such a glossary alleviates the onboarding process of new team members,  
-as it serves as a go-to place for information about the business domain’s terminology.
+As it serves as a go-to place for information about the business domain’s terminology.
 
 It’s important to make glossary maintenance a shared effort.  
 When a ubiquitous language is changed, all team members should be encouraged to go ahead and update the glossary.  
 That’s contrary to a centralized approach, in which only team leaders or architects are in charge of maintaining the glossary.
 
-#### Gherkin Tests
+### Gherkin Tests
 
-Despite the obvious advantages of maintaining a glossary of project-related terminology, it has an inherent limitation.  
-Glossaries work best for “nouns”: names of entities, processes, roles, and so on.
+Despite the obvious advantages of maintaining a glossary of project-related terminology, it has an inherent limitation.
 
-Although nouns are important, capturing the behavior is crucial.  
-The behavior is not a mere list of verbs associated with nouns, but the actual business logic, with its rules, assumptions, and invariants.  
+Glossaries work best for “nouns”: names of entities, processes, roles, and so on.  
+Although nouns are important, capturing the behavior is crucial.
+
+The behavior is not a mere list of verbs associated with nouns,  
+But the actual business logic, with its rules, assumptions, and invariants.  
 Such concepts are much harder to document in a glossary.
 
 Hence, glossaries are best used in tandem with other tools that are better suited to capture the behavior.  
-for example, use cases or Gherkin tests.
+For example, use cases or Gherkin tests.
 
-Automated tests written in the Gherkin language are not only great tools for capturing the ubiquitous language but also act as an additional tool for bridging the gap between domain experts and software engineers.  
+Automated tests written in the Gherkin language are not only great tools for capturing the ubiquitous language,  
+But also act as an additional tool for bridging the gap between domain experts and software engineers.
+
 Domain experts can read the tests and verify the system’s expected behavior.
 
 For example, see the following test written in the Gherkin language:
@@ -236,34 +268,15 @@ When the ticket is assigned to Mr. Wolf
 Then the agent receives a notification about the new ticket
 ```
 
-Managing a Gherkin-based test suite can be challenging at times, especially at the early stages of a project.  
+Managing a Gherkin-based test suite can be challenging at times,  
+Especially at the early stages of a project.  
 However, it is definitely worth it for complex business domains.
 
-#### Static Code Analysis
+### Static Code Analysis
 
-There are even static code analysis tools that can verify the usage of a ubiquitous language’s terms.  
+There are even static code analysis tools that can verify the usage of a ubiquitous language’s terms.
+
 A notable example for such a tool is NDepend.
-
-### Continuous Effort
-
-Cultivating a ubiquitous language is a continuous process.  
-As the project evolves, more domain knowledge will be discovered.  
-It’s important for such insights to be reflected in the ubiquitous language.
-
-Most importantly, cultivation of a ubiquitous language is an ongoing process.  
-It should be constantly validated and evolved.  
-Everyday use of the language will, over time, reveal deeper insights into the business domain.  
-When such breakthroughs happen, the ubiquitous language must evolve to keep pace with the newly acquired domain knowledge.
-
-Tools such as wiki-based glossaries and Gherkin tests can greatly alleviate the process of documenting and maintaining a ubiquitous language.  
-However, the main prerequisite for an effective ubiquitous language is usage.  
-the language has to be used consistently in all project-related communications.
-
-Use the tools to support the management of the ubiquitous language,  
-but don’t expect the documentation to replace the actual usage.  
-As the Agile Manifesto says:
-
-> Individuals and interactions over processes and tools.
 
 ## Challenges of Ubiquitous Language
 
@@ -276,11 +289,11 @@ It’s not documented or codified but resides only in the minds of domain expert
 The only way to access it is to ask questions.
 
 As you gain experience in this practice, you will notice that frequently,  
-this process involves not merely discovering knowledge that is already there,  
-but rather co-creating the model in tandem with domain experts.
+This process involves not merely discovering knowledge that is already there,  
+But rather co-creating the model in tandem with domain experts.
 
 There may be ambiguities and even white spots in domain experts’ own understanding of the business domain;  
-for example, defining only the “happy path” scenarios but not considering edge cases that challenge the accepted assumptions.
+For example, defining only the “happy path” scenarios but not considering edge cases that challenge the accepted assumptions.
 
 Furthermore, you may encounter business domain concepts that lack explicit definitions.  
 Asking questions about the nature of the business domain often makes such implicit conflicts and white spots explicit.  
@@ -302,3 +315,7 @@ if the company is not in an English-speaking country.
 
 My advice is to at least use English nouns for naming the business domain’s entities.  
 This will alleviate using the same terminology in code.
+
+## References
+
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly
