@@ -108,7 +108,7 @@ for the core subdomains.
 
 Core subdomains can change often.  
 If a problem can be solved on the first attempt,  
-it’s probably not a good competitive advantage & competitors will catch up fast.
+It’s probably not a good competitive advantage & competitors will catch up fast.
 
 Consequently, solutions for core subdomains are emergent.  
 Different implementations have to be tried out, refined, and optimized.  
