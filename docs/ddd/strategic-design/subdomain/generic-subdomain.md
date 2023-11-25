@@ -52,3 +52,7 @@ Battle tested implementations are widely available, and all companies use them.
 
 Despite having existing solutions, generic subdomains can change over time.  
 The changes can come in the form of security patches, bug fixes, or entirely new solutions to the generic problems.
+
+## References
+
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly

@@ -117,3 +117,7 @@ Moreover, the work on core subdomains is never done.
 Companies continuously innovate and evolve core subdomains.  
 The changes come in the form of adding new features or optimizing existing functionality.  
 Either way, the constant evolution of its core subdomains is essential for a company to stay ahead of its competitors.
+
+## References
+
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly

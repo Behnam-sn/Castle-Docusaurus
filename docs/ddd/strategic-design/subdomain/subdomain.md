@@ -32,8 +32,8 @@ Domain-driven design distinguishes between 3 types of subdomains:
 - ### Core Subdomains
 
   The interesting problems.  
-  These are the activities the company is performing differently from its competitors  
-  and from which it gains its competitive advantage.
+  These are the activities the company is performing differently from its competitors,  
+  And from which it gains its competitive advantage.
 
 - ### Generic Subdomains
 

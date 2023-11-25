@@ -2,19 +2,22 @@
 sidebar_position: 3
 ---
 
-# Domain Expert
+# Domain Experts
 
-## Who Is The Domain Expert?
+## Who Are The Domain Experts?
 
-Domain expert is the business’s subject matter expert.  
+Domain experts are the business’s subject matter experts.
+
 They have in-depth knowledge of the company’s business domain,  
-in one or more of its subdomains and are critical to a project’s success.
+In one or more of its subdomains and are critical to a project’s success.
+
+In other words, domain experts are knowledge authorities in the software’s business domain.
 
 The domain experts are neither the analysts gathering the requirements nor the engineers designing the system.  
 Domain experts represent the business.
 
-They are the people who identified the business problem in the first place  
-and from whom all business knowledge originates.
+They are the people who identified the business problem in the first place,  
+And from whom all business knowledge originates.
 
 Systems analysts and engineers are transforming their mental models of the business domain into software requirements and source code.  
 The software is supposed to solve their problems.
@@ -26,3 +29,7 @@ while others will specialize in particular subdomains.
 For example,  
 in an online advertising agency,  
 the domain experts would be campaign managers, media buyers, analysts, and other business stakeholders.
+
+## References
+
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly

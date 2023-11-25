@@ -4,6 +4,13 @@ sidebar_position: 99
 
 # Extras
 
+## It’s important to identify the core subdomains whose complexity will affect software design
+
+From a technical perspective,  
+It’s important to identify the core subdomains whose complexity will affect software design.  
+Because when we are designing the software,  
+We have to choose tools and techniques that accommodate the complexity of the business requirements.
+
 ## Business Problems
 
 In that case, they won’t be able to completely understand the business logic or why it operates the way it does, which will limit their ability to model and implement an effective solution.

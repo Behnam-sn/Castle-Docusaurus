@@ -31,10 +31,10 @@ Our solutions will be limited to “translating” business requirements into so
 What if the requirements miss a crucial edge case?  
 Or fail to describe a business concept and limiting our ability to implement a model that will support future requirements?
 
-> As Alberto Brandolini said:  
 > Software development is a learning process; working code is a side effect.  
 > A software project’s success depends on the effectiveness of knowledge sharing between domain experts and software engineers.  
-> We have to understand the problem in order to solve it.
+> We have to understand the problem in order to solve it.  
+> — Alberto Brandolini
 
 ### Communication
 
