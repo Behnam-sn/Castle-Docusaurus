@@ -4,66 +4,78 @@ sidebar_position: 4
 
 # Ubiquitous Language
 
-## What Is a Ubiquitous Language?
+## What is Ubiquitous Language?
 
 Domain-driven design’s ubiquitous language is an effective tool for bridging the knowledge gap between domain experts and software engineers.
 
-It fosters communication and knowledge sharing by cultivating a shared language that can be used by all the stakeholders throughout the project: in conversations, documentation, tests, diagrams, source code, and so on.
+Ubiquitous language fosters communication and knowledge sharing,  
+By cultivating a shared language,  
+That can be used by all the stakeholders throughout the project,  
+In conversations, documentation, tests, diagrams, source code, and so on.
 
 Using a ubiquitous language is the cornerstone practice of domain-driven design.
 
-## What Problem is Ubiquitous Language Trying to Solve?
+## What Problem Ubiquitous Language is Trying to Solve?
 
 ### Knowledge Discovery
 
-The software systems we are building are solutions to business problems.  
-To design an effective software solution, we have to grasp at least the basic knowledge of the business domain.  
+The software systems we are building are solutions to business problems.
+
+To design an effective software solution,  
+We have to grasp at least the basic knowledge of the business domain.
+
 This knowledge belongs to domain experts.  
 It’s their job to specialize in and comprehend all the intricacies of the business domain.
 
 By no means should we, nor can we, become domain experts.  
 That said, it’s crucial for us to understand domain experts and to use the same business terminology they use.
 
-To be effective, the software has to mimic the domain experts’ way of thinking about the problem (their mental models).  
-Without an understanding of the business problem and the reasoning behind the requirements,  
+<!-- To be effective, the software has to mimic the domain experts’ way of thinking about the problem (their mental models).   -->
+
+<!-- Without an understanding of the business problem and the reasoning behind the requirements,
 Our solutions will be limited to “translating” business requirements into source code.
 
-What if the requirements miss a crucial edge case?  
-Or fail to describe a business concept and limiting our ability to implement a model that will support future requirements?
+What if the requirements miss a crucial edge case?
+Or fail to describe a business concept and limiting our ability to implement a model that will support future requirements? -->
 
-> Software development is a learning process; working code is a side effect.  
-> A software project’s success depends on the effectiveness of knowledge sharing between domain experts and software engineers.  
-> We have to understand the problem in order to solve it.  
-> — Alberto Brandolini
+Effective knowledge sharing between domain experts and software engineers requires effective communication.
 
 ### Communication
-
-Effective knowledge sharing between domain experts and software engineers requires effective communication.  
-Let’s take a look at the common impediments to effective communication in software projects.
 
 It’s safe to say that almost all software projects require the collaboration of stakeholders in different roles: domain experts, product owners, engineers, UI and UX designers, project managers, testers, analysts, and others.
 
 As in any collaborative effort, the outcome depends on how well all those parties can work together.  
-For example:  
-do all stakeholders agree on what problem is being solved?  
-What about the solution they are building, do they hold any conflicting assumptions about its functional and non-functional requirements?  
+For example:
+
+Do all stakeholders agree on what problem is being solved?  
+What about the solution they are building?  
+Do they hold any conflicting assumptions about its functional and non-functional requirements?
+
 Agreement and alignment on all project-related matters are essential to a project’s success.
 
-Research into why software projects fail has shown that effective communication is essential for knowledge sharing and project success.  
+Research into why software projects fail has shown that effective communication is essential for knowledge sharing and project success.
+
 Yet, despite its importance, effective communication is rarely observed in software projects.
 
+### Traditional Software Development Lifecycle
+
 Often, business people and engineers have no direct interaction with one another.  
-Instead, domain knowledge is pushed down from domain experts to engineers.  
-It is delivered through people playing the role of mediators, or “translators,” systems/business analysts, product owners, and project managers.
+Instead, domain knowledge is pushed down from domain experts to engineers.
 
 During the traditional software development lifecycle,  
-The domain knowledge is “translated” into an engineer-friendly form known as an analysis model,  
-Which is a description of the system’s requirements rather than an understanding of the business domain behind it.  
-While the intentions may be good, such mediation is hazardous to knowledge sharing.  
-In any translation, information is lost;  
-in this case, domain knowledge that is essential for solving business problems gets lost on its way to the software engineers.  
-This is not the only such translation on a typical software project.
+The domain knowledge is “translated” into an engineer-friendly form known as an analysis model,
 
+Which is a description of the system’s requirements,  
+Rather than an understanding of the business domain behind it.
+
+While the intentions may be good, such mediation is hazardous to knowledge sharing.
+
+In any translation, information is lost.  
+And in this case,  
+Domain knowledge that is essential for solving business problems,  
+Gets lost on its way to the software engineers.
+
+This is not the only such translation on a typical software project.  
 The traditional software development lifecycle implies the following translations:
 
 - Domain knowledge into an analysis model
@@ -78,7 +90,8 @@ Such a software development process resembles the children’s game Telephone:
 The message, or domain knowledge, often becomes distorted.
 
 The information leads to software engineers implementing the wrong solution,  
-Or the right solution but to the wrong problems.  
+Or the right solution but to the wrong problems.
+
 In either case, the outcome is the same: a failed software project.
 
 Domain-driven design proposes a better way to get the knowledge from domain experts to software engineers:  
@@ -86,14 +99,17 @@ By using a ubiquitous language.
 
 ## What is Ubiquitous Language Solution?
 
-The idea is simple and straightforward:  
-If parties need to communicate efficiently, instead of relying on translations, they have to speak the same language.
+The idea is simple and straightforward:
+
+If parties need to communicate efficiently,  
+Instead of relying on translations,  
+They have to speak the same language.
 
 Instead of continuously translating domain knowledge,  
-Domain-driven design calls for cultivating a single language for describing the business domain:  
-The ubiquitous language.
+Domain-driven design calls for cultivating a single language  
+For describing the business domain.
 
-### Example of Ubiquitous Language
+## What is an Example of Ubiquitous Language?
 
 Let’s say we are working on an advertising campaign management system.  
 Consider the following statements:
