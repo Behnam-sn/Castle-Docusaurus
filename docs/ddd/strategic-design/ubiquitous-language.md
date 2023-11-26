@@ -300,7 +300,7 @@ There may be ambiguities and even white spots in domain experts’ own understan
 For example, defining only the “happy path” scenarios,  
 But not considering edge cases that challenge the accepted assumptions.
 
-### knowledge Confliction
+### Knowledge Confliction
 
 Furthermore, you may encounter business domain concepts that lack explicit definitions.  
 Asking questions about the nature of the business domain often makes such implicit conflicts and white spots explicit.  
@@ -309,7 +309,7 @@ This is especially common for core subdomains.
 In such a case, the learning process is mutual.  
 You are helping the domain experts better understand their field.
 
-### Introducing Ubiquitous Language Into a Already Existing Project
+### Introducing Ubiquitous Language Into an Already Existing Project
 
 When introducing domain-driven design practices to a brownfield project,  
 You will notice that there is already a formed language for describing the business domain,  
