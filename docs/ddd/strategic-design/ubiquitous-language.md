@@ -283,32 +283,48 @@ A notable example for such a tool is NDepend.
 In theory, cultivating a ubiquitous language sounds like a simple, straightforward process.  
 In practice, it isn’t.
 
-The only reliable way to gather domain knowledge is to converse with domain experts.  
+### Missing knowledge
+
+The only reliable way to gather domain knowledge is to converse with domain experts.
+
 Quite often, the most important knowledge is tacit.  
-It’s not documented or codified but resides only in the minds of domain experts.  
+It’s not documented or codified but resides only in the minds of domain experts.
+
 The only way to access it is to ask questions.
 
 As you gain experience in this practice, you will notice that frequently,  
 This process involves not merely discovering knowledge that is already there,  
 But rather co-creating the model in tandem with domain experts.
 
-There may be ambiguities and even white spots in domain experts’ own understanding of the business domain;  
-For example, defining only the “happy path” scenarios but not considering edge cases that challenge the accepted assumptions.
+There may be ambiguities and even white spots in domain experts’ own understanding of the business domain.  
+For example, defining only the “happy path” scenarios,  
+But not considering edge cases that challenge the accepted assumptions.
+
+### knowledge Confliction
 
 Furthermore, you may encounter business domain concepts that lack explicit definitions.  
 Asking questions about the nature of the business domain often makes such implicit conflicts and white spots explicit.  
-This is especially common for core subdomains.  
+This is especially common for core subdomains.
+
 In such a case, the learning process is mutual.  
 You are helping the domain experts better understand their field.
 
-When introducing domain-driven design practices to a brownfield project, you will notice that there is already a formed language for describing the business domain, and that the stakeholders use it.
+### Introducing Ubiquitous Language Into a Already Existing Project
 
-However, since DDD principles do not drive that language, it won’t necessarily reflect the business domain effectively.  
+When introducing domain-driven design practices to a brownfield project,  
+You will notice that there is already a formed language for describing the business domain,  
+And that the stakeholders use it.
+
+However, since DDD principles do not drive that language,  
+It won’t necessarily reflect the business domain effectively.  
 For example, it may use technical terms, such as database table names.
 
 Changing a language that is already being used in an organization is not easy.  
 The essential tool in such a situation is patience.  
-You need to make sure the correct language is used where it’s easy to control it: in the documentation and source code.
+You need to make sure the correct language is used where it’s easy to control it:  
+In the documentation and source code.
+
+### Ubiquitous Language in a not English-Speaking Country
 
 Finally, the question about the ubiquitous language that I am asked often at conferences is what language should we use  
 if the company is not in an English-speaking country.
