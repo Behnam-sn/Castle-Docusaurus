@@ -283,7 +283,7 @@ A notable example for such a tool is NDepend.
 In theory, cultivating a ubiquitous language sounds like a simple, straightforward process.  
 In practice, it isn’t.
 
-### Missing knowledge
+### Missing Knowledge
 
 The only reliable way to gather domain knowledge is to converse with domain experts.
 
