@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Ubiquitous Language
@@ -46,8 +46,7 @@ Do they hold any conflicting assumptions about its functional and non-functional
 
 Agreement and alignment on all project-related matters are essential to a project’s success.
 
-Research into why software projects fail has shown that effective communication is essential for knowledge sharing and project success.
-
+Research into why software projects fail has shown that effective communication is essential for knowledge sharing and project success.  
 Yet, despite its importance, effective communication is rarely observed in software projects.
 
 ### Translation
@@ -162,6 +161,30 @@ The ubiquitous language aims to frame the domain experts’ understanding and me
 
 Domain experts must be comfortable using the ubiquitous language when reasoning about the business domain.  
 This language will represent both the business domain and the domain experts’ mental models.
+
+### Modeling the Ubiquitous Language Effectively
+
+When cultivating a ubiquitous language, we are effectively building a model of the business domain.
+
+The model is supposed to capture the domain experts’ mental models and their thought processes about,  
+How the business works to implement its function.
+
+The model has to reflect the involved business entities and their behavior, cause and effect relationships, and invariants.
+
+The ubiquitous language we use is not supposed to cover every possible detail of the domain.  
+That would be equivalent to making every stakeholder a domain expert.  
+Instead, the model is supposed to include just enough aspects of the business domain to make it possible to implement the required system.  
+That is, to address the specific problem the software is intended to solve.
+
+### Effective Interaction With Domain Experts
+
+Effective communication between engineering teams and domain experts is vital.  
+The importance of this communication grows with the complexity of the business domain.
+
+The more complex the business domain is, the harder it is to model and implement its business logic in code.  
+Even a slight misunderstanding of a complicated business domain, or its underlying principles, will inadvertently lead to an implementation prone to severe bugs.
+
+The only reliable way to verify a business domain’s understanding is to converse with domain experts and do it in the language they understand: the language of the business.
 
 ### Consistency
 
