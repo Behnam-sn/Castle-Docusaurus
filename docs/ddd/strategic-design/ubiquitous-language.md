@@ -6,14 +6,15 @@ sidebar_position: 4
 
 ## What is Ubiquitous Language?
 
+Effective communication and knowledge sharing are crucial for a successful software project.  
+Software engineers have to understand the business domain in order to design and build a software solution.
+
 Domain-driven design’s ubiquitous language is an effective tool for bridging the knowledge gap between domain experts and software engineers.
 
 Ubiquitous language fosters communication and knowledge sharing,  
 By cultivating a shared language,  
 That can be used by all the stakeholders throughout the project,  
 In conversations, documentation, tests, diagrams, source code, and so on.
-
-Using a ubiquitous language is the cornerstone practice of domain-driven design.
 
 ## What Problem Ubiquitous Language is Trying to Solve?
 
@@ -99,6 +100,7 @@ By using a ubiquitous language.
 
 ## What is Ubiquitous Language Solution?
 
+Using a ubiquitous language is the cornerstone practice of domain-driven design.  
 The idea is simple and straightforward:
 
 If parties need to communicate efficiently,  
