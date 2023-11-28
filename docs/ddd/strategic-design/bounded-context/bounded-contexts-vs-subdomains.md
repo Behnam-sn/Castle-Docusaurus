@@ -4,29 +4,32 @@ sidebar_position: 4
 
 # Bounded Contexts Vs Subdomains
 
-We saw that a business domain consists of multiple subdomains.  
-So far, We explored the notion of decomposing a business domain into a set of fine-grained problem domains or bounded contexts.  
+A business domain consists of multiple subdomains.  
+So far, We explored the notion of decomposing a business domain into a set of fine-grained problem domains or bounded contexts.
+
 At first, the two methods of decomposing business domains might seem redundant.  
-However, that’s not the case.  
+However, that’s not the case.
+
 Let’s examine why we need both boundaries:
 
-- ## Subdomains
+**Subdomains**  
+To comprehend a company’s business strategy, we have to analyze its business domain.
 
-  To comprehend a company’s business strategy, we have to analyze its business domain.  
-   According to domain-driven design methodology, the analysis phase involves identifying the different subdomains (core, supporting, and generic).  
-   That’s how the organization works and plans its competitive strategy.
+According to domain-driven design methodology,  
+The analysis phase involves identifying the different subdomains (core, supporting, and generic).  
+That’s how the organization works and plans its competitive strategy.
 
-  As you learned in Chapter 1, a subdomain resembles a set of interrelated use cases.  
-   The use cases are defined by the business domain and the system’s requirements.  
-   As software engineers, we do not define the requirements;  
-   that’s the responsibility of the business.  
-   Instead, we are analyzing the business domain to identify the subdomains.
+As you learned, a subdomain resembles a set of interrelated use cases.  
+The use cases are defined by the business domain and the system’s requirements.
 
-- ## Bounded Contexts
+As software engineers, we do not define the requirements.  
+That’s the responsibility of the business.  
+Instead, we are analyzing the business domain to identify the subdomains.
 
-  Bounded contexts, on the other hand, are designed.  
-   Choosing models’ boundaries is a strategic design decision.  
-   We decide how to divide the business domain into smaller, manageable problem domains.
+**Bounded Contexts**  
+Bounded contexts, on the other hand, are designed.  
+Choosing models’ boundaries is a strategic design decision.  
+We decide how to divide the business domain into smaller, manageable problem domains.
 
 ## The Interplay Between Subdomains and Bounded Contexts
 
