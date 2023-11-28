@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 4
 ---
 
 # Ubiquitous Language
@@ -110,7 +110,7 @@ Instead of continuously translating domain knowledge,
 Domain-driven design calls for cultivating a single language  
 For describing the business domain.
 
-## What is an Example of Ubiquitous Language?
+## What is an Example of a Ubiquitous Language?
 
 Let’s say we are working on an advertising campaign management system.
 
