@@ -1,15 +1,21 @@
+---
+sidebar_position: 1
+---
+
 # Runtime
 
-The Common Language Runtime (CLR) is the foundation all .NET apps are built on.  
+The Common Language Runtime (CLR) is the foundation all .NET apps are built on.
+
 The fundamental features of the runtime are:
 
-- Garbage collection.
-- Memory safety and type safety.
-- High level support for programming languages.
-- Cross-platform design.
+- Garbage collection
+- Memory safety and type safety
+- High level support for programming languages
+- Cross-platform design
 
 .NET is sometimes called a "managed code" runtime.  
-It's called managed primarily because it uses a garbage collector for memory management and because it enforces type and memory safety.  
+It's called managed primarily because it uses a garbage collector for memory management and because it enforces type and memory safety.
+
 The CLR virtualizes (or abstracts) various operating system and hardware concepts, such as memory, threads, and exceptions.
 
 The CLR was designed to be a cross-platform runtime from its inception.  
