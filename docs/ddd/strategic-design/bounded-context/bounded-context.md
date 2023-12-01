@@ -330,3 +330,7 @@ Instead, they have to define communication protocols for integrating their model
 It’s important to note that the relationship between teams and bounded contexts is one-directional:  
 A bounded context should be owned by only one team.  
 However, a single team can own multiple bounded contexts.
+
+## References
+
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly
