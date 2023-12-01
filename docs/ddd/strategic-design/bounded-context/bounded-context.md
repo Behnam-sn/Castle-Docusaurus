@@ -31,12 +31,12 @@ from cascading changes. -->
 
 ### Inconsistent Models
 
-As you know by now, To ensure a project’s success it’s crucial that you develop a ubiquitous language that can be used for communication by all stakeholders, from software engineers to domain experts.
+As you know by now, to ensure a project’s success it’s crucial that you develop a ubiquitous language that can be used for communication by all stakeholders, from software engineers to domain experts.
 
 The language should reflect the domain experts’ mental models of the business domain’s inner workings and underlying principles.
 
 Since our goal is to use ubiquitous language to drive software design decisions,  
-the language must be clear and consistent.  
+The language must be clear and consistent.  
 It should be free of ambiguity, implicit assumptions, and extraneous details.
 
 However, on an organizational scale, the domain experts’ mental models can be inconsistent themselves.  
@@ -73,18 +73,19 @@ This ambiguity doesn’t present that much of a challenge in person-to-person co
 Indeed, communication can be more challenging among people from different departments,  
 But it’s easy enough for humans to infer the exact meaning from the interaction’s context.
 
-However, it is more difficult to represent such a divergent model of the business domain in software.  
-Source code doesn’t cope well with ambiguity.
+However, it is more difficult to represent such a divergent model of the business domain in software.
 
+Source code doesn’t cope well with ambiguity.  
 If we were to bring the sales department’s complicated model into marketing,  
 It would introduce complexity where it’s not needed (far more detail and behavior than marketing people need for optimizing advertising campaigns).
 
 But if we were to try to simplify the sales model according to the marketing world view,  
 It wouldn’t fit the sales subdomain’s needs,  
-Because it’s too simplistic for managing and optimizing the sales process.  
+Because it’s too simplistic for managing and optimizing the sales process.
+
 We’d have an over-engineered solution in the first case and an under-engineered one in the second.
 
-### Domain Complexity
+### Managing Domain Complexity
 
 How do we solve this catch-22?
 
@@ -133,19 +134,43 @@ With the bounded context pattern, the contexts are modeled as an explicit and in
 
 In the preceding example,  
 We can identify two bounded contexts:  
-Marketing and sales.
+Marketing and Sales.
 
 The term lead exists in both bounded contexts.  
 As long as it bears a single meaning in each bounded context,  
 Each fine-grained ubiquitous language is consistent and follows the domain experts’ mental models.
+
+## Model Boundaries
+
+As you already know,  
+A model is not a copy of the real world but a construct that helps us make sense of a complex system.  
+The problem it is supposed to solve is an inherent part of a model (its purpose).
+
+A model cannot exist without a boundary.  
+It will expand to become a copy of the real world.
+
+That makes defining a model’s boundary (its bounded contexts) an intrinsic part of the modeling process.
+
+Let’s go back to the example of maps as models.  
+We saw that each map has its specific context (aerial, nautical, terrain, subway, and so on).  
+A map is useful and consistent only within the scope of its specific purpose.
+
+Just as a subway map is useless for nautical navigation,  
+A ubiquitous language in one bounded context can be completely irrelevant to the scope of another bounded context.
+
+Bounded contexts define the applicability of a ubiquitous language and of the model it represents.  
+They allow defining distinct models according to different problem domains.
+
+In other words, bounded contexts are the consistency boundaries of ubiquitous languages.  
+A language’s terminology, principles, and business rules are only consistent inside its bounded context.
 
 ## Ubiquitous Language & Bounded Context
 
 Bounded contexts allow us to complete the definition of a ubiquitous language.  
 A ubiquitous language is not “ubiquitous” in the sense that it should be used and applied “ubiquitously” throughout the organization.
 
-_A ubiquitous language is not universal._  
-_Instead, a ubiquitous language is ubiquitous only in the boundaries of its bounded context._
+A ubiquitous language is not universal.  
+Instead, a ubiquitous language is ubiquitous only in the boundaries of its bounded context.
 
 The language is focused on describing only the model that is encompassed by the bounded context.  
 As a model cannot exist without a problem it is supposed to address,  
@@ -262,3 +287,46 @@ As different types of maps provide different types of information about our plan
 It may be reasonable to use different models of the same subdomain to solve different problems.
 
 Limiting the design to one-to-one relationships between bounded contexts would inhibit this flexibility and force us to use a single model of a subdomain in its bounded context.
+
+## Types of Boundaries
+
+As Ruth Malan says, architectural design is inherently about boundaries:
+
+> Architectural design is system design.  
+> System design is contextual design,  
+> It is inherently about boundaries (what’s in, what’s out, what spans, what moves between),  
+> and about trade-offs.  
+> It reshapes what is outside, just as it shapes what is inside.  
+> The bounded context pattern is the domain-driven design tool for defining physical and ownership boundaries.
+
+### Physical Boundaries
+
+Bounded contexts serve not only as model boundaries,  
+But also as physical boundaries of the systems implementing them.
+
+Each bounded context should be implemented as an individual service/project,  
+Meaning it is implemented, evolved, and versioned independently of other bounded contexts.
+
+Clear physical boundaries between bounded contexts allow us to implement each bounded context with the technology stack that best fits its needs.
+
+As we discussed earlier, a bounded context can contain multiple subdomains.  
+In such a case, the bounded context is a physical boundary, while each of its subdomains is a logical boundary.
+
+Logical boundaries bear different names in different programming languages: namespaces, modules, or packages.
+
+### Ownership Boundaries
+
+Studies show that good fences do indeed make good neighbors.
+
+In software projects, we can leverage model boundaries (bounded contexts) for the peaceful coexistence of teams.  
+The division of work between teams is another strategic decision that can be made using the bounded context pattern.
+
+A bounded context should be implemented, evolved, and maintained by one team only.  
+No two teams can work on the same bounded context.
+
+This segregation eliminates implicit assumptions that teams might make about one another’s models.  
+Instead, they have to define communication protocols for integrating their models and systems explicitly.
+
+It’s important to note that the relationship between teams and bounded contexts is one-directional:  
+A bounded context should be owned by only one team.  
+However, a single team can own multiple bounded contexts.
