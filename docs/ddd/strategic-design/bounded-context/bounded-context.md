@@ -9,8 +9,8 @@ sidebar_position: 6
 Whenever we stumble upon an inherent conflict in the domain experts’ mental models,  
 We have to decompose the ubiquitous language into multiple bounded contexts.
 
-A ubiquitous language should be consistent within the scope of its bounded context.  
-However, across bounded contexts, the same terms can have different meanings.
+<!-- A ubiquitous language should be consistent within the scope of its bounded context.
+However, across bounded contexts, the same terms can have different meanings. -->
 
 <!-- While subdomains are discovered, bounded contexts are designed.
 The division of the domain into bounded contexts is a strategic design decision. -->
@@ -144,15 +144,17 @@ Each fine-grained ubiquitous language is consistent and follows the domain exper
 Bounded contexts allow us to complete the definition of a ubiquitous language.  
 A ubiquitous language is not “ubiquitous” in the sense that it should be used and applied “ubiquitously” throughout the organization.
 
-A ubiquitous language is not universal.  
-Instead, a ubiquitous language is ubiquitous only in the boundaries of its bounded context.
+_A ubiquitous language is not universal._  
+_Instead, a ubiquitous language is ubiquitous only in the boundaries of its bounded context._
 
 The language is focused on describing only the model that is encompassed by the bounded context.  
-As a model cannot exist without a problem it is supposed to address, a ubiquitous language cannot be defined or used without an explicit context of its applicability.
+As a model cannot exist without a problem it is supposed to address,  
+A ubiquitous language cannot be defined or used without an explicit context of its applicability.
 
 ## Scope of a Bounded Context
 
-Different domain experts held conflicting mental models of the same business entity.  
+Different domain experts held conflicting mental models of the same business entity.
+
 To model the business domain,  
 We had to divide the model and define a strict applicability context for each fine-grained model (its bounded context).
 
@@ -175,7 +177,8 @@ But striving for small bounded contexts can backfire too.
 The smaller they are, the more integration overhead the design induces.
 
 Hence, the decision for how big your bounded contexts should depend on the specific problem domain.  
-Sometimes, using a wide boundary will be clearer, while at other times, decomposing it further will make more sense.
+Sometimes, using a wide boundary will be clearer,  
+While at other times, decomposing it further will make more sense.
 
 The reasons for extracting finer-grained bounded contexts out of a larger one include:  
 Constituting new software engineering teams  
@@ -192,3 +195,70 @@ Such division will hinder the ability to evolve each context independently.
 Instead, the same business requirements and changes will simultaneously affect the bounded contexts and require simultaneous deployment of the changes.  
 To avoid such ineffective decomposition, use the rule of thumb we discussed in Chapter 1 to find subdomains:  
 Identify sets of coherent use cases that operate on the same data and avoid decomposing them into multiple bounded contexts.
+
+## Bounded Contexts Vs Subdomains
+
+<!-- A business domain consists of multiple subdomains. -->
+
+So far, We explored the notion of decomposing a business domain into a set of fine-grained problem domains or bounded contexts.
+
+At first, the two methods of decomposing business domains might seem redundant.  
+However, that’s not the case.
+
+Let’s examine why we need both boundaries:
+
+<!-- To comprehend a company’s business strategy,
+We have to analyze its business domain.
+
+According to domain-driven design methodology,
+The analysis phase involves identifying the different subdomains (core, supporting, and generic).
+That’s how the organization works and plans its competitive strategy.
+
+As you learned, a subdomain resembles a set of interrelated use cases.
+The use cases are defined by the business domain and the system’s requirements. -->
+
+- **Subdomains**  
+  As software engineers, we do not define the subdomains.  
+  That’s the responsibility of the business.  
+  Instead, we are analyzing the business domain to identify the subdomains.
+
+- **Bounded Contexts**  
+  Bounded contexts, on the other hand, are designed.  
+  Choosing models’ boundaries is a strategic design decision.  
+  We decide how to divide the business domain into smaller, manageable problem domains.
+
+## The Interplay Between Subdomains and Bounded Contexts
+
+### Monolithic bounded context
+
+Theoretically (though impractically), a single model could span the entire business domain.  
+This strategy could work for a small system.
+
+### Bounded contexts driven by the consistency of the ubiquitous language
+
+When conflicting models arise,  
+We can follow the domain experts’ mental models and decompose the systems into bounded contexts.
+
+### Bounded contexts aligned with subdomains’ boundaries
+
+If the models are still large and hard to maintain,  
+We can decompose them into even smaller bounded contexts.  
+For example, by having a bounded context for each subdomain.
+
+Either way, this is a design decision.  
+We design those boundaries as a part of the solution.
+
+Having a one-to-one relationship between bounded contexts and subdomains can be perfectly reasonable in some scenarios.  
+In others however, different decomposition strategies can be more suitable.
+
+<!-- It’s crucial to remember that subdomains are discovered and bounded contexts are designed.
+The subdomains are defined by the business strategy.
+However, we can design the software solution and its bounded contexts to address the specific project’s context and constraints. -->
+
+Finally, as you learned, a model is intended to solve a specific problem.  
+In some cases, it can be beneficial to use multiple models of the same concept simultaneously to solve different problems.
+
+As different types of maps provide different types of information about our planet,  
+It may be reasonable to use different models of the same subdomain to solve different problems.
+
+Limiting the design to one-to-one relationships between bounded contexts would inhibit this flexibility and force us to use a single model of a subdomain in its bounded context.
