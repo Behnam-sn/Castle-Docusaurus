@@ -1,0 +1,16 @@
+# Cooperation
+
+Cooperation patterns relate to bounded contexts implemented by teams with well established communication.
+
+In the simplest case, these are bounded contexts implemented by a single team.  
+This also applies to teams with dependent goals, where one team’s success depends on the success of the other, and vice versa.
+
+Again, the main criterion here is the quality of the teams’ communication and collaboration.
+
+Let’s look at 2 DDD patterns suitable for cooperating teams:
+
+- **Partnership**  
+  Bounded contexts are integrated in an ad hoc manner.
+
+- **Shared Kernel**  
+  Two or more bounded contexts are integrated by sharing a limited overlapping model that belongs to all participating bounded contexts.

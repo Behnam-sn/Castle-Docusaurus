@@ -1,7 +1,3 @@
----
-sidebar_position: 6
----
-
 # Separate Ways Pattern
 
 The last collaboration option is not to collaborate at all.
@@ -10,6 +6,10 @@ This pattern can arise for different reasons,
 in cases where the teams are unwilling or unable to collaborate.
 
 We’ll look at a few of them here:
+
+### Separate Ways
+
+It’s less expensive to duplicate particular functionality than to collaborate and integrate it.
 
 ## Communication Issues
 
