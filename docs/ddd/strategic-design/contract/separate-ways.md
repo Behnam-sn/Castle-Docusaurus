@@ -1,4 +1,8 @@
-# Separate Ways Pattern
+---
+sidebar_position: 3
+---
+
+# Separate Ways
 
 The last collaboration option is not to collaborate at all.
 

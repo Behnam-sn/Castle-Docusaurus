@@ -36,8 +36,8 @@ Domain-driven design has multiple patterns for defining relationships and integr
 These patterns are driven by the nature of collaboration between teams working on bounded contexts.  
 We will divide the patterns into 3 groups, each representing a type of team collaboration:
 
-- Cooperation
-- Customer–Supplier
+- Co-Operation
+- Customer & Supplier
 - Separate Ways
 
 ## References

@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Partnership Pattern
 
-## What is Partnership Pattern?
+## What is The Partnership Pattern?
 
 In the partnership model,  
 The integration between bounded contexts is coordinated in an ad hoc manner.

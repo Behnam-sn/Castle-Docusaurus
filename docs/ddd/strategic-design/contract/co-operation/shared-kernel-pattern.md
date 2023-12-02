@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Shared Kernel Pattern
 
-## What is Shared Kernel Pattern?
+## What is The Shared Kernel Pattern?
 
 Despite bounded contexts being model boundaries,  
 There still can be cases when the same model of a subdomain,  
