@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # Runtime
 
 The Common Language Runtime (CLR) is the foundation all .NET apps are built on.
