@@ -4,17 +4,22 @@ sidebar_position: 2
 
 # Shared Kernel Pattern
 
+## What is Shared Kernel Pattern?
+
 Despite bounded contexts being model boundaries,  
-There still can be cases when the same model of a subdomain, or a part of it, will be implemented in multiple bounded contexts.
+There still can be cases when the same model of a subdomain,  
+Or a part of it,  
+Will be implemented in multiple bounded contexts.
 
 It’s crucial to stress that the shared model is designed according to the needs of all of the bounded contexts.  
 Moreover, the shared model has to be consistent across all of the bounded contexts that are using it.
 
-## Example
+## What is an Example of Shared Kernel Pattern?
 
 Consider an enterprise system that uses a tailor-made model for managing users’ permissions.
 
-Each user can have their permissions granted directly or inherited from one of the organizational units they belong to.  
+Each user can have their permissions granted directly or inherited from one of the organizational units they belong to.
+
 Moreover, each bounded context can modify the authorization model,  
 And the changes each bounded context applies have to affect all the other bounded contexts using the model.
 
@@ -23,7 +28,9 @@ And the changes each bounded context applies have to affect all the other bounde
 The overlapping model couples the lifecycles of the participating bounded contexts.  
 A change made to the shared model has an immediate effect on all the bounded contexts.
 
-Hence, to minimize the cascading effects of changes, the overlapping model should be limited, exposing only that part of the model that has to be implemented by both bounded contexts.
+Hence, to minimize the cascading effects of changes,  
+The overlapping model should be limited,  
+Exposing only that part of the model that has to be implemented by both bounded contexts.
 
 Ideally, the shared kernel will consist only of integration contracts and data structures that are intended to be passed across the bounded contexts’ boundaries.
 
