@@ -29,11 +29,12 @@ Which language will be used for integration purposes?
 
 These integration concerns should be evaluated and addressed by the solution’s design.
 
-## Integration Patterns in DDD
+## What are Bounded Contexts Integration Patterns in DDD?
 
 Domain-driven design has multiple patterns for defining relationships and integrations between bounded contexts.
 
-These patterns are driven by the nature of collaboration between teams working on bounded contexts.  
+These patterns are driven by the nature of collaboration between teams working on bounded contexts.
+
 We will divide the patterns into 3 groups, each representing a type of team collaboration:
 
 - Co-Operation
