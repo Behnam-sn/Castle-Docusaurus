@@ -10,6 +10,8 @@ This pattern addresses cases in which the power is skewed toward the consumers.
 
 The supplier is interested in protecting its consumers and providing the best service possible.
 
+## When to Use Open-Host Service Pattern?
+
 To protect the consumers from changes in its implementation model,  
 The upstream supplier decouples the implementation model from the public interface.
 
@@ -27,3 +29,7 @@ Decoupling the bounded context’s implementation and integration models gives t
 Of course, that’s only possible if the modified implementation model can be translated into the published language the consumers are already using.
 
 Furthermore, the integration model’s decoupling allows the upstream bounded context to simultaneously expose multiple versions of the published language, allowing the consumer to migrate to the new version gradually.
+
+## References
+
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly

@@ -6,12 +6,10 @@ sidebar_position: 2
 
 ## What are Customer & Supplier Patterns?
 
-One of the bounded contexts (the supplier) provides a service for its customers.
-
+One of the bounded contexts (the supplier) provides a service for its customers.  
 The service provider is “upstream” and the customer or consumer is “downstream.”
 
-Unlike in the cooperation case, both teams (upstream and downstream) can succeed independently.
-
+Unlike in the cooperation case, both teams (upstream and downstream) can succeed independently.  
 Consequently, in most cases we have an imbalance of power:  
 Either the upstream or the downstream team can dictate the integration contract.
 

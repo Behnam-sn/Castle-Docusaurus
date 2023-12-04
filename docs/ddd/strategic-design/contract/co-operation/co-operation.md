@@ -8,6 +8,8 @@ sidebar_position: 1
 
 Co-Operation patterns relate to bounded contexts implemented by teams with well established communication.
 
+## When to Use Co-Operation Patterns?
+
 In the simplest case,  
 These are bounded contexts implemented by a single team.
 
@@ -18,7 +20,7 @@ Again, the main criterion here is the quality of the teams’ communication and 
 
 ## Types of Co-Operation Patterns
 
-Let’s look at 2 DDD patterns suitable for cooperating teams:
+DDD has 2 patterns suitable for cooperating teams:
 
 - ### Partnership
 

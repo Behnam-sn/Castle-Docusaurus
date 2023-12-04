@@ -6,35 +6,40 @@ sidebar_position: 2
 
 ## What is The Shared Kernel Pattern?
 
+Shared kernel basically is a model shared by two bounded context.
+
 Despite bounded contexts being model boundaries,  
 Still there can be cases when the same model of a subdomain,  
 Or a part of it,  
 Will be implemented in multiple bounded contexts.
 
-It’s crucial to stress that the shared model is designed according to the needs of all of the bounded contexts.  
-Moreover, the shared model has to be consistent across all of the bounded contexts that are using it.
-
 ## What is an Example of Shared Kernel Pattern?
 
-Consider an enterprise system that uses a tailor-made model for managing users’ permissions.  
+Consider an enterprise system that uses a customized model for managing users’ permissions.  
 Each user can have their permissions granted directly or inherited from one of the organizational units they belong to.
 
 Moreover, each bounded context can modify the authorization model,  
 And the changes each bounded context applies have to affect all the other bounded contexts using the model.
 
-## Shared Scope
+## How to Use The Shared Kernel Pattern?
+
+### Consistency
+
+It’s crucial to stress that the shared model is designed according to the needs of all of the bounded contexts.  
+Moreover, the shared model has to be consistent across all of the bounded contexts that are using it.
+
+### Shared Scope Limitation
 
 The overlapping model couples the lifecycles of the participating bounded contexts.  
 A change made to the shared model has an immediate effect on all the bounded contexts.
 
 Hence, to minimize the cascading effects of changes,  
-The overlapping model should be limited.
-
+The overlapping model should be limited.  
 Exposing only that part of the model that has to be implemented by both bounded contexts.
 
 Ideally, the shared kernel will consist only of integration contracts and data structures that are intended to be passed across the bounded contexts’ boundaries.
 
-## How to Implement The Shared Kernel Pattern?
+### Implementation
 
 The shared kernel is implemented so that any modification to its source code is immediately reflected in all the bounded contexts using it.
 
@@ -55,7 +60,9 @@ leads to inconsistencies in a model.
 bounded contexts may rely on stale implementations of the shared kernel,  
 leading to data corruption and/or runtime issues.
 
-## When to Use Shared Kernel?
+## When to Use Shared Kernel Pattern?
+
+### the cost of duplication versus the cost of coordination
 
 The overarching applicability criterion for the shared kernel pattern is the cost of duplication versus the cost of coordination.
 
@@ -70,6 +77,10 @@ The more frequently it changes, the higher the integration costs will be.
 
 Therefore, the shared kernel will naturally be applied for the subdomains that change the most:  
 the core subdomains
+
+### Use Cases
+
+#### multiple teams
 
 In a sense, the shared kernel pattern contradicts the principles of bounded contexts introduced.  
 If the participating bounded contexts are not implemented by the same team,  
@@ -88,9 +99,13 @@ Implementing a closely related functionality without proper coordination will re
 Minimizing the shared kernel’s scope controls the scope of cascading changes,  
 And triggering integration tests for each change is a way to enforce early detection of integration issues.
 
+#### legacy system
+
 Another common use case for applying the shared kernel pattern, albeit a temporary one, is the gradual modernization of a legacy system.
 
 In such a scenario, the shared codebase can be a pragmatic intermediate solution for gradually decomposing the system into bounded contexts.
+
+#### same team
 
 Finally, a shared kernel can be a good fit for integrating bounded contexts owned and implemented by the same team.  
 In such a case, an ad hoc integration of the bounded contexts (a partnership) can “wash out” the contexts’ boundaries over time.

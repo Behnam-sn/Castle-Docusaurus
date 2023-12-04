@@ -9,9 +9,9 @@ sidebar_position: 1
 In the partnership model,  
 The integration between bounded contexts is coordinated in an ad hoc manner.
 
-## How does it Work?
+## How to Use Partnership Pattern?
 
-One team can notify a second team about a change in the API,  
+One team can notify a second team about a change in the API.  
 And the second team will cooperate and adapt (no drama or conflicts).
 
 The coordination of integration here is two-way.  

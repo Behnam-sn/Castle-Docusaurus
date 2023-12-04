@@ -44,6 +44,15 @@ software teams.
 Effective communication and knowledge sharing are crucial for a successful software project.  
 Software engineers have to understand the business domain in order to design and build a software solution.
 
+### BC & MOD
+
+Not only does the bounded context pattern protect the consistency of a ubiquitous
+language, it also enables modeling. You cannot build a model without specifying its
+purpose—its boundary. The boundary divides the responsibility of languages. A lan‐
+guage in one bounded context can model the business domain to solve a particular
+problem. Another bounded context can represent the same business entities but
+model them to solve a different problem.
+
 ## business problem
 
 A business problem can be challenges associated with optimizing workflows and processes, minimizing manual labor, managing resources, supporting decisions, managing data, and so on.
