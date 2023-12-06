@@ -41,3 +41,22 @@ Here are some examples of types defined in the .NET runtime libraries:
 - High-performance types, such as System.Span<T>, System.Numerics.Vector, and Pipelines. -->
 
 For more information, see the Runtime libraries overview.
+
+## CLR
+
+Common Language Runtime.
+
+The exact meaning depends on the context. Common Language Runtime usually refers to the runtime of .NET Framework or the runtime of .NET 5 (and .NET Core) and later versions.
+
+A CLR handles memory allocation and management. A CLR is also a virtual machine that not only executes apps but also generates and compiles code on-the-fly using a JIT compiler.
+
+The CLR implementation for .NET Framework is Windows only.
+
+The CLR implementation for .NET 5 and later versions (also known as the Core CLR) is built from the same code base as the .NET Framework CLR. Originally, the Core CLR was the runtime of Silverlight and was designed to run on multiple platforms, specifically Windows and OS X. It's still a cross-platform runtime, now including support for many Linux distributions.
+
+See also runtime.
+
+CoreRT
+In contrast to the CLR, CoreRT is not a virtual machine, which means it doesn't include the facilities to generate and run code on-the-fly because it doesn't include a JIT. It does, however, include the GC and the ability for run-time type identification (RTTI) and reflection. However, its type system is designed so that metadata for reflection isn't required. Not requiring metadata enables having an AOT tool chain that can link away superfluous metadata and (more importantly) identify code that the app doesn't use. CoreRT is in development.
+
+See Intro to CoreRT and .NET Runtime Lab.
