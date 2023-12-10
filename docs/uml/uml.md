@@ -226,7 +226,7 @@ hence, there's no need for the PSM.
 As the term compiler suggests, this step is completely automatic.
 
 The model compilers are based ou reusable archetypes.  
-An archetype describes how to take an executable UML model and turn it into a particular programming platform.
+An archetype describes how to take an executable UML model and turn it into a particular programming platform.  
 So for the warehousing example,  
 You would buy a model compiler and two archetypes (J2FE and .NET).  
 Run each archetype on your executable UML model, and you have your two versions of the warehousing system.
@@ -242,14 +242,80 @@ Whether they are mature enough to do the job.
 This is something that changes over time;  
 Certainly, as I write this, they aren't widely used, and I haven't seen much of them in action.
 
-A more fundamental issue iS the whole notion of the LTML as a programming language . In m y view, it's worth using the 1 hII . a s a programming language only if it results in something that's signihcaittly more
-productive than using another programming language . 1'm not convinced
-that it is, based an various graphical development enviromnents Pve
-worked with in the Aast. Even if it is more productive, it still needs to get a
-critical mass of users for it to make the mainstream . That's a big hurdle in
-itself. Like many,old Smalltalkers, 1 consider Smalltalk to he rauch more
-productive than current mainstream langvages . But as Sm illtalk is now
-only a niche language, 1 don°t see tnany projects usiiig it . To > avoid Smalltalk's fate, the UML has to be luckier, even if it is superior.
+A more fundamental issue is the whole notion of the UML as a programming language.  
+In m y view, it's worth using the UML as a programming language only if it results in something that's significantly more productive than using another programming language.  
+I'm not convinced that it is, based an various graphical development environments I've worked with in the Past.  
+Even if it is more productive, it still needs to get a critical mass of users for it to make the mainstream.  
+That's a big hurdle in itself.  
+Like many old Smalltalkers, I consider Smalltalk to be much more productive than current mainstream languages.  
+But as Smalltalk is now only a niche language, I don't see many projects using it.  
+To avoid Smalltalk's fate, the UML has to be luckier, even if it is superior.
+
+One of the interesting questions around the UML as programming language is how to model behavioral logic.  
+UML 2 offers three ways of behavioral modeling:  
+Interaction diagrams, state diagrams, and activity diagrams.
+
+All have their proponents for programming in.  
+If the UML does gain popularity as a programming language,  
+It will be interesting to see which of these techniques become successful.
+
+Another way in which people look at the UML is the range between using it for conceptual and for software modeling.  
+Most people are familiar with the UML used for Software modeling.  
+In this **software perspective**, the elements of the UML map pretty directly to elements in a software system.  
+As we shall see, the mapping is by no means prescriptive, but when we use the UML, we are talking about software elements.
+
+With the **conceptual perspective**, the UML represents a description of the concepts of a domain of study.  
+Here, we aren't talking about software elements so much as we are building a vocabulary to talk about a particular domain.
+
+There are no hard-and-fast rules about perspective;  
+As it turns out, there's really quite a large range of usage.  
+Some tools automatically turn source code into the UML diagrams,  
+Treating the UML as an alternative view of the source.
+
+That's very much a software perspective.  
+If you use UML diagrams to try and understand the various meanings of the terms asset Pool with a bunch of accountants,  
+You are in a much more conceptual frame of mind.
+
+review:
+In previous editions of this book, 1 split the Software perspective into specifi-
+cation (interface) and implementation . In practice, 1 found that it was too hard
+to draw a precise line between the two, so 1 feel that the distinction is no longer
+worth making a fuss about . However, I'm always inclined to emphasize inter-
+face rather than implementation in my diagrams .
+
+These different ways of using the UML lead to a host of arguments about
+what UML diagrams mean and what their relationship is to the rest of the
+world . In particular, it affects the relationship between the UML and source
+code . Some people hold the view that the UML should be used to create a
+design that is independent of the programming language that's used for imple-
+mentation . Others believe that language-independent design is an oxymoron,
+with a strong emphasis an the moron.
+
+Another difference in viewpoints is what the essence of the UML is . In my
+view, most users of the UML, particularly sketchers, see the essence of the UML
+to be the diagrams . However, the creators of the UML see the diagrams as sec-
+ondary; the essence of the UML is the meta-model . Diagrams are simply a pre-
+sentation of the meta-model . This view also makes sense to blueprinters and
+UML programming language users .
+So whenever you read anything involving the UML, it's important to under-
+stand the point of view of the author. Only then can you make sense of the
+often fierce arguments that the UML encourages .
+
+1 find the UML sketches useful with forward and
+reverse engineering and in both conceptual and software perspectives .
+
+I'm not a fan of detailed forward-engineered blueprints ; 1 believe that it's too
+difficult to do well and slows down a development effort . Blueprinting to a level
+of subsystem interfaces is reasonable, but even then you should expect to
+change those interfaces as developers implement the interactions across the
+interface . The value of reverse-engineered blueprints is dependent an how the
+tool works . If it's used as a dynamic browser, it can be very helpful ; if it gener-
+ates a large document, all it does is kill trees .
+
+1 see the UML as programming language as a nice idea but doubt that it will
+ever see significant usage . I'm not convinced that graphical forms are more pro-
+ductive than textual forms for most programming tasks and that even if they
+are, it's very difficult for a language to be widely accepted .
 
 ## References
 
