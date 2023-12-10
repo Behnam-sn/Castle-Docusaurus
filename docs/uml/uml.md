@@ -182,6 +182,75 @@ Obviously, this usage of UML demands particularly sophisticated tooling.
 Also, the notions of forward and reverse engineering don't make any sense for this mode,  
 As the UML and source code are the same thing.
 
+#### What is the MDA?
+
+When people talk about the UML,  
+They also often talk about **Model Driven Architecture (MDA)**.
+
+Essentially, MDA is a Standard Approach to using the UML as a programming language.
+
+The standard is controlled by the OMG, as is the UML.  
+By producing a modeling environment that conforms to the MDA,  
+Vendors can create models that can also work with other MDA-compliant environments.
+
+MDA is often talked about in the same breath as the UML,  
+Because MDA uses the UNlL as its basic modeling language.  
+But, of course, you don't have to be using MDA to use the UML.
+
+MDA divides development work into two main areas.  
+Modelers represent a particular application by creating a **Platform Independent Model (PIM)**.  
+The PIM is a UML model that is independent of any particular technology.  
+Tools can then turn a PIM into a **Platform Specific Model (PSM)**.
+
+The PSM is a model of a system targeted to a specific execution environment.  
+Further tools then take the PSM and generate code tor that platform.  
+The PSM could be UML but doesn't have to be.
+
+So if you want to build a warehousing system using MDA, you would start bv creating a single PIM of your warehousing system.
+
+If you then wanted this warehousing system to run an J2EE and .NET, you would use some vendor tools to create two PSMs : one for each platform.  
+Then further tools would generate code tor the two platforms.
+
+If the process of going from PIM to PSM to final code is completely automated,  
+We have the UML as programming language.  
+If any of the steps is manual, we have blueprints.
+
+#### Executable UML
+
+Steve Mellor has long been active in this kind of work and has recently used the term **Executable UML**.
+Executable UML is similar to MDA hut uses slightly different terms.
+
+Similarly, You begin with a platform-independent model that is equivalent to MDA's PIM.
+However, the next step is to use a Model Compiler to turn that UML model into a deployable system in a single step.  
+hence, there's no need for the PSM.  
+As the term compiler suggests, this step is completely automatic.
+
+The model compilers are based ou reusable archetypes.  
+An archetype describes how to take an executable UML model and turn it into a particular programming platform.
+So for the warehousing example,  
+You would buy a model compiler and two archetypes (J2FE and .NET).  
+Run each archetype on your executable UML model, and you have your two versions of the warehousing system.
+
+Executable UML does not use the full UML Standard;  
+many constructs of UML are considered to be unnecessary and are therefore not used.  
+As a result, Executable UML is simpler than Full UML.
+
+All this Sounds good, but how realistic is it?  
+In mv view, there are two issues here.  
+First is the question of the tools:  
+Whether they are mature enough to do the job.  
+This is something that changes over time;  
+Certainly, as I write this, they aren't widely used, and I haven't seen much of them in action.
+
+A more fundamental issue iS the whole notion of the LTML as a programming language . In m y view, it's worth using the 1 hII . a s a programming language only if it results in something that's signihcaittly more
+productive than using another programming language . 1'm not convinced
+that it is, based an various graphical development enviromnents Pve
+worked with in the Aast. Even if it is more productive, it still needs to get a
+critical mass of users for it to make the mainstream . That's a big hurdle in
+itself. Like many,old Smalltalkers, 1 consider Smalltalk to he rauch more
+productive than current mainstream langvages . But as Sm illtalk is now
+only a niche language, 1 don°t see tnany projects usiiig it . To > avoid Smalltalk's fate, the UML has to be luckier, even if it is superior.
+
 ## References
 
 - UML Distilled 3rd Edition - Martin Fowler - Addison-Wesley
