@@ -2,12 +2,15 @@
 
 ## What are Digital Certificates?
 
-Digital certificates contain information about a user or firm that has been vouched for by a trusted organization.  
-Digital certificates, are like ID cards.
+Digital certificates, are like ID cards.  
+Digital certificate authentication helps organizations ensure that only trusted devices and users can connect to their networks.
 
-A digital certificate is a file or electronic password that proves the authenticity of a device, server, or user through the use of cryptography and the public key infrastructure (PKI).
+A digital certificate is a file or electronic password that proves the authenticity of a device, server, or user  
+Through the use of cryptography and the public key infrastructure (PKI).
 
-Digital certificate authentication helps organizations ensure that only trusted devices and users can connect to their networks. Another common use of digital certificates is to confirm the authenticity of a website to a web browser, which is also known as a secure sockets layer or SSL certificate.
+Digital certificates contain information about a user or firm that has been vouched for by a trusted organization.
+
+Another common use of digital certificates is to confirm the authenticity of a website to a web browser, which is also known as a secure sockets layer or SSL certificate.
 
 ## Why we Need Digital Certificates?
 
