@@ -41,3 +41,7 @@ By doing this repeatedly, an iterative style gives you better warning if somethi
 For that reason alone,  
 It's strongly recommend that projects do not use a pure waterfall approach.  
 You should at least use staged delivery, if not a more pure iterative technique.
+
+## References
+
+- UML Distilled 3rd Edition - Martin Fowler - Addison-Wesley
