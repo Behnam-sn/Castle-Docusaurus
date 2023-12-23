@@ -122,3 +122,7 @@ The essential difference between the two is how you break up a project into smal
 If you have a project that you think will take a year,  
 Fewer people are comfortable telling the team to go away for a year and to come back when done.  
 Some breakdown is needed so that people can approach the problem and track progress.
+
+## References
+
+- UML Distilled 3rd Edition - Martin Fowler - Addison-Wesley
