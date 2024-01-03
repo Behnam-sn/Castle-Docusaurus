@@ -107,14 +107,18 @@ Names like `tmp`, `retval`, and `foo` are usually cop-outs that mean “I can’
 Instead of using an empty name like this,  
 **Pick a name that describes the entity’s value or purpose.**
 
-For example, here’s a JavaScript function that uses retval:
+For example, here’s a method that uses retval:
 
-```js
-var euclidean_norm = function (v) {
-  var retval = 0.0;
-  for (var i = 0; i < v.length; i += 1) retval += v[i] * v[i];
-  return Math.sqrt(retval);
-};
+```cs
+public EuclideanNorm(v)
+{
+    var retval = 0.0;
+    for (var i = 0; i < v.length; i += 1)
+    {
+        retval += v[i] * v[i];
+    }
+    return Math.sqrt(retval);
+}
 ```
 
 It’s tempting to use `retval` when you can’t think of a better name for your return value.  
@@ -127,13 +131,13 @@ This would announce the purpose of the variable upfront and might help catch a b
 
 For instance, imagine if the inside of the loop were accidentally:
 
-```js
+```cs
 retval += v[i];
 ```
 
-This bug would be more obvious if the name were sum_squares:
+This bug would be more obvious if the name were `sum_squares`:
 
-```js
+```cs
 sum_squares += v[i];
 // Where's the "square" that we're summing? Bug!
 ```
@@ -150,7 +154,7 @@ Let’s take a look at when it makes sense to use them.
 
 Consider the classic case of swapping two variables:
 
-```js
+```cs
 if (right < left) {
   tmp = right;
   right = left;
@@ -165,10 +169,10 @@ It’s not being passed around to other functions or being reset or reused multi
 
 But here’s a case where tmp is just used out of laziness:
 
-```js
-String tmp = user.name();
-tmp += " " + user.phone_number();
-tmp += " " + user.email();
+```cs
+var tmp = user.Name();
+tmp += " " + user.PhoneNumber();
+tmp += " " + user.Email();
 ...
 template.set("user_info", tmp);
 ```
@@ -179,18 +183,18 @@ Instead, a name like `user_info` would be more descriptive.
 
 In the following case, `tmp` should be in the name, but just as a part of it:
 
-```js
-tmp_file = tempfile.NamedTemporaryFile()
+```cs
+var tmp_file = tempfile.NamedTemporaryFile();
 ...
-SaveData(tmp_file, ...)
+SaveData(tmp_file, ...);
 ```
 
 Notice that we named the variable `tmp_file` and not just `tmp`,  
 Because it is a file object.  
 Imagine if we just called it `tmp`:
 
-```js
-SaveData(tmp, ...)
+```cs
+SaveData(tmp, ...);
 ```
 
 Looking at just this one line of code, it isn’t clear if tmp is a file, a filename, or maybe even the data being written.
@@ -207,19 +211,27 @@ Even though these names are generic,
 They’re understood to mean “I am an iterator”.  
 In fact, if you used one of these names for some other purpose, it would be confusing, so don’t do that!
 
-```cpp
-for (int i = 0; i < clubs.size(); i++)
-    for (int j = 0; j < clubs[i].members.size(); j++)
-        for (int k = 0; k < users.size(); k++)
-            if (clubs[i].members[k] == users[j])
-                cout << "user[" << j << "] is in club[" << i << "]" << endl;
+```cs
+for (var i = 0; i < clubs.Count(); i++)
+{
+    for (var j = 0; j < clubs[i].Members.Count(); j++)
+    {
+        for (var k = 0; k < users.Count(); k++)
+        {
+            if (clubs[i].Members[k] == users[j])
+            {
+                Console.WriteLine($"{user[j]} is in club {club[i]}")
+            }
+        }
+    }
+}
 ```
 
-In the if statement, `members[]` and `users[]` are using the wrong index.  
+In the if statement, `Members[]` and `users[]` are using the wrong index.  
 Bugs like these are hard to spot because that line of code seems fine in isolation:
 
-```cpp
-if (clubs[i].members[k] == users[j])
+```cs
+if (clubs[i].Members[k] == users[j])
 ```
 
 In this case, using more precise names may have helped.  
@@ -227,9 +239,9 @@ Instead of naming the loop indexes (`i,j,k`), another choice would be (club_inde
 
 This approach would help the bug stand out more:
 
-```cpp
+```cs
 if (clubs[ci].members[ui] == users[mi])
-# Bug! First letters don't match up.
+// Bug! First letters don't match up.
 ```
 
 When used correctly,  
