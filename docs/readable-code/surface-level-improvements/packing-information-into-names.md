@@ -268,3 +268,54 @@ It’s easier to just use a meaningless name like foo and move on.
 
 But if you get in the habit of taking an extra few seconds to come up with a good name,  
 You’ll find your “naming muscle” builds quickly.
+
+## Prefer Concrete Names over Abstract Names
+
+When naming a variable, function, or other element, describe it concretely rather than abstractly.
+
+For example,  
+Suppose you have an internal method named `ServerCanStart()`,  
+Which tests whether the server can listen on a given TCP/IP port.
+
+The name `ServerCanStart()` is somewhat abstract, though.  
+A more concrete name would be `CanListenOnPort()`.  
+This name directly describes what the method will do.
+
+The next two examples illustrate this concept in more depth.
+
+Example: --run_locally
+One of our programs had an optional command-line flag named --run_locally. This flag would
+cause the program to print extra debugging information but run more slowly. The flag was
+typically used when testing on a local machine, like a laptop. But when the program was
+running on a remote server, performance was important, so the flag wasn’t used.
+You can see how the name --run_locally came about, but it has some problems:
+• A new member of the team didn’t know what it did. He would use it when running locally
+(imagine that), but he didn’t know why it was needed.
+• Occasionally, we needed to print debugging information while the program ran remotely.
+Passing --run_locally to a program that is running remotely looks funny, and it’s just
+confusing.
+• Sometimes we would run a performance test locally and didn’t want the logging slowing
+it down, so we wouldn’t use --run_locally.
+The problem is that --run_locally was named after the circumstance where it was typically
+used. Instead, a flag name like --extra_logging would be more direct and explicit.
+
+But what if --run_locally needs to do more than just extra logging? For instance, suppose that
+it needs to set up and use a special local database. Now the name --run_locally seems more
+tempting because it can control both of these at once.
+But using it for that purpose would be picking a name because it’s vague and indirect,
+which is probably not a good idea. The better solution is to create a second flag named
+--use_local_database. Even though you have to use two flags now, these flags are much more
+explicit; they don’t try to smash two orthogonal ideas into one, and they give you the option
+of using just one and not the other.
+
+## Attaching Extra Information to a Name
+
+As we mentioned before, a variable’s name is like a tiny comment. Even though there isn’t
+much room, any extra information you squeeze into a name will be seen every time the
+variable is seen.
+So if there’s something very important about a variable that the reader must know, it’s worth
+attaching an extra “word” to the name. For example, suppose you had a variable that contained
+a hexadecimal string:
+string id; // Example: "af84ef845cd8"
+You might want to name it hex_id instead, if it’s important for the reader to remember the ID’s
+format.
