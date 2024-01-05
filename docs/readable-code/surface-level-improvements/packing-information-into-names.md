@@ -1,11 +1,41 @@
 # Packing Information into Names
 
-We like to think of a name as a tiny comment.
+We like to think of a name as a tiny comment.  
+The reader can extract a lot of information just from reading the name.
 
 Even though there isn’t much room,  
 You can convey a lot of information by choosing a good name.
 
 Whether you’re naming a variable, a function, or a class, a lot of the same principles apply.
+
+This chapter is organized into six specific topics:
+
+- **Choosing specific words**  
+  Use specific words, for example:  
+  Instead of `Get`, words like `Fetch` or `Download` might be better,  
+  Depending on the context.
+
+- **Avoiding generic names (or knowing when to use them)**  
+  Avoid generic names like `tmp` and `retval`,  
+  Unless there’s a specific reason to use them.
+
+- **Using concrete names instead of abstract names**  
+  Use concrete names that describe things in more detail. for example:  
+  The name `ServerCanStart()` is vague compared to `CanListenOnPort()`.
+
+- **Attaching extra information to a name, by using a suffix or prefix**  
+  Attach important details to variable names. for example,  
+  Append `_ms` to a variable whose value is in milliseconds,  
+  Or prepend `raw_` to an unprocessed variable that needs escaping.
+
+- **Deciding how long a name should be**  
+  Use longer names for larger scopes.  
+  Don’t use cryptic one, or two-letter names for variables that span multiple screens.  
+  Shorter names are better for variables that span only a few lines.
+
+- **Using name formatting to pack extra information**  
+  Use capitalization, underscores, and so on in a meaningful way. for example,  
+  You can append `_` to class members to distinguish them from local variables.
 
 :::tip KEY IDEA
 Pack information into your names.
@@ -14,15 +44,6 @@ Pack information into your names.
 A lot of the names we see in programs are vague, like `tmp`.  
 Even words that may seem reasonable, such as `size` or `get`, don’t pack much information.  
 This chapter shows you how to pick names that do.
-
-This chapter is organized into six specific topics:
-
-- Choosing specific words
-- Avoiding generic names (or knowing when to use them)
-- Using concrete names instead of abstract names
-- Attaching extra information to a name, by using a suffix or prefix
-- Deciding how long a name should be
-- Using name formatting to pack extra information
 
 ## Choose Specific Words
 
@@ -150,7 +171,7 @@ Instead, use a name that describes the variable’s value.
 There are, however, some cases where generic names do carry meaning.  
 Let’s take a look at when it makes sense to use them.
 
-## tmp
+### tmp
 
 Consider the classic case of swapping two variables:
 
@@ -203,7 +224,7 @@ Looking at just this one line of code, it isn’t clear if tmp is a file, a file
 The name `tmp` should be used only in cases when being short-lived and temporary is the most important fact about that variable.
 :::
 
-## Loop Iterators
+### Loop Iterators
 
 Names like `i`, `j`, `iter`, and `it` are commonly used as indices and loop iterators.
 
@@ -252,7 +273,7 @@ if (clubs[ci].members[mi] == users[ui])
 # OK. First letters match.
 ```
 
-## The Verdict on Generic Names
+### The Verdict on Generic Names
 
 As you’ve seen, there are some situations where generic names are useful.
 
