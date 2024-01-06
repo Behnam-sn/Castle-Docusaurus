@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Packing Information into Names
 
 We like to think of a name as a tiny comment.  

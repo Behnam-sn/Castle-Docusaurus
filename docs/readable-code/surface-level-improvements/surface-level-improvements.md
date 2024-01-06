@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Surface-Level Improvements
 
 We begin our tour of readability with what we consider **surface-level** improvements:

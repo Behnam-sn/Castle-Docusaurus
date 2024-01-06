@@ -1,16 +1,53 @@
 # Readable Code
 
-code should be easy to understand.
+We’ve worked at highly successful software companies,  
+With outstanding engineers,  
+And the code we encounter still has plenty of room for improvement.
+
+In fact, we’ve seen some really ugly code, and you probably have too.
+
+But when we see beautifully written code, it’s inspiring.  
+Good code can teach you what’s going on very quickly.  
+It’s fun to use, and it motivates you to make your own code better.
+
+The goal of this book is help you make your code better.  
+And when we say “code,” we literally mean the lines of code you are staring at in your editor.
+
+We’re not talking about the overall architecture of your project, or your choice of design patterns.  
+Those are certainly important, but in our experience most of our day-to-day lives as programmers are spent on the “basic” stuff,  
+Like naming variables, writing loops, and attacking problems down at the function level.  
+And a big part of this is reading and editing the code that’s already there.  
+We hope you’ll find this book so helpful to your day-to-day programming that you’ll recommend it to everyone on your team.
+
+This book is about how to write code that’s highly readable. The key idea in this book is that
+code should be easy to understand. Specifically, your goal should be to minimize the time
+it takes someone else to understand your code.
+
+Each chapter dives into a different aspect of coding and how to make it “easy to understand.”
+The book is divided into four parts:
+Surface-level improvements
+Naming, commenting, and aesthetics—simple tips that apply to every line of your
+codebase
+Simplifying loops and logic
+Ways to refine the loops, logic, and variables in your program to make them easier to
+understand
+Reorganizing your code
+Higher-level ways to organize large blocks of code and attack problems at the function level
+Selected topics
+Applying “easy to understand” to testing and to a larger data structure coding exampl
+
+code should be easy to understand.  
 your goal should be to minimize the time it takes someone else to understand your code.
 
-Over the past five years, we have collected hundreds of examples of “bad code” (much of it
-our own), and analyzed what made it bad, and what principles/techniques were used to make
-it better. What we noticed is that all of the principles stem from a single theme.
-K E Y I D E A
-Code should be easy to understand.
+Over the past five years, we have collected hundreds of examples of “bad code” (much of it our own),  
+and analyzed what made it bad, and what principles/techniques were used to make it better.  
+What we noticed is that all of the principles stem from a single theme.
 
-We believe this is the most important guiding principle you can use when deciding how to
-write your code.
+:::tip KEY IDEA
+Code should be easy to understand.
+:::
+
+We believe this is the most important guiding principle you can use when deciding how to write your code.
 
 The Fundamental Theorem of Readability
 After studying many code examples like this, we came to the conclusion that there is one metric
