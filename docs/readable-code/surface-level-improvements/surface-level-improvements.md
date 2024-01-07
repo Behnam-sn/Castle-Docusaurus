@@ -15,7 +15,8 @@ These types of changes are easy to apply.
 You can make them in place,  
 Without having to refactor your code or change how the program runs.
 
-You can also make them incrementally, without a huge time investment.
+You can also make them incrementally,  
+Without a huge time investment.
 
 These topics are very important,  
 Because they affect every line of code in your codebase.
