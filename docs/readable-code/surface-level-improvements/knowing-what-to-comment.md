@@ -4,25 +4,23 @@ sidebar_position: 4
 
 # Knowing What to Comment
 
+## What is the Purpose of Commenting?
+
 The goal of this chapter is to help you realize what you should be commenting.  
 You might think the purpose of commenting is to “explain what the code does” but that is just a small part of it.
 
-:::tip KEY IDEA
-The purpose of commenting is to help the reader know as much as the writer did.
-:::
+**The purpose of commenting is to help the reader know as much as the writer did.**
 
 When you’re writing code, you have a lot of valuable information in your head.  
 When other people read your code, that information is lost.  
 And all they have is the code in front of them.
 
 In this chapter, we’ll show you many examples of when to write down that information in your head.  
-We’ve left out the more mundane points about commenting;  
-Instead, we’ve focused on the more interesting and “underserved” aspects of commenting.
+We’ve left out the more mundane points about commenting.  
+Instead, we’ve focused on the more interesting and _“underserved”_ aspects of commenting.  
+This whole chapter is about realizing all the not-so-obvious nuggets of information you have about the code and writing those down.
 
 We’ve organized the chapter into the following areas:
-
-The purpose of a comment is to help the reader know what the writer knew when writing the code.  
-This whole chapter is about realizing all the not-so-obvious nuggets of information you have about the code and writing those down.
 
 - Knowing what not to comment  
   What not to comment:
