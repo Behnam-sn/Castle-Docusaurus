@@ -18,3 +18,7 @@
 - Talk only to your friends
 - Don’t call us, we’ll call you
 - A class should have only one reason to change
+
+## References
+
+- Head First Design Patterns 2nd Edition - Elisabeth Robson, Eric Freeman - O'Reilly
