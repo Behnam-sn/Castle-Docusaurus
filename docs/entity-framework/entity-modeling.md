@@ -76,6 +76,37 @@ Therefore this method should only be used when the order doesn't matter.
 
 ## Data Annotations
 
+You can also apply certain attributes (known as Data Annotations) to your classes and properties.
+
+```cs
+public class MyContext : DbContext
+{
+    public DbSet<Blog> Blogs { get; set; }
+}
+
+[Table("Blogs")]
+public class Blog
+{
+    public int BlogId { get; set; }
+
+    [Required]
+    public string Url { get; set; }
+}
+```
+
+Data annotations will override conventions,  
+But will be overridden by Fluent API configuration.
+
+## Conventions
+
+EF Core includes many model building conventions that are enabled by default.
+
+You can find all of them in the list of classes that implement the `IConvention` interface.  
+However, that list doesn't include conventions introduced by third-party database providers and plugins.
+
+Applications can remove or replace any of these conventions,  
+As well as add new custom conventions that apply configuration for patterns that are not recognized by EF out of the box.
+
 ## References
 
 - https://learn.microsoft.com/en-us/ef/core/modeling/
