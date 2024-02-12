@@ -1,6 +1,10 @@
 # Entity Modeling
 
+## What is Entity Modeling?
+
 EF Core uses a metadata model to describe how the application's entity types are mapped to the underlying database.
+
+## How to Configure a Model in EF?
 
 This model is built using a set of conventions.  
 The model can then be customized using mapping attributes (also known as data annotations),  
@@ -10,7 +14,17 @@ Both of which will override the configuration performed by conventions.
 Most configuration can be applied to a model targeting any data store.  
 Providers may also enable configuration that is specific to a particular data store and they can also ignore configuration that is not supported or not applicable.
 
-## Fluent API
+### Conventions
+
+EF Core includes many model building conventions that are enabled by default.
+
+You can find all of them in the list of classes that implement the `IConvention` interface.  
+However, that list doesn't include conventions introduced by third-party database providers and plugins.
+
+Applications can remove or replace any of these conventions,  
+As well as add new custom conventions that apply configuration for patterns that are not recognized by EF out of the box.
+
+### Fluent API
 
 You can override the `OnModelCreating` method in your derived context and use the fluent API to configure your model.  
 This is the most powerful method of configuration and allows configuration to be specified without modifying your entity classes.
@@ -39,7 +53,7 @@ public class Blog
 }
 ```
 
-### Grouping Configuration
+#### Grouping Configuration
 
 To reduce the size of the `OnModelCreating` method all configuration for an entity type can be extracted to a separate class implementing `IEntityTypeConfiguration<TEntity>`.
 
@@ -61,7 +75,7 @@ Then just invoke the Configure method from `OnModelCreating`.
 new BlogEntityTypeConfiguration().Configure(modelBuilder.Entity<Blog>());
 ```
 
-### Applying All Configurations in an Assembly
+#### Applying All Configurations in an Assembly
 
 It is possible to apply all configuration specified in types implementing `IEntityTypeConfiguration` in a given assembly.
 
@@ -74,7 +88,7 @@ The order in which the configurations will be applied is undefined,
 Therefore this method should only be used when the order doesn't matter.
 :::
 
-## Data Annotations
+### Data Annotations
 
 You can also apply certain attributes (known as Data Annotations) to your classes and properties.
 
@@ -96,16 +110,6 @@ public class Blog
 
 Data annotations will override conventions,  
 But will be overridden by Fluent API configuration.
-
-## Conventions
-
-EF Core includes many model building conventions that are enabled by default.
-
-You can find all of them in the list of classes that implement the `IConvention` interface.  
-However, that list doesn't include conventions introduced by third-party database providers and plugins.
-
-Applications can remove or replace any of these conventions,  
-As well as add new custom conventions that apply configuration for patterns that are not recognized by EF out of the box.
 
 ## References
 
