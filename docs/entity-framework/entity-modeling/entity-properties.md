@@ -191,6 +191,12 @@ public class Blog
 }
 ```
 
+Entity Framework does not do any validation of precision or scale before passing data to the provider.  
+It is up to the provider or data store to validate as appropriate.
+
+For example, when targeting SQL Server, a column of data type `datetime` does not allow the precision to be set,  
+Whereas a `datetime2` one can have precision between 0 and 7 inclusive.
+
 ## References
 
-- https://learn.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt
+- https://learn.microsoft.com/en-us/ef/core/modeling/entity-properties
