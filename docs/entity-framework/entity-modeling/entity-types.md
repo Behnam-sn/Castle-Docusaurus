@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Entity Types
 
 Including a `DbSet` of a type on your context means that it is included in EF Core's model;  
