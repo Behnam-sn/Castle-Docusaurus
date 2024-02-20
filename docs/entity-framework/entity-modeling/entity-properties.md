@@ -197,6 +197,253 @@ It is up to the provider or data store to validate as appropriate.
 For example, when targeting SQL Server, a column of data type `datetime` does not allow the precision to be set,  
 Whereas a `datetime2` one can have precision between 0 and 7 inclusive.
 
+## Unicode
+
+In some relational databases, different types exist to represent Unicode and non-Unicode text data.
+
+For example, in SQL Server, `nvarchar(x)` is used to represent Unicode data in UTF-16,  
+While `varchar(x)` is used to represent non-Unicode data (but see the notes on SQL Server UTF-8 support).  
+For databases which don't support this concept, configuring this has no effect.
+
+Text properties are configured as Unicode by default.  
+You can configure a column as non-Unicode as follows:
+
+**Data Annotations**
+
+```cs
+public class Book
+{
+    public int Id { get; set; }
+    public string Title { get; set; }
+
+    [Unicode(false)]
+    [MaxLength(22)]
+    public string Isbn { get; set; }
+}
+```
+
+**Fluent API**
+
+```cs
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Book>()
+        .Property(b => b.Isbn)
+        .IsUnicode(false);
+}
+```
+
+## Required and Optional Properties
+
+A property is considered optional if it is valid for it to contain `null`.  
+If `null` is not a valid value to be assigned to a property then it is considered to be a required property.
+
+When mapping to a relational database schema,  
+Required properties are created as non-nullable columns,  
+And optional properties are created as nullable columns.
+
+**Conventions**
+
+By convention, a property whose .NET type can contain `null` will be configured as optional,  
+Whereas properties whose .NET type cannot contain null will be configured as required.
+
+For example, all properties with .NET value types (`int`, `decimal`, `bool`, etc.) are configured as required,  
+And all properties with nullable .NET value types (`int?`, `decimal?`, `bool?`, etc.) are configured as optional.
+
+C# 8 introduced a new feature called nullable reference types (NRT),  
+Which allows reference types to be annotated, indicating whether it is valid for them to contain null or not.
+
+This feature is enabled by default in new project templates,  
+But remains disabled in existing projects unless explicitly opted into.
+
+Nullable reference types affect EF Core's behavior in the following way:
+
+- If nullable reference types are disabled,  
+  All properties with .NET reference types are configured as optional by convention (for example, `string`).
+- If nullable reference types are enabled,  
+  Properties will be configured based on the C# nullability of their .NET type:  
+  `string?` will be configured as optional, but `string` will be configured as required.
+
+The following example shows an entity type with required and optional properties,  
+With the nullable reference feature disabled and enabled:
+
+**Without NRT (Default)**
+
+```cs
+public class CustomerWithoutNullableReferenceTypes
+{
+    public int Id { get; set; }
+
+    [Required] // Data annotations needed to configure as required
+    public string FirstName { get; set; }
+
+    [Required] // Data annotations needed to configure as required
+    public string LastName { get; set; }
+
+    public string MiddleName { get; set; } // Optional by convention
+}
+```
+
+**With NRT**
+
+```cs
+public class Customer
+{
+    public int Id { get; set; }
+    public string FirstName { get; set; } // Required by convention
+    public string LastName { get; set; } // Required by convention
+    public string? MiddleName { get; set; } // Optional by convention
+
+    // Note the following use of constructor binding, which avoids compiled warnings
+    // for uninitialized non-nullable properties.
+    public Customer(string firstName, string lastName, string? middleName = null)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        MiddleName = middleName;
+    }
+}
+```
+
+Using nullable reference types is recommended since it flows the nullability expressed in C# code to EF Core's model and to the database, and obviates the use of the Fluent API or Data Annotations to express the same concept twice.
+
+:::note
+Exercise caution when enabling nullable reference types on an existing project.  
+Reference type properties which were previously configured as optional will now be configured as required,  
+Unless they are explicitly annotated to be nullable.
+
+When managing a relational database schema,  
+This may cause migrations to be generated which alter the database column's nullability.
+:::
+
+## Explicit configuration
+
+A property that would be optional by convention can be configured to be required as follows:
+
+**Data Annotations**
+
+```cs
+public class Blog
+{
+    public int BlogId { get; set; }
+
+    [Required]
+    public string Url { get; set; }
+}
+```
+
+**Fluent API**
+
+```cs
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Blog>()
+        .Property(b => b.Url)
+        .IsRequired();
+}
+```
+
+## Column Collations
+
+A collation can be defined on text columns, determining how they are compared and ordered.  
+For example, the following code snippet configures a SQL Server column to be case-insensitive:
+
+```cs
+modelBuilder.Entity<Customer>()
+    .Property(c => c.Name)
+    .UseCollation("SQL_Latin1_General_CP1_CI_AS");
+```
+
+:::note
+If all columns in a database need to use a certain collation, define the collation at the database level instead.
+:::
+
+## Column Comments
+
+You can set an arbitrary text comment that gets set on the database column,  
+Allowing you to document your schema in the database:
+
+**Data Annotations**
+
+```cs
+public class Blog
+{
+    public int BlogId { get; set; }
+
+    [Comment("The URL of the blog")]
+    public string Url { get; set; }
+}
+```
+
+**Fluent API**
+
+```cs
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Blog>()
+        .Property(b => b.Url)
+        .HasComment("The URL of the blog");
+}
+```
+
+## Column Order
+
+By default when creating a table with Migrations,  
+EF Core orders primary key columns first,  
+Followed by properties of the entity type and owned types,  
+And finally properties from base types.
+
+You can, however, specify a different column order:
+
+**Data Annotations**
+
+```cs
+public class EntityBase
+{
+    [Column(Order = 0)]
+    public int Id { get; set; }
+}
+
+public class PersonBase : EntityBase
+{
+    [Column(Order = 1)]
+    public string FirstName { get; set; }
+
+    [Column(Order = 2)]
+    public string LastName { get; set; }
+}
+
+public class Employee : PersonBase
+{
+    public string Department { get; set; }
+    public decimal AnnualSalary { get; set; }
+}
+```
+
+**Fluent API**
+
+```cs
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Employee>(x =>
+    {
+        x.Property(b => b.Id)
+            .HasColumnOrder(0);
+
+        x.Property(b => b.FirstName)
+            .HasColumnOrder(1);
+
+        x.Property(b => b.LastName)
+            .HasColumnOrder(2);
+    });
+}
+```
+
+:::note
+Note that, in the general case, most databases only support ordering columns when the table is created.  
+This means that the column order attribute cannot be used to re-order columns in an existing table.
+:::
+
 ## References
 
 - https://learn.microsoft.com/en-us/ef/core/modeling/entity-properties
