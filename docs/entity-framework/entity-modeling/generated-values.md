@@ -152,3 +152,7 @@ While you may specify an explicit value instead of using a column's default valu
 To override value generation with an explicit value,  
 Simply set the property to any value that is not the CLR default value for that property's type.  
 null for string, 0 for int, Guid.Empty for Guid, etc.
+
+## References
+
+- https://learn.microsoft.com/en-us/ef/core/modeling/generated-properties
