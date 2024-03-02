@@ -153,6 +153,41 @@ To override value generation with an explicit value,
 Simply set the property to any value that is not the CLR default value for that property's type.  
 null for string, 0 for int, Guid.Empty for Guid, etc.
 
+## No Value Generation
+
+Apart from specific scenarios such as those described above,  
+Properties typically have no value generation configured;
+
+This means that it's up to the application to always supply a value to be saved to the database.  
+This value must be assigned to new entities before they are added to the context.
+
+However, in some cases you may want to disable value generation that has been set up by convention.  
+For example, a primary key of type int is usually implicitly configured as value-generated-on-add (e.g. identity column on SQL Server).
+
+You can disable this via the following:
+
+**Data Annotations**
+
+```cs
+public class Blog
+{
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+}
+```
+
+**Fluent API**
+
+```cs
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Blog>()
+        .Property(b => b.BlogId)
+        .ValueGeneratedNever();
+}
+```
+
 ## References
 
 - https://learn.microsoft.com/en-us/ef/core/modeling/generated-properties
