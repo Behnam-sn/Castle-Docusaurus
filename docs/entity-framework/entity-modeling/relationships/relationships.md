@@ -45,7 +45,6 @@ public class Post
     public string Content { get; set; }
     public DateOnly PublishedOn { get; set; }
     public bool Archived { get; set; }
-
     public Blog Blog { get; set; }
 }
 ```
@@ -57,7 +56,6 @@ public class Blog
 {
     public string Name { get; set; }
     public virtual Uri SiteUri { get; set; }
-
     public ICollection<Post> Posts { get; }
 }
 ```
@@ -126,7 +124,6 @@ public class Blog
     public int Id { get; set; }
     public string Name { get; set; }
     public virtual Uri SiteUri { get; set; }
-
     public ICollection<Post> Posts { get; }
 }
 ```
@@ -139,7 +136,6 @@ public class Post
     public string Content { get; set; }
     public DateTime PublishedOn { get; set; }
     public bool Archived { get; set; }
-
     public int BlogId { get; set; }
     public Blog Blog { get; set; }
 }
