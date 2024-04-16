@@ -87,6 +87,12 @@ Composite lets clients treat individual objects and composites of objects unifor
 Allows an object to alter its behavior when its internal state changes.  
 The object will appear to change its class.
 
+### Proxy
+
+Provides a surrogate or placeholder for another object to control access to it.  
+Use the Proxy Pattern to create a representative object that controls access to another object,  
+Which may be remote, expensive to create, or in need of securing.
+
 ## References
 
 - Head First Design Patterns 2nd Edition - Elisabeth Robson, Eric Freeman - O'Reilly
