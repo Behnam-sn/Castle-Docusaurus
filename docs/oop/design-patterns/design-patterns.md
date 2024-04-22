@@ -6,6 +6,8 @@ sidebar_position: 2
 
 ## What are Design Patterns?
 
+A Pattern is a solution to a problem in a context.  
+Design Pattern gives you a solution to a common recurring design problem.  
 Design Patterns help you build flexible, reusable, and maintainable applications.
 
 ## How to Use Design Patterns?
@@ -23,6 +25,35 @@ In the general use of the phrase, a concrete class implementing a method from a 
 :::
 
 ## OO Patterns
+
+Creational:
+Abstract Factory
+Factory Method
+Singleton
+Builder
+Prototype
+
+Behavioral:
+Template Method
+State
+Strategy
+Command
+Observer
+Iterator
+Visitor
+Mediator
+Memento
+Interpreter
+Chain of Responsibility
+
+Structural:
+Proxy
+Decorator
+Composite
+Facade
+Adapter
+Bridge
+Flyweight
 
 ### Strategy
 
@@ -96,6 +127,43 @@ Which may be remote, expensive to create, or in need of securing.
 ### Compound Patterns
 
 A Compound Pattern combines two or more patterns into a solution that solves a recurring or general problem.
+
+### Bridge
+
+Use the Bridge Pattern to vary not only your implementations, but also your abstractions.
+
+### Builder
+
+Use the Builder Pattern to encapsulate the construction of a product and allow it to be constructed in steps.
+
+### Chain of Responsibility
+
+Use the Chain of Responsibility Pattern when you want to give more than one object a chance to handle a request.
+
+### Flyweight
+
+Use the Flyweight Pattern when one instance of a class can be used to provide many virtual instances.
+
+### Interpreter
+
+Use the Interpreter Pattern to build an interpreter for a language.
+
+### Mediator
+
+Use the Mediator Pattern to centralize complex communications and control between related objects.
+
+### Memento
+
+Use the Memento Pattern when you need to be able to return an object to one of its previous states;  
+For instance, if your user requests an “undo.”
+
+### Prototype
+
+Use the Prototype Pattern when creating an instance of a given class is either expensive or complicated.
+
+### Visitor
+
+Use the Visitor Pattern when you want to add capabilities to a composite of objects and encapsulation is not important.
 
 ## References
 
