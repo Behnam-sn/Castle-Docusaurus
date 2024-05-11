@@ -52,8 +52,8 @@
   leaf
   parent
   child
-  binary trees
-  B-tree
+  - Binary Trees
+  - B-tree
 
 ## Math
 
