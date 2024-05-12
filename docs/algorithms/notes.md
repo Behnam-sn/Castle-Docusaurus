@@ -6,6 +6,7 @@
 - Write Simple Search in C#
 - Write Breadth-First Search in C#
 - Write Depth-First Search in C#
+- Implement AVL trees
 
 ## Algorithms
 
@@ -55,6 +56,11 @@
   - Binary Trees
   - B-tree
   - Balanced Trees
+  - Balanced Binary Search Tree
+    - AVL trees
+      Rotations
+    - Splay trees
+    - B-trees
 
 ## Math
 
