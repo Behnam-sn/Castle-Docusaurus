@@ -54,6 +54,7 @@
   child
   - Binary Trees
   - B-tree
+  - Balanced Trees
 
 ## Math
 
@@ -69,8 +70,8 @@
 - Functional Programming
 - Cryptography
   - Euclid’s algorithm
-- pseudocode
-  Pseudocode is a high-level description in code of the problem you’re trying to solve.
+- Pseudo Code
+  Pseudo Code is a high-level description in code of the problem you’re trying to solve.
   It’s written like code, but it’s meant to be closer to human speech.
 - compression algorithm
 - Huffman coding
