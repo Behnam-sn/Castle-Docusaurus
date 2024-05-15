@@ -7,6 +7,7 @@
 - Write Breadth-First Search in C#
 - Write Depth-First Search in C#
 - Implement AVL trees
+- Implement Dijkstra Algorithm
 
 ## Algorithms
 
@@ -19,6 +20,12 @@
   Breadth-first search is a traversal algorithm.  
   That means it is an algorithm that visits every node in a tree—that is, it traverses or walks the tree.
 - Depth-First Search
+- Dijkstra Algorithm  
+  Breadth-first search is used to calculate the shortest path for an unweighted graph.  
+  Dijkstra’s algorithm is used to calculate the shortest path for a weighted graph.  
+  Dijkstra’s algorithm works when all the weights are nonnegative.  
+  If you have negative weights, use the Bellman–Ford algorithm.
+- Bellman–Ford Algorithm
 
 ## Data Structures
 
