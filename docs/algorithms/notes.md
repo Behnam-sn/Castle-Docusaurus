@@ -79,7 +79,6 @@
 - Recursion
   Recursion is used when it makes the solution clearer.  
   There’s no performance benefit to using recursion; in fact, loops are sometimes better for performance.
-- Divide and Conquer
 - Functional Programming
 - Cryptography
   - Euclid’s algorithm
@@ -89,3 +88,14 @@
 - compression algorithm
 - Huffman coding
 - topological sort
+- NP-hard problems
+- power set
+- approximation algorithms
+- dynamic programming  
+  Dynamic programming starts by solving sub-problems and builds up to solving the big problem.  
+  Every dynamic programming algorithm starts with a grid.
+
+## Strategy
+
+- Divide and Conquer
+- Greedy Strategy
