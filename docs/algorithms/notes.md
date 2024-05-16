@@ -94,6 +94,15 @@
 - dynamic programming  
   Dynamic programming starts by solving sub-problems and builds up to solving the big problem.  
   Every dynamic programming algorithm starts with a grid.
+  Dynamic programming is powerful because it can solve.
+  sub-problems and use those answers to solve the big problem.
+  Dynamic programming only works when each subproblem is discrete—when it doesn’t depend on other sub-problems.
+  Dynamic programming is useful when you’re trying to optimize something given a constraint.
+  You can use dynamic programming when the problem can be broken into discrete sub-problems.
+  Every dynamic programming solution involves a grid.
+  The values in the cells are usually what you’re trying to optimize.
+  Each cell is a subproblem, so think about how you can divide your problem into sub-problems.
+  There’s no single formula for calculating a dynamic programming solution.
 
 ## Strategy
 
