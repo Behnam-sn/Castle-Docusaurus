@@ -26,6 +26,13 @@
   Dijkstra’s algorithm works when all the weights are nonnegative.  
   If you have negative weights, use the Bellman–Ford algorithm.
 - Bellman–Ford Algorithm
+- k-nearest neighbors algorithm
+  KNN is used for classification and regression and involves looking at the k-nearest neighbors.
+  Classification: categorization into a group
+  Normalization
+  Regression: predicting a response (like a number)
+  Feature extraction means converting an item (like a fruit or a user) into a list of numbers that can be compared.
+  Cosine similarity
 
 ## Data Structures
 
@@ -68,6 +75,7 @@
       Rotations
     - Splay trees
     - B-trees
+- vectors
 
 ## Math
 
