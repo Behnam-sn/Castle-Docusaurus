@@ -34,6 +34,19 @@
   Feature extraction means converting an item (like a fruit or a user) into a list of numbers that can be compared.
   Cosine similarity
 
+## Extra Algorithms
+
+- Linear regression
+- Inverted indexes
+- The Fourier transform
+- Parallel algorithms
+- distributed algorithm (map/reduce)
+- probabilistic algorithms (Bloom filters and HyperLogLog)
+- HTTPS and the Diffie–Hellman key exchange
+- Min heaps and priority queues
+- heap sort
+- Simplex algorithm (Linear programming)
+
 ## Data Structures
 
 - Array
