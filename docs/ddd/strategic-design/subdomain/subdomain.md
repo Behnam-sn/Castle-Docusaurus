@@ -6,8 +6,7 @@ sidebar_position: 2
 
 ## What is a Subdomain?
 
-A subdomain is a fine-grained area of business activity.
-
+A subdomain is a fine-grained area of business activity.  
 All of a company’s subdomains form its business domain: the service it provides to its customers.
 
 ## How Many Subdomains a Company Needs?
