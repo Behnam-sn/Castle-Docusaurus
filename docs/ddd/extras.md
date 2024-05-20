@@ -53,6 +53,8 @@ guage in one bounded context can model the business domain to solve a particular
 problem. Another bounded context can represent the same business entities but
 model them to solve a different problem.
 
+bounded contexts: software components implementing different models of the business domain.
+
 ## business problem
 
 A business problem can be challenges associated with optimizing workflows and processes, minimizing manual labor, managing resources, supporting decisions, managing data, and so on.
