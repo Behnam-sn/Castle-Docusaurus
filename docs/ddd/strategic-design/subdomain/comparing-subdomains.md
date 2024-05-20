@@ -19,7 +19,7 @@ Let’s see their differences from different angles and see how they affect stra
 
 Core subdomains provide the company its ability to compete with other players in the industry.  
 That’s a business-critical responsibility,  
-But does it mean that supporting and generic subdomains are not important? Of course not.
+But does it mean that supporting and generic subdomains are not important? of course not.
 
 All subdomains are required for the company to work in its business domain.  
 The subdomains are like foundational building blocks,  
