@@ -37,10 +37,21 @@ business logic implementation patterns that allow the code to speak the ubiquito
 
 This article begins our exploration of the different ways to model and implement business logic code.
 
-- Transaction script
-- Active record
-- domain model pattern : DDD’s way of implementing complex business logic
-- Events: you will learn to expand the domain model pattern by modeling the dimension of time.
+- ### Transaction Script
+
+  This pattern organizes the system’s operations as simple, straightforward procedural scripts.  
+  The procedures ensure that each operation is transactional (either it succeeds or it fails).  
+  The transaction script pattern lends itself to supporting subdomains, with business logic resembling simple, ETL-like operations.
+
+- ### Active Record
+
+- ### Domain Model Pattern
+
+  DDD’s way of implementing complex business logic
+
+- ### Events
+
+  You will learn to expand the domain model pattern by modeling the dimension of time.
 
 ## References
 
