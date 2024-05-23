@@ -6,7 +6,8 @@ sidebar_position: 1
 
 ## What is Transaction Script Pattern?
 
-> Organizes business logic by procedures where each procedure handles a single request from the presentation.  
+> Transaction script organizes business logic by procedures,  
+> Where each procedure handles a single request from the presentation.  
 > — Martin Fowler
 
 A system’s public interface can be seen as a collection of business transactions that consumers can execute.  
@@ -25,12 +26,9 @@ The only requirement procedures have to fulfill is transactional behavior:
 _Each operation should either succeed or fail but can never result in an invalid state._
 
 Even if execution of a transaction script fails at the most inconvenient moment, the system should remain consistent.  
-Either by rolling back any changes it has made up until the failure or by executing compensating actions.
+Either by rolling back any changes it has made up until the failure, or by executing compensating actions.
 
 The transactional behavior is reflected in the pattern’s name: Transaction Script
-
-It can use a thin abstraction layer for integrating with storage mechanisms,  
-But it is also free to access the databases directly.
 
 Here is an example of a transaction script that converts batches of JSON files into XML files:
 
@@ -44,20 +42,27 @@ DB.MarkJobAsCompleted(job);
 DB.Commit()
 ```
 
-## What are The Challenges Transaction Script Pattern?
+:::tip
+Transaction scripts can use a thin abstraction layer for integrating with storage mechanisms,  
+But it is also free to access the databases directly.
+:::
+
+## What are The Challenges of Transaction Script Pattern?
 
 The transaction script pattern is a foundation for the more advanced business logic implementation patterns.  
 Furthermore, despite its apparent simplicity, it is the easiest pattern to get wrong.
 
-A considerable number of production issues in one way or another, often boiled down to a misimplementation of the transactional behavior of the system’s business logic.
+A considerable number of production issues in one way or another,  
+Often boiled down to a misimplementation of the transactional behavior of the system’s business logic.
 
-Let’s take a look at 3 common, real-life examples of data corruption that results from failing to correctly implement a transaction script:
+Let’s take a look at 3 common, real-life examples of data corruption,  
+That results from failing to correctly implement a transaction script:
 
 ### Lack of Transactional Behavior
 
 A trivial example of failing to implement transactional behavior is to issue multiple updates without an overarching transaction.
 
-Consider the following method that updates a record in the Users table and inserts a record into the `VisitsLog` table:
+Consider the following method that updates a record in the `Users` table and inserts a record into the `VisitsLog` table:
 
 ```cs
 public class LogVisit
@@ -71,7 +76,9 @@ public class LogVisit
 ```
 
 If any issue occurs after the record in the `Users` table was updated,  
-But before appending the log record succeeds, the system will end up in an inconsistent state.  
+But before appending the log record succeeds,  
+The system will end up in an inconsistent state.
+
 The `Users` table will be updated but no corresponding record will be written to the `VisitsLog` table.
 
 The issue can be due to anything from a network outage to a database timeout or deadlock, or even a crash of the server executing the process.
@@ -97,7 +104,8 @@ public class LogVisit
 }
 ```
 
-The fix is easy to implement due to relational databases’ native support of transactions spanning multiple records.  
+The fix is easy to implement due to relational databases’ native support of transactions spanning multiple records.
+
 Things get more complicated when you have to issue multiple updates in a database that doesn’t support multi-record transactions,  
 Or when you are working with multiple storage mechanisms that are impossible to unite in a distributed transaction.
 
@@ -118,7 +126,7 @@ public class LogVisit
 }
 ```
 
-Any failure occurring after line 7 but before line 9 succeeds will corrupt the system’s state.  
+Any failure occurring after executing the query but before publishing the message will corrupt the system’s state.  
 The `Users` table will be updated but the other components won’t be notified as publishing to the message bus has failed.
 
 Unfortunately, fixing the issue is not as easy as in the previous example.  
@@ -149,15 +157,17 @@ Calling the method increases the corresponding counter’s value by 1.
 All the method does is update one value, in one table, residing in one database.  
 Yet this is still a distributed transaction that can potentially lead to inconsistent state.
 
-This example constitutes a distributed transaction because it communicates information to the databases and the external process that called the method.
+This example constitutes a distributed transaction,  
+Because it communicates information to the databases and the external process that called the method.
 
-Although the execute method is of type void, and it doesn’t return any data,  
+Although the execute method is of type `void`, and it doesn’t return any data,  
 It still communicates whether the operation has succeeded or failed:  
 If it failed, the caller will get an exception.
 
 What if the method succeeds, but the communication of the result to the caller fails? For example:
 
-If `LogVisit` is part of a REST service and there is a network outage;  
+If `LogVisit` is part of a REST service and there is a network outage;
+
 Or if both `LogVisit` and the caller are running in the same process,  
 But the process fails before the caller gets to track successful execution of the `LogVisit` action?
 
@@ -173,7 +183,8 @@ And inadvertently leads to corrupting the system’s state.
 There is no simple fix for this issue.  
 It all depends on the business domain and its needs.
 
-In this specific example, one way to ensure transactional behavior is to make the operation idempotent.  
+In this specific example,  
+One way to ensure transactional behavior is to make the operation idempotent;  
 That is, leading to the same result even if the operation repeated multiple times.
 
 For example, we can ask the consumer to pass the value of the counter.  
@@ -195,7 +206,7 @@ public class LogVisit
 }
 ```
 
-Another way to address such an issue is to use _optimistic concurrency control_.  
+Another way to address such an issue is to use _optimistic concurrency control_:  
 Prior to calling the `LogVisit` operation,  
 The caller has read the counter’s current value and passed it to `LogVisit` as a parameter.  
 `LogVisit` will update the counter’s value only if it equals the one initially read by the caller:
@@ -231,12 +242,17 @@ The main advantage of the transaction script pattern is its simplicity.
 It introduces minimal abstractions and minimizes the overhead both in runtime performance and in understanding the business logic.
 
 That said, this simplicity is also the pattern’s disadvantage.  
-The more complex the business logic gets, the more it’s prone to duplicate business logic across transactions, and consequently, to result in inconsistent behavior—when the duplicated code goes out of sync.  
-As a result, transaction script should never be used for core subdomains, as this pattern won’t cope with the high complexity of a core subdomain’s business logic.
+The more complex the business logic gets,  
+The more it’s prone to duplicate business logic across transactions,  
+And consequently, to result in inconsistent behavior—when the duplicated code goes out of sync.
+
+As a result, transaction script should never be used for core subdomains,  
+As this pattern won’t cope with the high complexity of a core subdomain’s business logic.
 
 This simplicity earned the transaction script a dubious reputation.  
 Sometimes the pattern is even treated as an antipattern.  
-After all, if complex business logic is implemented as a transaction script, sooner rather than later it’s going to turn into an unmaintainable, big ball of mud.
+After all, if complex business logic is implemented as a transaction script,  
+Sooner rather than later it’s going to turn into an unmaintainable, big ball of mud.
 
 It should be noted, however, that despite the simplicity, the transaction script pattern is ubiquitous in software development.  
 All the business logic implementation patterns that we will discuss in this and the following chapters, in one way or another, are based on the transaction script pattern.
