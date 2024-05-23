@@ -6,14 +6,14 @@ sidebar_position: 2
 
 ## What is Tactical Design?
 
+The second stage of a DDD-based project is **Tactical Design**.  
+Where we transform the discoveries of strategic design into software architecture and implementation.
+
 In strategic design, we discussed the “what” and “why” of software.  
 You learned to analyze business domains, identify subdomains and their strategic value,  
 And turn the knowledge of business domains into the design of bounded contexts.
 
 In tactical design, we will turn from strategy to tactics: the “how” of software design.
-
-The second stage of a DDD-based project is **Tactical Design**.  
-Where we transform the discoveries of strategic design into software architecture and implementation.
 
 ## What Problem is Tactical Design Trying to Solve?
 
