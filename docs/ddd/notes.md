@@ -2,7 +2,7 @@
 sidebar_position: 99
 ---
 
-# Extras
+# Notes
 
 ## It’s important to identify the core subdomains whose complexity will affect software design
 
