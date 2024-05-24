@@ -45,6 +45,10 @@ This article begins our exploration of the different ways to model and implement
 
 - ### Active Record
 
+  When the business logic is simple but operates on complicated data structures,  
+  You can implement those data structures as active records.  
+  An active record object is a data structure that provides simple CRUD data access methods.
+
 - ### Domain Model Pattern
 
   DDD’s way of implementing complex business logic
