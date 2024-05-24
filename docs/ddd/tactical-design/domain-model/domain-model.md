@@ -1,10 +1,13 @@
 # Domain Model
 
-The domain model pattern is intended to cope with cases of complex business logic.  
-Here, instead of CRUD interfaces, we deal with complicated state transitions, business rules, and invariants:  
-Rules that have to be protected at all times.
+## What is Domain Model Pattern?
 
-## Implementation
+The domain model pattern is intended to cope with cases of complex business logic.
+
+Here, instead of CRUD interfaces, we deal with:  
+Complicated state transitions,  
+Business rules,  
+And invariants (Rules that have to be protected at all times).
 
 A domain model is an object model of the domain that incorporates both behavior and data.  
 DDD’s tactical patterns—aggregates, value objects, domain events, and domain services—are the building blocks of such an object model.
