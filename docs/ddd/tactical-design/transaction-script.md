@@ -18,6 +18,16 @@ Where each procedure implements an operation that is executed by the system’s 
 
 In effect, the system’s public operations are used as encapsulation boundaries.
 
+```cs
+public interface BackLogService
+{
+    int AddItem(string item);
+    void SetPriority(int itemId, int priority);
+    string[] ListItems();
+    void Assign(int itemId, int sprintId);
+}
+```
+
 ## How to Implement Transaction Script Pattern?
 
 Each procedure is implemented as a simple, straightforward procedural script.
