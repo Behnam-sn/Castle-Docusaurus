@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## What is a Value Object?
 
-Concepts of the business domain that can be identified exclusively by their values  
+Concepts of the business domain that can be identified exclusively by their values;  
 and thus do not require an explicit ID field.
 
 Since a change in one of the fields semantically creates a new value, value objects are immutable.
@@ -16,7 +16,8 @@ Methods manipulating the values and thus initializing new value objects.
 
 ## What Problem Value Object is Trying to Solve?
 
-Relying exclusively on the language’s standard library’s primitive data types (such as strings, integers, or dictionaries) to represent concepts of the business domain is known as the primitive obsession code smell.
+Relying exclusively on the language’s standard library’s primitive data types,  
+Such as strings, integers, or dictionaries to represent concepts of the business domain is known as the primitive obsession code smell.
 
 For example, consider the following class:
 
@@ -49,22 +50,21 @@ static void Main(string[] args)
 }
 ```
 
-In the preceding implementation of the Person class,  
-Most of the values are of type `String` and they are assigned based on convention.
+In the preceding implementation of the `Person` class,  
+Most of the values are of type `string` and they are assigned based on convention.
 
 For example,  
 The input to the `landlinePhone` should be a valid landline phone number,  
 And the `countryCode` should be a valid, two-letter, uppercased country code.
 
-Of course, the system cannot trust the user to always supply correct values, and as a result, the class has to validate all input fields.
+Of course, the system cannot trust the user to always supply correct values,  
+And as a result, the class has to validate all input fields.
 
 This approach presents multiple design risks:
 
 - First, the validation logic tends to be duplicated.
-- Second, it’s hard to enforce calling the validation logic before the values are used.  
-  It will become even more challenging in the future, when the codebase will be evolved by other engineers.
-
-<!-- ## What are Benefits of using Value Object? -->
+- Second, it’s hard to enforce calling the validation logic before the values are used.
+- It will become even more challenging in the future, when the codebase will be evolved by other engineers.
 
 ## What is Value Object Solution?
 
@@ -100,7 +100,8 @@ static void Main(string[] args)
 
 The value object makes the intent clear, even with shorter variable names.
 
-Take, for example, the country variable.  
+For example,  
+The `country` variable.  
 There is no need to elaborately call it `countryCode` to communicate the intent of it holding a country code and not, for example, a full country name.
 
 ### Validation
@@ -113,23 +114,31 @@ As the validation logic resides in the value objects themselves.
 Value objects shine brightest when they centralize the business logic that manipulates the values.  
 The cohesive logic is implemented in one place and is easy to test.
 
+### Intuitive
+
+As you can see in the preceding example, value objects eliminate the need for conventions.  
+For example, the need to keep in mind that this string is an email and the other string is a phone number.  
+And instead makes using the object model less error prone and more intuitive.
+
 ### Ubiquitous Language
 
 Most importantly, value objects express the business domain’s concepts:  
 They make the code speak the ubiquitous language.
 
-### Examples
+## More Examples of Value Objects
 
 Let’s see how representing the concepts of height, phone numbers, and colors as value objects makes the resultant type system rich and intuitive to use.
 
-#### Height Example
+### Height
 
-Compared to an integer-based value, the `Height` value object both makes the intent clear and decouples the measurement from a specific measurement unit.
+Compared to an integer-based value,  
+The `Height` value object both makes the intent clear and decouples the measurement from a specific measurement unit.
 
-For example, the `Height` value object can be initialized using both metric and imperial units;  
+For example,  
+The `Height` value object can be initialized using both metric and imperial units;  
 Making it easy to convert from one unit to another,  
 Generating string representation,  
-And comparing values of different units:
+And comparing values of different units.
 
 ```cs
 var heightMetric = Height.Metric(180);
@@ -142,7 +151,7 @@ var string3 = heightMetric.ToImperial().ToString(); // "5 feet 11 inches"
 var firstIsHigher = heightMetric > heightImperial;  // true
 ```
 
-#### Phone Number Example
+### Phone Number
 
 The `PhoneNumber` value object can encapsulate the logic of parsing a string value, validating it, and extracting different attributes of the phone number.
 
@@ -155,7 +164,7 @@ var phoneType = phone.PhoneType;                    // "MOBILE"
 var isValid = PhoneNumber.IsValid("+972120266680"); // false
 ```
 
-#### Color Example
+### Color
 
 The following example demonstrates the power of a value object when it encapsulates all of the business logic that manipulates the data and produces new instances of the value object:
 
@@ -166,16 +175,13 @@ var yellow = red.MixWith(green);
 var yellowString = yellow.ToString(); // "#FFFF00"
 ```
 
-As you can see in the preceding examples, value objects eliminate the need for conventions.  
-For example, the need to keep in mind that this string is an email and the other string is a phone number.  
-And instead makes using the object model less error prone and more intuitive.
-
-#### String Example
+### String
 
 Although using a core library’s Strings to represent domain-specific values contradicts the notion of value objects, in .NET, Java, and other languages the string type is implemented exactly as a value object.
 
 Strings are immutable, as all operations result in a new instance.  
-Moreover, the string type encapsulates a rich behavior that creates new instances by manipulating the values of one or more strings: trim, concatenate multiple strings, replace characters, substring, and other methods.
+Moreover, the string type encapsulates a rich behavior that creates new instances by manipulating the values of one or more strings:  
+trim, concatenate multiple strings, replace characters, substring, and other methods.
 
 ## How to Implement a Value Object?
 
@@ -295,3 +301,7 @@ by their values and thus do not require an explicit identification field.
 
 An especially important opportunity to introduce a value object is when modeling money and other monetary values.  
 Relying on primitive types to represent money not only limits your ability to encapsulate all money-related business logic in one place, but also often leads to dangerous bugs, such as rounding errors and other precision-related issues.
+
+## References
+
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly
