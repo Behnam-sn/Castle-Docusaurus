@@ -17,7 +17,8 @@ Methods manipulating the values and thus initializing new value objects.
 ## What Problem Value Object is Trying to Solve?
 
 Relying exclusively on the language’s standard library’s primitive data types,  
-Such as strings, integers, or dictionaries to represent concepts of the business domain is known as the primitive obsession code smell.
+Such as strings, integers, or dictionaries to represent concepts of the business domain,  
+Is known as the primitive obsession code smell.
 
 For example, consider the following class:
 
@@ -96,12 +97,14 @@ static void Main(string[] args)
 }
 ```
 
+Let's review the benefits of using value objects:
+
 ### Clarity
 
-The value object makes the intent clear, even with shorter variable names.
+The value object makes the intent clear,  
+Even with shorter variable names.
 
-For example,  
-The `country` variable.  
+For example, the `country` variable.  
 There is no need to elaborately call it `countryCode` to communicate the intent of it holding a country code and not, for example, a full country name.
 
 ### Validation
@@ -209,7 +212,7 @@ Therefore, no explicit identification field is needed to identify colors.
 ### Immutability
 
 Since a change to any of the fields of a value object results in a different value,  
-value objects are implemented as immutable objects.
+Value objects are implemented as immutable objects.
 
 A change to one of the value object’s fields conceptually creates a different value (a different instance of a value object).
 
@@ -221,7 +224,6 @@ it doesn’t modify the original instance but instantiates and returns a new one
 ```cs
 public class Color
 {
-    ...
     public Color(byte r, byte g, byte b)
     {
         this.Red = r;
@@ -237,9 +239,11 @@ public class Color
             b: (byte) Math.Min(this.Blue + other.Blue, 255)
         );
     }
-    ...
 }
 ```
+
+Since value objects are immutable,  
+The value objects behavior is free of side effects and is thread safe.
 
 ### Equality Checks
 
@@ -251,7 +255,6 @@ For example:
 ```cs
 public class Color
 {
-    ...
     public override bool Equals(object obj)
     {
         var other = obj as Color;
@@ -278,7 +281,6 @@ public class Color
     {
         return ToString().GetHashCode();
     }
-    ...
 }
 ```
 
@@ -286,16 +288,14 @@ public class Color
 
 The simple answer is, whenever you can.
 
-Not only do value objects make the code more expressive and encapsulate business logic that tends to spread apart, but the pattern makes the code safer.
-
-Since value objects are immutable, the value objects’ behavior is free of side effects and is thread safe.
+Not only do value objects make the code more expressive,  
+And encapsulate business logic that tends to spread apart,  
+But the pattern makes the code safer.
 
 From a business domain perspective,  
-A useful rule of thumb is to use value objects for the domain’s elements that describe properties of other objects.  
-This namely applies to properties of entities.
+A useful rule of thumb is to use value objects for the domain’s elements that describe properties of other objects.
 
-The examples you saw earlier used value objects to describe a person, including their ID, name, phone numbers, email, and so on.
-
+The examples you saw earlier used value objects to describe a person, including their ID, name, phone numbers, email, and so on.  
 Other examples of using value objects include various statuses, passwords, and more business domain–specific concepts that can be identified
 by their values and thus do not require an explicit identification field.
 
