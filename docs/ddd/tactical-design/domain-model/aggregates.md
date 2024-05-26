@@ -7,12 +7,15 @@ sidebar_position: 3
 ## What is an Aggregate?
 
 An aggregate is an entity.  
-It requires an explicit identification field and its state is expected to change during an instance’s lifecycle.  
+It requires an explicit identification field and its state is expected to change during an instance’s lifecycle.
+
 However, it is much more than just an entity.
 
 <!-- ## Why of Aggregate -->
 
-Since an aggregate’s data is mutable,  
+## What Problem Aggregate is Trying to Solve?
+
+Since an entity's data is mutable,  
 It creates an opening for multiple ways in which its data can become corrupted.
 
 The goal of the pattern is to protect the consistency of its data.  
