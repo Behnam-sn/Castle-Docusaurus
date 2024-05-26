@@ -6,8 +6,10 @@ sidebar_position: 3
 
 ## What is an Aggregate?
 
-An aggregate is an entity.  
-It requires an explicit identification field and its state is expected to change during an instance’s lifecycle.
+An aggregate is an entity.
+
+It requires an explicit identification field,  
+And its state is expected to change during an instance’s lifecycle.
 
 However, it is much more than just an entity.
 
@@ -16,21 +18,25 @@ However, it is much more than just an entity.
 ## What Problem Aggregate is Trying to Solve?
 
 Since an entity's data is mutable,  
-It creates an opening for multiple ways in which its data can become corrupted.
+It creates an opening for its data to become corrupted.
 
-The goal of the pattern is to protect the consistency of its data.  
+_The goal of the pattern is to protect the consistency of its data._
+
 There are implications and challenges that the pattern has to address to keep its state consistent at all times.
 
 <!-- ### Consistency Enforcement -->
 
-## How Aggregate Enforces Consistency?
+## How Aggregate Pattern Enforces Consistency?
 
 To enforce consistency of the data,  
 The aggregate pattern draws a clear boundary between the aggregate and its outer scope.
 
 _The aggregate is a consistency enforcement boundary._
 
-The aggregate’s logic has to validate all incoming modifications and ensure that the changes do not contradict its business rules.
+The aggregate’s logic has to validate all incoming modifications,  
+And ensure that the changes do not contradict its business rules.
+
+## How to Implement Aggregate Pattern?
 
 From an implementation perspective,  
 The consistency is enforced by allowing only the aggregate’s business logic to modify its state.
@@ -38,7 +44,9 @@ The consistency is enforced by allowing only the aggregate’s business logic to
 All processes or objects external to the aggregate are only allowed to read the aggregate’s state.  
 Its state can only be mutated by executing corresponding methods of the aggregate’s public interface.
 
-The state-modifying methods exposed as an aggregate’s public interface are often referred to as _commands_, as in “a command to do something”.
+The state-modifying methods,  
+Exposed as an aggregate’s public interface,  
+Are often referred to as _commands_, as in _a command to do something_.
 
 An aggregate’s public interface is responsible for validating the input and enforcing all of the relevant business rules and invariants.
 
