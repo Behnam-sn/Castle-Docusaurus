@@ -37,6 +37,8 @@ Attempting to implement this logic using active record objects will make it easy
 
 ## What is Domain Model Pattern Solution?
 
+some patterns.
+
 Let’s see how the domain model addresses different design concerns:
 
 ### Complexity
