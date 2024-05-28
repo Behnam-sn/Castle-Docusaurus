@@ -81,30 +81,6 @@ A command can be implemented in two ways:
 How commands are expressed in an aggregate’s code is a matter of preference.  
 I prefer the more explicit way of defining command structures and passing them polymorphically to the relevant Execute method.
 
-## Aggregate vs Entity
+## References
 
-### Hierarchy of Entities
-
-As we discussed earlier, we don’t use entities as an independent pattern, only as part of an aggregate.
-
-Let’s see the fundamental difference between entities and aggregates,  
-And why entities are a building block of an aggregate rather than of the overarching domain model.
-
-There are business scenarios in which multiple objects should share a transactional boundary;  
-For example, when both can be modified simultaneously,  
-Or the business rules of one object depend on the state of another object.
-
-DDD prescribes that a system’s design should be driven by its business domain.
-
-Aggregates are no exception.  
-To support changes to multiple objects that have to be applied in one atomic transaction,  
-The aggregate pattern resembles a hierarchy of entities, all sharing transactional consistency.
-
-The hierarchy contains both entities and value objects,  
-And all of them belong to the same aggregate if they are bound by the domain’s business logic.
-
-That’s why the pattern is named **Aggregate**:  
-It aggregates business entities and value objects that belong to the same transaction boundary.
-
-The aggregate ensures that all the conditions are checked against strongly consistent data,  
-And it won’t change after the checks are completed by ensuring that all changes to the aggregate’s data are performed as one atomic transaction.
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly
