@@ -75,3 +75,60 @@ And hence, wrong aggregate boundaries.
 This seems to impose a modeling limitation.  
 What if we need to modify multiple objects in the same transaction?  
 Let’s see how the pattern addresses such situations.
+
+## Hierarchy of Entities
+
+As we discussed earlier,  
+We don’t use entities as an independent pattern,  
+Only as part of an aggregate.
+
+Let’s see the fundamental difference between entities and aggregates,  
+And why entities are a building block of an aggregate rather than of the overarching domain model.
+
+There are business scenarios in which multiple objects should share a transactional boundary;  
+For example, when both can be modified simultaneously,  
+Or the business rules of one object depend on the state of another object.
+
+DDD prescribes that a system’s design should be driven by its business domain.  
+Aggregates are no exception.
+
+To support changes to multiple objects that have to be applied in one atomic transaction,  
+The aggregate pattern resembles a hierarchy of entities, all sharing transactional consistency.
+
+```cs
+ticket
+message
+attachment
+```
+
+The hierarchy contains both entities and value objects,  
+And all of them belong to the same aggregate,  
+If they are bound by the domain’s business logic.
+
+That’s why the pattern is named **Aggregate**:  
+It aggregates business entities and value objects that belong to the same transaction boundary.
+
+The following code sample demonstrates a business rule that spans multiple entities belonging to the aggregate’s boundary:
+
+“If an agent didn’t open an escalated ticket within 50% of the response time limit,  
+it is automatically reassigned to a different agent”
+
+```cs
+public class Ticket
+{
+    private List<Message> _messages;
+
+    public void Execute(EvaluateAutomaticActions cmd)
+    {
+        if (this.IsEscalated && this.RemainingTimePercentage < 0.5 && GetUnreadMessagesCount(for: AssignedAgent) > 0)
+        {
+            _agent = AssignNewAgent();
+        }
+    }
+
+    public int GetUnreadMessagesCount(UserId id)
+    {
+        return _messages.Where(x => x.To == id && !x.WasRead).Count();
+    }
+}
+```
