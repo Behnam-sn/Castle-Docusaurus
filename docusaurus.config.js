@@ -86,7 +86,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
-        additionalLanguages: ["csharp", "gherkin"],
+        additionalLanguages: ["csharp", "gherkin", "json"],
       },
     }),
 };
