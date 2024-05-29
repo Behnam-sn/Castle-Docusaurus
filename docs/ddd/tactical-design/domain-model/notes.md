@@ -6,6 +6,15 @@
 
 The inability to modify the objects’ state externally ensures that all the relevant business logic is implemented in the boundaries of aggregates and value objects and won’t be duplicated in the application layer.
 
+## Aggregate
+
+The data fields are read-only for external components,  
+For the sake of ensuring that all the business logic related to the aggregate resides in its boundaries.
+
+The aggregate acts as a transactional boundary.  
+All of its data, including all of its internal objects,  
+Has to be committed to the database as one atomic transaction.
+
 ## Aggregate Pattern & Databases
 
 ### Concurrency
