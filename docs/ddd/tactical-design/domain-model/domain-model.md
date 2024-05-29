@@ -64,9 +64,31 @@ Let’s look at the central domain model building blocks, or tactical patterns, 
 
 - ### Value Objects
 
+  Concepts of the business domain that can be identified exclusively by their values,  
+  And thus do not require an explicit ID field.  
+  Since a change in one of the fields semantically creates a new value, value objects are immutable.
+
+  Value objects model not only data, but behavior as well.  
+  Methods manipulating the values and thus initializing new value objects.
+
 - ### Aggregates
 
+  A hierarchy of entities sharing a transactional boundary.  
+  All of the data included in an aggregate’s boundary has to be strongly consistent to implement its business logic.
+
+  The state of the aggregate, and its internal objects,  
+  Can only be modified through its public interface, by executing the aggregate’s commands.
+
+- ### Domain Events
+
+  An aggregate can communicate with external entities, by publishing domain events.  
+  Domain events are messages describing important business events in the aggregate’s lifecycle.  
+  Other components can subscribe to the events and use them to trigger the execution of business logic.
+
 - ### Domain Services
+
+  A stateless object that hosts business logic that naturally doesn’t belong to any of
+  the domain model’s aggregates or value objects.
 
 All of these patterns share a common theme:  
 They put the business logic first.
