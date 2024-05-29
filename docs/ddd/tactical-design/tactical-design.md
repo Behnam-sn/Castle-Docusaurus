@@ -51,7 +51,10 @@ This article begins our exploration of the different ways to model and implement
 
 - ### Domain Model Pattern
 
-  DDD’s way of implementing complex business logic
+  Domain Model Pattern is the DDD’s way of implementing complex business logic.
+
+  The domain model’s building blocks tackle the complexity of the business logic,  
+  By encapsulating it in the boundaries of value objects and aggregates.
 
 - ### Events
 
