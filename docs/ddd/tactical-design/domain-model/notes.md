@@ -4,6 +4,8 @@
 
 <!-- also page 112 of the book is out of place -->
 
+The inability to modify the objects’ state externally ensures that all the relevant business logic is implemented in the boundaries of aggregates and value objects and won’t be duplicated in the application layer.
+
 ## Aggregate Pattern & Databases
 
 ### Concurrency
