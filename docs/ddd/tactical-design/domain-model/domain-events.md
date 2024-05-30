@@ -47,7 +47,7 @@ Make sure the names of the domain events succinctly reflect exactly what has hap
 
 Domain events are part of an aggregate’s public interface.
 
-An aggregate publishes its domain events.  
+An aggregate publishes its domain events,  
 Other processes, aggregates, or even external systems,  
 Can subscribe to and execute their own logic in response to the domain events.
 
