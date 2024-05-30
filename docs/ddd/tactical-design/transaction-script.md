@@ -13,8 +13,8 @@ sidebar_position: 1
 A system’s public interface can be seen as a collection of business transactions that consumers can execute.  
 These transactions can retrieve information managed by the system, modify it, or both.
 
-The pattern organizes the system’s business logic based on procedures,  
-Where each procedure implements an operation that is executed by the system’s consumer via its public interface.
+<!-- The pattern organizes the system’s business logic based on procedures,
+Where each procedure implements an operation that is executed by the system’s consumer via its public interface. -->
 
 In effect, the system’s public operations are used as encapsulation boundaries.
 
