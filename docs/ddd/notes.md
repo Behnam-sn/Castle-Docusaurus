@@ -90,3 +90,11 @@ public ExecutionResult Escalate(TicketId id, EscalationReason reason)
     }
 }
 ```
+
+## Strategic and Tactical Design
+
+In strategic design, we discussed the “what” and “why” of software.  
+You learned to analyze business domains, identify subdomains and their strategic value,  
+And turn the knowledge of business domains into the design of bounded contexts.
+
+In tactical design, we will turn from strategy to tactics: the “how” of software design.
