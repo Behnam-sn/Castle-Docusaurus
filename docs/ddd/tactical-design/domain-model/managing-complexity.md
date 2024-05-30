@@ -4,6 +4,8 @@ sidebar_position: 6
 
 # Managing Complexity
 
+## How Domain Model Pattern is Managing Complexity?
+
 As perviously mentioned,  
 The aggregate and value object patterns were introduced as a means for tackling complexity in the implementation of business logic.
 
@@ -71,14 +73,14 @@ But on top of that, it implements additional calculations.
 Is it more complex than `ClassA`?  
 Let’s analyze both classes from the degrees-of-freedom perspective.
 
-## ClassA
+### ClassA
 
 How many data elements do you need to describe the state of ClassA?
 
 The answer is five: its five variables.  
 Hence, `ClassA` has five degrees of freedom.
 
-## ClassB
+### ClassB
 
 How many data elements do you need to describe the state of ClassB?
 
