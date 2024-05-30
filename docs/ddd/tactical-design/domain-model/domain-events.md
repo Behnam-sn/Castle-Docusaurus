@@ -4,20 +4,29 @@ sidebar_position: 4
 
 # Domain Events
 
-A domain event is a message describing a significant event that has occurred in the business domain.  
+## What is a Domain Event?
+
+A domain event is a message describing a significant event that has occurred in the business domain.
+
 For example:
 
 - Ticket assigned
 - Ticket escalated
 - Message received
 
+:::tip
 Since domain events describe something that has already happened,  
 Their names should be formulated in the past tense.
+:::
 
-The goal of a domain event is to describe what has happened in the business domain  
+## What Problem Domain Events are Trying to Solve?
+
+The goal of a domain event is to describe what has happened in the business domain,  
 And provide all the necessary data related to the event.
 
-For example, the following domain event communicates that the specific ticket was escalated, at what time, and for what reason:
+For example:  
+The following domain event communicates,  
+That the specific ticket was escalated, at what time, and for what reason:
 
 ```json
 {
@@ -29,14 +38,21 @@ For example, the following domain event communicates that the specific ticket wa
 }
 ```
 
+:::tip
 As with almost everything in software engineering, naming is important.  
 Make sure the names of the domain events succinctly reflect exactly what has happened in the business domain.
+:::
 
-Domain events are part of an aggregate’s public interface.  
+## How to Implement Domain Events?
+
+Domain events are part of an aggregate’s public interface.
+
 An aggregate publishes its domain events.  
-Other processes, aggregates, or even external systems can subscribe to and execute their own logic in response to the domain events.
+Other processes, aggregates, or even external systems,  
+Can subscribe to and execute their own logic in response to the domain events.
 
-In the following excerpt from the `Ticket` aggregate, a new domain event is instantiated,  
+In the following excerpt from the `Ticket` aggregate,  
+A new domain event is instantiated,  
 And appended to the collection of the ticket’s domain events:
 
 ```cs
