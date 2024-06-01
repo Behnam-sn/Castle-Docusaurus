@@ -71,6 +71,8 @@ Let’s look at the central domain model building blocks, or tactical patterns, 
   Value objects model not only data, but behavior as well.  
   Methods manipulating the values and thus initializing new value objects.
 
+- ### Entities
+
 - ### Aggregates
 
   A hierarchy of entities sharing a transactional boundary.  
