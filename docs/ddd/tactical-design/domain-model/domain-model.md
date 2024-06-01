@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # Domain Model
 
 ## What is Domain Model Pattern?
