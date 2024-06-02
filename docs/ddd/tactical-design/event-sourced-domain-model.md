@@ -16,6 +16,15 @@ The event-sourced domain model uses the **event sourcing pattern** to manage the
 Instead of persisting an aggregate’s state,  
 The model generates domain events describing each change and uses them as the source of truth for the aggregate’s data.
 
+## Why “Event-Sourced Domain Model”?
+
+I feel obliged to explain why I use the term _event-sourced domain model_ rather than just _event sourcing_.
+
+Using events to represent state transitions (the event sourcing pattern),  
+Is possible with or without the domain model’s building blocks.
+
+Therefore, I prefer the longer term to explicitly state that we are using event sourcing to represent changes in the lifecycles of the domain model’s aggregates.
+
 ## Event Sourcing
 
 > Show me your flowchart and conceal your tables, and I shall continue to be mystified.  
@@ -621,3 +630,83 @@ So, let’s discuss some of the challenges presented by the pattern:
 
 All of these challenges are even more acute,  
 If the task at hand doesn’t justify the use of the pattern and instead can be addressed by a simpler design.
+
+## Frequently Asked Questions
+
+When engineers are introduced to the event sourcing pattern,  
+They often ask several common questions.
+
+- ### Performance
+
+  Reconstituting an aggregate’s state from events will negatively affect the system’s performance.  
+  It will degrade as events are added.  
+  How can this even work?
+
+  Projecting events into a state representation indeed requires compute power,  
+  And that need will grow as more events are added to an aggregate’s list.
+
+  It’s important to benchmark a projection’s impact on performance:  
+  The effect of working with hundreds or thousands of events.
+
+  The results should be compared with the expected lifespan of an aggregate,  
+  Which is the number of events expected to be recorded during an average lifespan.
+
+  In most systems,  
+  The performance hit will be noticeable only after 10,000+ events per aggregate.
+
+  That said, in the vast majority of systems,  
+  An aggregate’s average lifespan won’t go over 100 events.
+
+  In the rare cases when projecting states does become a performance issue,  
+  Another pattern can be implemented: snapshot.
+
+<!-- page 113 -->
+
+- ### This model generates enormous amounts of data. Can it scale?
+
+  The event-sourced model is easy to scale.  
+  Since all aggregate-related operations are done in the context of a single aggregate,  
+  The event store can be sharded by aggregate IDs:  
+  All events belonging to an instance of an aggregate should reside in a single shard.
+
+- ### Deleting Data
+
+  The event store is an append-only database,  
+  But what if I do need to delete data physically;  
+  For example, to comply with GDPR?
+
+  This need can be addressed with the forgettable payload pattern: all sensitive
+  information is included in the events in encrypted form. The encryption key is
+  stored in an external key–value store: the key storage, where the key is a specific
+  aggregate’s ID and the value is the encryption key. When the sensitive data has to
+  be deleted, the encryption key is deleted from the key storage. As a result, the
+  sensitive information contained in the events is no longer accessible.
+
+- ### Why Can’t I Just…?
+
+Why can’t I just write logs to a text file and use it as an audit log?
+Writing data both to an operational database and to a logfile is an error-prone
+operation. In its essence, it’s a transaction against two storage mechanisms: the
+database and the file. If the first one fails, the second one has to be rolled back.
+For example, if a database transaction fails, no one cares to delete the prior log
+messages. Hence, such logs are not consistent, but rather, eventually inconsistent.
+
+Why can’t I keep working with a state-based model, but in the same database transac‐
+tion, append logs to a logs table?
+From an infrastructural perspective, this approach does provide consistent syn‐
+chronization between the state and the log records. However, it is still error
+prone. What if the engineer who will be working on the codebase in the future
+forgets to append an appropriate log record?
+
+Furthermore, when the state-based representation is used as the source of truth,
+the additional log table’s schema usually degrades into chaos quickly. There is no
+way to enforce that all required information is written and that it is written in the
+correct format.
+
+Why can’t I just keep working with a state-based model but add a database trigger that
+will take a snapshot of the record and copy it into a dedicated “history” table?
+This approach overcomes the previous one’s drawback: no explicit manual calls
+are needed to append records to the log table. That said, the resultant history
+only includes the dry facts: what fields were changed. It misses the business con‐
+texts: why the fields were changed. The lack of “why” drastically limits the ability
+to project additional models.
