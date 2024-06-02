@@ -421,3 +421,114 @@ The financial industry uses events to represent changes in a ledger.
 A ledger is an append-only log that documents transactions.  
 A current state (e.g., account balance) can always be deduced by “projecting” the ledger’s records.
 :::
+
+## Event-Sourced Domain Model Pattern
+
+The original domain model maintains a state representation of its aggregates and emits select domain events.  
+The event-sourced domain model uses domain events exclusively for modeling the aggregates’ lifecycles.
+
+All changes to an aggregate’s state have to be expressed as domain events.
+
+Each operation on an event-sourced aggregate follows this script:
+
+- Load the aggregate’s domain events.
+- Reconstitute a state representation—project the events into a state representation that can be used to make business decisions.
+- Execute the aggregate’s command to execute the business logic, and consequently, produce new domain events.
+- Commit the new domain events to the event store.
+
+Going back to the example of the `Ticket` aggregate,  
+Let’s see how it would be implemented as an event-sourced aggregate.
+
+The application service follows the script described earlier:  
+It loads the relevant ticket’s events,  
+Rehydrates the aggregate instance,  
+Calls the relevant command,  
+And persists changes back to the database:
+
+```cs
+public class TicketAPI
+{
+    private ITicketsRepository _ticketsRepository;
+
+    public void RequestEscalation(TicketId id, EscalationReason reason)
+    {
+        var events = _ticketsRepository.LoadEvents(id);
+        var ticket = new Ticket(events);
+        var originalVersion = ticket.Version;
+        var cmd = new RequestEscalation(reason);
+        ticket.Execute(cmd);
+        _ticketsRepository.CommitChanges(ticket, originalVersion);
+    }
+}
+```
+
+The `Ticket` aggregate’s rehydration logic in the constructor,
+Instantiates an instance of the state projector class, `TicketState`,  
+And sequentially calls its `AppendEvent` method for each of the ticket’s events:
+
+```cs
+public class Ticket
+{
+    private List<DomainEvent> _domainEvents = new List<DomainEvent>();
+    private TicketState _state;
+
+    public Ticket(IEnumerable<IDomainEvents> events)
+    {
+        _state = new TicketState();
+        foreach (var e in events)
+        {
+            AppendEvent(e);
+        }
+    }
+
+    private void AppendEvent(IDomainEvent @event)
+    {
+        _domainEvents.Append(@event);
+        // Dynamically call the correct overload of the “Apply” method.
+        ((dynamic)state).Apply((dynamic)@event);
+    }
+
+    public void Execute(RequestEscalation cmd)
+    {
+        if (!_state.IsEscalated && _state.RemainingTimePercentage <= 0)
+        {
+            var escalatedEvent = new TicketEscalated(_id, cmd.Reason);
+            AppendEvent(escalatedEvent);
+        }
+    }
+}
+```
+
+The `AppendEvent` passes the incoming events to the `TicketState` projection logic,  
+Thus generating the in-memory representation of the ticket’s current state:
+
+Contrary to the implementation we saw in the previously,  
+The event-sourced aggregate’s RequestEscalation method doesn’t explicitly set the `IsEscalated` flag to `true`.  
+Instead, it instantiates the appropriate event and passes it to the `AppendEvent` method.
+
+All events added to the aggregate’s events collection are passed to the state projection logic in the `TicketState` class,  
+Where the relevant fields’ values are mutated according to the events’ data:
+
+```cs
+public class TicketState
+{
+    public TicketId Id { get; private set; }
+    public int Version { get; private set; }
+    public bool IsEscalated { get; private set; }
+
+    public void Apply(TicketInitialized @event)
+    {
+        Id = @event.Id;
+        Version = 0;
+        IsEscalated = false;
+    }
+
+    public void Apply(TicketEscalated @event)
+    {
+        IsEscalated = true;
+        Version += 1;
+    }
+}
+```
+
+Now let’s look at some of the advantages of leveraging event sourcing when implementing complex business logic.
