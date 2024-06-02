@@ -532,3 +532,92 @@ public class TicketState
 ```
 
 Now let’s look at some of the advantages of leveraging event sourcing when implementing complex business logic.
+
+### Advantages
+
+Compared to the more traditional model,  
+In which the aggregates’ current states are persisted in a database,  
+The event-sourced domain model requires more effort to model the aggregates.
+
+However, this approach brings significant advantages that make the pattern worth considering in many scenarios:
+
+- #### Time traveling
+
+  Just as the domain events can be used to reconstitute an aggregate’s current state,  
+  they can also be used to restore all past states of the aggregate.  
+  In other words, you can always reconstitute all the past states of an aggregate.
+
+  This is often done when analyzing the system’s behavior,  
+  Inspecting the system’s decisions,  
+  And optimizing the business logic.
+
+  Another common use case for reconstituting past states is retroactive debugging:  
+  You can revert the aggregate to the exact state it was in when a bug was observed.
+
+- #### Deep insight
+
+  We know that optimizing core subdomains is strategically important for the business.  
+  Event sourcing provides deep insight into the system’s state and behavior.
+
+  As you learned earlier in this chapter,  
+  Event sourcing provides the flexible model that allows for transforming the events into different state representations,
+  You can always add new projections that will leverage the existing events’ data to provide additional insights.
+
+- #### Audit log
+
+  The persisted domain events represent a strongly consistent audit log of everything that has happened to the aggregates’ states.
+
+  Laws oblige some business domains to implement such audit logs,  
+  And event sourcing provides this out of the box.
+
+  This model is especially convenient for systems managing money or monetary transactions.  
+  It allows us to easily trace the system’s decisions and the flow of funds between accounts.
+
+- #### Advanced optimistic concurrency management
+
+  The classic optimistic concurrency model raises an exception,  
+  When the read data becomes stale (overwritten by another process) while it is being written.
+
+  When using event sourcing,  
+  We can gain deeper insight into exactly what has happened between reading the existing events and writing the new ones.  
+  You can query the exact events that were concurrently appended to the event store,  
+  And make a business domain–driven decision,  
+  As to whether the new events collide with the attempted operation,  
+  Or the additional events are irrelevant and it’s safe to proceed.
+
+### Disadvantages
+
+So far it may seem that the event-sourced domain model is the ultimate pattern for implementing business logic,  
+And thus should be used as often as possible.
+
+Of course,
+That would contradict the principle of letting the business domain’s needs drive the design decisions.
+
+So, let’s discuss some of the challenges presented by the pattern:
+
+- #### Learning curve
+
+  The obvious disadvantage of the pattern is its sharp difference from the traditional techniques of managing data.  
+  Successful implementation of the pattern demands training of the team and time to get used to the new way of thinking.
+
+  Unless the team already has experience implementing event-sourced systems,  
+  The learning curve has to be taken into account.
+
+- #### Evolving the model
+
+  Evolving an event-sourced model can be challenging.  
+  The strict definition of event sourcing says that events are immutable.
+
+  But what if you need to adjust the event’s schema?  
+  The process is not as simple as changing a table’s schema.
+
+  In fact, a whole book was written on this subject alone:  
+  Versioning in an Event Sourced System by Greg Young.
+
+- #### Architectural complexity
+
+  Implementation of event sources introduces numerous architectural “moving parts”,  
+  Making the overall design more complicated.
+
+All of these challenges are even more acute,  
+If the task at hand doesn’t justify the use of the pattern and instead can be addressed by a simpler design.
