@@ -370,3 +370,54 @@ However, to actually implement the required functionality, we have to persist th
 
 You will learn about a pattern that allows us to do that:  
 command-query responsibility segregation (CQRS).
+
+## Source of Truth
+
+For the event sourcing pattern to work,  
+All changes to an object’s state should be represented and persisted as events.
+
+These events become the system’s source of truth (hence the name of the pattern).
+
+The database that stores the system’s events is the only strongly consistent storage:  
+The system’s source of truth.
+
+The accepted name for the database that is used for persisting events is **Event Store**.
+
+## Event Store
+
+The event store is a append-only storage.  
+And should not allow modifying or deleting the events.  
+Except for exceptional cases, such as data migration.
+
+To support implementation of the event sourcing pattern,  
+At a minimum the event store has to support the following functionality:
+
+- Fetch all events belonging to a specific business entity
+- And append the events
+
+For example:
+
+```cs
+interface IEventStore
+{
+    IEnumerable<Event> Fetch(Guid instanceId);
+    void Append(Guid instanceId, Event[] newEvents, int expectedVersion);
+}
+```
+
+The `expectedVersion` argument in the `Append` method is needed to implement optimistic concurrency management:
+
+When you append new events,  
+You also specify the version of the entity on which you are basing your decisions.
+
+If it’s stale, that is, new events were added after the expected version,  
+The event store should raise a concurrency exception.
+
+In most systems, additional endpoints are needed for implementing the CQRS pattern.
+
+:::note
+In essence, the event sourcing pattern is nothing new.  
+The financial industry uses events to represent changes in a ledger.  
+A ledger is an append-only log that documents transactions.  
+A current state (e.g., account balance) can always be deduced by “projecting” the ledger’s records.
+:::
