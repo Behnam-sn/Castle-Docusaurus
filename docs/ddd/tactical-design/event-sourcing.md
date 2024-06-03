@@ -15,6 +15,17 @@ sidebar_position: 5
 Let’s use Fred Brooks’s reasoning to define the event sourcing pattern,  
 And understand how it differs from traditional modeling and persisting of data.
 
+For example, take a look at this table:
+
+| lead-id | first-name | last-name |     status      | phone-number |       followup-on        |        created-on        |        updated-on        |
+| :-----: | :--------: | :-------: | :-------------: | :----------: | :----------------------: | :----------------------: | :----------------------: |
+|    1    |   Sarah    |  Estrada  |     CLOSED      |   555-4395   |                          | 2019-03-29T 22:01:41.44Z | 2019-03-29T 22:01:41.44Z |
+|    2    |  Samantha  |   Chan    |    NEW_LEAD     |   555-8861   |                          | 2019-07-17T 13:09:59.32Z | 2019-07-17T 13:09:59.32Z |
+|    3    |    Sian    | Espinoza  |  FOLLOWUP_SET   |   555-6461   | 2019-12-04T 01:49:08.05Z | 2019-07-17T 13:09:59.32Z | 2019-12-04T 01:49:08.05Z |
+|    4    |   Casey    |   Davis   |    CONVERTED    |   555-8101   |                          | 2020-05-20T 09:52:55.95Z | 2020-05-20T 09:52:55.95Z |
+|    5    |    Sara    |  Elliott  | PENDING_PAYMENT |   555-2620   |                          | 2020-08-12T 17:39:43.25Z | 2020-08-12T 17:39:43.25Z |
+|    6    |   Sally    |   Evans   | PAYMENT_FAILED  |   555-3230   |                          | 2020-06-04T 14:51:06.15Z | 2020-06-04T 14:51:06.15Z |
+
 It’s evident that the table is used to manage potential customers, or leads, in a telemarketing system.
 
 For each lead, you can see:
@@ -40,36 +51,38 @@ That’s quite a lot of information that we can gather just by analyzing a table
 
 <!-- We can even assume what ubiquitous language was used when modeling the data. -->
 
-But what information is missing from that table?
+**But what information is missing from that table?**
 
 The table’s data documents the leads’ current states,  
 But it misses the story of how each lead got to their current state.
 
 We can’t analyze what was happening during the lifecycles of leads:
 
-- We don’t know how many calls were made before a lead became `CONVERTED`.
-- Was a purchase made right away, or was there a lengthy sales journey?
+- How many calls were made before a lead became `CONVERTED`?
+- Was a purchase made right away?  
+  Or was there a lengthy sales journey?
 - Based on the historical data,  
-  Is it worth trying to contact a person after multiple follow-ups,  
+  Is it worth trying to contact a person after multiple follow-ups?  
   Or is it more efficient to close the lead and move to a more promising prospect?
 
 None of that information is there.  
 All we know are the leads’ current states.
 
-These questions reflect business concerns essential for optimizing the sales process.  
+These questions reflect business concerns essential for optimizing the sales process.
+
 From a business standpoint,  
 It’s crucial to analyze the data and optimize the process based on the experience.
 
-## What is Event Souring Solution?
-
 One of the ways to fill in the missing information is to use **Event Sourcing**.
+
+## What is Event Souring Solution?
 
 _The event sourcing pattern introduces the dimension of time into the data model._
 
 Instead of the schema reflecting the aggregates’ current state,  
 An event sourcing based system persists events documenting every change in an aggregate’s lifecycle.
 
-Consider the `CONVERTED` customer on line 12 in Table 7-1.  
+Consider the `CONVERTED` customer on line 4 in Table.  
 The following listing demonstrates how the person’s data would be represented in an event-sourced system:
 
 ```json
@@ -139,6 +152,10 @@ The events in the listing tell the customer’s story:
 - but the payment was received about half an hour later (event 6),  
   And the lead was converted into a new customer.
 
+## How to Implement Event Souring?
+
+### State Projection
+
 As we can see,  
 The customer’s state can easily be projected out from these domain events.
 
@@ -153,8 +170,6 @@ public class LeadModelProjection
     public LeadStatus Status { get; private set; }
     public PhoneNumber PhoneNumber { get; private set; }
     public DateTime FollowupOn { get; private set; }
-    public DateTime CreatedOn { get; private set; }
-    public DateTime UpdatedOn { get; private set; }
     public int Version { get; private set; }
 
     public void Apply(LeadInitialized @event)
