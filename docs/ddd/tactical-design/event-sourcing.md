@@ -177,6 +177,7 @@ public class LeadModelProjection
         LeadId = @event.LeadId;
         FirstName = @event.FirstName;
         LastName = @event.LastName;
+        Status = LeadStatus.NEW_LEAD;
         PhoneNumber = @event.PhoneNumber;
         Version = 0;
     }
@@ -191,21 +192,25 @@ public class LeadModelProjection
 
     public void Apply(Contacted @event)
     {
+        Status = LeadStatus.CONTACTED;
         Version += 1;
     }
 
     public void Apply(FollowupSet @event)
     {
+        Status = LeadStatus.FOLLOWUP_SET;
         Version += 1;
     }
 
     public void Apply(OrderSubmitted @event)
     {
+        Status = LeadStatus.PENDING_PAYMENT;
         Version += 1;
     }
 
     public void Apply(PaymentConfirmed @event)
     {
+        Status = LeadStatus.CONVERTED;
         Version += 1;
     }
 }
@@ -213,11 +218,11 @@ public class LeadModelProjection
 
 Iterating an aggregate’s events,  
 And feeding them sequentially,  
-Into the appropriate overrides of the Apply method,  
+Into the appropriate overrides of the `Apply` method,  
 Will produce precisely the state representation modeled in the table.
 
 Pay attention to the `Version` field that is incremented after applying each event.  
-Its value represents the total number of modifications made to the business entity.
+It's value represents the total number of modifications made to the business entity.
 
 Suppose we apply a subset of events;  
 In that case, we can “travel through time”:  
@@ -233,12 +238,10 @@ Consider the following scenarios.
 
 ### Search
 
-If you have to implement a search.
-
+If you have to implement a search.  
 Since a lead’s contact information including first name, last name, and phone number can be updated;  
 Sales agents may not be aware of the changes applied by other agents,  
-And may want to locate leads using their contact information, including historical values.
-
+And may want to locate leads using their contact information, including historical values.  
 We can easily project the historical information:
 
 ```cs
@@ -372,13 +375,12 @@ Status: Converted
 Version: 6
 ```
 
+## How to Persist Events?
+
 The logic implemented in the preceding examples projects the search-optimized and analysis-optimized models in-memory.  
 However, to actually implement the required functionality, we have to persist the projected models in a database.
 
-You will learn about a pattern that allows us to do that:  
-command-query responsibility segregation (CQRS).
-
-## Source of Truth
+### Source of Truth
 
 For the event sourcing pattern to work,  
 All changes to an object’s state should be represented and persisted as events.
@@ -390,7 +392,7 @@ The system’s source of truth.
 
 The accepted name for the database that is used for persisting events is **Event Store**.
 
-## Event Store
+### Event Store
 
 The event store is a append-only storage.  
 And should not allow modifying or deleting the events.  
@@ -422,9 +424,16 @@ The event store should raise a concurrency exception.
 
 In most systems, additional endpoints are needed for implementing the CQRS pattern.
 
+You will learn about a pattern that allows us to do that:  
+command-query responsibility segregation (CQRS).
+
 :::note
 In essence, the event sourcing pattern is nothing new.  
 The financial industry uses events to represent changes in a ledger.  
 A ledger is an append-only log that documents transactions.  
 A current state (e.g., account balance) can always be deduced by “projecting” the ledger’s records.
 :::
+
+## References
+
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly
