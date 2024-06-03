@@ -15,7 +15,9 @@ Is based on the same premise as the domain model pattern:
 
 _The difference between these implementation patterns lies in the way the aggregates state is persisted._
 
-The event-sourced domain model uses the **Event Sourcing Pattern**, to manage the aggregates’ states:  
+The event-sourced domain model uses the **Event Sourcing Pattern**,  
+To manage the aggregates’ states:
+
 Instead of persisting an aggregate’s state,  
 The model generates domain events describing each change,  
 And uses them as the source of truth for the aggregate’s data.
