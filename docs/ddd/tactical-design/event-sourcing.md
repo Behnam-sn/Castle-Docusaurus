@@ -6,14 +6,31 @@ sidebar_position: 5
 
 ## What is Event Sourcing?
 
+Event Sourcing ensures that all changes to application state are stored as a sequence of events.  
+Not just can we query these events,  
+We can also use the event log to reconstruct past states,  
+And as a foundation to automatically adjust the state to cope with retroactive changes.
+
+Instead of storing just the current state of the data in a domain,  
+Use an append-only store to record the full series of actions taken on that data.
+
+The store acts as the system of record and can be used to materialize the domain objects.
+
+This can simplify tasks in complex domains,  
+By avoiding the need to synchronize the data model and the business domain,  
+While improving performance, scalability, and responsiveness.
+
+It can also provide consistency for transactional data,  
+And maintain full audit trails and history that can enable compensating actions.
+
 ## What Problem is Event Sourcing Trying to Solve?
 
 > Show me your flowchart and conceal your tables, and I shall continue to be mystified.  
 > Show me your tables, and I won’t usually need your flowchart; it’ll be obvious.  
 > — Fred Brooks
 
-Let’s use Fred Brooks’s reasoning to define the event sourcing pattern,  
-And understand how it differs from traditional modeling and persisting of data.
+Let’s use Fred Brooks’s reasoning to understand,  
+How the event sourcing pattern differs from traditional modeling and persisting of data.
 
 For example, take a look at this table:
 
@@ -30,7 +47,7 @@ It’s evident that the table is used to manage potential customers, or leads, i
 
 For each lead, you can see:
 
-- their ID
+- Their ID
 - Their first and last names
 - When the record was created and updated
 - Their phone number
@@ -66,10 +83,8 @@ We can’t analyze what was happening during the lifecycles of leads:
   Or is it more efficient to close the lead and move to a more promising prospect?
 
 None of that information is there.  
-All we know are the leads’ current states.
-
-These questions reflect business concerns essential for optimizing the sales process.
-
+All we know are the leads’ current states.  
+These questions reflect business concerns essential for optimizing the sales process.  
 From a business standpoint,  
 It’s crucial to analyze the data and optimize the process based on the experience.
 
@@ -437,3 +452,5 @@ A current state (e.g., account balance) can always be deduced by “projecting�
 ## References
 
 - Learning Domain-Driven Design - Vladik Khononov - O'Reilly
+- https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing
+- https://www.martinfowler.com/eaaDev/EventSourcing.html
