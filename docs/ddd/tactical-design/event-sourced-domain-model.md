@@ -13,6 +13,8 @@ Is based on the same premise as the domain model pattern:
 - And it uses the same tactical patterns as the domain model:  
   Value Objects, Aggregates, and Domain Events.
 
+<!-- maybe the difference -->
+
 _The difference between these implementation patterns lies in the way the aggregates state is persisted._
 
 The event-sourced domain model uses the **Event Sourcing Pattern**,  
@@ -22,7 +24,14 @@ Instead of persisting an aggregate’s state,
 The model generates domain events describing each change,  
 And uses them as the source of truth for the aggregate’s data.
 
-<!-- maybe the difference -->
+### Why Use The Term _Event-Sourced Domain Model_ Rather Than Just _Event Sourcing_?
+
+Using events to represent state transitions (the event sourcing pattern),  
+Is possible with or without the domain model’s building blocks.
+
+Therefore, it's preferred to use the longer term,  
+To explicitly state that we are using event sourcing,  
+To represent changes in the lifecycles of the domain model’s aggregates.
 
 ## How to Implement Event-Sourced Domain Model Pattern?
 
@@ -34,18 +43,26 @@ All changes to an aggregate’s state have to be expressed as domain events.
 Each operation on an event-sourced aggregate follows this script:
 
 - Load the aggregate’s domain events.
-- Reconstitute a state representation—project the events into a state representation that can be used to make business decisions.
-- Execute the aggregate’s command to execute the business logic, and consequently, produce new domain events.
+
+- Reconstitute a state representation,  
+  By projecting the events into a state representation that can be used to make business decisions.
+
+- Execute the aggregate’s command to execute the business logic,  
+  And consequently, produce new domain events.
+
 - Commit the new domain events to the event store.
+
+### Example
 
 Going back to the example of the `Ticket` aggregate,  
 Let’s see how it would be implemented as an event-sourced aggregate.
 
-The application service follows the script described earlier:  
-It loads the relevant ticket’s events,  
-Rehydrates the aggregate instance,  
-Calls the relevant command,  
-And persists changes back to the database:
+The application service follows the script described earlier:
+
+- It loads the relevant ticket’s events,
+- Rehydrates the aggregate instance,
+- Calls the relevant command,
+- And persists changes back to the database
 
 ```cs
 public class TicketAPI
@@ -64,8 +81,8 @@ public class TicketAPI
 }
 ```
 
-The `Ticket` aggregate’s rehydration logic in the constructor,
-Instantiates an instance of the state projector class, `TicketState`,  
+The `Ticket` aggregate’s rehydration logic in the constructor,  
+Instantiates an instance of the state projector class `TicketState`,  
 And sequentially calls its `AppendEvent` method for each of the ticket’s events:
 
 ```cs
@@ -105,10 +122,12 @@ The `AppendEvent` passes the incoming events to the `TicketState` projection log
 Thus generating the in-memory representation of the ticket’s current state:
 
 Contrary to the implementation we saw in the previously,  
-The event-sourced aggregate’s RequestEscalation method doesn’t explicitly set the `IsEscalated` flag to `true`.  
+The event-sourced aggregate’s `RequestEscalation` method,  
+Doesn’t explicitly set the `IsEscalated` flag to `true`.  
 Instead, it instantiates the appropriate event and passes it to the `AppendEvent` method.
 
-All events added to the aggregate’s events collection are passed to the state projection logic in the `TicketState` class,  
+All events added to the aggregate’s events collection,  
+Are passed to the state projection logic in the `TicketState` class,  
 Where the relevant fields’ values are mutated according to the events’ data:
 
 ```cs
@@ -133,11 +152,7 @@ public class TicketState
 }
 ```
 
-## When to Use Event-Sourced Domain Model Pattern?
-
-Now let’s look at some of the advantages of leveraging event sourcing when implementing complex business logic.
-
-### Advantages
+## What Are The Advantages of Event-Sourced Domain Model Pattern?
 
 Compared to the more traditional model,  
 In which the aggregates’ current states are persisted in a database,  
@@ -145,10 +160,11 @@ The event-sourced domain model requires more effort to model the aggregates.
 
 However, this approach brings significant advantages that make the pattern worth considering in many scenarios:
 
-- #### Time traveling
+- ### Time Traveling
 
   Just as the domain events can be used to reconstitute an aggregate’s current state,  
-  they can also be used to restore all past states of the aggregate.  
+  They can also be used to restore all past states of the aggregate.
+
   In other words, you can always reconstitute all the past states of an aggregate.
 
   This is often done when analyzing the system’s behavior,  
@@ -158,18 +174,21 @@ However, this approach brings significant advantages that make the pattern worth
   Another common use case for reconstituting past states is retroactive debugging:  
   You can revert the aggregate to the exact state it was in when a bug was observed.
 
-- #### Deep insight
+- ### Deep Insight
 
-  We know that optimizing core subdomains is strategically important for the business.  
+  We know that optimizing core subdomains is strategically important for the business.
+
   Event sourcing provides deep insight into the system’s state and behavior.
 
-  As you learned earlier in this chapter,  
-  Event sourcing provides the flexible model that allows for transforming the events into different state representations,
+  Event sourcing provides the flexible model,  
+  That allows for transforming the events into different state representations.
+
   You can always add new projections that will leverage the existing events’ data to provide additional insights.
 
-- #### Audit log
+- ### Audit Log
 
-  The persisted domain events represent a strongly consistent audit log of everything that has happened to the aggregates’ states.
+  The persisted domain events,  
+  Represent a strongly consistent audit log of everything that has happened to the aggregates states.
 
   Laws oblige some business domains to implement such audit logs,  
   And event sourcing provides this out of the box.
@@ -177,29 +196,31 @@ However, this approach brings significant advantages that make the pattern worth
   This model is especially convenient for systems managing money or monetary transactions.  
   It allows us to easily trace the system’s decisions and the flow of funds between accounts.
 
-- #### Advanced optimistic concurrency management
+- ### Advanced Optimistic Concurrency Management
 
   The classic optimistic concurrency model raises an exception,  
   When the read data becomes stale (overwritten by another process) while it is being written.
 
   When using event sourcing,  
-  We can gain deeper insight into exactly what has happened between reading the existing events and writing the new ones.  
+  We can gain deeper insight into exactly what has happened between reading the existing events and writing the new ones.
+
   You can query the exact events that were concurrently appended to the event store,  
-  And make a business domain–driven decision,  
+  And make a business domain–driven decision.
+
   As to whether the new events collide with the attempted operation,  
   Or the additional events are irrelevant and it’s safe to proceed.
 
-### Disadvantages
+## What Are The Disadvantages of Event-Sourced Domain Model Pattern?
 
 So far it may seem that the event-sourced domain model is the ultimate pattern for implementing business logic,  
 And thus should be used as often as possible.
 
-Of course,
+Of course,  
 That would contradict the principle of letting the business domain’s needs drive the design decisions.
 
 So, let’s discuss some of the challenges presented by the pattern:
 
-- #### Learning curve
+- ### Learning Curve
 
   The obvious disadvantage of the pattern is its sharp difference from the traditional techniques of managing data.  
   Successful implementation of the pattern demands training of the team and time to get used to the new way of thinking.
@@ -207,7 +228,7 @@ So, let’s discuss some of the challenges presented by the pattern:
   Unless the team already has experience implementing event-sourced systems,  
   The learning curve has to be taken into account.
 
-- #### Evolving the model
+- ### Evolving the Model
 
   Evolving an event-sourced model can be challenging.  
   The strict definition of event sourcing says that events are immutable.
@@ -216,15 +237,16 @@ So, let’s discuss some of the challenges presented by the pattern:
   The process is not as simple as changing a table’s schema.
 
   In fact, a whole book was written on this subject alone:  
-  Versioning in an Event Sourced System by Greg Young.
+  Versioning in an Event Sourced System by Greg Young
 
-- #### Architectural complexity
+- ### Architectural Complexity
 
   Implementation of event sources introduces numerous architectural “moving parts”,  
   Making the overall design more complicated.
 
 All of these challenges are even more acute,  
-If the task at hand doesn’t justify the use of the pattern and instead can be addressed by a simpler design.
+If the task at hand doesn’t justify the use of the pattern.  
+And instead can be addressed by a simpler design.
 
 ## Frequently Asked Questions
 
@@ -234,7 +256,8 @@ They often ask several common questions.
 - ### Performance
 
   Reconstituting an aggregate’s state from events will negatively affect the system’s performance.  
-  It will degrade as events are added.  
+  It will degrade as events are added.
+
   How can this even work?
 
   Projecting events into a state representation indeed requires compute power,  
@@ -257,7 +280,11 @@ They often ask several common questions.
 
 <!-- page 113 -->
 
-- ### This model generates enormous amounts of data. Can it scale?
+- ### Scalability
+
+  This model generates enormous amounts of data.
+
+  Can it scale?
 
   The event-sourced model is easy to scale.  
   Since all aggregate-related operations are done in the context of a single aggregate,  
