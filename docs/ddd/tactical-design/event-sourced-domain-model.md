@@ -24,6 +24,21 @@ Instead of persisting an aggregate’s state,
 The model generates domain events describing each change,  
 And uses them as the source of truth for the aggregate’s data.
 
+### Conclusion
+
+In an event-sourced domain model,  
+All changes to an aggregate’s state are expressed as a series of domain events.
+
+That’s in contrast to the more traditional approaches in which a state change just updates a record in the databases.  
+The resultant domain events can be used to project the aggregate’s current state.
+
+Moreover, the event-based model gives us the flexibility to project the events into multiple representation models, each optimized for a specific task.
+
+This pattern fits cases in which it’s crucial to have deep insight into the system’s data,  
+Whether for analysis and optimization or because an audit log is required by law.
+
+state-based and event-sourced aggregates
+
 ### Why Use The Term _Event-Sourced Domain Model_ Rather Than Just _Event Sourcing_?
 
 Using events to represent state transitions (the event sourcing pattern),  
@@ -152,7 +167,7 @@ public class TicketState
 }
 ```
 
-## What Are The Advantages of Event-Sourced Domain Model Pattern?
+## What are The Advantages of Event-Sourced Domain Model Pattern?
 
 Compared to the more traditional model,  
 In which the aggregates’ current states are persisted in a database,  
@@ -210,7 +225,7 @@ However, this approach brings significant advantages that make the pattern worth
   As to whether the new events collide with the attempted operation,  
   Or the additional events are irrelevant and it’s safe to proceed.
 
-## What Are The Disadvantages of Event-Sourced Domain Model Pattern?
+## What are The Disadvantages of Event-Sourced Domain Model Pattern?
 
 So far it may seem that the event-sourced domain model is the ultimate pattern for implementing business logic,  
 And thus should be used as often as possible.
@@ -297,38 +312,59 @@ They often ask several common questions.
   But what if I do need to delete data physically;  
   For example, to comply with GDPR?
 
-  This need can be addressed with the forgettable payload pattern: all sensitive
-  information is included in the events in encrypted form. The encryption key is
-  stored in an external key–value store: the key storage, where the key is a specific
-  aggregate’s ID and the value is the encryption key. When the sensitive data has to
-  be deleted, the encryption key is deleted from the key storage. As a result, the
-  sensitive information contained in the events is no longer accessible.
+  This need can be addressed with the forgettable payload pattern:
+
+  All sensitive information is included in the events in encrypted form.  
+  The encryption key is stored in an external key–value store: the key storage,  
+  Where the key is a specific aggregate’s ID and the value is the encryption key.
+
+  When the sensitive data has to be deleted,  
+  The encryption key is deleted from the key storage.
+
+  As a result, the sensitive information contained in the events is no longer accessible.
 
 - ### Why Can’t I Just…?
 
-Why can’t I just write logs to a text file and use it as an audit log?
-Writing data both to an operational database and to a logfile is an error-prone
-operation. In its essence, it’s a transaction against two storage mechanisms: the
-database and the file. If the first one fails, the second one has to be rolled back.
-For example, if a database transaction fails, no one cares to delete the prior log
-messages. Hence, such logs are not consistent, but rather, eventually inconsistent.
+  - Why can’t I just write logs to a text file and use it as an audit log?
 
-Why can’t I keep working with a state-based model, but in the same database transac‐
-tion, append logs to a logs table?
-From an infrastructural perspective, this approach does provide consistent syn‐
-chronization between the state and the log records. However, it is still error
-prone. What if the engineer who will be working on the codebase in the future
-forgets to append an appropriate log record?
+    Writing data both to an operational database and to a log file is an error-prone operation.  
+    In its essence, it’s a transaction against two storage mechanisms:  
+    The database and the file.
 
-Furthermore, when the state-based representation is used as the source of truth,
-the additional log table’s schema usually degrades into chaos quickly. There is no
-way to enforce that all required information is written and that it is written in the
-correct format.
+    If the first one fails,  
+    The second one has to be rolled back.
 
-Why can’t I just keep working with a state-based model but add a database trigger that
-will take a snapshot of the record and copy it into a dedicated “history” table?
-This approach overcomes the previous one’s drawback: no explicit manual calls
-are needed to append records to the log table. That said, the resultant history
-only includes the dry facts: what fields were changed. It misses the business con‐
-texts: why the fields were changed. The lack of “why” drastically limits the ability
-to project additional models.
+    For example, if a database transaction fails,  
+    No one cares to delete the prior log messages.  
+    Hence, such logs are not consistent,  
+    But rather, eventually inconsistent.
+
+  - Why can’t I keep working with a state-based model, but in the same database transaction, append logs to a logs table?
+
+    From an infrastructural perspective,  
+    This approach does provide consistent synchronization between the state and the log records.  
+    However, it is still error prone.
+
+    What if the engineer who will be working on the codebase in the future forgets to append an appropriate log record?
+
+    Furthermore, when the state-based representation is used as the source of truth,  
+    The additional log table’s schema usually degrades into chaos quickly.  
+    There is no way to enforce that all required information is written and that it is written in the correct format.
+
+  - Why can’t I just keep working with a state-based model,  
+    But add a database trigger that will take a snapshot of the record and copy it into a dedicated “history” table?
+
+    This approach overcomes the previous one’s drawback:  
+    No explicit manual calls are needed to append records to the log table.
+
+    That said, the resultant history only includes the dry facts:  
+    What fields were changed.
+
+    It misses the business contexts:  
+    Why the fields were changed.
+
+    The lack of “why” drastically limits the ability to project additional models.
+
+## References
+
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly
