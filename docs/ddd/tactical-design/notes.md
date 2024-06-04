@@ -22,10 +22,3 @@ a higher scope: architectural patterns.
 state-based and event-sourced aggregates
 
 ## Why “Event-Sourced Domain Model”?
-
-I feel obliged to explain why I use the term _event-sourced domain model_ rather than just _event sourcing_.
-
-Using events to represent state transitions (the event sourcing pattern),  
-Is possible with or without the domain model’s building blocks.
-
-Therefore, I prefer the longer term to explicitly state that we are using event sourcing to represent changes in the lifecycles of the domain model’s aggregates.
