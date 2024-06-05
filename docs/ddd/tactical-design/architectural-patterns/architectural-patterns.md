@@ -46,16 +46,17 @@ All of these issues dramatically increase the cost of maintaining the codebase.
 
 ## What is Architectural Patterns Solution?
 
-Architectural patterns introduce organizational principles for the different aspects of a codebase,  
-And present clear boundaries between them:  
-How the business logic is wired to the system’s input, output, and other infrastructural components.
+Architectural patterns introduces organizational principles,  
+For the different aspects of a codebase,  
+And present clear boundaries between them.
 
-This affects how these components interact with each other:  
+<!-- How the business logic is wired to the system’s input, output, and other infrastructural components. -->
+
+This affects how components interact with each other:  
 What knowledge they share,  
 And how the components reference each other.
 
-Choosing the appropriate way to organize the codebase,  
-Or the correct architectural pattern,  
+Choosing the appropriate way to organize the codebase or the correct architectural pattern,  
 Is crucial to support implementation of the business logic in the short term,  
 And alleviate maintenance in the long term.
 
@@ -81,13 +82,16 @@ Let’s explore 3 predominant application architecture patterns and their use ca
 
 ## Scope
 
-The patterns we’ve discussed—layered architecture, ports & adapters architecture, and CQRS—should not be treated as system-wide organizational principles. These are not necessarily high-level architecture patterns for a whole bounded context either.
+The layered architecture, ports & adapters architecture, and CQRS patterns,  
+Should not be treated as system-wide organizational principles.
+
+These are not necessarily high-level architecture patterns for a whole bounded context either.
 
 Consider a bounded context encompassing multiple subdomains.  
 The subdomains can be of different types: core, supporting, or generic.
 
-Even subdomains of the same type may require different business logic and architectural patterns.
-Enforcing a single, bounded, context wide architecture will inadvertently lead to accidental complexity.
+Even subdomains of the same type may require different business logic and architectural patterns.  
+Enforcing a single, bounded context wide architecture will inadvertently lead to accidental complexity.
 
 Our goal is to drive design decisions according to the actual needs and business strategy.  
 In addition to the layers that partition the system horizontally,  
@@ -97,10 +101,6 @@ It’s crucial to define logical boundaries for modules encapsulating distinct b
 
 Appropriate vertical boundaries make a monolithic bounded context a modular one and help to prevent it from becoming a big ball of mud.
 
-As we will discuss in Chapter 11, these logical boundaries can be refactored later into physical boundaries of finer-grained bounded contexts.
+## References
 
-## Conclusion
-
-The patterns we will discuss in the next chapter address architectural concerns from a
-different perspective: how to implement reliable interaction between different com‐
-ponents of a system.
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly
