@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # Layered Architecture
 
+## What is Layered Architecture?
+
 Layered architecture is one of the most common architectural patterns.
 
 It organizes the codebase into horizontal layers,  
