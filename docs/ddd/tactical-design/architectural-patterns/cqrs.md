@@ -9,12 +9,14 @@ sidebar_position: 3
 The command-query responsibility segregation (CQRS) pattern,  
 Is based on the same organizational principles for business logic and infrastructural concerns as ports & adapters.
 
-It differs however, in the way the system’s data is managed.  
+It differs however,  
+In the way the system’s data is managed.
+
 This pattern enables representation of the system’s data in multiple persistent models.
 
-Let’s see why we might need such a solution and how to implement it.
+## What Problem CQRS Pattern is Trying to Solve?
 
-## Polyglot Modeling
+### Polyglot Modeling
 
 In many cases, it may be difficult, if not impossible,  
 To use a single model of the system’s business domain to address all of the system’s needs.
@@ -26,64 +28,69 @@ May require different representations of the system’s data.
 Another reason for working with multiple models may have to do with the notion of polyglot persistence.
 
 There is no perfect database.  
-Or, as Greg Young says, all databases are flawed, each in its own way:  
+Or as Greg Young says:  
+All databases are flawed, each in its own way.
+
 We often have to balance the needs for scale, consistency, or supported querying models.
 
-An alternative to finding a perfect database is the polyglot persistence model:  
-Using multiple databases to implement different data-related requirements.
+An alternative to finding a perfect database is the polyglot persistence model.
 
-For example,  
-A single system might use a document store as its operational database,  
-A column store for analytics/reporting,  
-And a search engine for implementing robust search capabilities.
+That is, using multiple databases,  
+To implement different data-related requirements.
 
-Finally, the CQRS pattern is closely related to event sourcing.
+For example:
+
+- A single system might use a document store as its operational database
+- A column store for analytics/reporting
+- And a search engine for implementing robust search capabilities
+
+### Event Sourcing
+
+The CQRS pattern is closely related to event sourcing.
 
 Originally, CQRS was defined to address the limited querying possibilities of an event-sourced model:  
 It is only possible to query events of one aggregate instance at a time.
 
-The CQRS pattern provides the possibility of materializing projected models into physical databases that can be used for flexible querying options.
-
-That said, this chapter “decouples” CQRS from event sourcing.  
-I intend to show that CQRS is useful even if the business logic is implemented using any of the other business logic implementation patterns.
+The CQRS pattern provides the possibility of,  
+Materializing projected models,  
+Into physical databases,  
+That can be used for flexible querying options.
 
 Let’s see how CQRS allows the use of multiple storage mechanisms for representing different models of the system’s data.
 
-## Implementation
+## How to Implement CQRS Pattern?
 
 As the name suggests,  
 The pattern segregates the responsibilities of the system’s models.
 
-There are two types of models:  
-The command execution model,  
-And the read models.
+There are two types of models:
 
-### Command Execution Model
+- ### Command Execution Model
 
-CQRS devotes a single model to executing operations that modify the system’s state (system commands).  
-This model is used to implement the business logic, validate rules, and enforce invariants.
+  CQRS devotes a single model to executing operations that modify the system’s state (system commands).  
+  This model is used to implement the business logic, validate rules and enforce invariants.
 
-The command execution model is also the only model representing strongly consistent data (the system’s source of truth).
+  The command execution model is also the only model representing strongly consistent data (the system’s source of truth).
 
-It should be possible to read the strongly consistent state of a business entity,  
-And have optimistic concurrency support when updating it.
+  It should be possible to read the strongly consistent state of a business entity,  
+  And have optimistic concurrency support when updating it.
 
-### Read Models (Projections)
+- ### Read Models (Projections)
 
-The system can define as many models as needed to present data to users or supply information to other systems.
+  The system can define as many models as needed to present data to users or supply information to other systems.
 
-A read model is a pre-cached projection.  
-It can reside in a durable database, flat file, or in-memory cache.
+  A read model is a pre-cached projection.  
+  It can reside in a durable database, flat file, or in-memory cache.
 
-Proper implementation of CQRS allows for wiping out all data of a projection and regenerating it from scratch.
+  Proper implementation of CQRS allows for wiping out all data of a projection and regenerating it from scratch.
 
-This also enables extending the system with additional projections in the future,  
-For models that couldn’t have been foreseen originally.
+  This also enables extending the system with additional projections in the future;  
+  For models that couldn’t have been foreseen originally.
 
-Finally, read models are read-only.  
-None of the system’s operations can directly modify the read models’ data.
+  Finally, read models are read-only.  
+  None of the system’s operations can directly modify the read models’ data.
 
-## Projecting Read Models
+## How to Project Read Models?
 
 For the read models to work,  
 The system has to project changes from the command execution model to all its read models.
@@ -92,8 +99,7 @@ The projection of read models is similar to the notion of a materialized view in
 whenever source tables are updated,  
 The changes have to be reflected in the pre-cached views.
 
-Let’s see two ways to generate projections:  
-Synchronously and Asynchronously.
+Let’s see two ways to generate projections:
 
 ### Synchronous Projections
 
@@ -107,27 +113,26 @@ Synchronous projections fetch changes to the OLTP data through the catch-up subs
   This value will be used during the next iteration for getting records added or modified after the last processed record.
 
 For the catch-up subscription to work,  
-The command execution model has to checkpoint all the appended or updated database records.  
-The storage mechanism should also support the querying of records based on the checkpoint.
+The command execution model has to checkpoint all the appended or updated database records.
 
-The checkpoint can be implemented using the databases’ features.  
-For example,  
-SQL Server’s “rowversion” column can be used to generate unique,  
-Incrementing numbers upon inserting or updating a row.
+The storage mechanism should also support the querying of records based on the checkpoint:
 
-In databases that lack such functionality,  
-A custom solution can be implemented that increments a running counter and appends it to each modified record.
+- The checkpoint can be implemented using the databases’ features.  
+  For example, SQL Server’s “rowversion” column can be used to generate unique,  
+  Incrementing numbers upon inserting or updating a row.
 
-It’s important to ensure that the checkpoint-based query returns consistent results.
+- In databases that lack such functionality,  
+  A custom solution can be implemented that increments a running counter and appends it to each modified record.
 
-If the last returned record has a checkpoint value of 10,  
-On the next execution no new requests should have values lower than 10.
+<!-- It’s important to ensure that the checkpoint-based query returns consistent results.
+Otherwise, these records will be skipped by the projection engine,
+Which will result in inconsistent models. -->
 
-Otherwise, these records will be skipped by the projection engine,  
-Which will result in inconsistent models.
+The synchronous projection method makes it trivial,  
+To add new projections and regenerate existing ones from scratch.
 
-The synchronous projection method makes it trivial to add new projections and regenerate existing ones from scratch.  
-In the latter case, all you have to do is reset the checkpoint to 0;  
+For regenerating projections,  
+All you have to do is reset the checkpoint to 0;  
 The projection engine will scan the records and rebuild the projections from the ground up.
 
 ### Asynchronous Projections
@@ -137,7 +142,7 @@ The command execution model publishes all committed changes to a message bus.
 
 The system’s projection engines can subscribe to the published messages and use them to update the read models.
 
-### Challenges
+#### Challenges
 
 Despite the apparent scaling and performance advantages of the asynchronous projection method,  
 It is more prone to the challenges of distributed computing.
@@ -148,16 +153,18 @@ Inconsistent data will be projected into the read models.
 This method also makes it more challenging to add new projections or regenerate existing ones.
 
 For these reasons,  
-It’s advisable to always implement synchronous projection and,  
-Optionally, an additional asynchronous projection on top of it.
+It’s advisable to always implement synchronous projection,  
+And optionally, an additional asynchronous projection on top of it.
 
 ## Model Segregation
 
-In the CQRS architecture, the responsibilities of the system’s models are segregated according to their type.
+In the CQRS architecture,  
+The responsibilities of the system’s models are segregated according to their type:
 
-A command can only operate on the strongly consistent command execution model.
+- A command can only operate on the strongly consistent command execution model.
 
-A query cannot directly modify any of the system’s persisted state—neither the read models nor the command execution model.
+- A query cannot directly modify any of the system’s persisted state,  
+  Neither the read models nor the command execution model.
 
 A common misconception about CQRS-based systems is that a command can only modify data,  
 And data can be fetched for display only through a read model.
