@@ -10,7 +10,7 @@ The ports & adapters architecture addresses the shortcomings of the layered arch
 And is a better fit for implementation of more complex business logic.
 
 Interestingly, both patterns are quite similar.  
-Let’s “refactor” the layered architecture into ports & adapters.
+Let’s “refactor” the layered architecture into ports & adapters:
 
 - ### Terminology
 
@@ -55,14 +55,15 @@ Let’s see how the infrastructural components are integrated with the business 
 
 ## Integration of Infrastructural Components
 
-The core goal of the ports & adapters architecture is to,  
-Decouple the system’s business logic from its infrastructural components.
+The core goal of the ports & adapters architecture is,  
+To decouple the system’s business logic,  
+From its infrastructural components.
 
 Instead of referencing and calling the infrastructural components directly,  
-The business logic layer defines “ports”,  
+The business logic layer defines **Ports**,  
 That have to be implemented by the infrastructure layer.
 
-The infrastructure layer implements “adapters”:  
+The infrastructure layer implements **Adapters**:  
 Concrete implementations of the ports interfaces for working with different technologies.
 
 The abstract ports are resolved into concrete adapters in the infrastructure layer,  
@@ -102,8 +103,8 @@ And have the same relationships between them.
 But as in the case of the layered architecture,  
 The terminology may differ:
 
-- Application layer = service layer = use case layer
-- Business logic layer = domain layer = core layer
+- Application Layer = Service Layer = Use Case Layer
+- Business Logic Layer = Domain Layer = Core Layer
 
 Despite that, these patterns can be mistakenly treated as conceptually different.  
 That’s just another example of the importance of a ubiquitous language.
