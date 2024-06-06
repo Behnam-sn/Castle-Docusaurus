@@ -22,7 +22,7 @@ The layered architecture consists of three layers:
 - The business logic layer (BLL)
 - the data access layer (DAL)
 
-### Presentation Layer
+## Presentation Layer
 
 The presentation layer,  
 Implements the program’s user interface for interactions with its consumers.
@@ -32,9 +32,8 @@ This layer indicate a graphical interface,
 Such as a web interface or a desktop application.
 
 However in modern systems,  
-The presentation layer has a broader scope:
-
-That is, all means for triggering the program’s behavior,  
+The presentation layer has a broader scope.  
+That includes all means for triggering the program’s behavior;  
 Both synchronous and asynchronous.
 
 For example:
@@ -47,23 +46,21 @@ For example:
 
 All of these are the means for the system to receive requests from the external environment and communicate the output.
 
-### Business Logic Layer
+## Business Logic Layer
 
 As the name suggests,  
-This layer is responsible for implementing,  
-And encapsulating the program’s business logic.
+This layer is responsible for implementing and encapsulating the program’s business logic.
 
-This is the place where business decisions are implemented.  
 As Eric Evans says, this layer is the heart of software.
 
-### Data Access Layer
+## Data Access Layer
 
 The data access layer provides access to persistence mechanisms.
 
-In the pattern’s original form, this referred to the system’s database.
+In the pattern’s original form,  
+This referred to the system’s database.
 
-However, as in the case of the presentation layer,  
-The layer’s responsibility is broader for modern systems.
+However, the layer’s responsibility is broader for modern systems.
 
 First, ever since the NoSQL revolution broke out,  
 it is common for a system to work with multiple databases.  
@@ -80,15 +77,17 @@ For example:
 - Or a message bus can be used to orchestrate communication between the program’s different functions.
 
 Finally, this layer also includes integration with the various external information providers,  
-Needed to implement the program’s functionality:
+Needed to implement the program’s functionality,  
+Like APIs provided by external systems or cloud vendors’ managed services.  
+Such as:
 
-APIs provided by external systems,  
-Or cloud vendors’ managed services,  
-Such as language translation, stock market data, and audio transcription.
+- Language translation
+- Stock market data
+- And audio transcription
 
 ## Communication Between Layers
 
-The layers are integrated in a top-down communication model:  
+The layers are integrated in a top-down communication model.  
 Each layer can hold a dependency only on the layer directly beneath it.
 
 This enforces decoupling of implementation concerns and reduces the knowledge shared between the layers.
@@ -96,17 +95,17 @@ This enforces decoupling of implementation concerns and reduces the knowledge sh
 The presentation layer references only the business logic layer.  
 It has no knowledge of the design decisions made in the data access layer.
 
-## Variation
+## Service layer
 
-It’s common to see the layered architecture pattern extended with an additional layer:  
-The service layer.
+It’s common to see the layered architecture pattern extended with an additional layer: The service layer.
 
-### Service layer
-
-> Defines an application’s boundary with a layer of services that establishes a set of available operations and coordinates the application’s response in each operation.
+> Defines an application’s boundary with a layer of services,  
+> That establishes a set of available operations,  
+> And coordinates the application’s response in each operation.  
 > — Patterns of Enterprise Application Architecture
 
-The service layer acts as an intermediary between the program’s presentation and business logic layers.  
+The service layer acts as an intermediary between the program’s presentation and business logic layers.
+
 Consider the following code:
 
 ```cs
@@ -148,13 +147,7 @@ Moreover, it orchestrates a database transaction to ensure that a proper respons
 To further decouple the presentation layer from the underlying business logic,  
 Such orchestration logic can be moved into a service layer.
 
-:::note
-It’s important to note that in the context of the architectural pattern,  
-The service layer is a logical boundary.  
-It is not a physical service.
-:::
-
-The service layer acts as a facade for the business logic layer:  
+The service layer acts as a facade for the business logic layer.  
 it exposes an interface that corresponds with the public interface’s methods,  
 Encapsulating the required orchestration of the underlying layers.
 
@@ -173,8 +166,9 @@ interface CampaignManagementService
 All of the preceding methods correspond to the system’s public interface.  
 However, they lack presentation-related implementation details.
 
-The presentation layer’s responsibility becomes limited to providing the required input,  
-To the service layer and communicating its responses back to the caller.
+The presentation layer’s responsibility becomes limited to,  
+Providing the required input to the service layer,  
+And communicating its responses back to the caller.
 
 Let’s refactor the preceding example and extract the orchestration logic into a service layer:
 
@@ -227,8 +221,11 @@ Having an explicit service level has a number of advantages:
 - We can reuse the same service layer to serve multiple public interfaces;  
   For example, a graphical user interface and an API.  
   No duplication of the orchestration logic is required.
+
 - It improves modularity by gathering all related methods in one place.
+
 - It further decouples the presentation and business logic layers.
+
 - It makes it easier to test the business functionality.
 
 That said, a service layer is not always necessary.
@@ -248,7 +245,7 @@ As in the case of the active record pattern.
 In this case, the service layer implements the transaction script pattern,  
 While the active records it operates on are located in the business logic layer.
 
-#### Terminology
+## Terminology
 
 Elsewhere, you may encounter other terms used for the layered architecture:
 
@@ -257,8 +254,11 @@ Elsewhere, you may encounter other terms used for the layered architecture:
 - Business logic layer = domain layer = model layer
 - Data access layer = infrastructure layer
 
-To eliminate confusion, I present the pattern using the original terminology.  
-That said, I prefer “user interface layer” and “infrastructure layer” as these terms better reflect the responsibilities of modern systems and an application layer to avoid confusion with the physical boundaries of services.
+To eliminate confusion, I present the pattern using the original terminology.
+
+That said, I prefer **user interface layer** and **infrastructure layer**,  
+As these terms better reflect the responsibilities of modern systems.  
+And an **application layer** to avoid confusion with the physical boundaries of services.
 
 ## When to Use Layered Architecture?
 
@@ -270,6 +270,10 @@ However, the pattern makes it challenging to implement a domain model.
 In a domain model, the business entities (aggregates and value objects),  
 Should have no dependency and no knowledge of the underlying infrastructure.
 
-The layered architecture’s top-down dependency requires jumping through some hoops to fulfill this requirement.
+The layered architecture’s top-down dependency requires jumping through some hoops to fulfill this requirement.  
 It is still possible to implement a domain model in a layered architecture,  
-But the pattern we will discuss next fits much better.
+But the Ports & Adapters pattern fits much better.
+
+## References
+
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly
