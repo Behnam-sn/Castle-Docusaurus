@@ -4,49 +4,52 @@ sidebar_position: 2
 
 # Ports & Adapters
 
+## What is Ports & Adapters Pattern?
+
 The ports & adapters architecture addresses the shortcomings of the layered architecture,  
 And is a better fit for implementation of more complex business logic.
 
-Interestingly, both patterns are quite similar.
-
+Interestingly, both patterns are quite similar.  
 Let’s “refactor” the layered architecture into ports & adapters.
 
-### Terminology
+- ### Terminology
 
-Essentially, both the presentation layer and data access layer represent integration with external components:  
-databases, external services, and user interface frameworks.
+  Essentially, both the presentation layer and data access layer represent integration with external components:  
+  Databases, external services, and user interface frameworks.
 
-These technical implementation details do not reflect the system’s business logic;
+  These technical implementation details do not reflect the system’s business logic;  
+  So, let’s unify all such infrastructural concerns into a single **Infrastructure Layer**.
 
-so, let’s unify all such infrastructural concerns into a single “infrastructure layer”.
+- ### Dependency Inversion Principle
 
-### Dependency Inversion Principle
+  The dependency inversion principle (DIP),  
+  States that high-level modules,  
+  Which implement the business logic,  
+  Should not depend on low-level modules.
 
-The dependency inversion principle (DIP),  
-States that high-level modules,  
-Which implement the business logic,  
-Should not depend on low-level modules.
+  However, that’s precisely what happens in the traditional layered architecture.  
+  The business logic layer depends on the infrastructure layer.  
+  To conform with the DIP,  
+  Let’s reverse the relationship.
 
-However, that’s precisely what happens in the traditional layered architecture.  
-The business logic layer depends on the infrastructure layer.  
-To conform with the DIP, let’s reverse the relationship.
+  Instead of being sandwiched between the technological concerns,  
+  Now the business logic layer takes the central role.  
+  It doesn’t depend on any of the system’s infrastructural components.
 
-Instead of being sandwiched between the technological concerns,  
-Now the business logic layer takes the central role.
-It doesn’t depend on any of the system’s infrastructural components.
+- ### Application Layer
 
-Finally, let’s add an application layer as a facade for the system’s public interface.  
-As the service layer in the layered architecture,
+  Finally, let’s add an application layer as a facade for the system’s public interface.  
+  As the service layer in the layered architecture,
 
-It describes all the operations exposed by the system,  
-And orchestrates the system’s business logic for executing them.
+  It describes all the operations exposed by the system,  
+  And orchestrates the system’s business logic for executing them.
 
 The result is the ports & adapters architectural pattern.
 
 The business logic doesn’t depend on any of the underlying layers,  
 As required for implementing the domain model and event-sourced domain model patterns.
 
-Why is this pattern called ports & adapters?
+Why is this pattern called ports & adapters?  
 To answer this question,  
 Let’s see how the infrastructural components are integrated with the business logic.
 
@@ -109,3 +112,7 @@ That’s just another example of the importance of a ubiquitous language.
 
 The decoupling of the business logic from all technological concerns,  
 Makes the ports & adapters architecture a perfect fit for business logic implemented with the domain model pattern.
+
+## References
+
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly
