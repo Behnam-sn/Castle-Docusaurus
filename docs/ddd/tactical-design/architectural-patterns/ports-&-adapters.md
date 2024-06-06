@@ -10,7 +10,7 @@ The ports & adapters architecture addresses the shortcomings of the layered arch
 And is a better fit for implementation of more complex business logic.
 
 Interestingly, both patterns are quite similar.  
-Let’s “refactor” the layered architecture into ports & adapters:
+Let’s refactor the layered architecture into ports & adapters:
 
 - ### Terminology
 
