@@ -4,10 +4,12 @@ sidebar_position: 3
 
 # CQRS
 
+## What is CQRS Pattern?
+
 The command-query responsibility segregation (CQRS) pattern,  
 Is based on the same organizational principles for business logic and infrastructural concerns as ports & adapters.
 
-It differs, however, in the way the system’s data is managed.  
+It differs however, in the way the system’s data is managed.  
 This pattern enables representation of the system’s data in multiple persistent models.
 
 Let’s see why we might need such a solution and how to implement it.
