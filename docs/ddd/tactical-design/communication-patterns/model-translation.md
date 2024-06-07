@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Model Translation
 
 A bounded context is the boundary of a model (and it's ubiquitous language).
@@ -148,3 +152,7 @@ In this case,
 It can be beneficial to decouple the integration and business logic complexities,  
 By fronting the bounded context with an anticorruption layer,  
 That aggregates data from all other bounded contexts.
+
+## References
+
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly
