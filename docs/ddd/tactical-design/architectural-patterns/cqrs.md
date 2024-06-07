@@ -58,7 +58,14 @@ That can be used for flexible querying options.
 
 Let’s see how CQRS allows the use of multiple storage mechanisms for representing different models of the system’s data.
 
-## How to Implement CQRS Pattern?
+<!-- In the CQRS architecture,
+The responsibilities of the system’s models are segregated according to their type:
+
+- A command can only operate on the strongly consistent command execution model.
+- A query cannot directly modify any of the system’s persisted state,
+  Neither the read models nor the command execution model. -->
+
+## What is CQRS Pattern Solution?
 
 As the name suggests,  
 The pattern segregates the responsibilities of the system’s models.
@@ -156,17 +163,10 @@ For these reasons,
 It’s advisable to always implement synchronous projection,  
 And optionally, an additional asynchronous projection on top of it.
 
-## Model Segregation
+## Can Command Execution Models Return Any Data?
 
-In the CQRS architecture,  
-The responsibilities of the system’s models are segregated according to their type:
-
-- A command can only operate on the strongly consistent command execution model.
-
-- A query cannot directly modify any of the system’s persisted state,  
-  Neither the read models nor the command execution model.
-
-A common misconception about CQRS-based systems is that a command can only modify data,  
+A common misconception about CQRS-based systems is,  
+That a command can only modify data,  
 And data can be fetched for display only through a read model.
 
 In other words, the command executing the methods should never return any data.
@@ -179,19 +179,20 @@ If it has failed, why did it fail?
 Was there a validation or technical issue?  
 The caller has to know how to fix the command.
 
-Therefore, a command can—and in many cases should—return data;
-for example,  
-If the system’s user interface has to reflect the modifications resulting from the command.
+Therefore, a command can (and in many cases should) return data;  
+For example, if the system’s user interface has to reflect the modifications resulting from the command.
 
-Not only does this make it easier for consumers to work with the system since they immediately receive feedback for their actions,  
-But the returned values can be used further in the consumers’ workflows,  
+This make it easier for consumers to work with the system,  
+Since they immediately receive feedback for their actions,
+
+Also the returned values can be used further in the consumers workflows,  
 Eliminating the need for unnecessary data round trips.
 
 The only limitation here is that the returned data,  
 Should originate from the strongly consistent model (the command execution model),  
-As we cannot expect the projections, which will eventually be consistent, to be refreshed immediately.
+As we cannot expect the projections (which will eventually be consistent) to be refreshed immediately.
 
-## When to Use CQRS?
+## When to Use CQRS Pattern?
 
 The CQRS pattern can be useful for applications that need to work with the same data in multiple models,  
 Potentially stored in different kinds of databases.
@@ -202,13 +203,19 @@ And continuously improving the model of the business domain.
 
 From an infrastructural perspective,  
 CQRS allows for leveraging the strength of the different kinds of databases;  
-for example,  
-Using a relational database to store the command execution model,  
-A search index for full text search,  
-And pre-rendered flat files for fast data retrieval,  
+For example:
+
+- Using a relational database to store the command execution model
+- A search index for full text search
+- And pre-rendered flat files for fast data retrieval
+
 With all the storage mechanisms reliably synchronized.
 
 Moreover, CQRS naturally lends itself to event-sourced domain models.
 
 The event sourcing model makes it impossible to query records based on the aggregates’ states,  
 But CQRS enables this by projecting the states into queryable databases.
+
+## References
+
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly
