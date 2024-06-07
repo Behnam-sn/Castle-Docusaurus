@@ -16,6 +16,8 @@ The different ways to orchestrate the interactions and dependencies between a sy
 
 ## What Problem Architectural Patterns are Trying to Solve?
 
+### Misplacing Business Logic
+
 Business logic is the most important part of software system;  
 However, it is not the only part of a software system.
 
@@ -31,8 +33,9 @@ That a codebase has to take care of,
 Makes it easy for its business logic,  
 To become diffused among the different components.
 
-That is, for some of the logic to be implemented in the user interface or database,  
-Or be duplicated in different components.
+That may result in some of the logic to be implemented in the user interface or database, or be duplicated in different components.
+
+### Handling Change
 
 Lacking strict organization in implementation concerns makes the codebase hard to change.
 
@@ -46,8 +49,8 @@ All of these issues dramatically increase the cost of maintaining the codebase.
 
 ## What is Architectural Patterns Solution?
 
-Architectural patterns introduces organizational principles,  
-For the different aspects of a codebase,  
+Architectural patterns introduces,  
+Organizational principles for the different aspects of a codebase,  
 And present clear boundaries between them.
 
 <!-- How the business logic is wired to the system’s input, output, and other infrastructural components. -->
@@ -66,7 +69,7 @@ Let’s explore 3 predominant application architecture patterns and their use ca
 
   The layered architecture decomposes the codebase based on its technological concerns.  
   Since this pattern couples business logic with data access implementation,  
-  It’s a good fit for active record–based systems.
+  It’s a good fit for active record based systems.
 
 - ### Ports & Adapters
 
@@ -78,11 +81,11 @@ Let’s explore 3 predominant application architecture patterns and their use ca
 
   The CQRS pattern represents the same data in multiple models.  
   Although this pattern is obligatory for systems based on the event-sourced domain model,  
-  it can also be used in any systems that need a way of working with multiple persistent models.
+  It can also be used in any systems that need a way of working with multiple persistent models.
 
-## Scope
+## How to Use Architectural Patterns?
 
-The layered architecture, ports & adapters architecture, and CQRS patterns,  
+The layered architecture, ports & adapters and CQRS patterns,  
 Should not be treated as system-wide organizational principles.
 
 These are not necessarily high-level architecture patterns for a whole bounded context either.
