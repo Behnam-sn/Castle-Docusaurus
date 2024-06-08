@@ -27,6 +27,12 @@ The heuristics presented in this chapter focus on the essential properties of th
 ent business domains and on the essence of the problems addressed by the various
 design decisions.
 
+As you can see, identifying subdomains types and following the decision tree gives
+you a solid starting point for making the essential design decisions. That said, it’s
+important to reiterate that these are heuristics, not hard rules. There is an exception
+to every rule, let alone heuristics, that by definition are not intended to be correct in
+100% of the cases.
+
 ## References
 
 - Learning Domain-Driven Design - Vladik Khononov - O'Reilly
