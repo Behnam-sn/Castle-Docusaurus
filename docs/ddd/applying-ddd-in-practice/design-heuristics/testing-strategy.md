@@ -24,5 +24,16 @@ Aggregates and value objects make perfect units for effectively testing the busi
 
 The testing diamond focuses the most on integration tests.
 
-When the active record pattern is used, the system’s business logic is, by definition, spread across both the
-service and business logic layers.
+When the active record pattern is used,  
+The system’s business logic is, by definition spread across both the service and business logic layers.
+
+Therefore, to focus on integrating the two layers, the testing pyramid is the more effective choice.
+
+## Reversed Testing Pyramid
+
+The reversed testing pyramid attributes the most attention to end-to-end tests:  
+Verifying the application’s workflow from beginning to end.
+
+Such an approach best fits codebases implementing the transaction script pattern:  
+The business logic is simple and the number of layers is minimal,  
+Making it more effective to verify the end-to-end flow of the system.
