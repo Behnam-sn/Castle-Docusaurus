@@ -20,3 +20,4 @@ sidebar_position: 1
 - [ ] Design Patterns
 - [ ] Logging
 - [ ] Readable Code
+- [ ] Locality of Behavior
