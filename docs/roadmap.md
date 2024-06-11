@@ -21,3 +21,4 @@ sidebar_position: 1
 - [ ] Logging
 - [ ] Readable Code
 - [ ] Locality of Behavior
+- [ ] Auth
