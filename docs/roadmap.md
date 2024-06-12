@@ -23,6 +23,8 @@ sidebar_position: 1
 - [ ] Logging
   - [ ] Elastic Search
   - [ ] LogStash
+  - [ ] Kibana
+  - [ ] Serilog
 - [ ] Readable Code
 - [ ] Locality of Behavior
 - [ ] Auth
