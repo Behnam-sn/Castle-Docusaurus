@@ -14,7 +14,9 @@ sidebar_position: 1
 - [ ] OOP
 - [ ] Concurrency
 - [ ] Testing
-- [ ] Unit Testing
+  - [ ] Unit Testing
+  - [ ] Integration Testing
+  - [ ] End-to-End Testing
 - [ ] xUnit
 - [ ] SOLID
 - [ ] Design Patterns
