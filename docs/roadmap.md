@@ -22,3 +22,4 @@ sidebar_position: 1
 - [ ] Readable Code
 - [ ] Locality of Behavior
 - [ ] Auth
+- [ ] Docker
