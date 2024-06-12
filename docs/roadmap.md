@@ -19,7 +19,14 @@ sidebar_position: 1
 - [ ] SOLID
 - [ ] Design Patterns
 - [ ] Logging
+  - [ ] Elastic Search
+  - [ ] LogStash
 - [ ] Readable Code
 - [ ] Locality of Behavior
 - [ ] Auth
 - [ ] Docker
+- [ ] NoSQL Databases
+  - [ ] MongoDB
+  - [ ] Redis
+- [ ] Messaging Queue
+  - [ ] RabbitMQ
