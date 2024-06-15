@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # EventStorming
 
 EventStorming is a collaboration-based workshop for modeling business processes.  
