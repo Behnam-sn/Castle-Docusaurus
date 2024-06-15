@@ -35,3 +35,8 @@ sidebar_position: 1
 - [ ] Messaging Queue
   - [ ] RabbitMQ
 - [ ] Kafka
+- [ ] Hardware
+  - [ ] CPU
+  - [ ] Memory
+  - [ ] Storage
+  - [ ] GPU
