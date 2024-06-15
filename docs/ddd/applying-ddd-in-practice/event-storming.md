@@ -258,3 +258,100 @@ domain model. The decision of whether to go that route or not depends on your
 business domain. If you decide to implement the event-sourced domain model, you
 have the bounded context boundaries, the aggregates, and of course, the blueprint of
 the required domain events.
+
+## When to Use EventStorming?
+
+The workshop can be facilitated for many reasons:
+
+- Build a ubiquitous language
+  As the group cooperates in building the model of the business process, they
+  instinctively synchronize the terminology and start using the same language.
+
+- Model the business process
+  An EventStorming session is an effective way to build a model of the business
+  process. Since it is based on DDD-oriented building blocks, it is also an effective
+  way to discover the boundaries of aggregates and bounded contexts.
+
+- Explore new business requirements
+  You can use EventStorming to ensure that all the participants are on the same
+  page regarding the new functionality and reveal edge cases not covered by the
+  business requirements.
+
+- Recover domain knowledge
+  Over time, domain knowledge can get lost. This is especially acute in legacy sys‐
+  tems that require modernization. EventStorming is an effective way to merge the
+  knowledge held by each participant into a single coherent picture.
+
+- Explore ways to improve an existing business process
+  Having an end-to-end view of a business process provides the perspective needed
+  to notice inefficiencies and opportunities to improve the process.
+
+- Onboard new team members
+  Facilitating an EventStorming session together with new team members is a great
+  way to expand their domain knowledge.
+
+In addition to when to use EventStorming, it’s important to mention when not to use
+it. EventStorming will be less successful when the business process you’re exploring is
+simple or obvious, such as following a series of sequential steps without any interest‐
+ing business logic or complexity.
+
+## Facilitation Tips
+
+When facilitating an EventStorming session with a group of people who have never
+done EventStorming before, I prefer to start with a quick overview of the process. I
+explain what we are about to do, the business process we are about to explore, and the
+modeling elements we will use in the workshop. As we go through the elements—
+domain events, commands, actors, and so on—I build a legend, using the sticky notes we will use and labels to help the participants
+remember the color code. The legend should be visible to all participants during the
+workshop.
+
+### Watch the Dynamics
+
+As the workshop progresses, it’s important to track the energy of the group. If the
+dynamics are slowing down, see whether you can reignite the process by asking ques‐
+tions or whether it’s time to advance to the next stage of the workshop.
+
+Remember that EventStorming is a group activity, so ensure that it is handled as such.
+Make sure everyone has a chance to participate in the modeling and the discussion. If
+you notice that some participants are shying away from the group, try to involve them
+in the process by asking questions about the current state of the model.
+
+EventStorming is an intense activity, and at some point, the group will need a break.
+Don’t resume the session until all the participants are back in the room. Resume the
+process by going through the current state of the model to return the group to a col‐
+laborative modeling mood.
+
+### Remote EventStorming
+
+EventStorming was invented as a low-tech activity in which people interact and learn
+together in the same room. The creator of the workshop, Alberto Brandolini, has
+often objected to conducting EventStorming remotely because it’s impossible to
+achieve the same levels of participation, and hence, collaboration and knowledge
+sharing, when the group is not colocated.
+
+However, with the onset of the COVID-19 pandemic in 2020, it became impossible to
+have in-person meetings and do EventStorming as it was meant to be done. A num‐
+ber of tools attempted to enable collaboration and facilitation of remote EventStorm‐
+ing sessions. At the time of this writing, the most notable of them is miro.com. Be
+more patient when doing online EventStorming and take into account the less effec‐
+tive communication that results.
+
+In addition, my experience shows that remote EventStorming sessions are more effec‐
+tive with a smaller number of participants. While as many as 10 people can attend an
+in-person EventStorming session, I prefer to limit online sessions to five participants.
+When you need more participants to contribute their knowledge, you can facilitate
+multiple sessions, and afterward compare and merge the resultant models.
+
+When the situation allows, return to in-person EventStorming.
+
+## Conclusion
+
+EventStorming is a collaboration-based workshop for modeling business processes.
+Apart from the resultant models, its primary benefit is knowledge sharing. By the end
+of the session, all the participants will synchronize their mental models of the busi‐
+ness process and take the first steps toward using a ubiquitous language.
+
+EventStorming is like riding a bicycle. It’s much easier to learn by doing it than to
+read about it in a book. Nevertheless, the workshop is fun and easy to facilitate. You
+don’t need to be an EventStorming black belt to get started. Just facilitate the session,
+follow the steps, and learn during the process.
