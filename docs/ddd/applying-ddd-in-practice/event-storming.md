@@ -1,5 +1,19 @@
 # EventStorming
 
+EventStorming is a collaboration-based workshop for modeling business processes.  
+Apart from the resultant models, its primary benefit is knowledge sharing.
+
+By the end of the session,  
+All the participants will synchronize their mental models of the business process,  
+And take the first steps toward using a ubiquitous language.
+
+EventStorming is like riding a bicycle.  
+It’s much easier to learn by doing it than to read about it in a book.  
+Nevertheless, the workshop is fun and easy to facilitate.
+
+You don’t need to be an EventStorming black belt to get started.  
+Just facilitate the session, follow the steps, and learn during the process.
+
 ## What is EventStorming?
 
 EventStorming is a low-tech activity for a group of people to brainstorm and rapidly model a business process.
@@ -19,6 +33,51 @@ Step by step, the model is enhanced with additional concepts such as:
 - And Others
 
 Until all of its elements tell the story of how the business process works.
+
+## Why Use EventStorming?
+
+The workshop can be facilitated for many reasons:
+
+- ### Build a ubiquitous language
+
+  As the group cooperates in building the model of the business process,  
+  They instinctively synchronize the terminology and start using the same language.
+
+- ### Model the business process
+
+  An EventStorming session is an effective way to build a model of the business process.  
+  Since it is based on DDD-oriented building blocks,  
+  It is also an effective way to discover the boundaries of aggregates and bounded contexts.
+
+- ### Explore new business requirements
+
+  You can use EventStorming to ensure that all the participants are on the same page regarding the new functionality,  
+  And reveal edge cases not covered by the business requirements.
+
+- ### Recover domain knowledge
+
+  Over time, domain knowledge can get lost.  
+  This is especially acute in legacy systems that require modernization.
+
+  EventStorming is an effective way to merge the knowledge held by each participant into a single coherent picture.
+
+- ### Explore ways to improve an existing business process
+
+  Having an end-to-end view of a business process,  
+  Provides the perspective needed to notice inefficiencies,  
+  And opportunities to improve the process.
+
+- ### Onboard new team members
+
+  Facilitating an EventStorming session together with new team members is a great way to expand their domain knowledge.
+
+:::warning
+In addition to when to use EventStorming,  
+It’s important to mention **when not to use it**.
+
+EventStorming will be less successful when the business process you’re exploring is simple or obvious,  
+Such as following a series of sequential steps without any interesting business logic or complexity.
+:::
 
 ## Who Should Participate in EventStorming?
 
@@ -317,51 +376,6 @@ If you decide to implement the event-sourced domain model,
 You have the bounded context boundaries, the aggregates, and of course, the blueprint of the required domain events.
 :::
 
-## Why Use EventStorming?
-
-The workshop can be facilitated for many reasons:
-
-- ### Build a ubiquitous language
-
-  As the group cooperates in building the model of the business process,  
-  They instinctively synchronize the terminology and start using the same language.
-
-- ### Model the business process
-
-  An EventStorming session is an effective way to build a model of the business process.  
-  Since it is based on DDD-oriented building blocks,  
-  It is also an effective way to discover the boundaries of aggregates and bounded contexts.
-
-- ### Explore new business requirements
-
-  You can use EventStorming to ensure that all the participants are on the same page regarding the new functionality,  
-  And reveal edge cases not covered by the business requirements.
-
-- ### Recover domain knowledge
-
-  Over time, domain knowledge can get lost.  
-  This is especially acute in legacy systems that require modernization.
-
-  EventStorming is an effective way to merge the knowledge held by each participant into a single coherent picture.
-
-- ### Explore ways to improve an existing business process
-
-  Having an end-to-end view of a business process,  
-  Provides the perspective needed to notice inefficiencies,  
-  And opportunities to improve the process.
-
-- ### Onboard new team members
-
-  Facilitating an EventStorming session together with new team members is a great way to expand their domain knowledge.
-
-:::warning
-In addition to when to use EventStorming,  
-It’s important to mention **when not to use it**.
-
-EventStorming will be less successful when the business process you’re exploring is simple or obvious,  
-Such as following a series of sequential steps without any interesting business logic or complexity.
-:::
-
 ## Facilitation Tips
 
 ### Quick Overview
@@ -378,6 +392,11 @@ I build a legend using the sticky notes we will use,
 And labels to help the participants remember the color code.
 
 The legend should be visible to all participants during the workshop.
+
+### Conventions
+
+It’s best to stick to the color and shape conventions,  
+If possible, to be consistent with all of the currently available EventStorming books and trainings.
 
 ### Watch the Dynamics
 
@@ -428,20 +447,9 @@ When you need more participants to contribute their knowledge,
 You can facilitate multiple sessions,  
 And afterward compare and merge the resultant models.
 
-When the situation allows, return to in-person EventStorming.
+When the situation allows,  
+Return to in-person EventStorming.
 
-## Conclusion
+## References
 
-EventStorming is a collaboration-based workshop for modeling business processes.  
-Apart from the resultant models, its primary benefit is knowledge sharing.
-
-By the end of the session,  
-All the participants will synchronize their mental models of the business process,  
-And take the first steps toward using a ubiquitous language.
-
-EventStorming is like riding a bicycle.  
-It’s much easier to learn by doing it than to read about it in a book.  
-Nevertheless, the workshop is fun and easy to facilitate.
-
-You don’t need to be an EventStorming black belt to get started.  
-Just facilitate the session, follow the steps, and learn during the process.
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly
