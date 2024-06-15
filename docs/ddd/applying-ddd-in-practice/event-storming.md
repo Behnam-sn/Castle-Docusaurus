@@ -98,114 +98,138 @@ Let’s see what you need in order to facilitate an EventStorming session:
 
 ## The EventStorming Process
 
-An EventStorming workshop is usually conducted in 10 steps. During each step, the
-model is enriched with additional information and concepts.
+An EventStorming workshop is usually conducted in 10 steps.  
+During each step, the model is enriched with additional information and concepts.
 
 ### Step 1: Unstructured Exploration
 
-EventStorming starts with a brainstorm of the domain events related to the business
-domain being explored. A domain event is something interesting that has happened
-in the business. It’s important to formulate domain events in the past tense
-they are describing things that have already happened.
+EventStorming starts with a brainstorm of the domain events related to the business domain being explored.
 
-During this step, all participants are grabbing a bunch of orange sticky notes, writing
-down whatever domain events come to mind, and sticking them to the modeling
-surface.
+A domain event is something interesting that has happened in the business.
 
-At this early stage, there is no need to worry about ordering events, or even about
-redundancy. This step is all about brainstorming the possible things that can happen
-in the business domain.
+It’s important to formulate domain events in the past tense,  
+Because they are describing things that have already happened.
 
-The group should continue generating domain events until the rate of adding new
-ones slows significantly.
+During this step,  
+All participants are grabbing a bunch of orange sticky notes,  
+Writing down whatever domain events come to mind,  
+And sticking them to the modeling surface.
+
+At this early stage,  
+There is no need to worry about ordering events,  
+Or even about redundancy.
+
+This step is all about brainstorming the possible things that can happen in the business domain.
+
+The group should continue generating domain events until the rate of adding new ones slows significantly.
 
 ### Step 2: Timelines
 
-Next, the participants go over the generated domain events and organize them in the
-order in which they occur in the business domain.
+Next, the participants go over the generated domain events,  
+And organize them in the order in which they occur in the business domain.
 
-The events should start with the “happy path scenario”: the flow that describes a suc‐
-cessful business scenario.
+The events should start with the **happy path scenario**:  
+The flow that describes a successful business scenario.
 
-Once the “happy path” is done, alternative scenarios can be added—for example,
-paths where errors are encountered or different business decisions are taken. The
-flow branching can be expressed as two flows coming from the preceding event or
-with arrows drawn on the modeling surface.
+Once the **happy path** is done,  
+Alternative scenarios can be added.
 
-This step is also the time to fix incorrect events, remove duplicates, and of course,
-add missing events if necessary.
+For example,  
+Paths where errors are encountered,  
+Or different business decisions are taken.
+
+The flow branching can be expressed as two flows coming from the preceding event,  
+Or with arrows drawn on the modeling surface.
+
+This step is also the time to fix incorrect events, remove duplicates, and of course, add missing events if necessary.
 
 ### Step 3: Pain Points
 
-Once you have the events organized in a timeline, use this broad view to identify
-points in the process that require attention. These can be bottlenecks, manual steps
-that require automation, missing documentation, or missing domain knowledge.
+Once you have the events organized in a timeline,  
+Use this broad view to identify points in the process that require attention.
 
-It’s important to make these inefficiencies explicit so that it will be easy to return to
-them as the EventStorming session progresses, or to address them afterward. The
-pain points are marked with rotated (diamond) pink sticky notes.
+These can be bottlenecks, manual steps that require automation, missing documentation, or missing domain knowledge.
 
-Of course, this step is not the only opportunity to track pain points. As a facilitator,
-be aware of the participants’ comments throughout the process. When an issue or a
-concern is raised, document it as a pain point.
+It’s important to make these inefficiencies explicit,  
+So that it will be easy to return to them as the EventStorming session progresses, or to address them afterward.
+
+The pain points are marked with rotated (diamond) pink sticky notes.
+
+:::note
+Of course, this step is not the only opportunity to track pain points.  
+As a facilitator, be aware of the participants’ comments throughout the process.  
+When an issue or a concern is raised, document it as a pain point.
+:::
 
 ### Step 4: Pivotal Events
 
-Once you have a timeline of events augmented with pain points, look for significant
-business events indicating a change in context or phase. These are called pivotal
-events and are marked with a vertical bar dividing the events before and after the piv‐
-otal event.
+Once you have a timeline of events augmented with pain points,  
+look for significant business events indicating a change in context or phase.
 
-For example, “shopping cart initialized,” “order initialized,” “order shipped,” “order
-delivered,” and “order returned” represent significant changes in the process of mak‐
-ing an order.
+These are called pivotal events,  
+And are marked with a vertical bar dividing the events before and after the pivotal event.
+
+For example:
+
+- Shopping Cart Initialized
+- Order Initialized
+- Order Shipped
+- Order Delivered
+- Order Returned
+
+Represent significant changes in the process of making an order.
 
 Pivotal events are an indicator of potential bounded context boundaries.
 
 ### Step 5: Commands
 
-Whereas a domain event describes something that has already happened, a command
-describes what triggered the event or flow of events. Commands describe the system’s
-operations and, contrary to domain events, are formulated in the imperative. For
-example:
+Whereas a domain event describes something that has already happened,  
+A command describes what triggered the event or flow of events.
 
-- Publish campaign
-- Roll back transaction
-- Submit order
+Commands describe the system’s operations,  
+And contrary to domain events, are formulated in the imperative.
 
-Commands are written on light blue sticky notes and placed on the modeling space
-before the events they can produce. If a particular command is executed by an actor
-in a specific role, the actor information is added to the command on a small yellow
-sticky note.
+For example:
 
-The actor represents a user persona within
-the business domain, such as customer, administrator, or editor.
+- Publish Campaign
+- Roll Back Transaction
+- Submit Order
 
-Naturally, not all commands will have an associated actor. Therefore, add the actor
-information only where it’s obvious. In the next step we will augment the model with
-additional entities that can trigger commands.
+Commands are written on light blue sticky notes,  
+And placed on the modeling space before the events they can produce.
+
+If a particular command is executed by an actor in a specific role,  
+The actor information is added to the command on a small yellow sticky note.
+
+The actor represents a user persona within the business domain, such as customer, administrator, or editor.
+
+Naturally, not all commands will have an associated actor.  
+Therefore, add the actor information only where it’s obvious.
 
 ### Step 6: Policies
 
-Almost always, some commands are added to the model but have no specific actor
-associated with them. During this step, you look for automation policies that might
-execute those commands.
+Almost always some commands are added to the model that have no specific actor associated with them.
 
-An automation policy is a scenario in which an event triggers the execution of a com‐
-mand. In other words, a command is automatically executed when a specific domain
-event occurs.
+During this step, you look for automation policies that might execute those commands.
 
-On the modeling surface, policies are represented as purple sticky notes connecting
-events to commands.
+An automation policy is a scenario in which an event triggers the execution of a command.  
+In other words, a command is automatically executed when a specific domain event occurs.
 
-If the command in question should be triggered only if some decision criteria is met,
-you can specify the decision criteria explicitly on the policy sticky note. For example,
-if you need to trigger the escalate command after the “complaint received” event,
-but only if the complaint was received from a VIP customer, you can explicitly state
-the “only for VIP customers” condition on the policy sticky.
+On the modeling surface,  
+Policies are represented as purple sticky notes connecting events to commands.
 
-If the events and commands are far apart, you can draw an arrow on the modeling
-surface to connect them.
+If the command in question should be triggered only if some decision criteria is met,  
+You can specify the decision criteria explicitly on the policy sticky note.
+
+For example,  
+If you need to trigger the escalate command after the `ComplaintReceived` event,  
+But only if the complaint was received from a VIP customer,  
+You can explicitly state the _“only for VIP customers”_ condition on the policy sticky.
+
+:::note
+If the events and commands are far apart,  
+You can draw an arrow on the modeling surface to connect them.
+:::
 
 ### Step 7: Read Models
 
