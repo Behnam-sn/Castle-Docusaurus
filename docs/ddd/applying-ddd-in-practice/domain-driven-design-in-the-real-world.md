@@ -3,7 +3,9 @@
 ## Strategic Analysis
 
 Following the order of our exploration of domain-driven design patterns and practices,  
-The best starting point for introducing DDD in an organization is to invest time in understanding the organization’s business strategy and the current state of its systems’ architecture.
+The best starting point for introducing DDD in an organization,  
+Is to invest time in understanding the organization’s business strategy,  
+And the current state of its systems’ architecture.
 
 ### Understand the Business Domain
 
@@ -16,7 +18,8 @@ First, identify the company’s business domain:
 
 Answering these questions will give you a bird’s-eye view of the company’s high-level goals.
 
-Next, “zoom in” to the domain and look for the business building blocks the organization employs to achieve its high-level goals: the subdomains.
+Next, “zoom in” to the domain,  
+And look for the business building blocks the organization employs to achieve its high-level goals: the subdomains.
 
 A good initial heuristic is the company’s org chart:  
 its departments and other organizational units.
