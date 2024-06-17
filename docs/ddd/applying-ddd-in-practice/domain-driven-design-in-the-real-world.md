@@ -275,3 +275,184 @@ will be used exclusively by the new implementation.
 
 An alternative to strangler-based migration is modernizing the legacy codebase in
 place, also called refactoring.
+
+#### Refactoring tactical design decisions
+
+In Chapter 11, you learned the various aspects of migrating tactical design decisions.
+However, there are two nuances to be aware of when modernizing a legacy codebase.
+
+First, small incremental steps are safer than a big rewrite. Therefore, don’t refactor a
+transaction script or active record straight to an event-sourced domain model.
+Instead, take the intermediate step of designing state-based aggregates. Invest the
+effort in finding effective aggregate boundaries. Ensure that all related business logic
+resides within those boundaries. Going from state-based to event-sourced aggregates
+will be orders of magnitude safer than discovering wrong transactional boundaries in
+an event-sourced aggregate.
+
+Second, following the same reasoning of taking small incremental steps, refactoring
+to a domain model doesn’t have to be an atomic change. Instead, you can gradually
+introduce the elements of the domain model pattern.
+
+Start by looking for possible value objects. Immutable objects can significantly reduce
+the solution’s complexity, even if you are not using a full-blown domain model.
+
+As we discussed in Chapter 11, refactoring active records into aggregates doesn’t have
+to be done overnight. It can be done in gradual steps. Start by gathering the related
+business logic. Next, analyze the transactional boundaries. Are there decisions that
+require strong consistency but operate on eventually consistent data? Or conversely,
+does the solution enforce strong consistency where eventual consistency would suf‐
+fice? When analyzing the codebase, don’t forget that these decisions are driven by
+business, not technology, concerns. Only after a thorough analysis of the transac‐
+tional requirements should you design the aggregate’s boundaries.
+
+Finally, when necessary as you’re refactoring legacy systems, protect the new code‐
+base from old models using an anticorruption layer, and protect the consumers from
+changes in the legacy codebase by implementing an open-host service and exposing a
+published language.
+
+## Pragmatic Domain-Driven Design
+
+As we discussed in this chapter’s introduction, applying domain-driven design is not
+an all-or-nothing endeavor. You don’t have to apply every tool DDD has to offer. For
+example, for some reason, the tactical patterns might not work for you. Maybe you
+prefer to use other design patterns because they work better in your specific domain,
+or just because you find other patterns more effective. That’s totally fine!
+
+As long as you analyze your business domain and its strategy, look for effective mod‐
+els to solve particular problems, and most importantly, make design decisions based
+on the business domain’s needs: that’s domain-driven design!
+
+It’s worth reiterating that domain-driven design is not about aggregates or value
+objects. Domain-driven design is about letting your business domain drive software
+design decisions.
+
+## Selling Domain-Driven Design
+
+When I present on this topic at technology conferences, there is one question that I’m
+asked almost every time: “That all sounds great, but how do I ‘sell’ domain-driven
+design to my team and management?” That’s an extremely important question.
+
+Selling is hard, and personally, I hate selling. That said, if you think about it, design‐
+ing software is selling. We are selling our ideas to the team, to management, or to cus‐
+tomers. However, a methodology that covers such a wide range of design decision
+aspects, and even reaches outside the engineering zone to involve other stakeholders,
+can be extremely hard to sell.
+
+Management support is essential for making any considerable changes in an organi‐
+zation. However, unless the top-level managers are already familiar with domain-
+driven design or are willing to invest time to learn the business value of the
+methodology, it’s not top of mind for them, especially because of a seemingly large
+shift in the engineering process that DDD entails. Fortunately, however, it doesn’t
+mean you can’t use domain-driven design.
+
+### Undercover Domain-Driven Design
+
+Make domain-driven design a part of your professional toolbox, not an organiza‐
+tional strategy. DDD’s patterns and practices are engineering techniques, and since
+software engineering is your job, use them!
+Let’s see how to incorporate DDD into your day-to-day job without making much
+ado about it.
+
+#### Ubiquitous language
+
+The use of a ubiquitous language is the cornerstone practice of domain-driven
+design. It is essential for domain knowledge discovery, communication, and effective
+solution modeling.
+
+Luckily, this practice is so trivial that it’s borderline common sense. Listen carefully to
+the language the stakeholders use when they speak about the business domain. Gen‐
+tly steer the terminology away from technical jargon and toward its business
+meaning.
+
+Look for inconsistent terms and ask for clarifications. For example, if there are multi‐
+ple names for the same thing, look for the reason. Are those different models inter‐
+twined in the same solution? Look for contexts and make them explicit. If the
+meaning is the same, follow common sense and ask for one term to be used.
+
+Also, communicate with domain experts as much as possible. These efforts shouldn’t
+necessarily require formal meetings. Watercoolers and coffee breaks are great com‐
+munication facilitators. Speak with the domain experts about the business domain.
+Try using their language. Look for difficulties in understanding and ask for clarifica‐
+tions. Don’t worry—domain experts are usually happy to collaborate with engineers
+who are sincerely interested in learning about the problem domain!
+
+Most importantly, use the ubiquitous language in your code and all project-related
+communication. Be patient. Changing the terminology that has been used in an orga‐
+nization for a while will take time, but eventually, it will catch on.
+
+#### Bounded contexts
+
+When exploring possible decomposition options, resolve to the principles behind
+what the bounded context pattern is based on:
+
+• Why is it better to design problem-oriented models instead of a single model for
+all use cases? Because “all-in-one” solutions are rarely effective for anything.
+• Why can’t a bounded context host conflicting models? Because of the increased
+cognitive load and solution complexity.
+• Why is it a bad idea for multiple teams to work on the same codebase? Because of
+friction and hindered collaboration between the teams.
+
+Use the same reasoning for bounded context integration patterns: make sure you
+understand the problem each pattern is supposed to solve.
+
+#### Tactical design decisions
+
+When discussing tactical design patterns, don’t appeal to authority: “Let’s use an
+aggregate here because the DDD book says so!” Instead, appeal to logic. For example:
+
+• Why are explicit transactional boundaries important? To protect the consistency
+of the data.
+• Why can’t a database transaction modify more than one instance of an aggregate?
+To ensure that the consistency boundaries are correct.
+• Why can’t an aggregate’s state be modified directly by an external component? To
+ensure that all the related business logic is colocated and not duplicated.
+• Why can’t we offload some of the aggregate’s functionality to a stored procedure?
+To make sure that no logic is duplicated. Duplicated logic, especially in logically
+
+and physically distant components of a system, tends to go out of sync and lead
+to data corruption.
+• Why should we strive for small aggregate boundaries? Because wide transactional
+scope will both increase the complexity of the aggregate and negatively impact
+the performance.
+• Why, instead of event sourcing, can’t we just write events to a logfile? Because
+there are no long-term data consistency guarantees.
+
+Speaking of event sourcing, when the solution calls for an event-sourced domain
+model, implementation of this pattern might be hard to sell. Let’s take a look at a Jedi
+mind trick that can help with this.
+
+#### Event-sourced domain model
+
+Despite its many advantages, event sourcing sounds too radical for many people. As
+with everything we’ve discussed in this book, the solution is to let the business
+domain drive this decision.
+
+Talk to domain experts. Show them the state- and event-based models. Explain the
+differences and the advantages offered by event sourcing, especially with regard to the
+dimension of time. More often than not, they will be ecstatic with the level of insight
+it provides and will advocate event sourcing themselves.
+
+And while interacting with the domain experts, don’t forget to work on the ubiqui‐
+tous language!
+
+## Conclusion
+
+In this chapter, you learned various techniques for leveraging domain-driven design
+tools in real-life scenarios: when working on brownfield projects and legacy codeba‐
+ses, and not necessarily with a team of DDD experts.
+
+As in greenfield projects, always start by analyzing the business domain. What are the
+company’s goals and its strategy for achieving them? Use the organizational structure
+and existing software design decisions to identify the organization’s subdomains and
+their types. With this knowledge, plan the modernization strategy. Look for pain
+points. Look to gain the most business value. Modernize legacy code either by refac‐
+toring or by replacing the relevant components. Either way, do it gradually. Big
+rewrites entail more risk than business value!
+
+Finally, you can use domain-driven design tools even if DDD is not widely adopted in
+your organization. Use the right tools, and when discussing them with colleagues,
+always use the logic and principles behind each pattern.
+
+## References
+
+- Learning Domain-Driven Design - Vladik Khononov - O'Reilly
