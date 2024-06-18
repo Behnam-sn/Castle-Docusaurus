@@ -7,16 +7,15 @@ sidebar_position: 1
 ## What is Transaction Script Pattern?
 
 > Transaction script organizes business logic by procedures,  
-> Where each procedure handles a single request from the presentation.  
+> Where each procedure handles a single request from the presentation layer.  
 > — Martin Fowler
 
-A system’s public interface can be seen as a collection of business transactions that consumers can execute.  
-These transactions can retrieve information managed by the system, modify it, or both.
+A system’s public interface,  
+Can be seen as a collection of business transactions,  
+That consumers can execute.
 
-<!-- The pattern organizes the system’s business logic based on procedures,
-Where each procedure implements an operation that is executed by the system’s consumer via its public interface. -->
-
-In effect, the system’s public operations are used as encapsulation boundaries.
+These transactions can retrieve information managed by the system, modify it, or both.  
+For example:
 
 ```cs
 public interface BackLogService
@@ -28,17 +27,24 @@ public interface BackLogService
 }
 ```
 
+The system’s public operations are used as encapsulation boundaries.
+
+:::note
+The transaction script pattern is a foundation for the more advanced business logic implementation patterns.
+:::
+
 ## How to Implement Transaction Script Pattern?
 
 Each procedure is implemented as a simple, straightforward procedural script.
 
-The only requirement procedures have to fulfill is transactional behavior:  
+The only requirement procedures have to fulfill is **Transactional Behavior**:  
 _Each operation should either succeed or fail but can never result in an invalid state._
 
-Even if execution of a transaction script fails at the most inconvenient moment, the system should remain consistent.  
-Either by rolling back any changes it has made up until the failure, or by executing compensating actions.
+Even if execution of a transaction script fails at the most inconvenient moment,  
+The system should remain consistent.
 
-The transactional behavior is reflected in the pattern’s name: Transaction Script
+Either by rolling back any changes it has made up until the failure,  
+Or by executing compensating actions.
 
 Here is an example of a transaction script that converts batches of JSON files into XML files:
 
@@ -59,20 +65,24 @@ But it is also free to access the databases directly.
 
 ## What are The Challenges of Transaction Script Pattern?
 
-The transaction script pattern is a foundation for the more advanced business logic implementation patterns.  
-Furthermore, despite its apparent simplicity, it is the easiest pattern to get wrong.
+Despite its apparent simplicity,  
+It is the easiest pattern to get wrong.
 
 A considerable number of production issues in one way or another,  
-Often boiled down to a misimplementation of the transactional behavior of the system’s business logic.
+Boiled down to a misimplementation of the transactional behavior of the system’s business logic.
 
-Let’s take a look at 3 common, real-life examples of data corruption,  
+Let’s take a look at 3 common,  
+Real-life examples of data corruption,  
 That results from failing to correctly implement a transaction script:
 
 ### Lack of Transactional Behavior
 
-A trivial example of failing to implement transactional behavior is to issue multiple updates without an overarching transaction.
+A trivial example of failing to implement transactional behavior,  
+Is to issue multiple updates without an overarching transaction.
 
-Consider the following method that updates a record in the `Users` table and inserts a record into the `VisitsLog` table:
+Consider the following method,  
+That updates a record in the `Users` table,  
+And inserts a record into the `VisitsLog` table:
 
 ```cs
 public class LogVisit
