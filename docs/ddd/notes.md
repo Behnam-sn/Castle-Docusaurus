@@ -98,3 +98,11 @@ You learned to analyze business domains, identify subdomains and their strategic
 And turn the knowledge of business domains into the design of bounded contexts.
 
 In tactical design, we will turn from strategy to tactics: the “how” of software design.
+
+## Random
+
+A system’s UI can be beautiful,
+And its database can be blazing fast and scalable.
+
+But if the software is not useful for the business,
+It’s nothing but an expensive technology demo.
