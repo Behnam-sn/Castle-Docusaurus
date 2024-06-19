@@ -6,13 +6,14 @@ sidebar_position: 3
 
 ## What is Domain Model Pattern?
 
-> A domain model is an object model of the domain that incorporates both behavior and data.  
-> — Martin Fowler
+<!-- > A domain model is an object model of the domain that incorporates both behavior and data.
+> — Martin Fowler -->
 
 The domain model pattern is intended to cope with cases of complex business logic.
 
 Here, instead of CRUD interfaces,  
-We deal with complicated state transitions,  
+We deal with:  
+Complicated state transitions,  
 Business rules,  
 And invariants (rules that have to be protected at all times).
 
@@ -54,45 +55,64 @@ Let’s look at the central domain model building blocks, or tactical patterns, 
 
 - ### Value Objects
 
-  Concepts of the business domain that can be identified exclusively by their values,  
-  And thus do not require an explicit ID field.  
-  Since a change in one of the fields semantically creates a new value, value objects are immutable.
+  Concepts of the business domain,  
+  That can be identified exclusively by their values.
+
+  Value objects do not require an explicit ID field.
+
+  Since a change in one of the fields semantically creates a new value,  
+  Value objects are immutable.
 
   Value objects model not only data, but behavior as well.  
   Methods manipulating the values and thus initializing new value objects.
 
 - ### Entities
 
+  An entity is the opposite of a value object.
+
 - ### Aggregates
 
-  A hierarchy of entities sharing a transactional boundary.  
-  All of the data included in an aggregate’s boundary has to be strongly consistent to implement its business logic.
+  A hierarchy of entities sharing a transactional boundary.
 
-  The state of the aggregate, and its internal objects,  
-  Can only be modified through its public interface, by executing the aggregate’s commands.
+  All of the data included in an aggregate’s boundary,  
+  Has to be strongly consistent,  
+  To implement its business logic.
+
+  The state of the aggregate,  
+  And its internal objects,  
+  Can only be modified through its public interface,  
+  By executing the aggregate’s commands.
 
 - ### Domain Events
 
-  An aggregate can communicate with external entities, by publishing domain events.  
-  Domain events are messages describing important business events in the aggregate’s lifecycle.  
-  Other components can subscribe to the events and use them to trigger the execution of business logic.
+  An aggregate can communicate with external entities,  
+  By publishing domain events.
+
+  Domain events are messages,  
+  Describing important business events,  
+  In the aggregate’s lifecycle.
+
+  Other components can subscribe to the events,  
+  And use them to trigger the execution of business logic.
 
 - ### Domain Services
 
-  A stateless object that hosts business logic that naturally doesn’t belong to any of
-  the domain model’s aggregates or value objects.
+  A domain service is a stateless object,  
+  That hosts business logic that naturally doesn’t belong to any of,  
+  The domain model’s aggregates or value objects.
 
+:::note
 All of these patterns share a common theme:  
 They put the business logic first.
+:::
 
-## How to Implement Domain Model Pattern?
-
-Let’s see how the domain model addresses different design concerns:
+## How the Domain Model Addresses Different Design Concerns?
 
 ### Complexity
 
 The domain’s business logic is already inherently complex,  
-So the objects used for modeling it should not introduce any additional accidental complexities.
+So the objects used for modeling it,  
+Should not introduce any additional accidental complexities.
 
 The model should be devoid of any infrastructural or technological concerns,  
 Such as implementing calls to databases or other external components of the system.
@@ -108,7 +128,7 @@ Makes it easier for the domain model’s objects,
 To follow the terminology of the bounded context’s ubiquitous language.
 
 In other words,  
-This pattern allows the code to “speak” the ubiquitous language,  
+This pattern allows the code to speak the ubiquitous language,  
 And to follow the domain experts mental models.
 
 ## References
