@@ -9,10 +9,12 @@ sidebar_position: 1
 ## What Problem Value Object is Trying to Solve?
 
 Relying exclusively on the language’s standard library’s primitive data types,  
-Such as strings, integers, or dictionaries to represent concepts of the business domain,  
-Is known as the primitive obsession code smell.
+Such as strings, integers, or dictionaries,  
+To represent concepts of the business domain,  
+Is known as the **primitive obsession code smell**.
 
-For example, consider the following class:
+For example,  
+Consider the following class:
 
 ```cs
 class Person
@@ -57,11 +59,13 @@ This approach presents multiple design risks:
 
 - First, the validation logic tends to be duplicated.
 - Second, it’s hard to enforce calling the validation logic before the values are used.
-- It will become even more challenging in the future, when the codebase will be evolved by other engineers.
+- It will become even more challenging in the future,  
+  When the codebase will be evolved by other engineers.
 
 ## What is Value Object Solution?
 
-Compare the following alternative design of the same object, this time leveraging value objects:
+Compare the following alternative design of the same object,  
+This time leveraging value objects:
 
 ```cs
 class Person {
@@ -91,46 +95,54 @@ static void Main(string[] args)
 
 Let's review the benefits of using value objects:
 
-### Clarity
+- ### Clarity
 
-The value object makes the intent clear,  
-Even with shorter variable names.
+  The value object makes the intent clear,  
+  Even with shorter variable names.
 
-For example, the `country` variable.  
-There is no need to elaborately call it `countryCode` to communicate the intent of it holding a country code and not, for example, a full country name.
+  For example, the `country` variable.  
+  There is no need to elaborately call it `countryCode`,  
+  To communicate the intent of it holding a country code and not,  
+  For example, a full country name.
 
-### Validation
+- ### Validation
 
-There is no need to validate the values before the assignment,  
-As the validation logic resides in the value objects themselves.
+  There is no need to validate the values before the assignment,  
+  As the validation logic resides in the value objects themselves.
 
-### Centralized Business Logic
+- ### Centralized Business Logic
 
-Value objects shine brightest when they centralize the business logic that manipulates the values.  
-The cohesive logic is implemented in one place and is easy to test.
+  Value objects shine brightest when they centralize the business logic that manipulates the values.  
+  The cohesive logic is implemented in one place and is easy to test.
 
-### Intuitive
+- ### Intuitive
 
-As you can see in the preceding example, value objects eliminate the need for conventions.  
-For example, the need to keep in mind that this string is an email and the other string is a phone number.  
-And instead makes using the object model less error prone and more intuitive.
+  As you can see in the preceding example,  
+  Value objects eliminate the need for conventions.
 
-### Ubiquitous Language
+  For example, the need to keep in mind that this string is an email and the other string is a phone number.  
+  And instead makes using the object model less error prone and more intuitive.
 
-Most importantly, value objects express the business domain’s concepts:  
-They make the code speak the ubiquitous language.
+- ### Ubiquitous Language
+
+  Most importantly, value objects express the business domain’s concepts:  
+  They make the code speak the ubiquitous language.
 
 ## More Examples of Value Objects
 
-Let’s see how representing the concepts of height, phone numbers, and colors as value objects makes the resultant type system rich and intuitive to use.
+Let’s see how representing the concepts of height, phone numbers, and colors as value objects,  
+Makes the resultant type system rich and intuitive to use.
 
 ### Height
 
 Compared to an integer-based value,  
-The `Height` value object both makes the intent clear and decouples the measurement from a specific measurement unit.
+The `Height` value object,  
+Makes the intent clear,  
+And decouples the measurement from a specific measurement unit.
 
 For example,  
-The `Height` value object can be initialized using both metric and imperial units;  
+The `Height` value object can be initialized using both metric and imperial units;
+
 Making it easy to convert from one unit to another,  
 Generating string representation,  
 And comparing values of different units.
