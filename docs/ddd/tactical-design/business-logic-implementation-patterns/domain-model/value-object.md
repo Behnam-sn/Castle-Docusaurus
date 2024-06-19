@@ -6,14 +6,6 @@ sidebar_position: 1
 
 ## What is a Value Object?
 
-Concepts of the business domain that can be identified exclusively by their values;  
-and thus do not require an explicit ID field.
-
-Since a change in one of the fields semantically creates a new value, value objects are immutable.
-
-Value objects model not only data, but behavior as well:  
-Methods manipulating the values and thus initializing new value objects.
-
 ## What Problem Value Object is Trying to Solve?
 
 Relying exclusively on the language’s standard library’s primitive data types,  
