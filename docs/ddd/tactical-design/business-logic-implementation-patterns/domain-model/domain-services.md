@@ -9,11 +9,20 @@ sidebar_position: 5
 A domain service is a stateless object that implements business logic.
 
 In the vast majority of cases,  
-Such logic orchestrates calls to various components of the system to perform some calculation or analysis.
+Such logic orchestrates calls to various components of the system,  
+To perform some calculation or analysis.
 
-## What Problem Domain Services are Trying to Solve?
+:::note
+It is important to point out that domain services have nothing to do with microservices,  
+Service-oriented architecture, or almost any other use of the word service in software engineering.
 
-You will encounter business logic that doesn’t belong to any aggregate or value object,  
+It is just a stateless object used to host business logic.
+:::
+
+## What Problem Domain Service is Trying to Solve?
+
+You will encounter business logic,  
+That doesn’t belong to any aggregate or value object,  
 Or that seems to be relevant to multiple aggregates.
 
 In such cases, domain-driven design proposes to implement the logic as a domain service.
@@ -62,11 +71,8 @@ However, it is important to always keep in mind the aggregate pattern’s limita
 Domain services are not a loophole around this limitation.  
 The rule of one instance per transaction still holds true.
 
-Instead, domain services lend themselves to implementing calculation logic that requires reading the data of multiple aggregates.
-
-It is also important to point out that domain services have nothing to do with microservices, service-oriented architecture, or almost any other use of the word service in software engineering.
-
-It is just a stateless object used to host business logic.
+Instead, domain services lend themselves to implementing calculation logic,  
+That requires reading the data of multiple aggregates.
 
 ## References
 
