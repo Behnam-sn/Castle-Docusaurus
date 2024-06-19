@@ -6,8 +6,6 @@ sidebar_position: 2
 
 ## What is a Entity?
 
-An entity is the opposite of a value object.
-
 ## What is The Difference Between Entity and Value Object?
 
 ### Identification
