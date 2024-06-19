@@ -6,10 +6,10 @@ sidebar_position: 5
 
 ## What is a Domain Service?
 
-A domain service is a stateless object that implements business logic.
-
+A domain service is a stateless object that implements business logic.  
 In the vast majority of cases,  
-Such logic orchestrates calls to various components of the system,  
+Such logic orchestrates calls,  
+To various components of the system,  
 To perform some calculation or analysis.
 
 :::note
@@ -27,9 +27,9 @@ Or that seems to be relevant to multiple aggregates.
 
 In such cases, domain-driven design proposes to implement the logic as a domain service.
 
-## How to Implement Domain Services?
+## How to Implement Domain Service?
 
-Let’s go back to the example of the `Ticket` aggregate.
+Let’s go back to the example of the `Ticket` aggregate:
 
 - Recall that the assigned agent has a limited time frame in which to propose a solution to the customer.
 - The time frame depends not only on the ticket’s data (its priority and escalation status),
@@ -37,8 +37,11 @@ Let’s go back to the example of the `Ticket` aggregate.
   Regarding the SLAs for each priority and the agent’s work schedule (shifts),  
   We can’t expect the agent to respond during off-hours.
 
-The response time frame calculation logic requires information from multiple sources:  
-The ticket, the assigned agent’s department, and the work schedule.
+The response time frame calculation logic requires information from multiple sources:
+
+- The ticket
+- the assigned agent’s department
+- And the work schedule
 
 That makes it an ideal candidate to be implemented as a domain service:
 
