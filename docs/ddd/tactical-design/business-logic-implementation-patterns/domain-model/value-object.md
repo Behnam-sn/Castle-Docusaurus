@@ -8,7 +8,8 @@ sidebar_position: 1
 
 ## What Problem Value Object is Trying to Solve?
 
-Relying exclusively on the language’s standard library’s primitive data types,  
+Relying exclusively,  
+On the language’s standard library’s primitive data types,  
 Such as strings, integers, or dictionaries,  
 To represent concepts of the business domain,  
 Is known as the **primitive obsession code smell**.
@@ -100,10 +101,10 @@ Let's review the benefits of using value objects:
   The value object makes the intent clear,  
   Even with shorter variable names.
 
-  For example, the `country` variable.  
+  For example, the `country` variable:  
   There is no need to elaborately call it `countryCode`,  
-  To communicate the intent of it holding a country code and not,  
-  For example, a full country name.
+  To communicate the intent of it holding a country code,  
+  And not for example, a full country name.
 
 - ### Validation
 
@@ -112,7 +113,10 @@ Let's review the benefits of using value objects:
 
 - ### Centralized Business Logic
 
-  Value objects shine brightest when they centralize the business logic that manipulates the values.  
+  Value objects shine brightest,  
+  When they centralize the business logic,  
+  That manipulates the values.
+
   The cohesive logic is implemented in one place and is easy to test.
 
 - ### Intuitive
@@ -120,12 +124,16 @@ Let's review the benefits of using value objects:
   As you can see in the preceding example,  
   Value objects eliminate the need for conventions.
 
-  For example, the need to keep in mind that this string is an email and the other string is a phone number.  
+  For example,  
+  The need to keep in mind that this string is an email,  
+  And the other string is a phone number.
+
   And instead makes using the object model less error prone and more intuitive.
 
 - ### Ubiquitous Language
 
-  Most importantly, value objects express the business domain’s concepts:  
+  Most importantly,  
+  Value objects express the business domain’s concepts:  
   They make the code speak the ubiquitous language.
 
 ## More Examples of Value Objects
@@ -160,9 +168,14 @@ var firstIsHigher = heightMetric > heightImperial;  // true
 
 ### Phone Number
 
-The `PhoneNumber` value object can encapsulate the logic of parsing a string value, validating it, and extracting different attributes of the phone number.
+The `PhoneNumber` value object,  
+Can encapsulate the logic of parsing a string value,  
+Validating it,  
+And extracting different attributes of the phone number.
 
-For example, the country it belongs to and the phone number’s type (landline or mobile):
+For example,  
+The country it belongs to,  
+And the phone number’s type (landline or mobile):
 
 ```cs
 var phone = PhoneNumber.Parse("+359877123503");
