@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Entities
+# Entity
 
 ## What is a Entity?
 
