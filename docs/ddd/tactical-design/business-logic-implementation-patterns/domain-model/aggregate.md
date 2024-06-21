@@ -2,30 +2,26 @@
 sidebar_position: 3
 ---
 
-# Aggregates
+# Aggregate
 
 ## What is an Aggregate?
 
-An aggregate is an entity.
-
+An aggregate is an entity.  
 It requires an explicit identification field,  
 And its state is expected to change during an instance’s lifecycle.
 
 However, it is much more than just an entity.  
-The aggregate is a consistency enforcement boundary.
+The aggregate is a **consistency enforcement boundary**.
 
-## What Problem Aggregate is Trying to Solve?
-
-_The goal of the pattern is to protect the consistency of its data._
+## What Problem Aggregate Pattern is Trying to Solve?
 
 Since an entity's data is mutable,  
 It creates an opening for its data to become corrupted.
 
-And there are implications and challenges to keep entities state consistent at all times.
+_The goal of the pattern is to protect the consistency of its data._
 
-## How Aggregate Pattern Enforces Consistency?
+## What is Aggregate Pattern Solution?
 
-To enforce consistency of the data,  
 The aggregate pattern draws a clear boundary between the aggregate and its outer scope.
 
 The aggregate’s logic has to validate all incoming modifications,  
