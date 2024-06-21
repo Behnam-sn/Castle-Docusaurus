@@ -4,40 +4,42 @@ sidebar_position: 1
 
 # Roadmap
 
+- [ ] DDD
 - [ ] Algorithms
   - [ ] Problem Solving
-- [ ] Data Structures
-- [ ] DDD
-- [ ] .NET
-- [ ] C#
-- [ ] EF
-- [ ] OOP
-- [ ] Concurrency
-- [ ] Testing
-  - [ ] Unit Testing
-  - [ ] Integration Testing
-  - [ ] End-to-End Testing
-  - [ ] TDD
-  - [ ] xUnit
-- [ ] SOLID
-- [ ] Design Patterns
-- [ ] Logging
-  - [ ] Elastic Search
-  - [ ] LogStash
-  - [ ] Kibana
-  - [ ] Serilog
-- [ ] Readable Code
-- [ ] Locality of Behavior
-- [ ] Auth
-- [ ] Docker
-- [ ] NoSQL Databases
-  - [ ] MongoDB
-  - [ ] Redis
-- [ ] Messaging Queue
-  - [ ] RabbitMQ
-- [ ] Kafka
+  - [ ] Data Structures
 - [ ] Hardware
   - [ ] CPU
   - [ ] Memory
   - [ ] Storage
   - [ ] GPU
+  - [ ] Concurrency
+- [ ] .NET
+  - [ ] C#
+  - [ ] EF
+  - [ ] xUnit
+- [ ] OOP
+  - [ ] SOLID
+  - [ ] Design Patterns
+- [ ] Testing
+  - [ ] Unit Testing
+  - [ ] Integration Testing
+  - [ ] End-to-End Testing
+  - [ ] TDD
+- [ ] Readable Code
+  - [ ] Locality of Behavior
+- [ ] Auth
+- [ ] NoSQL Databases
+  - [ ] MongoDB
+  - [ ] Redis
+- [ ] Messaging Queue
+  - [ ] RabbitMQ
+  - [ ] Kafka
+- [ ] DevOps
+  - [ ] Docker
+- [ ] Logging
+  - [ ] Elastic Search
+  - [ ] LogStash
+  - [ ] Kibana
+  - [ ] Serilog
+- [ ] Micro Service
