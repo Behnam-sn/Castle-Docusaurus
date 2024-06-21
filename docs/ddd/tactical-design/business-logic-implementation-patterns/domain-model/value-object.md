@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Value Object
 
-## What is a Value Object?
+## What is Value Object?
 
 ## What Problem Value Object is Trying to Solve?
 
@@ -186,7 +186,10 @@ var isValid = PhoneNumber.IsValid("+972120266680"); // false
 
 ### Color
 
-The following example demonstrates the power of a value object when it encapsulates all of the business logic that manipulates the data and produces new instances of the value object:
+The following example,  
+Demonstrates the power of a value object,  
+When it encapsulates all of the business logic that manipulates the data,  
+And produces new instances of the value object:
 
 ```cs
 var red = Color.FromRGB(255, 0, 0);
@@ -197,11 +200,22 @@ var yellowString = yellow.ToString(); // "#FFFF00"
 
 ### String
 
-Although using a core library’s Strings to represent domain-specific values contradicts the notion of value objects, in .NET, Java, and other languages the string type is implemented exactly as a value object.
+Although using a core library’s Strings,  
+To represent domain-specific values,  
+Contradicts the notion of value objects,  
+In .NET, Java, and other languages,  
+The string type is implemented exactly as a value object.
 
-Strings are immutable, as all operations result in a new instance.  
-Moreover, the string type encapsulates a rich behavior that creates new instances by manipulating the values of one or more strings:  
-trim, concatenate multiple strings, replace characters, substring, and other methods.
+Strings are immutable, as all operations result in a new instance.
+
+Moreover, the string type encapsulates a rich behavior,  
+That creates new instances by manipulating the values of one or more strings:
+
+- Trim
+- Concatenate multiple strings
+- Replace characters
+- Substring
+- And other methods
 
 ## How to Implement a Value Object?
 
@@ -209,7 +223,8 @@ trim, concatenate multiple strings, replace characters, substring, and other met
 
 A value object is an object that can be identified by the composition of its values.
 
-For example, consider a color object:
+For example,  
+Consider a color object:
 
 ```cs
 public class Color
@@ -220,10 +235,12 @@ public class Color
 }
 ```
 
-The composition of the values of the three fields red, green, and blue defines a color.  
+The composition of the values of the three fields red, green, and blue defines a color.
+
 Changing the value of one of the fields will result in a new color.  
 No two colors can have the same values.  
-Also, two instances of the same color must have the same values.  
+Also, two instances of the same color must have the same values.
+
 Therefore, no explicit identification field is needed to identify colors.
 
 ### Immutability
@@ -231,12 +248,16 @@ Therefore, no explicit identification field is needed to identify colors.
 Since a change to any of the fields of a value object results in a different value,  
 Value objects are implemented as immutable objects.
 
-A change to one of the value object’s fields conceptually creates a different value (a different instance of a value object).
+A change to one of the value object’s fields,  
+Conceptually creates a different value.  
+(A different instance of a value object)
 
-Therefore, when an executed action results in a new value,  
-as in the following case,  
-which uses the `MixWith` method,  
-it doesn’t modify the original instance but instantiates and returns a new one:
+Therefore, when an executed action results in a new value.
+
+As in the following case,  
+The `MixWith` method,  
+Doesn’t modify the original instance,  
+But instantiates and returns a new one:
 
 ```cs
 public class Color
@@ -259,13 +280,17 @@ public class Color
 }
 ```
 
+:::note
 Since value objects are immutable,  
 The value objects behavior is free of side effects and is thread safe.
+:::
 
 ### Equality Checks
 
-Since the equality of value objects is based on their values rather than on an id field or reference,  
-it’s important to override and properly implement the equality checks.
+Since the equality of value objects,  
+Is based on their values,  
+Rather than on an id field or reference,  
+It’s important to override and properly implement the equality checks.
 
 For example:
 
@@ -303,7 +328,8 @@ public class Color
 
 ## When to Use Value Objects?
 
-The simple answer is, whenever you can.
+The simple answer is,  
+Whenever you can.
 
 Not only do value objects make the code more expressive,  
 And encapsulate business logic that tends to spread apart,  
@@ -312,12 +338,22 @@ But the pattern makes the code safer.
 From a business domain perspective,  
 A useful rule of thumb is to use value objects for the domain’s elements that describe properties of other objects.
 
-The examples you saw earlier used value objects to describe a person, including their ID, name, phone numbers, email, and so on.  
-Other examples of using value objects include various statuses, passwords, and more business domain–specific concepts that can be identified
-by their values and thus do not require an explicit identification field.
+The examples you saw earlier used value objects to describe a person, including their ID, name, phone numbers, email, and so on.
 
-An especially important opportunity to introduce a value object is when modeling money and other monetary values.  
-Relying on primitive types to represent money not only limits your ability to encapsulate all money-related business logic in one place, but also often leads to dangerous bugs, such as rounding errors and other precision-related issues.
+Other examples of using value objects include:  
+Various statuses,  
+Passwords,  
+And more business domain–specific concepts,  
+That can be identified by their values,  
+And thus do not require an explicit identification field.
+
+An especially important opportunity to introduce a value object,  
+Is when modeling money and other monetary values.
+
+Relying on primitive types to represent money,  
+Not only limits your ability to encapsulate all money-related business logic in one place,  
+But also often leads to dangerous bugs,  
+Such as rounding errors and other precision-related issues.
 
 ## References
 
