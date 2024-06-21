@@ -43,7 +43,7 @@ An aggregate’s public interface is responsible for validating the input and en
 This strict boundary also ensures that all business logic related to the aggregate is implemented in one place:  
 The aggregate itself.
 
-## How to Implement a Command?
+### How to Implement a Command?
 
 A command can be implemented in two ways:
 
