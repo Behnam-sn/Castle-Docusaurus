@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Domain Services
+# Domain Service
 
 ## What is a Domain Service?
 
