@@ -6,13 +6,16 @@ sidebar_position: 4
 
 ## What is a Domain Event?
 
-A domain event is a message describing a significant event that has occurred in the business domain.
+A domain event,  
+Is a message,  
+Describing a significant event,  
+That has occurred in the business domain.
 
 For example:
 
-- Ticket assigned
-- Ticket escalated
-- Message received
+- Ticket Assigned
+- Ticket Escalated
+- Message Received
 
 :::tip
 Since domain events describe something that has already happened,  
@@ -26,7 +29,9 @@ And provide all the necessary data related to the event.
 
 For example:  
 The following domain event communicates,  
-That the specific ticket was escalated, at what time, and for what reason:
+That the specific ticket was escalated,  
+At what time,  
+And for what reason:
 
 ```json
 {
@@ -71,8 +76,6 @@ public class Ticket
     }
 }
 ```
-
-In Chapter 9, we will discuss how domain events can be reliably published to interested subscribers.
 
 ## References
 
