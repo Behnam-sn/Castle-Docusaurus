@@ -6,7 +6,8 @@ sidebar_position: 5
 
 ## What is a Domain Service?
 
-A domain service is a stateless object that implements business logic.  
+A domain service is a stateless object that implements business logic.
+
 In the vast majority of cases,  
 Such logic orchestrates calls,  
 To various components of the system,  
