@@ -156,6 +156,71 @@ This seems to impose a modeling limitation.
 What if we need to modify multiple objects in the same transaction?  
 Let’s see how the pattern addresses such situations.
 
+## What is the Difference Between Entity & Aggregate?
+
+We don’t use entities as an independent pattern,  
+Only as part of an aggregate.
+
+Let’s see the fundamental difference between entities and aggregates,  
+And why entities are a building block of an aggregate rather than of the overarching domain model.
+
+There are business scenarios in which multiple objects should share a transactional boundary;  
+For example, when both can be modified simultaneously,  
+Or the business rules of one object depend on the state of another object.
+
+DDD prescribes that a system’s design should be driven by its business domain.  
+Aggregates are no exception.
+
+To support changes to multiple objects that have to be applied in one atomic transaction,  
+The aggregate pattern resembles a hierarchy of entities, all sharing transactional consistency.
+
+```cs
+ticket
+message
+attachment
+```
+
+The hierarchy contains both entities and value objects,  
+And all of them belong to the same aggregate,  
+If they are bound by the domain’s business logic.
+
+That’s why the pattern is named **Aggregate**:  
+It aggregates business entities and value objects that belong to the same transaction boundary.
+
+The following code sample demonstrates a business rule that spans multiple entities belonging to the aggregate’s boundary:
+
+“If an agent didn’t open an escalated ticket within 50% of the response time limit,  
+it is automatically reassigned to a different agent”
+
+```cs
+public class Ticket
+{
+    private List<Message> _messages;
+
+    public void Execute(EvaluateAutomaticActions cmd)
+    {
+        if (this.IsEscalated && this.RemainingTimePercentage < 0.5 && GetUnreadMessagesCount(for: AssignedAgent) > 0)
+        {
+            _agent = AssignNewAgent();
+        }
+    }
+
+    public int GetUnreadMessagesCount(UserId id)
+    {
+        return _messages.Where(x => x.To == id && !x.WasRead).Count();
+    }
+}
+```
+
+The method checks the ticket’s values to see whether it is escalated,  
+And whether the remaining processing time is less than the defined threshold of 50%.
+
+Furthermore, it checks for messages that were not yet read by the current agent.  
+If all conditions are met, the ticket is requested to be reassigned to a different agent.
+
+The aggregate ensures that all the conditions are checked against strongly consistent data,  
+And it won’t change after the checks are completed by ensuring that all changes to the aggregate’s data are performed as one atomic transaction.
+
 ## References
 
 - Learning Domain-Driven Design - Vladik Khononov - O'Reilly
