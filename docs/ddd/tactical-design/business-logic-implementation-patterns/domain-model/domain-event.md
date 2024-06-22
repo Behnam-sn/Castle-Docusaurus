@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Domain Events
+# Domain Event
 
 ## What is a Domain Event?
 
