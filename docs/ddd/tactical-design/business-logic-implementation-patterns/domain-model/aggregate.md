@@ -27,23 +27,26 @@ The aggregate pattern draws a clear boundary between the aggregate and its outer
 The aggregate’s logic has to validate all incoming modifications,  
 And ensure that the changes do not contradict its business rules.
 
-## How to Implement Aggregate Pattern?
+This strict boundary also,  
+Ensures that all business logic related to the aggregate is implemented in one place:  
+The aggregate itself.
+
+<!-- ## How to Implement Aggregate Pattern? -->
 
 From an implementation perspective,  
-The consistency is enforced by allowing only the aggregate’s business logic to modify its state.
+The consistency is enforced,  
+By allowing only the aggregate’s business logic to modify its state.
 
-All processes or objects external to the aggregate are only allowed to read the aggregate’s state.  
+All processes or objects external to the aggregate,  
+Are only allowed to read the aggregate’s state.
+
 Its state can only be mutated by executing corresponding methods of the aggregate’s public interface.
 
 The state-modifying methods,  
-Are often referred to as _commands_, as in _a command to do something_.
+Are often referred to as **Commands**,  
+As in a command to do something.
 
-An aggregate’s public interface is responsible for validating the input and enforcing all of the relevant business rules and invariants.
-
-This strict boundary also ensures that all business logic related to the aggregate is implemented in one place:  
-The aggregate itself.
-
-### How to Implement a Command?
+## How to Implement a Command?
 
 A command can be implemented in two ways:
 
@@ -74,8 +77,12 @@ A command can be implemented in two ways:
    }
    ```
 
-How commands are expressed in an aggregate’s code is a matter of preference.  
-I prefer the more explicit way of defining command structures and passing them polymorphically to the relevant Execute method.
+:::tip
+How commands are expressed in an aggregate’s code is a matter of preference.
+
+I prefer the more explicit way of defining command structures,  
+And passing them polymorphically to the relevant Execute method.
+:::
 
 ## References
 
