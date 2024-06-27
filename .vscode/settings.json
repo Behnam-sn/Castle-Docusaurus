@@ -21,6 +21,7 @@
     "Efrat",
     "Eliyahu",
     "explorative",
+    "Formik",
     "Foucher",
     "Goldratt",
     "Gourley",
@@ -37,7 +38,9 @@
     "nvarchar",
     "overengineered",
     "parameterless",
+    "Pinia",
     "predictivity",
+    "Pydantic",
     "Rebecca",
     "retval",
     "runtimes",
@@ -55,6 +58,7 @@
     "varchar",
     "virtualizes",
     "Vladik",
-    "Wirfs"
+    "Wirfs",
+    "Zustand"
   ]
 }
