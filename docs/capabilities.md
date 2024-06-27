@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Capabilities
@@ -21,32 +21,95 @@ sidebar_position: 3
   - Interface Segregation
   - Dependency Inversion
 
-- Design Pattern
+- Design Patterns
 
-  - Creational Patterns
+  - Creational
 
-    - Factory Method Pattern
-    - Abstract Factory Pattern
-    - Singleton Pattern
-    - Builder Pattern
+    - Abstract Factory
+    - Factory Method
+    - Singleton
+    - Builder
+    - Prototype
 
-  - Structural Patterns
+  - Behavioral
 
-    - Decorator Pattern
-    - Proxy Pattern
-    - Repository Pattern
-    - Facade Pattern
-    - Inversion of Control Pattern
+    - Template Method
+    - State
+    - Strategy
+    - Command
+    - Observer
+    - Iterator
+    - Visitor
+    - Mediator
+    - Memento
+    - Interpreter
+    - Chain of Responsibility
 
-  - Behavioral Patterns
+  - Structural
 
-    - Strategy Pattern
-    - Observer Pattern
-    - Template Design Pattern
-    - State Pattern
-    - Command Pattern
+    - Proxy
+    - Decorator
+    - Composite
+    - Facade
+    - Adapter
+    - Bridge
+    - Flyweight
 
 ## DDD
+
+- Strategic Design
+
+  - Business Domain
+
+  - Subdomain
+
+    - Core Subdomain
+    - Generic Subdomain
+    - Supporting Subdomain
+
+  - Domain Experts
+
+  - Ubiquitous Language
+
+  - Modeling
+
+  - Bounded Context
+    - Contracts
+      - Cooperation
+        - Partnership Pattern
+        - Shared Kernel Pattern
+      - Customer & Supplier
+        - Conformist Pattern
+        - Anti-Corruption Layer Pattern
+        - Open-Host Service Pattern
+      - Separate Ways
+    - Context Map
+
+- Tactical Design
+
+  - Business Logic Implementation Patterns
+
+    - Transaction Script
+    - Active Record
+    - Domain Model
+      - Value Object
+      - Entity
+      - Aggregate
+      - Domain Event
+      - Domain Service
+    - Event-Sourced Domain Model
+
+  - Architectural Patterns
+
+    - Layered Architecture
+    - Ports & Adapters
+    - CQRS
+
+  - Communication Patterns
+
+    - Outbox
+    - Saga
+    - Process Manager
 
 ## .NET
 
@@ -94,6 +157,12 @@ sidebar_position: 3
 
 ## Python
 
+- FastAPI
+- SQLAlchemy
+- Pydantic
+
+## SQl
+
 ## HTML
 
 ## CSS
@@ -101,9 +170,7 @@ sidebar_position: 3
 - SCSS
 - Tailwind CSS
 
-## JavaScript
-
-- TypeScript
+## JavaScript (TypeScript)
 
 - JSON
 
@@ -112,6 +179,7 @@ sidebar_position: 3
   - React
   - Vue
   - Electron
+  - Anime.js
 
 - Frameworks
 
@@ -119,7 +187,19 @@ sidebar_position: 3
 
 - Query
 
-  - SWC
+  - Axios
+  - SWR
+
+- State Management
+
+  - Zustand
+  - Pinia
+  - Redux
+    - Redux Toolkit
+
+- Form Management
+
+  - Formik
 
 - JS Tools
   - NPM
@@ -128,17 +208,30 @@ sidebar_position: 3
   - WebPack
   - Vite
 
-## Version Control
-
-- Git
-  - GitHub
-  - GitLab
-- TFS
-  - Microsoft Azure
+## Markdown
 
 ## Testing
 
+- Testing Methods
+
+  - Unit Testing
+  - Integration Testing
+  - End to End Testing
+  - Acceptance Testing
+  - Black Box Testing
+  - White Box Testing
+  - Happy Path Testing
+  - Exceptional Testing
+
+- AAA Pattern
+
+  - Arrange
+  - Act
+  - Assert
+  - SUT (System Under Test)
+
 - TDD
+
 - BDD
 
   - Gherkin
@@ -152,21 +245,6 @@ sidebar_position: 3
     - Delimited Parameters
     - Data Tables
 
-- Testing Methods
-  - AAA Pattern
-    - Arrange
-    - Act
-    - Assert
-    - SUT (System Under Test)
-  - Unit Testing
-  - Integration Testing
-  - End to End Testing
-  - Acceptance Testing
-  - Black Box Testing
-  - White Box Testing
-  - Happy Pass Testing
-  - Exceptional Testing
-
 ## General
 
 - Concurrency
@@ -178,18 +256,14 @@ sidebar_position: 3
 - Concurrency Management
 
   - Pessimistic Concurrency
+    - Locking
+    - Double-checked Locking
   - Optimistic Concurrency
-
-- Pessimistic Concurrency
-
-  - Locking
-  - Double-checked Locking
 
 ## Database
 
 - Relational Database
 
-  - SQL
   - Table
   - Row
   - Colum
@@ -206,8 +280,6 @@ sidebar_position: 3
 
 - NoSQL Databases
 
-  - Neo4j
-
 - ORM
 
   - Mapping
@@ -219,6 +291,14 @@ sidebar_position: 3
   - Consistency
   - Isolation
   - Durability
+
+## Version Control
+
+- Git
+  - GitHub
+  - GitLab
+- TFS
+  - Microsoft Azure
 
 ## Network
 
@@ -298,3 +378,9 @@ sidebar_position: 3
 - Docker
 - Kubernetes
 - Terraform
+
+## Little Experience
+
+- Go
+- Flutter
+- UML
