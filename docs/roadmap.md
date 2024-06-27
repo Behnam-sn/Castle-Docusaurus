@@ -32,6 +32,7 @@ sidebar_position: 1
 - [ ] NoSQL Databases
   - [ ] MongoDB
   - [ ] Redis
+  - [ ] Neo4j
 - [ ] Messaging Queue
   - [ ] RabbitMQ
   - [ ] Kafka
