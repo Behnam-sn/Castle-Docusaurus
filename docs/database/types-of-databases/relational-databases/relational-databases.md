@@ -121,5 +121,5 @@ Advantages of relational databases:
 
 ## References
 
-[www.ibm.com/topics/relational-databases](https://www.ibm.com/topics/relational-databases)
-[www.mongodb.com/compare/relational-vs-non-relational-databases](https://www.mongodb.com/compare/relational-vs-non-relational-databases)
+- [www.ibm.com/topics/relational-databases](https://www.ibm.com/topics/relational-databases)
+- [www.mongodb.com/compare/relational-vs-non-relational-databases](https://www.mongodb.com/compare/relational-vs-non-relational-databases)
