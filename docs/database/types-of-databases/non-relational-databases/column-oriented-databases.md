@@ -15,4 +15,4 @@ Note: While column-oriented databases are great for analytics,
 the way they write data makes it difficult for them to be consistent as writes of all the columns in the column-oriented database require multiple write events on disk.
 Relational databases don't suffer from this problem as row data is written contiguously to disk.
 
-From <https://www.mongodb.com/databases/types>
+- [mongodb.com/databases/types](https://www.mongodb.com/databases/types)
