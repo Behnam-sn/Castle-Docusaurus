@@ -8,5 +8,5 @@ Isolation: The intermediate state of a transaction is not visible to other trans
 
 Durability: After the successful completion of a transaction, changes to data persist and are not undone, even in the event of a system failure.
 
-From <https://www.ibm.com/topics/relational-databases>
-From <https://www.mongodb.com/basics/acid-transactions>
+- [ibm.com/topics/relational-databases](https://www.ibm.com/topics/relational-databases)
+- [mongodb.com/basics/acid-transactions](https://www.mongodb.com/basics/acid-transactions)
