@@ -16,5 +16,5 @@ Use cases include fraud detection and social networks.
 
 - Neo4j
 
-From <https://www.mongodb.com/databases/types>
-From <https://en.wikipedia.org/wiki/Graph_database>
+- [mongodb.com/databases/types](https://www.mongodb.com/databases/types)
+- [en.wikipedia.org/wiki/Graph_database](https://en.wikipedia.org/wiki/Graph_database)
