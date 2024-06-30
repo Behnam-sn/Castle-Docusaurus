@@ -67,4 +67,4 @@ where a lot of smaller servers can be spun up to handle increased load.
 |    Flexibility     |              High               | Low (Strict-Schema)  |
 |    Suitability     |   Suitable For OLAP and OLTP    |  Suitable For OLTP   |
 
-From <https://www.mongodb.com/compare/relational-vs-non-relational-databases>
+- [mongodb.com/compare/relational-vs-non-relational-databases](https://www.mongodb.com/compare/relational-vs-non-relational-databases)
