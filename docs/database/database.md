@@ -2,9 +2,11 @@
 
 ## What is a Database?
 
+## What is a DBMS?
+
 A database management system is a software to store, organize, manage, and retrieve data.
 
-## What type of information is stored in a database?
+## What Type of Information is Stored in a Database?
 
 A database is a software component that’s critical in almost every modern application,  
 whether the database is on your personal phone, computer, or the internet.
