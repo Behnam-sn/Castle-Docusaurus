@@ -7,7 +7,8 @@ sidebar_position: 1
 ## What is .NET?
 
 .NET is a free and open-source application platform supported by Microsoft.  
-.NET is built on a secure, reliable, and high-performance runtime that is used in production by many high-scale apps.
+The .NET platform has been designed to deliver productivity, performance, security, and reliability.  
+.NET is built on a high-performance runtime that is used in production by many high-scale apps.
 
 ## Why .NET?
 
@@ -32,22 +33,47 @@ sidebar_position: 1
   .NET is fast. Really fast!  
   That means applications provide better response times and require less compute power.
 
-- ### Trusted And Secure
+- ### Trusted
 
-  The .NET platform is officially supported by Microsoft and trusted by thousands of companies and millions of developers.  
-   Microsoft takes security very seriously and releases updates quickly when threats are discovered.
+  The .NET platform is officially supported by Microsoft,  
+  And trusted by thousands of companies and millions of developers.
+
+- ### Secure
+
+  Microsoft takes security very seriously,  
+  And releases updates quickly when threats are discovered.
 
 - ### Large Ecosystem
 
-  With over 5,000,000 .NET developers worldwide, you can leverage the large ecosystem by incorporating libraries from the NuGet package manager and the Visual Studio Marketplace.  
-   Find answers to technical challenges from the community, our MVPs, and our large support organization.
+  With over 5,000,000 .NET developers worldwide,  
+  You can leverage the large ecosystem by incorporating libraries from the NuGet package manager.
 
 - ### Open Source
 
-  The .NET Foundation is an independent non-profit supporting the innovative, commercially friendly, open source .NET ecosystem.  
-   .NET has over 100,000 contributions from developers from over 3,700 companies outside of Microsoft.
+  The .NET Foundation is an independent non-profit,  
+  Supporting the innovative, commercially friendly, open source .NET ecosystem.
 
-  In addition to the community and Microsoft, Technical Steering Group members, Google, JetBrains, Red Hat, Samsung and Unity are guiding the future of the .NET platform.
+## .NET Components
+
+- ### Runtime
+
+  executes application code.
+
+- ### Libraries
+
+  provides utility functionality like JSON parsing.
+
+- ### Compiler
+
+  compiles C# (and other languages) source code into (runtime) executable code.
+
+- ### SDK and other tools
+
+  enable building and monitoring apps with modern workflows.
+
+- ### App stacks
+
+  like ASP.NET Core and Blazor, that enable writing apps.
 
 <!-- ## How to Use .NET?
 
