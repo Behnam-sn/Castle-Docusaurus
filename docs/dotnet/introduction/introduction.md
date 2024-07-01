@@ -75,18 +75,6 @@ The .NET platform has been designed to deliver productivity, performance, securi
 
   Like ASP.NET Core and Blazor, that enable writing apps.
 
-<!-- ## How to Use .NET?
-
-### Binary Distributions
-
-#### .NET SDK
-
-Set of tools, libraries, and runtimes for development, building, and testing apps.
-
-#### .NET Runtimes
-
-Set of runtimes and libraries, for running apps. -->
-
 ## References
 
 - [learn.microsoft.com/en-us/dotnet/core/introduction](https://learn.microsoft.com/en-us/dotnet/core/introduction)
