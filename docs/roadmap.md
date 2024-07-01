@@ -14,6 +14,7 @@ sidebar_position: 1
   - [ ] Storage
   - [ ] GPU
   - [ ] Concurrency
+  - [ ] Garbage Collector
 - [ ] .NET
   - [ ] C#
   - [ ] EF
