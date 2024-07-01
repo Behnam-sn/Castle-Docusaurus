@@ -6,59 +6,50 @@ sidebar_position: 1
 
 ## What is .NET?
 
-.NET is a free, cross-platform, open-source developer platform for building many kinds of applications.  
-.NET is built on a high-performance runtime that is used in production by many high-scale apps.
-
-With .NET, you can use multiple languages, editors, and libraries to build for web, mobile, desktop, games, IoT, and more.
+.NET is a free and open-source application platform supported by Microsoft.  
+.NET is built on a secure, reliable, and high-performance runtime that is used in production by many high-scale apps.
 
 ## Why .NET?
 
-### Productive
+- ### Productive
 
-.NET offers advanced language features like generics, LINQ, and asynchronous programming, along with extensive class libraries and multi-language support for developers.
+  .NET offers advanced language features,  
+  Like generics, LINQ, and asynchronous programming,  
+  Along with extensive class libraries and multi-language support for developers.
 
-The Visual Studio family provides powerful tooling for a seamless development experience,  
-And Microsoft free developer program offers all the necessary resources to build and deploy your app on any platform.
+- ### Any App, Any Platform
 
-.NET is the ultimate platform for developers who value productivity, performance, security, and reliability.
+  With .NET you can target any application type running on any platform.
 
-### Any App, Any Platform
+- ### Loved by Developers
 
-With .NET you can target any application type running on any platform.  
-Developers can reuse skills and code across all of them in a familiar environment.  
-That means developers can build apps faster, with less cost.
+  .NET is a modern, innovative, open source development platform and developers love it.  
+  .NET ranked as the #1 most-loved framework on the Stack Overflow Developer Survey,  
+  For three years in a row (2019, 2020, and 2021).
 
-From mobile applications running on iOS, Android, and Windows, to Enterprise server applications running on Windows Server and Linux, or high-scale microservices running in the cloud, .NET provides a solution for you.
+- ### Performance Where It Matters
 
-### Loved by Developers
+  .NET is fast. Really fast!  
+  That means applications provide better response times and require less compute power.
 
-.NET is a modern, innovative, open source development platform and developers love it.  
-.NET ranked as the #1 most-loved framework on the Stack Overflow Developer Survey for three years in a row (2019, 2020, and 2021).
+- ### Trusted And Secure
 
-### Performance Where It Matters
+  The .NET platform is officially supported by Microsoft and trusted by thousands of companies and millions of developers.  
+   Microsoft takes security very seriously and releases updates quickly when threats are discovered.
 
-.NET is fast. Really fast! That means applications provide better response times and require less compute power.
+- ### Large Ecosystem
 
-The popular TechEmpower benchmark compares web application frameworks with tasks like JSON serialization, database access, and server side template rendering - .NET performs faster than any other popular framework.
+  With over 5,000,000 .NET developers worldwide, you can leverage the large ecosystem by incorporating libraries from the NuGet package manager and the Visual Studio Marketplace.  
+   Find answers to technical challenges from the community, our MVPs, and our large support organization.
 
-### Trusted And Secure
+- ### Open Source
 
-The .NET platform is officially supported by Microsoft and trusted by thousands of companies and millions of developers.  
-Microsoft takes security very seriously and releases updates quickly when threats are discovered.
+  The .NET Foundation is an independent non-profit supporting the innovative, commercially friendly, open source .NET ecosystem.  
+   .NET has over 100,000 contributions from developers from over 3,700 companies outside of Microsoft.
 
-### Large Ecosystem
+  In addition to the community and Microsoft, Technical Steering Group members, Google, JetBrains, Red Hat, Samsung and Unity are guiding the future of the .NET platform.
 
-With over 5,000,000 .NET developers worldwide, you can leverage the large ecosystem by incorporating libraries from the NuGet package manager and the Visual Studio Marketplace.  
-Find answers to technical challenges from the community, our MVPs, and our large support organization.
-
-### Open Source
-
-The .NET Foundation is an independent non-profit supporting the innovative, commercially friendly, open source .NET ecosystem.  
-.NET has over 100,000 contributions from developers from over 3,700 companies outside of Microsoft.
-
-In addition to the community and Microsoft, Technical Steering Group members, Google, JetBrains, Red Hat, Samsung and Unity are guiding the future of the .NET platform.
-
-## How to Use .NET?
+<!-- ## How to Use .NET?
 
 ### Binary Distributions
 
@@ -68,7 +59,7 @@ Set of tools, libraries, and runtimes for development, building, and testing app
 
 #### .NET Runtimes
 
-Set of runtimes and libraries, for running apps.
+Set of runtimes and libraries, for running apps. -->
 
 ## References
 
