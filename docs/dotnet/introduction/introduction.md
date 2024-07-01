@@ -57,23 +57,23 @@ The .NET platform has been designed to deliver productivity, performance, securi
 
 - ### Runtime
 
-  executes application code.
+  Executes application code.
 
 - ### Libraries
 
-  provides utility functionality like JSON parsing.
+  Provides utility functionality like JSON parsing.
 
 - ### Compiler
 
-  compiles C# (and other languages) source code into (runtime) executable code.
+  Compiles C# (and other languages) source code into (runtime) executable code.
 
-- ### SDK and other tools
+- ### SDK and Other Tools
 
-  enable building and monitoring apps with modern workflows.
+  Enable building and monitoring apps with modern workflows.
 
-- ### App stacks
+- ### App Stacks
 
-  like ASP.NET Core and Blazor, that enable writing apps.
+  Like ASP.NET Core and Blazor, that enable writing apps.
 
 <!-- ## How to Use .NET?
 
