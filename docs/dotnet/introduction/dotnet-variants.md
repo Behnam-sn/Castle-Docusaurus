@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# .NET Implementations
+# .NET Variants
 
 There are multiple variants of .NET, each supporting a different type of app.  
 The reason for multiple variants is part historical, part technical.  
