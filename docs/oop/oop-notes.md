@@ -152,3 +152,27 @@ This is another type of abstraction that simplifies code external to the class h
 ## References
 
 - [en.wikipedia.org/wiki/Object-oriented_programming](https://en.wikipedia.org/wiki/Object-oriented_programming)
+
+## OOP Notes 2
+
+Object-oriented programming is about modeling a system as a collection of objects,  
+Where each object represents some particular aspect of the system.
+
+Objects contain both functions (or methods) and data.
+
+An object provides a public interface to other code that wants to use it,  
+But maintains its own private, internal state;  
+Other parts of the system don't have to care about what is going on inside the object.
+
+### Classes and instances
+
+When we model a problem in terms of objects in OOP, we create abstract definitions representing the types of objects we want to have in our system. For example, if we were modeling a school, we might want to have objects representing professors. Every professor has some properties in common: they all have a name and a subject that they teach. Additionally, every professor can do certain things: they can all grade a paper and they can introduce themselves to their students at the start of the year, for example.
+
+So Professor could be a class in our system. The definition of the class lists the data and methods that every professor has.
+
+In pseudo-code, a Professor class could be written like this:
+
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming
+https://www.techtarget.com/searchapparchitecture/definition/object-oriented-programming-OOP#:~:text=Object%2Doriented%20programming%20(OOP)%20is%20a%20computer%20programming%20model,has%20unique%20attributes%20and%20behavior.
+https://www.spiceworks.com/tech/devops/articles/object-oriented-programming/
+https://www.educative.io/blog/object-oriented-programming
