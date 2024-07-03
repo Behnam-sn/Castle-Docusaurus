@@ -24,11 +24,6 @@ There are 3 types of class libraries that you can use:
 
 ### Platform-Specific Class Libraries
 
-<!-- They have access to all the APIs in a given platform.
-For example,
-.NET Framework on Windows, Xamarin iOS.
-But can only be used by apps and libraries that target that platform. -->
-
 Platform-specific libraries are bound to a single .NET platform.  
 For example: .NET Framework on Windows
 
