@@ -2,9 +2,9 @@
 sidebar_position: 2
 ---
 
-# .NET languages
+# .NET Languages
 
-## What are .NET languages?
+## What are .NET Languages?
 
 The .NET runtime is designed to support multiple programming languages.
 
