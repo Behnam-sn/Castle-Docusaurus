@@ -4,10 +4,20 @@ sidebar_position: 1
 
 # Roadmap
 
-- [ ] DDD
+## Current
+
 - [ ] Algorithms
   - [ ] Problem Solving
   - [ ] Data Structures
+- [ ] DDD
+- [ ] .NET
+  - [ ] C#
+  - [ ] EF
+  - [ ] xUnit
+- [ ] Auth
+
+## Later
+
 - [ ] Hardware
   - [ ] CPU
   - [ ] Memory
@@ -15,10 +25,6 @@ sidebar_position: 1
   - [ ] GPU
   - [ ] Concurrency
   - [ ] Garbage Collector
-- [ ] .NET
-  - [ ] C#
-  - [ ] EF
-  - [ ] xUnit
 - [ ] OOP
   - [ ] SOLID
   - [ ] Design Patterns
@@ -29,7 +35,6 @@ sidebar_position: 1
   - [ ] TDD
 - [ ] Readable Code
   - [ ] Locality of Behavior
-- [ ] Auth
 - [ ] NoSQL Databases
   - [ ] MongoDB
   - [ ] Redis
