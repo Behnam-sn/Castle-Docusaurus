@@ -53,28 +53,6 @@ The .NET platform has been designed to deliver productivity, performance, securi
   The .NET Foundation is an independent non-profit,  
   Supporting the innovative, commercially friendly, open source .NET ecosystem.
 
-## .NET Components
-
-- ### Runtime
-
-  Executes application code.
-
-- ### Libraries
-
-  Provides utility functionality like JSON parsing.
-
-- ### Compiler
-
-  Compiles C# (and other languages) source code into (runtime) executable code.
-
-- ### SDK and Other Tools
-
-  Enable building and monitoring apps with modern workflows.
-
-- ### App Stacks
-
-  Like ASP.NET Core and Blazor, that enable writing apps.
-
 ## References
 
 - [learn.microsoft.com/en-us/dotnet/core/introduction](https://learn.microsoft.com/en-us/dotnet/core/introduction)
