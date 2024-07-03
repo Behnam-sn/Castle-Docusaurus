@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # .NET Variants
 
-## What are NET Variants?
+## What are .NET Variants?
 
 There are multiple variants of .NET,  
 Each supporting a different type of app.
