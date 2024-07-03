@@ -15,7 +15,8 @@ The reason for multiple variants is part historical, part technical.
 
 ### .NET Framework
 
-.NET Framework is the original .NET implementation that has existed since 2002.
+.NET Framework is the original .NET implementation,  
+That has existed since 2002.
 
 .NET Framework is optimized for building Windows desktop applications.  
 It provides access to the broad capabilities of Windows and Windows Server.
