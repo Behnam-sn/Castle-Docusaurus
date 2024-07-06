@@ -9,8 +9,7 @@ sidebar_position: 3
 A central processing unit (CPU),  
 Is the primary component of a computer.
 
-The CPU is the one part that’s found in every computer;  
-Regardless of that computer’s size or use.
+CPU is a complex set of electronic circuitry
 
 A CPU is the core computational unit in a computer.  
 It handles all computing tasks required for running the operating system and applications,  
@@ -223,6 +222,29 @@ CPUs may include instruction sets specifically for these tasks:
 
   Like neural network operations.
 
+## What is a microprocessor?
+
+modern CPUs have been miniaturized so well that the CPU—all of it—is housed within a small integrated circuit chip, known as a microprocessor.
+
+Microprocessors are designated by the number of cores they support. A CPU core is the “brain within the brain,” serving as the physical processing unit within a CPU. Microprocessors can contain multiple processors. Meanwhile, a physical core is a CPU built into a chip, but which only occupies one socket, thus enabling other physical cores to tap into the same computing environment.
+
+It’s worth noting that the term “microprocessor” should not be confused with “microcontroller.” A microcontroller is a very small computer that exists on a single integrated circuit. Microcontrollers typically contain at least one CPU, along with related memory and programmable I/O data.
+
+Here are some of the other main terms used in relation to microprocessors:
+
+Single-core processors: Single-core processors contain a single processing unit. They are typically marked by slower performance, run on a single thread and perform the CPU instruction cycle one at a time.
+Dual-core processors: Dual-core processors are equipped with two processing units contained within one integrated circuit. Both cores run at the same time, effectively doubling performance rates.
+Quad-core processors: Quad-core processors contain four processing units within a single integrated circuit. All cores run simultaneously, quadrupling their performance rates.
+Multi-core processors: Multi-core processors are integrated circuits equipped with at least two processor cores, so they can deliver supreme performance while using less energy.
+
+## What are threads?
+
+Threads can be thought of as virtual sequences of instructions that are issued to a CPU. Primarily, they’re a way to divide workloads and share those responsibilities among different processors.
+
+Two related terms are multithreading and hyper-threading. In the former, tasks are split into distinct threads and run in parallel. Hyper-threading helps achieve even greater performance benefits because processors are used to carry out two threads at the same time.
+
 ## References
 
 - [aws.amazon.com/what-is/cpu/](https://aws.amazon.com/what-is/cpu/)
+- [www.ibm.com/think/topics/central-processing-unit](https://www.ibm.com/think/topics/central-processing-unit)
+- [en.wikipedia.org/wiki/Central_processing_unit](https://en.wikipedia.org/wiki/Central_processing_unit)
