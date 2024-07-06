@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Data storage
 
 Data storage refers to the act of retaining information,  

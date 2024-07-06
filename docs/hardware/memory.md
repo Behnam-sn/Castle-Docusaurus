@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Memory
 
 Memory is an allocation of computer files,  
