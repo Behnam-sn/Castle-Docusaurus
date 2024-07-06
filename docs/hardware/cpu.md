@@ -106,14 +106,14 @@ Which adjust based on workload to balance performance and power consumption.
 
 ## How Does a CPU Work?
 
-Processors work with other hardware components and software programs,  
-To process data,  
-And manage the flow of information within electronic devices.
-
-They typically work in cycles,  
-With each instruction cycle representing three main steps.
+:::warning
+instruction cycle needs more research.
+:::
 
 ### Core Processor Cycle
+
+CPU works according to an established cycle,  
+Known as the CPU instruction cycle.
 
 The basic steps in an instruction cycle:
 
