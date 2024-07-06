@@ -14,17 +14,18 @@ sidebar_position: 1
   - [ ] C#
   - [ ] EF
   - [ ] xUnit
+  - [ ] Garbage Collector
 - [ ] Auth
 
 ## Later
 
 - [ ] Hardware
-  - [ ] CPU
-  - [ ] Memory
   - [ ] Storage
-  - [ ] GPU
+  - [ ] Memory
+  - [x] CPU
+    - [ ] Multi-Threading
   - [ ] Concurrency
-  - [ ] Garbage Collector
+  - [ ] GPU
 - [ ] OOP
   - [ ] SOLID
   - [ ] Design Patterns
