@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Data storage
+# Data Storage
 
 Data storage refers to the act of retaining information,  
 So it can be easily accessed later, or even kept permanently.
