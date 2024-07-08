@@ -6,11 +6,30 @@ sidebar_position: 1
 
 ## Current
 
-- [ ] Algorithms
-  - [ ] Two Pointer
 - [ ] Data Structures
+  - [ ] What are Data Structures?
+  - [ ] Importance of Data Structures
   - [ ] Array
-- [ ] Problem Solving
+  - [ ] Linked Lists
+  - [ ] Stacks
+  - [ ] Queues
+  - [ ] Hash Tables
+- [ ] Algorithms
+  - [ ] Algorithmic Complexity
+    - [ ] Time vs Space Complexity
+    - [ ] How to Calculate Complexity?
+  - [ ] Problem Solving Techniques
+    - [ ] Brute Force
+    - [ ] Backtracking
+    - [ ] Greedy Algorithms
+    - [ ] Randomised Algorithms
+    - [ ] Divide and Conquer
+    - [ ] Recursion
+    - [ ] Dynamic Programming
+    - [ ] Two Pointer Technique
+    - [ ] Sliding Window Technique
+  - [ ] Sorting Algorithms
+  - [ ] Search Algorithms
 - [ ] .NET
   - [ ] C#
   - [ ] LINQ
