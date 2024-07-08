@@ -7,25 +7,29 @@ sidebar_position: 1
 ## Current
 
 - [ ] Algorithms
-  - [ ] Problem Solving
-  - [ ] Data Structures
-- [ ] DDD
+  - [ ] Two Pointer
+- [ ] Data Structures
+  - [ ] Array
+- [ ] Problem Solving
 - [ ] .NET
   - [ ] C#
+  - [ ] LINQ
   - [ ] EF
   - [ ] xUnit
   - [ ] Garbage Collector
 - [ ] Auth
-
-## Later
-
 - [ ] Hardware
+  - [ ] I/O Operations
   - [ ] Storage
   - [ ] Memory
   - [x] CPU
     - [ ] Multi-Threading
   - [ ] Concurrency
   - [ ] GPU
+
+## Later
+
+- [ ] DDD
 - [ ] OOP
   - [ ] SOLID
   - [ ] Design Patterns
