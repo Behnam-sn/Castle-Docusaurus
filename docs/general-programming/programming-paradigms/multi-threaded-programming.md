@@ -2,4 +2,4 @@
 sidebar_position: 3
 ---
 
-# Multithreaded Programming
+# Multi-Threaded Programming
