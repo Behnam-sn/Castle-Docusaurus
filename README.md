@@ -4,7 +4,8 @@ Simple, Organized, Knowledge Base
 
 ## Requirement
 
-Node, npm
+- Node
+- npm
 
 ## Installation
 
