@@ -115,6 +115,8 @@ sidebar_position: 2
 
 - C#
 
+- LINQ
+
 - ASP.NET
 
 - Entity Framework
@@ -172,8 +174,6 @@ sidebar_position: 2
 
 ## JavaScript (TypeScript)
 
-- JSON
-
 - JS Library
 
   - React
@@ -200,6 +200,8 @@ sidebar_position: 2
 - Form Management
 
   - Formik
+
+- JSON
 
 - JS Tools
   - NPM
@@ -249,9 +251,8 @@ sidebar_position: 2
 
 - Concurrency
 
-  - Synchronous Programming (Blocking)
-  - Asynchronous Programming (Non-Blocking)
-  - Multi-Threaded Programming
+  - Process
+  - Thread
 
 - Concurrency Management
 
@@ -259,6 +260,12 @@ sidebar_position: 2
     - Locking
     - Double-checked Locking
   - Optimistic Concurrency
+
+- Programming Paradigms
+
+  - Synchronous Programming (Blocking)
+  - Asynchronous Programming (Non-Blocking)
+  - Multi-Threaded Programming
 
 ## Database
 
