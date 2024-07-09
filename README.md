@@ -2,6 +2,10 @@
 
 Simple, Organized, Knowledge Base
 
+## Requirement
+
+Node, npm
+
 ## Installation
 
 ```bash
