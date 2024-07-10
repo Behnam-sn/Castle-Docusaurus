@@ -1,0 +1,116 @@
+# Two Pointer Technique
+
+## What is The Two Pointer Technique?
+
+The two-pointer technique is a pattern,  
+Where two pointers iterate over the data structure,  
+In tandem or separately until they satisfy a certain condition.
+
+This pattern is extremely useful when dealing with linear data structures such as **arrays**, **linked lists**, or **strings**.
+
+Two pointer problems are among the most common types you will encounter during coding interviews.
+
+This technique involves using two pointers which move through the array or list in a synchronized or independent manner to solve a problem.
+
+The two pointer technique is a flexible and versatile strategy that can be applied to various scenarios, such as finding pairs in a sorted array, checking for a palindrome, or finding a cycle in a linked list.
+
+Two-pointer algorithms generally rely on pointer manipulation (in this context a “pointer” is just an index in an array or similar linear data structure and does not refer to memory addresses of objects like pointers in C-based contexts do).
+
+## Two Pointer Types
+
+### Polynomial Pointers (for brute force combinations)
+
+This pointer variety is generally considered the least beneficial,  
+As it often necessitates the use of nested loops.
+
+In this setup, each pointer travels independently across each index of the input.
+
+This pattern typically results in a polynomial (commonly quadratic – O(N^2))time complexity,  
+Due to the fact that it computes all potential combinations of two pointers within a single linear input.
+
+The bubble sort algorithm exemplifies this kind of pointer usage.
+
+### Pointer Chasing ("Slow and Fast" or "Tortoise and Hare") For Cycle Detection
+
+This variant of the two-pointer technique is notably applied in identifying cycles in linked lists and graphs,  
+As demonstrated in Floyd's algorithm.
+
+Floyd's Cycle Detection: Given the head of a Linked List, determine if a cycle exists in the Linked List
+
+In this setup, both pointers initiate their journey from the beginning of the input (typically index 0),  
+But progress at varied speeds.
+
+Generally, the "tortoise" pointer advances by just one index in each step,  
+Whereas the "hare" pointer leaps forward by two indices at a time.
+
+### Rivaling Pointers
+
+In this variant of the two-pointer technique,  
+One pointer commences at the start of the input,  
+While the other initiates from the input's end.
+
+These pointers subsequently shift inwardly (toward each other) alternately, adhering to a predefined logic.
+
+The binary search algorithm or Palindrome problem both serve as textbook examples of this type of problem.
+
+### Multiple Pointers
+
+While traditionally two-pointer problems involve exactly two pointers,  
+It's not uncommon to encounter problems where more than two pointers can be beneficial.
+
+The "Multiple Pointers" technique typically involves more than two pointers,  
+That move independently or in a correlated manner based on specific logic.
+
+This type of problem often shows up in more complex array or string problems,  
+Where the interaction between multiple elements at different positions needs to be considered.
+
+For instance, a problem might require you to sort an array of zeros, ones, and twos as in the Dutch Flag problem.
+
+A polynomial pointer approach can solve the problem in quadratic time.  
+However, by cleverly segregating the array with three pointers,  
+You can reduce the time complexity to linear time.
+
+### Double Input Pointers
+
+This pointer type is interesting since it involves two linear inputs with a single pointer on each,  
+Rather than a single input with two pointers.
+
+A common example of this would be the “merge” part of the Merge Sort algorithm,  
+In which we merge two sorted lists into a single list,  
+By carefully comparing and updating pointers in each list based on their relative values.
+
+## When to Use Two Pointer Technique?
+
+Two pointer problems usually surface,  
+When dealing with ordered data or,  
+When there is a need to eliminate redundant computations.
+
+Here are a few scenarios when this technique can be particularly handy:
+
+- ### Searching pairs in a sorted array
+
+  The pointers can start at both ends of the array and move inward until they meet,  
+  Eliminating possible pairs along the way.
+
+  This method is faster than using a nested loop to check all pairs.
+
+- ### Finding a cycle in a linked list
+
+  One pointer can move faster (2 steps at a time),  
+  And the other slower (1 step at a time).
+
+  If there is a cycle, the faster pointer will eventually meet the slower one.
+
+- ### Checking for palindromes
+
+  The pointers can start at both ends and move inward,  
+  Checking if the mirrored characters are the same.
+
+- ### Applying a sliding window
+
+  One pointer marks the start of the window, the other the end.  
+  The window can then be 'slid' through the array to check for conditions.
+
+## References
+
+- [interviewing.io/two-pointers-interview-questions](https://interviewing.io/two-pointers-interview-questions)
