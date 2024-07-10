@@ -45,6 +45,7 @@ sidebar_position: 1
     - [ ] Multi-Threading
   - [ ] Concurrency
   - [ ] GPU
+  - [ ] Binary
 
 ## Later
 
