@@ -74,35 +74,66 @@ By carefully comparing and updating pointers in each list based on their relativ
 
 ## When to Use Two Pointer Technique?
 
-Two pointer problems usually surface,  
-When dealing with ordered data or,  
-When there is a need to eliminate redundant computations.
+Two pointer problems usually,  
+Surface when dealing with ordered data,  
+Or when there is a need to eliminate redundant computations.
 
-Here are a few scenarios when this technique can be particularly handy:
+Here are a few scenarios when this technique can be handy:
 
-- ### Searching pairs in a sorted array
+- ### Searching Pairs in a Sorted Array
 
   The pointers can start at both ends of the array and move inward until they meet,  
   Eliminating possible pairs along the way.
 
   This method is faster than using a nested loop to check all pairs.
 
-- ### Finding a cycle in a linked list
+- ### Finding a Cycle in a Linked List
 
   One pointer can move faster (2 steps at a time),  
   And the other slower (1 step at a time).
 
-  If there is a cycle, the faster pointer will eventually meet the slower one.
+  If there is a cycle,  
+  The faster pointer will eventually meet the slower one.
 
-- ### Checking for palindromes
+- ### Checking For Palindromes
 
   The pointers can start at both ends and move inward,  
   Checking if the mirrored characters are the same.
 
-- ### Applying a sliding window
+- ### Applying a Sliding Window
 
   One pointer marks the start of the window, the other the end.  
   The window can then be 'slid' through the array to check for conditions.
+
+## Common Mistakes in Interviews Featuring Two Pointers
+
+Here are common mistakes to avoid when tackling two pointer problems in interviews,  
+Note that almost all of these involve Index Out Of Bounds errors if not planned for:
+
+- ### Not Initializing Pointers Correctly
+
+  The initialization of pointers greatly depends on the problem at hand.  
+  Ensure you understand the problem statement thoroughly before deciding where to place the pointers initially.
+
+- ### Not Moving Pointers Correctly
+
+  Again, the movement of the pointers depends on the problem.  
+  In some problems, both pointers move together,  
+  While in others, they may move independently.
+
+- ### Not Handling Edge Cases
+
+  Be careful with edge cases.  
+  For instance, what if the array is empty?  
+  Or what if the array has only one element?  
+  Make sure your solution handles these scenarios gracefully.
+
+- ### Forgetting to Update Pointers or Conditions
+
+  This can lead to an infinite loop,  
+  Especially when dealing with while-loops.
+
+  Always double-check your code to ensure pointers are updated correctly inside the loop.
 
 ## References
 
