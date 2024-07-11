@@ -49,6 +49,14 @@ sidebar_position: 1
 
 ## Later
 
+- [ ] General Programming
+  - [ ] Programming Paradigms
+    - [ ] Structured programming
+    - [ ] Procedural programming
+    - [ ] Functional programming
+    - [ ] Aspect-oriented programming
+    - [ ] Event-driven programming
+    - [ ] Reactive programming
 - [ ] DDD
 - [ ] OOP
   - [ ] SOLID
