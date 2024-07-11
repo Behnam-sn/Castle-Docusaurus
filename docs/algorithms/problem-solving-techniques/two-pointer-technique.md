@@ -51,8 +51,7 @@ The binary search algorithm or Palindrome problem both serve as textbook example
 While traditionally two-pointer problems involve exactly two pointers,  
 It's not uncommon to encounter problems where more than two pointers can be beneficial.
 
-The Multiple Pointers technique typically involves more than two pointers,  
-That move independently or in a correlated manner based on specific logic.
+In this setup, pointers move independently or in a correlated manner based on specific logic.
 
 This type of problem often shows up in more complex array or string problems,  
 Where the interaction between multiple elements at different positions needs to be considered.
@@ -65,7 +64,8 @@ You can reduce the time complexity to linear time.
 
 ### Double Input Pointers
 
-This pointer type is interesting since it involves two linear inputs with a single pointer on each,  
+This pointer type is interesting,  
+Since it involves two linear inputs, with a single pointer on each,  
 Rather than a single input with two pointers.
 
 A common example of this would be the “merge” part of the Merge Sort algorithm,  
