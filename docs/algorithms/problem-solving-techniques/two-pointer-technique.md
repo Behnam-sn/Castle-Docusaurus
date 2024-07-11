@@ -2,40 +2,32 @@
 
 ## What is The Two Pointer Technique?
 
-The two-pointer technique is a pattern,  
-Where two pointers iterate over the data structure,  
-In tandem or separately until they satisfy a certain condition.
-
-This pattern is extremely useful when dealing with linear data structures such as **arrays**, **linked lists**, or **strings**.
-
 Two pointer problems are among the most common types you will encounter during coding interviews.
 
-This technique involves using two pointers which move through the array or list in a synchronized or independent manner to solve a problem.
+This technique involves using two pointers,  
+Which move through linear data structures,  
+Such as arrays, linked lists, or strings,  
+In a synchronized or independent manner to solve a problem.
 
-The two pointer technique is a flexible and versatile strategy that can be applied to various scenarios, such as finding pairs in a sorted array, checking for a palindrome, or finding a cycle in a linked list.
+## What are Types of Two Pointer Usage?
 
-Two-pointer algorithms generally rely on pointer manipulation (in this context a “pointer” is just an index in an array or similar linear data structure and does not refer to memory addresses of objects like pointers in C-based contexts do).
-
-## Two Pointer Types
-
-### Polynomial Pointers (for brute force combinations)
+### Polynomial Pointers
 
 This pointer variety is generally considered the least beneficial,  
-As it often necessitates the use of nested loops.
+As it often necessitates the use of nested loops and for brute force combinations.
 
 In this setup, each pointer travels independently across each index of the input.
 
-This pattern typically results in a polynomial (commonly quadratic – O(N^2))time complexity,  
+This pattern typically results in a polynomial (commonly quadratic – O(N^2)) time complexity,  
 Due to the fact that it computes all potential combinations of two pointers within a single linear input.
 
 The bubble sort algorithm exemplifies this kind of pointer usage.
 
-### Pointer Chasing ("Slow and Fast" or "Tortoise and Hare") For Cycle Detection
+### Pointer Chasing For Cycle Detection
 
-This variant of the two-pointer technique is notably applied in identifying cycles in linked lists and graphs,  
+This variant of the two-pointer technique,  
+Is notably applied in identifying cycles in linked lists and graphs,  
 As demonstrated in Floyd's algorithm.
-
-Floyd's Cycle Detection: Given the head of a Linked List, determine if a cycle exists in the Linked List
 
 In this setup, both pointers initiate their journey from the beginning of the input (typically index 0),  
 But progress at varied speeds.
@@ -49,7 +41,8 @@ In this variant of the two-pointer technique,
 One pointer commences at the start of the input,  
 While the other initiates from the input's end.
 
-These pointers subsequently shift inwardly (toward each other) alternately, adhering to a predefined logic.
+These pointers subsequently shift inwardly (toward each other) alternately,  
+Adhering to a predefined logic.
 
 The binary search algorithm or Palindrome problem both serve as textbook examples of this type of problem.
 
@@ -58,7 +51,7 @@ The binary search algorithm or Palindrome problem both serve as textbook example
 While traditionally two-pointer problems involve exactly two pointers,  
 It's not uncommon to encounter problems where more than two pointers can be beneficial.
 
-The "Multiple Pointers" technique typically involves more than two pointers,  
+The Multiple Pointers technique typically involves more than two pointers,  
 That move independently or in a correlated manner based on specific logic.
 
 This type of problem often shows up in more complex array or string problems,  

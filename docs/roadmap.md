@@ -16,7 +16,8 @@ sidebar_position: 1
   - [ ] Hash Tables
 - [ ] Algorithms
   - [ ] Algorithmic Complexity
-    - [ ] Time vs Space Complexity
+    - [ ] Time Complexity
+    - [ ] Space Complexity
     - [ ] How to Calculate Complexity?
   - [ ] Problem Solving Techniques
     - [ ] Brute Force
@@ -30,6 +31,7 @@ sidebar_position: 1
     - [ ] Sliding Window Technique
   - [ ] Sorting Algorithms
   - [ ] Search Algorithms
+  - [ ] Floyd's Cycle Detectio
 - [ ] .NET
   - [ ] C#
   - [ ] LINQ
@@ -49,6 +51,14 @@ sidebar_position: 1
 
 ## Later
 
+- [ ] General Programming
+  - [ ] Programming Paradigms
+    - [ ] Structured programming
+    - [ ] Procedural programming
+    - [ ] Functional programming
+    - [ ] Aspect-oriented programming
+    - [ ] Event-driven programming
+    - [ ] Reactive programming
 - [ ] DDD
 - [ ] OOP
   - [ ] SOLID
