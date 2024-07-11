@@ -23,12 +23,11 @@ Due to the fact that it computes all potential combinations of two pointers with
 
 The bubble sort algorithm exemplifies this kind of pointer usage.
 
-### Pointer Chasing ("Slow and Fast" or "Tortoise and Hare") For Cycle Detection
+### Pointer Chasing For Cycle Detection
 
-This variant of the two-pointer technique is notably applied in identifying cycles in linked lists and graphs,  
+This variant of the two-pointer technique,  
+Is notably applied in identifying cycles in linked lists and graphs,  
 As demonstrated in Floyd's algorithm.
-
-Floyd's Cycle Detection: Given the head of a Linked List, determine if a cycle exists in the Linked List
 
 In this setup, both pointers initiate their journey from the beginning of the input (typically index 0),  
 But progress at varied speeds.
@@ -42,7 +41,8 @@ In this variant of the two-pointer technique,
 One pointer commences at the start of the input,  
 While the other initiates from the input's end.
 
-These pointers subsequently shift inwardly (toward each other) alternately, adhering to a predefined logic.
+These pointers subsequently shift inwardly (toward each other) alternately,  
+Adhering to a predefined logic.
 
 The binary search algorithm or Palindrome problem both serve as textbook examples of this type of problem.
 
@@ -51,7 +51,7 @@ The binary search algorithm or Palindrome problem both serve as textbook example
 While traditionally two-pointer problems involve exactly two pointers,  
 It's not uncommon to encounter problems where more than two pointers can be beneficial.
 
-The "Multiple Pointers" technique typically involves more than two pointers,  
+The Multiple Pointers technique typically involves more than two pointers,  
 That move independently or in a correlated manner based on specific logic.
 
 This type of problem often shows up in more complex array or string problems,  
