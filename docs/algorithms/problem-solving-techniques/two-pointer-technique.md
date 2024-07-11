@@ -2,30 +2,23 @@
 
 ## What is The Two Pointer Technique?
 
-The two-pointer technique is a pattern,  
-Where two pointers iterate over the data structure,  
-In tandem or separately until they satisfy a certain condition.
-
-This pattern is extremely useful when dealing with linear data structures such as **arrays**, **linked lists**, or **strings**.
-
 Two pointer problems are among the most common types you will encounter during coding interviews.
 
-This technique involves using two pointers which move through the array or list in a synchronized or independent manner to solve a problem.
+This technique involves using two pointers,  
+Which move through linear data structures,  
+Such as arrays, linked lists, or strings,  
+In a synchronized or independent manner to solve a problem.
 
-The two pointer technique is a flexible and versatile strategy that can be applied to various scenarios, such as finding pairs in a sorted array, checking for a palindrome, or finding a cycle in a linked list.
+## What are Types of Two Pointer Usage?
 
-Two-pointer algorithms generally rely on pointer manipulation (in this context a “pointer” is just an index in an array or similar linear data structure and does not refer to memory addresses of objects like pointers in C-based contexts do).
-
-## Two Pointer Types
-
-### Polynomial Pointers (for brute force combinations)
+### Polynomial Pointers
 
 This pointer variety is generally considered the least beneficial,  
-As it often necessitates the use of nested loops.
+As it often necessitates the use of nested loops and for brute force combinations.
 
 In this setup, each pointer travels independently across each index of the input.
 
-This pattern typically results in a polynomial (commonly quadratic – O(N^2))time complexity,  
+This pattern typically results in a polynomial (commonly quadratic – O(N^2)) time complexity,  
 Due to the fact that it computes all potential combinations of two pointers within a single linear input.
 
 The bubble sort algorithm exemplifies this kind of pointer usage.
