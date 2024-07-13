@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Algorithmic Complexity
 
 you will explore computational complexity (space and time complexity),
