@@ -6,21 +6,20 @@ sidebar_position: 3
 
 ## What is a CPU?
 
-A central processing unit (CPU),  
-Is the primary component of a computer.
+Central processing unit (CPU),  
+Is a complex set of electronic circuits.
 
-CPU is a complex set of electronic circuitry
+CPU is the primary component of a computer.  
+It acts as the brain of any computing device.
 
-A CPU is the core computational unit in a computer.  
-It handles all computing tasks required for running the operating system and applications,  
+CPU handles all computing tasks,  
+Required for running the operating system and applications.
+
 Such as arithmetic, logic, controlling, and input/output (I/O) operations.
 
-CPU acts as the brain of any computing device.
+## CPUs Components
 
-## What are the Components of a CPU?
-
-A CPU is a complex electronic circuit,  
-That comprises several key components,  
+A CPU comprises several key components,  
 That process data and run instructions.
 
 The main components of a CPU:
@@ -37,8 +36,6 @@ That interprets the instructions fetched from memory,
 And converts them into micro-operations,  
 That the CPU can run.
 
-The control unit directs other CPU components to perform required operations.
-
 ### Memory Management Unit
 
 Depending on the CPU architecture,  
@@ -52,43 +49,49 @@ It also handles cache memory and virtual memory.
 ### Cache Memory
 
 Modern CPUs have one or multiple layers of cache,  
-That handle tasks at speeds faster than RAM can achieve,  
+That handle tasks at speeds faster than RAM can achieve.  
 Due to the cache’s advantageous position on the CPU’s processor chip.
 
 ### Registers
 
 Registers are small, high-speed memory storage locations within the CPU.
 
+Registers provide faster access times than other memory levels like RAM or cache memory.
+
 They hold data that the CPU is currently working on,  
 And facilitate quick access to data.
 
 CPUs have several types of registers:
 
-- #### General-purpose registers
+- #### General-Purpose Registers
 
   That hold operational data.
 
-- #### Instruction registers
+- #### Instruction Registers
 
   That hold the current instruction being processed.
 
-- #### A program counter
+- #### A Program Counter
 
   That holds the memory address of the next instruction to be fetched.
-
-Registers provide faster access times than other memory levels like RAM or cache memory.
 
 ### ALU
 
 The arithmetic/logic unit (ALU),  
 Handles all arithmetic operations and logical operations.
 
-Its math functionality is based on four types of operations (addition, subtraction, multiplication and division).  
-And logical operations typically involve some type of comparison (AND, OR, and NOT) on data.
+Its math functionality is based on four types of operations:
 
-It receives data from registers within the CPU,  
-Processes it based on the instructions from the control unit,  
-And produces the result.
+- Addition
+- Subtraction
+- Multiplication
+- Division
+
+And logical operations typically involve some type of comparison on data:
+
+- AND
+- OR
+- NOT
 
 ### Clock
 
@@ -169,27 +172,6 @@ Which allows for more efficient use of CPU resources.
 
 ## What are Some Advanced CPU Features?
 
-### Cores
-
-A single-core processor was standard in the past,  
-All CPUs have multiple physical cores today.
-
-A core is an individual processing unit within a CPU.
-
-More cores allow the CPU to handle multiple threads (sequences of instructions) in parallel,  
-Significantly improving overall performance.
-
-Applications can take advantage of the multi-core design,  
-By dividing tasks into smaller subtasks that can be completed simultaneously.
-
-### Hyper-Threading
-
-Hyper-threading is a simultaneous multithreading implementation developed by Intel,  
-That allows each CPU core to run multiple threads simultaneously.
-
-It allows each physical core to appear as two virtual cores in the operating system.  
-The software uses available hardware resources more efficiently.
-
 ### Advanced Instruction Sets
 
 Modern CPUs also feature advanced instruction sets,  
@@ -236,12 +218,6 @@ Single-core processors: Single-core processors contain a single processing unit.
 Dual-core processors: Dual-core processors are equipped with two processing units contained within one integrated circuit. Both cores run at the same time, effectively doubling performance rates.
 Quad-core processors: Quad-core processors contain four processing units within a single integrated circuit. All cores run simultaneously, quadrupling their performance rates.
 Multi-core processors: Multi-core processors are integrated circuits equipped with at least two processor cores, so they can deliver supreme performance while using less energy.
-
-## What are threads?
-
-Threads can be thought of as virtual sequences of instructions that are issued to a CPU. Primarily, they’re a way to divide workloads and share those responsibilities among different processors.
-
-Two related terms are multithreading and hyper-threading. In the former, tasks are split into distinct threads and run in parallel. Hyper-threading helps achieve even greater performance benefits because processors are used to carry out two threads at the same time.
 
 ## References
 
