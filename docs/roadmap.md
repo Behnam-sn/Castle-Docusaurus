@@ -53,6 +53,9 @@ sidebar_position: 1
 
 - [ ] General Programming
   - [ ] Programming Paradigms
+    - [ ] Multi-Threaded Programming
+      - [ ] Process
+      - [ ] Thread
     - [ ] Structured programming
     - [ ] Procedural programming
     - [ ] Functional programming
