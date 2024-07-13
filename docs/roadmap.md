@@ -16,8 +16,6 @@ sidebar_position: 1
   - [ ] Hash Tables
 - [ ] Algorithms
   - [ ] Algorithmic Complexity
-    - [ ] Time Complexity
-    - [ ] Space Complexity
     - [ ] How to Calculate Complexity?
   - [ ] Problem Solving Techniques
     - [ ] Brute Force
