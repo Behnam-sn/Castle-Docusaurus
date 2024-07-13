@@ -20,7 +20,7 @@ In multi-threading, tasks are split into distinct threads and run in parallel.
 
 Hyper-threading helps achieve even greater performance benefits because processors are used to carry out two threads at the same time.
 
-## What is Single-Threading
+## What is Single-Threading?
 
 Single-threading is a process in which one command is executed at a time.
 
@@ -59,4 +59,9 @@ The software uses available hardware resources more efficiently.
 ## References
 
 - [aws.amazon.com/what-is/cpu/](https://aws.amazon.com/what-is/cpu/)
-- https://shardeum.org/blog/cpu-cores-and-threads/
+- [shardeum.org/blog/cpu-cores-and-threads/](https://shardeum.org/blog/cpu-cores-and-threads/)
+- https://www.computerhope.com/jargon/t/thread.htm
+- https://www.liquidweb.com/blog/difference-cpu-cores-thread/
+- https://www.techtarget.com/whatis/definition/thread
+- https://en.wikipedia.org/wiki/Thread_(computing)
+- https://medium.com/@rodbauer/understanding-programs-processes-and-threads-fd9fdede4d88
