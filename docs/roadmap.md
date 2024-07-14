@@ -29,7 +29,7 @@ sidebar_position: 1
     - [ ] Sliding Window Technique
   - [ ] Sorting Algorithms
   - [ ] Search Algorithms
-  - [ ] Floyd's Cycle Detectio
+  - [ ] Floyd's Cycle Detection
 - [ ] .NET
   - [ ] C#
   - [ ] LINQ
