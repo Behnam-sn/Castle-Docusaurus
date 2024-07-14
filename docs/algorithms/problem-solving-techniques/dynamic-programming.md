@@ -97,6 +97,124 @@ And it uses memory to save the values that have already been computed to avoid c
 
 The more overlap there is, the more computational time is saved.
 
+## The FAST Method
+
+FAST is an acronym that stands for  
+Find the first solution,  
+Analyze the solution,  
+identify the Sub-problems,  
+and Turn around the solution.
+
+It isn’t the only way to work through problems to reach a dynamic programming solution,  
+But aims to be easy to remember and apply while being broadly applicable.
+
+Let’s break down each of these steps.
+
+### Find the First Solution
+
+The first step to solving any dynamic programming problem using The FAST Method,  
+Is to find an initial brute force recursive solution.
+
+Solve the problem without concern for efficiency, just as a starting point.
+
+Though there are a couple of constraints on how this brute force solution should look:
+
+- Recursive functions should be self-contained.
+
+  Storing results by updating global variables may make it impossible to introduce memoization later on.
+
+  Craft a function that is solely dependent on its parameters and not affected by outside factors.
+
+- Avoid unnecessary recursive function arguments.
+
+  Subproblem results will eventually be memoized based on the arguments;
+
+  The fewer the better.
+
+### Analyze the First Solution
+
+Analyze the initial brute force solution.
+
+This involves determining the time and space complexity and determining if there are any obvious areas for improvement.
+
+As part of the analytical process,  
+Confirm that the first solution fits the rules for problems with Dynamic programming solutions:
+
+- Does it have an optimal substructure?
+- Are there overlapping sub-problems?
+
+### Subproblem Identification
+
+If there is indeed a Dynamic programming solution,  
+The appropriate sub-problems can now be identified and coded.
+
+Apply memoization to avoid unnecessary repeated work.
+
+At this point the problem is solved with a top-down solution that likely exhibits optimal complexity and no does not repeat any work.
+
+### Turn the Solution Around
+
+Since we understand the problem well, we can go further.
+
+This involves coding the alternate bottom-up approach that iteratively computes and uses tabulation to store the results of successive sub-problems, until the overall solution is reached.
+
+Turning the solution to bottom-up is generally desired as it avoids pitfalls associated with recursion and the call stack.
+
+### Deciding on Top-down/Memoization vs. Bottom-up/Tabulation
+
+In an interview,  
+The choice of top-down or bottom-up approaches should be balanced with other factors beyond performance:
+
+How easily can the bottom-up solution be coded,  
+Is it as easily reasoned about and discussed with the interviewer?
+
+Which approach are you most comfortable with? That may be the most important factor of all!
+
+## Common Mistakes in Interviews Featuring Dynamic Programming
+
+- Jumping too quickly to conclude dynamic programming is necessary.
+
+When you have a hammer, everything starts to look like a nail.
+
+If the problem doesn’t require an optimal solution but rather any correct solution,  
+A greedy approach will likely be simpler to identify and implement.
+
+- Conversely, looking too hard for a greedy solution and failing to recognize a dynamic programming problem.
+
+A way to determine which solution is more appropriate is to know whether a sub-solution helps lead to the final solution.
+
+If a sub-solution (a solution with a part of the input) helps,  
+Then dynamic programming is probably the way to go!
+
+- Failing to identify how to break the problem into sub-problems so that the recurrence relation and base case(s) become clear.
+
+When you have a strong intuition (or have been told) that a problem needs a Dynamic programming solution,  
+This is the major challenge.
+
+Reviewing plenty of questions and gaining practice is essential.
+
+- Struggling to define and work with a suitable result matrix.
+
+Many problems (such as Longest Common Subsequence) involve two- or multi-dimensional arrays to store sub-problem results.
+
+These can be difficult to conceive and may be tricky to work with in code.
+
+Again it’s all about practice.
+
+- Lack of clarity in communicating your dynamic programming logic.
+
+Visualizations can help a great deal here.
+
+As we’ve seen in this article,
+
+Sketching a recursive tree or a matrix table can be helpful tools to gain shared understanding with your interviewer.
+
+## What to Say in Interviews to Show Mastery Over Dynamic Programming
+
+Articulate why dynamic programming is applicable (overlapping sub-problems and optimal substructure) for a given problem
+Refer to the recurrence relation and base case(s). Reason about and justify that the subproblem dependencies are acyclic.
+Discuss and ask the interviewer if they have a preference when it comes to the tradeoffs between top-down (recursive) and bottom-up approaches.
+
 ## References
 
 - [interviewing.io/dynamic-programming-interview-questions](https://interviewing.io/dynamic-programming-interview-questions)
