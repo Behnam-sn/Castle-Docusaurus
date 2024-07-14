@@ -248,3 +248,6 @@ Using dynamic programming to solve problems is more effective than just trying t
 
 - [interviewing.io/dynamic-programming-interview-questions](https://interviewing.io/dynamic-programming-interview-questions)
 - [medium.com/@al.eks/the-ultimate-guide-to-dynamic-programming-65865ef7ec5b](https://medium.com/@al.eks/the-ultimate-guide-to-dynamic-programming-65865ef7ec5b)
+- [spiceworks.com/tech/devops/articles/what-is-dynamic-programming/](https://www.spiceworks.com/tech/devops/articles/what-is-dynamic-programming/)
+- [en.wikipedia.org/wiki/Dynamic_programming](https://en.wikipedia.org/wiki/Dynamic_programming)
+- [geeksforgeeks.org/dynamic-programming/](https://www.geeksforgeeks.org/dynamic-programming/)
