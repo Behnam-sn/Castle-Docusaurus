@@ -1,6 +1,6 @@
-# Two Pointer Technique
+# Two Pointer
 
-## What is The Two Pointer Technique?
+## What is The Two Pointer?
 
 Two pointer problems are among the most common types you will encounter during coding interviews.
 
