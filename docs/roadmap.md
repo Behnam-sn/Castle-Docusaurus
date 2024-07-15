@@ -24,8 +24,6 @@ sidebar_position: 1
     - [ ] Randomised Algorithms
     - [ ] Divide and Conquer
     - [ ] Recursion
-    - [ ] Dynamic Programming
-    - [ ] Two Pointer Technique
     - [ ] Sliding Window Technique
   - [ ] Sorting Algorithms
   - [ ] Search Algorithms
