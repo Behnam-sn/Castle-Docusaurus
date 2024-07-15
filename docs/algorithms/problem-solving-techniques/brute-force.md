@@ -1,29 +1,40 @@
 # Brute Force
 
-## What is the Brute Force Algorithm?
+## What is Brute Force?
 
-A brute force algorithm is a simple,  
-Comprehensive search strategy,  
-That systematically explores every option until a problem’s answer is discovered.
+Brute Force Algorithms are straightforward approach of solving a problem,  
+That rely on sheer computing power,  
+And trying every possibility rather than advanced techniques to improve efficiency.
 
-It’s a generic approach to problem-solving,  
-That’s employed when the issue is small enough to make an in-depth investigation possible.
+:::note
+Brute force is a generic method and not limited to any specific domain of problems.
+:::
+
+## When to Use Brute Force?
+
+Brute force algorithms are slow.  
+Brute force is employed when the issue is small enough to make an in-depth investigation possible.
 
 However, because of their high temporal complexity,  
 Brute force techniques are inefficient for large-scale issues.
+
+The method is also used when the simplicity of implementation is more important than processing speed.
+
+## How to Use Use Brute Force?
 
 Brute force algorithms investigate every potential solution to an issue,  
 Usually in an organized and detailed way.
 
 This involves attempting each option in a specified order.
 
-The brute force approach is a guaranteed way to find the correct solution by listing all the possible candidate solutions for the problem.
+:::note
+The brute force approach is guaranteed to find the correct solution,  
+By listing all the possible candidate solutions for the problem.
+:::
 
-It is a generic method and not limited to any specific domain of problems.
+## References
 
-Brute force algorithms are slow.
-
-Brute Force Algorithms are straightforward methods of solving a problem that rely on sheer computing power and trying every possibility rather than advanced techniques to improve efficiency.
-
-https://www.geeksforgeeks.org/brute-force-approach-and-its-pros-and-cons/
-https://www.freecodecamp.org/news/brute-force-algorithms-explained/
+- [geeksforgeeks.org/brute-force-approach-and-its-pros-and-cons/](https://www.geeksforgeeks.org/brute-force-approach-and-its-pros-and-cons/)
+- [freecodecamp.org/news/brute-force-algorithms-explained/](https://www.freecodecamp.org/news/brute-force-algorithms-explained/)
+- [en.wikipedia.org/wiki/Brute-force_search](https://en.wikipedia.org/wiki/Brute-force_search)
+- [studysmarter.co.uk/explanations/computer-science/algorithms-in-computer-science/brute-force/](https://www.studysmarter.co.uk/explanations/computer-science/algorithms-in-computer-science/brute-force/)
