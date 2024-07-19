@@ -46,7 +46,8 @@ Suppose you're standing at the bottom of a staircase and want to reach the top.
 The staircase has many steps,  
 And your task is to climb them all.
 
-A non-recursive way of thinking would be to count each step as you climb, one after the other, until you reach the top.
+A non-recursive way of thinking would be to count each step as you climb,  
+One after the other, until you reach the top.
 
 However, a recursive approach would be different.
 
@@ -74,8 +75,10 @@ Telling the function when to stop calling itself and start returning.
 In our analogy,  
 The base case is when there are no more steps to climb.
 
-If there's only one step, you climb it, and you're done.  
-If there are no steps, you're already at the top!
+If there's only one step,  
+You climb it, and you're done.  
+If there are no steps,  
+You're already at the top!
 
 ```cs
 void ClimbSteps(int n)
@@ -102,9 +105,6 @@ Climb one step. Remaining steps: 1
 Climb one step. Remaining steps: 0
 You're at the top! All steps climbed.
 ```
-
-These principles can be applied to a wide range of problems in computer science,  
-Which we'll explore further in the following sections.
 
 ### Call Stack
 
