@@ -2,34 +2,34 @@
 
 ## What is Recursion?
 
-Recursion is a strategy used in computer science where a function invokes itself to solve a problem.
+Recursion is a function invokes itself to solve a problem.
 
-This self-referential nature of recursion helps to solve problems that can be broken down into simpler, similar problems.
-
-In other words, recursion is a strategy where the solution to a problem depends on solutions to smaller instances of the same problem.
+Recursion is a strategy,  
+Where the solution to a problem,  
+Depends on solutions to smaller instances of the same problem.
 
 Recursion is a potent tool when dealing with problems related to data structures,  
 Such as traversing trees or graphs, sorting arrays, or exploring permutations and combinations.
 
-Functional languages like Haskell, Scala, and Erlang, among others,  
-Tend to favor recursion for control flow,  
-Since they lack traditional looping constructs present in imperative languages.
+:::note
+Most looping operations can be expressed recursively.
 
-Most looping operations can be expressed recursively,  
-which is part of the reason why functional programming languages often favor recursion.
+Functional languages like Haskell, Scala, and Erlang,  
+Tend to favor recursion for control flow.
+:::
 
 ## How Recursion Works?
 
 Base Case + Recursive Case = Recursive Function
 
-### Base Case
+### What is Base Case?
 
 The condition that stops the recursion.
 
-It a simple, solvable case of the problem,
+It a simple, solvable case of the problem,  
 That does not require further recursion.
 
-### Recursive Case
+### What is Recursive Case?
 
 The part of the recursion,  
 That breaks the problem down into smaller sub-problems,  
