@@ -133,20 +133,23 @@ You place n calls (climbers) on the stack.
 As each call completes (each climber reaches the top of their staircase),  
 It's removed from the stack.
 
-The process continues until the stack is empty—all steps are climbed,  
+The process continues until the stack is empty (all steps are climbed),  
 And all climbers have finished.
 
 In essence,  
 The call stack is crucial to managing the flow of execution in recursive calls,  
-Ensuring that each function call is addressed correctly and executed in the correct order,  
+Ensuring that each function call is addressed correctly,  
+And executed in the correct order,  
 No matter how many recursive calls are made.
 
+:::warning
 It is also important to note that the call stack is finite,  
 And every recursive call takes up space on the stack.
 
 If you have too many recursive calls,  
 You will eventually run out of space on the stack,  
 Resulting in a **stack overflow** error.
+:::
 
 ### Tail Call Optimization
 
@@ -162,11 +165,14 @@ In other words,
 The compiler can reuse the current stack frame for the next recursive call instead of adding a new one.
 
 However, not all programming languages support this optimization,  
-But when they do, it's like having a single,  
-Tireless climber that efficiently completes the climb without causing a queue on the staircase.
+But when they do, it's like having a single tireless climber,  
+That efficiently completes the climb without causing a queue on the staircase.
 
-Scheme, Erland, and Scala are some of the languages that support TCO, while Python and Java do not.  
-JavaScript also supports TCO in the spec, starting with ES6, but it's not yet implemented in most browsers.
+Scheme, Erland, and Scala are some of the languages that support TCO,  
+While Python and Java do not.
+
+JavaScript also supports TCO in the spec, starting with ES6,  
+But it's not yet implemented in most browsers.
 
 So what’s the point?  
 Recursive implementations are often more concise and readable when compared with iterative alternatives.  
@@ -178,9 +184,10 @@ Tail call recursion unlocks the benefits and avoids the downsides.
 The beauty of recursion lies in its ability to express complex problems in a few lines of code.
 
 While iterating with loops can achieve the same results,  
-The ability to decompose a problem into smaller instances of itself makes recursion a favorite technique in problem-solving.
+The ability to decompose a problem into smaller instances of itself,  
+Makes recursion a favorite technique in problem-solving.
 
-You may use recursion when the problem fits into one of the following patterns.
+You may use recursion when the problem fits into one of the following patterns:
 
 ### Divide and Conquer
 
@@ -193,7 +200,7 @@ This approach works best when the sub-problems are independent,
 Meaning the solution to one does not depend on the solution to another.
 
 For example,  
-Problems like Merge Sort and Quick Sort are quintessential divide-and-conquer problems,  
+Problems like Merge Sort and Quick Sort are classic divide-and-conquer problems,  
 Where you continually divide the array into smaller pieces until you reach a trivially solvable size.
 
 Binary Search is another example of a divide-and-conquer problem,  
@@ -250,12 +257,12 @@ DP decomposes the main problem into simpler, smaller sub-problems, which are sol
 Their solutions are stored for future use.
 
 This unique approach is beneficial,  
-Especially when we encounter problems having overlapping sub-problems and optimal substructure.
+Especially when we encounter problems having overlapping sub-problems and optimal sub-structure.
 
 Overlapping sub-problems imply that the same smaller problems reappear multiple times during the computation.
 
 On the other hand,  
-Optimal substructure suggests that we can construct an optimal solution to the overall problem from the optimal solutions to its sub-problems.
+Optimal sub-structure suggests that we can construct an optimal solution to the overall problem from the optimal solutions to its sub-problems.
 
 These two conditions make a problem well-suited for a DP solution.
 
