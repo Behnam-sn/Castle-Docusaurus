@@ -248,13 +248,13 @@ Some famous examples include N-Queens, Sudoku Solver, Word Search, Permutations 
 
 ### Dynamic Programming
 
-Dynamic programming (DP) is a strategic approach employed for efficient problem-solving.
+Dynamic programming is a strategic approach employed for efficient problem-solving.
 
 Think of it as a well-organized toolkit that solves complex problems with ease.
 
 DP decomposes the main problem into simpler, smaller sub-problems, which are solved only once.
 
-Their solutions are stored for future use.
+Their answers are stored for future use.
 
 This unique approach is beneficial,  
 Especially when we encounter problems having overlapping sub-problems and optimal sub-structure.
@@ -262,7 +262,8 @@ Especially when we encounter problems having overlapping sub-problems and optima
 Overlapping sub-problems imply that the same smaller problems reappear multiple times during the computation.
 
 On the other hand,  
-Optimal sub-structure suggests that we can construct an optimal solution to the overall problem from the optimal solutions to its sub-problems.
+Optimal sub-structure suggests,  
+That we can construct an optimal solution to the overall problem from the optimal solutions to its sub-problems.
 
 These two conditions make a problem well-suited for a DP solution.
 
@@ -276,3 +277,40 @@ Dynamic programming takes it a notch higher.
 
 DP stores the results of the sub-problems by using a technique known as memoization,  
 Thus avoiding re-computation and increasing efficiency.
+
+#### Recursion vs Dynamic Programming
+
+Let's dive a little deeper into the distinction between dynamic programming and other recursion-based problems.
+
+When using dynamic programming with recursion,  
+We introduce a memory function or a lookup table, known as memoization.
+
+This idea of "remembering" the results of solved subproblems,  
+Separates DP from other recursive problems.
+
+By avoiding re-computation,  
+We drastically reduce the time complexity,  
+Making DP a formidable tool to tackle complex problems efficiently.
+
+#### Top-down vs Bottom-up approaches
+
+The recursive DP approach we have discussed here is also known as top-down dynamic programming.
+
+This method starts with the original problem and breaks it down into subproblems,  
+Storing the results of each along the way to avoid redundant computation.
+
+However, there's also a bottom-up approach, or tabulation,  
+Which solves all the subproblems first and uses their results to build up to the solution of the overall problem.
+
+While both methods leverage the principles of DP,  
+They differ in space usage.
+
+Top-down methods can sometimes use more space due to the recursive call stack,  
+Especially for deep recursion trees.
+
+In contrast, bottom-up methods typically use iterative structures and are more space-efficient.  
+Therefore, while choosing an approach, it's essential to consider the space requirements and tailor your solution accordingly.
+
+## References
+
+- [interviewing.io/recursion-interview-questions](https://interviewing.io/recursion-interview-questions)
