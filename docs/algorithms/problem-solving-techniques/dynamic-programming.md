@@ -3,7 +3,8 @@
 ## What is Dynamic Programming?
 
 Dynamic programming is an optimization technique,  
-Used to efficiently solve problems that are computationally complex,  
+Used to efficiently solve problems that are computationally complex.
+
 Which usually has to do with finding the maximum and minimum range of the algorithmic query.
 
 Dynamic programming key characteristic,  
