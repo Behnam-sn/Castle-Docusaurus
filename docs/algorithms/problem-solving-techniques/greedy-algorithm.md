@@ -2,37 +2,40 @@
 
 ## What is a Greedy Algorithm?
 
-A greedy algorithm is a simple, intuitive algorithm that is used in optimization problems.
+A greedy algorithm is a simple and intuitive algorithm that is used in optimization problems.
 
-The algorithm makes the optimal choice at each step as it attempts to find the overall optimal way to solve the entire problem.
+The algorithm makes the optimal choice at each step,  
+As it attempts to find the overall optimal way to solve the entire problem.
+
+## When to Use a Greedy Algorithm?
 
 Greedy algorithms are quite successful in some problems,  
 Such as Huffman encoding which is used to compress data,  
-Or Dijkstra's algorithm, which is used to find the shortest path through a graph.
-
-However, in many problems, a greedy strategy does not produce an optimal solution.  
-Because it makes decisions based only on the information it has at any one step,  
-Without regard to the overall problem.
-
-## When to Use Greedy Algorithms?
+Or Dijkstra's algorithm which is used to find the shortest path through a graph.
 
 If both of the properties below are true,  
 A greedy algorithm can be used to solve the problem.
 
-- Greedy Choice Property  
+- ### Greedy Choice Property
+
   A global (overall) optimal solution can be reached by choosing the optimal choice at each step.
 
-- Optimal Sub-Structure  
-  A problem has an optimal sub-structure if an optimal solution to the entire problem contains the optimal solutions to the sub-problems.
+- ### Optimal Sub-Structure
 
-In other words, greedy algorithms work on problems for which it is true that, at every step, there is a choice that is optimal for the problem up to that step, and after the last step, the algorithm produces the optimal solution of the complete problem.
+  A problem has an optimal sub-structure,  
+  If an optimal solution to the entire problem,  
+  Contains the optimal solutions to the sub-problems.
 
-To make a greedy algorithm,  
-Identify an optimal substructure or subproblem in the problem.
+## How to Use a Greedy Algorithm?
 
-Then, determine what the solution will include (for example, the largest sum, the shortest path, etc.).
+To make a greedy algorithm:
 
-Create some sort of iterative way to go through all of the subproblems and build a solution.
+1. Identify an optimal sub-structure or sub-problem in the problem.
+
+1. Then, determine what the solution will include.  
+   For example, the largest sum, the shortest path, etc.
+
+1. Create some sort of iterative way to go through all of the sub-problems and build a solution.
 
 ## Limitations of Greedy Algorithms
 
@@ -42,7 +45,8 @@ Because they do not consider all the data.
 The choice made by a greedy algorithm may depend on choices it has made so far,  
 But it is not aware of future choices it could make.
 
-In problems where greedy algorithms fail, dynamic programming might be a better approach.
+In problems where greedy algorithms fail,  
+Dynamic programming might be a better approach.
 
 ## References
 
