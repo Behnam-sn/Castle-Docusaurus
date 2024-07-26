@@ -6,14 +6,14 @@ sidebar_position: 2
 
 ## OOP
 
-- OOP Concepts
+- OOP Features
 
   - Abstraction
   - Encapsulation
   - Polymorphism
   - Inheritance
 
-- SOLID
+- SOLID Principles
 
   - Single Responsibility
   - Open Closed
