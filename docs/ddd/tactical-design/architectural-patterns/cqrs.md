@@ -7,19 +7,25 @@ sidebar_position: 3
 ## What is CQRS Pattern?
 
 The command-query responsibility segregation (CQRS) pattern,  
-Is based on the same organizational principles for business logic and infrastructural concerns as ports & adapters.
+Is based on the same organizational principles,  
+For business logic and infrastructural concerns as ports & adapters.
 
 It differs however,  
 In the way the system’s data is managed.
 
 This pattern enables representation of the system’s data in multiple persistent models.
 
+<!-- CQRS allows the use of multiple storage mechanisms for representing different models of the system’s data. -->
+
 ## What Problem CQRS Pattern is Trying to Solve?
 
 ### Polyglot Modeling
 
-In many cases, it may be difficult, if not impossible,  
-To use a single model of the system’s business domain to address all of the system’s needs.
+In many cases,  
+It may be difficult,  
+If not impossible,  
+To use a single model of the system’s business domain,  
+To address all of the system’s needs.
 
 For example, as discussed previously,  
 Online transaction processing (OLTP) and online analytical processing (OLAP),  
@@ -33,9 +39,8 @@ All databases are flawed, each in its own way.
 
 We often have to balance the needs for scale, consistency, or supported querying models.
 
-An alternative to finding a perfect database is the polyglot persistence model.
-
-That is, using multiple databases,  
+An alternative to finding a perfect database is the polyglot persistence model.  
+That is using multiple databases,  
 To implement different data-related requirements.
 
 For example:
@@ -48,15 +53,11 @@ For example:
 
 The CQRS pattern is closely related to event sourcing.
 
-Originally, CQRS was defined to address the limited querying possibilities of an event-sourced model:  
-It is only possible to query events of one aggregate instance at a time.
+Originally, CQRS was defined to address the limited querying possibilities of an event-sourced model.  
+Which is, it is only possible to query events of one aggregate instance at a time.
 
-The CQRS pattern provides the possibility of,  
-Materializing projected models,  
-Into physical databases,  
+The CQRS pattern provides the possibility of materializing projected models into physical databases,  
 That can be used for flexible querying options.
-
-Let’s see how CQRS allows the use of multiple storage mechanisms for representing different models of the system’s data.
 
 <!-- In the CQRS architecture,
 The responsibilities of the system’s models are segregated according to their type:
@@ -68,42 +69,53 @@ The responsibilities of the system’s models are segregated according to their 
 ## What is CQRS Pattern Solution?
 
 As the name suggests,  
-The pattern segregates the responsibilities of the system’s models.
+The pattern segregates the responsibilities of the system’s models:
 
-There are two types of models:
+### Command Execution Model
 
-- ### Command Execution Model
+CQRS devotes a single model to executing operations,  
+That modify the system’s state.
 
-  CQRS devotes a single model to executing operations that modify the system’s state (system commands).  
-  This model is used to implement the business logic, validate rules and enforce invariants.
+This model is used to:
 
-  The command execution model is also the only model representing strongly consistent data (the system’s source of truth).
+- Implement the business logic
+- Validate rules
+- And enforce invariants
 
-  It should be possible to read the strongly consistent state of a business entity,  
-  And have optimistic concurrency support when updating it.
+The command execution model,  
+Is also the only model representing strongly consistent data.  
+(The system’s source of truth)
 
-- ### Read Models (Projections)
+It should be possible to read the strongly consistent state of a business entity,  
+And have optimistic concurrency support when updating it.
 
-  The system can define as many models as needed to present data to users or supply information to other systems.
+### Read Models (Projections)
 
-  A read model is a pre-cached projection.  
-  It can reside in a durable database, flat file, or in-memory cache.
+The system can define as many models as needed,  
+To present data to users,  
+Or supply information to other systems.
 
-  Proper implementation of CQRS allows for wiping out all data of a projection and regenerating it from scratch.
+A read model is a pre-cached projection.  
+It can reside in a durable database, flat file, or in-memory cache.
 
-  This also enables extending the system with additional projections in the future;  
-  For models that couldn’t have been foreseen originally.
+Proper implementation of CQRS,  
+Allows for wiping out all data of a projection and regenerating it from scratch.
 
-  Finally, read models are read-only.  
-  None of the system’s operations can directly modify the read models’ data.
+This also enables extending the system with additional projections in the future;  
+For models that couldn’t have been foreseen originally.
+
+Finally, read models are read-only.  
+None of the system’s operations can directly modify the read models’ data.
 
 ## How to Project Read Models?
 
 For the read models to work,  
-The system has to project changes from the command execution model to all its read models.
+The system has to project changes from the command execution model,  
+To all its read models.
 
-The projection of read models is similar to the notion of a materialized view in relational databases:  
-whenever source tables are updated,  
+The projection of read models,  
+Is similar to the notion of a materialized view in relational databases:  
+Whenever source tables are updated,  
 The changes have to be reflected in the pre-cached views.
 
 Let’s see two ways to generate projections:
