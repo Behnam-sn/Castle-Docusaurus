@@ -65,6 +65,9 @@ sidebar_position: 1
   - [ ] TDD
 - [ ] Readable Code
   - [ ] Locality of Behavior
+- [ ] Databases
+  - [ ] Indexes
+  - [ ] Views
 - [ ] NoSQL Databases
   - [ ] MongoDB
   - [ ] Redis
