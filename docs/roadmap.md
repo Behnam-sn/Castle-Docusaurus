@@ -57,6 +57,7 @@ sidebar_position: 1
 - [ ] DDD
 - [ ] OOP
   - [ ] SOLID
+    - [ ] Covariant
   - [ ] Design Patterns
 - [ ] Testing
   - [ ] Unit Testing
