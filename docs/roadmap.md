@@ -84,3 +84,4 @@ sidebar_position: 1
   - [ ] Kibana
   - [ ] Serilog
 - [ ] Micro Service
+- [ ] MVP
