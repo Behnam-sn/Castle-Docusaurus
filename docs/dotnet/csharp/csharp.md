@@ -172,3 +172,59 @@ The container for managed code is called an assembly.
 An assembly contains not only IL but also type information (metadata).
 
 The presence of metadata allows assemblies to reference types in other assemblies without needing additional files.
+
+:::tip
+You can examine and disassemble the contents of an assembly
+with Microsoft’s ildasm tool. And with tools such as ILSpy or
+JetBrain’s dotPeek, you can go further and decompile the IL
+to C#. Because IL is higher level than native machine code,
+the decompiler can do quite a good job of reconstructing the
+original C#.
+:::
+
+A program can query its own metadata _(reflection)_,  
+And even generate new IL at runtime _(reflection.emit)_.
+
+### Base Class Library
+
+A CLR always ships with a set of assemblies called a Base Class Library (BCL).
+
+A BCL provides core functionality to programmers,  
+Such as collections, input/output, text processing, XML/JSON handling, networking, encryption, interop, concurrency, and parallel programming.
+
+A BCL also implements types that the C# language itself requires for features such as enumeration, querying, and asynchrony;  
+And lets you explicitly access features of the CLR, such as Reflection and memory management.
+
+### Runtimes
+
+A runtime (also called a framework),  
+Is a deployable unit that you download and install.
+
+A runtime consists of a CLR (with its BCL),  
+Plus an optional application layer specific to the kind of application that you’re writing like web, mobile, rich client, etc.
+
+:::note
+If you’re writing a command-line console application or a non-UI library,  
+You don’t need an application layer.
+:::
+
+When writing an application,  
+You target a particular runtime,  
+Which means that your application uses and depends on the functionality that the runtime provides.
+
+Your choice of runtime also determines which platforms your application will support.
+
+The following table lists the major runtime options:
+
+Application layer CLR/BCLProgram type
+Runs on...
+ASP.NETWeb
+Windows, Linux, macOS
+Windows Desktop .NET 8Windows
+Windows 10+
+WinUI 3.NET 8Windows
+Windows 10+
+MAUI.NET 8Mobile, desktop iOS, Android, macOS, Windows 10+
+.NET Framework.NET Framework Web, Windows
+.NET 8
+Windows 7+
