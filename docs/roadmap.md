@@ -85,3 +85,4 @@ sidebar_position: 1
   - [ ] Serilog
 - [ ] Micro Service
 - [ ] MVP
+- [ ] Daisy UI
