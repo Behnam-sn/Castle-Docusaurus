@@ -628,7 +628,11 @@ Technically, the CLR positions fields within the type at an
 address that’s a multiple of the fields’ size (up to a maximum
 of 8 bytes). Thus, the following actually consumes 16 bytes of
 memory (with the 7 bytes following the first field “wasted”):
+
+```cs
 struct A { byte b; long l; }
+```
+
 You can override this behavior by applying the StructLayout
 attribute
 :::
