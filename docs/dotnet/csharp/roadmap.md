@@ -4,13 +4,18 @@
   - Reference Type
     - Class
     - Record Class
+    - Delegate
+    - Array
+    - Interface
   - Value Type
     - Struct
     - Struct Class
     - Enum
-  - Interface
   - Defining a Type
   - Variable Declaration
   - Casting
+- OOP
+  - Inheritance
 - Program Structure
 - Asynchronous
+- Garbage Collector (Automatic Memory Management)
