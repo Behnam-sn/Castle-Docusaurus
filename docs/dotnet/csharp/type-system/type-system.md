@@ -316,9 +316,116 @@ public struct Coords
 }
 ```
 
+The other category of value types is `enum`.
+
+An enum defines a set of named integral constants.
+
+For example,  
+The `System.IO.FileMode` enumeration in the .NET class library contains a set of named constant integers that specify how a file should be opened.
+
+It's defined as shown in the following example:
+
+```cs
+public enum FileMode
+{
+    CreateNew = 1,
+    Create = 2,
+    Open = 3,
+    OpenOrCreate = 4,
+    Truncate = 5,
+    Append = 6,
+}
+```
+
+The `System.IO.FileMode.Create` constant has a value of 2.
+
+However, the name is much more meaningful for humans reading the source code,  
+And for that reason it's better to use enumerations instead of constant literal numbers.
+
+All `enums` inherit from `System.Enum`,  
+Which inherits from `System.ValueType`.
+
+All the rules that apply to `structs` also apply to `enums`.
+
+## Reference Types
+
+A type that is defined as a `class`, `record`, `delegate`, `array`, or `interface` is a reference type.
+
+When you declare a variable of a reference type,  
+It contains the value `null`,  
+Until you assign it with an instance of that type or create one using the `new` operator.
+
+Creation and assignment of a `class` are demonstrated in the following example:
+
+```cs
+MyClass myClass = new MyClass();
+MyClass myClass2 = myClass;
+```
+
+An interface can't be directly instantiated using the `new` operator.
+
+Instead, create and assign an instance of a class that implements the interface.
+
+Consider the following example:
+
+```cs
+MyClass myClass = new MyClass();
+
+// Declare and assign using an existing value.
+IMyInterface myInterface = myClass;
+
+// Or create and assign a value in a single statement.
+IMyInterface myInterface2 = new MyClass();
+```
+
+When the object is created,  
+The memory is allocated on the managed heap.
+
+The variable holds only a reference to the location of the object.
+
+Types on the managed heap require overhead both when they're allocated and when they're reclaimed.
+
+Garbage collection is the automatic memory management functionality of the CLR,  
+Which performs the reclamation.
+
+However, garbage collection is also highly optimized,  
+And in most scenarios it doesn't create a performance issue.
+
+All arrays are reference types,  
+Even if their elements are value types.
+
+Arrays implicitly derive from the `System.Array` class.
+
+You declare and use them with the simplified syntax that is provided by C#,  
+As shown in the following example:
+
+```cs
+// Declare and initialize an array of integers.
+int[] nums = [1, 2, 3, 4, 5];
+
+// Access an instance property of System.Array.
+int len = nums.Length;
+```
+
+Reference types fully support inheritance.
+
+When you create a class,  
+You can inherit from any other interface or class that isn't defined as sealed.
+
+Other classes can inherit from your class and override your virtual methods.
+
+## Types of literal values
+
+## Generic types
+
+## Implicit types, anonymous types, and nullable value types
+
+## Compile-time type and run-time type
+
 ## More
 
 - [learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types)
 - [learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/inheritance](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/inheritance)
 - [learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types)
 - [learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct)
+- [learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/reference-types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/reference-types)
