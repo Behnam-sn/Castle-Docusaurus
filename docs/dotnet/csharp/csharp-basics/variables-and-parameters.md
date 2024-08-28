@@ -139,3 +139,98 @@ class Test
     public static int x;
 }
 ```
+
+<!-- ## Default Values
+
+All type instances have a default value.
+
+The default value for the predefined types is the result of a bitwise zeroing of memory:
+
+| Type Default                               | value |
+| :----------------------------------------- | :---- |
+| Reference types (and nullable value types) | null  |
+| Numeric and enum types                     | 0     |
+| char type                                  | '\0'  |
+| bool type                                  | false |
+
+You can obtain the default value for any type via the default keyword:
+
+```cs
+Console.WriteLine(default(decimal)); // 0
+```
+
+You can optionally omit the type when it can be inferred:
+
+```cs
+decimal d = default;
+```
+
+The default value in a custom value type (i.e., struct),
+Is the same as the default value for each field defined by the custom type. -->
+
+## Parameters
+
+A method may have a sequence of parameters.  
+Parameters define the set of arguments that must be provided for that method.
+
+In the following example,  
+The method `Foo` has a single parameter named `p`, of type `int`:
+
+```cs
+Foo(8); // 8 is an argument
+
+static void Foo(int p) {...} // p is a parameter
+```
+
+You can control how parameters are passed with the `ref`, `in`, and `out` modifiers:
+
+| Parameter modifier | Passed by             | Variable must be definitely assigned |
+| :----------------- | :-------------------- | :----------------------------------- |
+| (None)             | Value                 | Going in                             |
+| ref                | Reference             | Going in                             |
+| in                 | Reference (read-only) | Going in                             |
+| out                | Reference             | Going out                            |
+
+## Passing Arguments By Value
+
+By default,  
+Arguments in C# are passed by value,  
+Which is by far the most common case.
+
+This means that a copy of the value is created when passed to the method:
+
+```cs
+int x = 8;
+Foo(x); // Make a copy of x
+Console.WriteLine(x); // x will still be 8
+
+static void Foo(int p)
+{
+    p = p + 1; // Increment p by 1
+    Console.WriteLine(p); // Write p to screen
+}
+```
+
+Assigning `p` a new value does not change the contents of `x`,  
+Because `p` and `x` reside in different memory locations.
+
+Passing a reference-type argument by value copies the reference but not the object.
+
+In the following example,  
+`Foo` sees the same `StringBuilder` object we instantiated (`sb`),  
+But has an independent reference to it.
+
+In other words, `sb` and `fooSB` are separate variables,  
+That reference the same `StringBuilder` object:
+
+```cs
+var sb = new StringBuilder();
+Foo(sb);
+Console.WriteLine(sb.ToString()); // test
+
+static void Fo (StringBuilder fooSB)
+{
+    fooSB.Append("test");
+    fooSB = null;
+}
+```
