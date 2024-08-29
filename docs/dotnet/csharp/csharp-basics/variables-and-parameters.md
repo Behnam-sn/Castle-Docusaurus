@@ -238,4 +238,47 @@ static void Fo (StringBuilder fooSB)
 Because `fooSB` is a copy of a reference,  
 Setting it to `null` doesn’t make `sb` `null`.
 
-<!-- (If, however, `fooSB` was declared and called with the ref modifier, sb would become null.) -->
+(If, however, `fooSB` was declared and called with the `ref` modifier, `sb` would become `null`.)
+
+## The ref Modifier
+
+To pass by reference,  
+C# provides the `ref` parameter modifier.
+
+In the following example, `p` and `x` refer to the same memory locations:
+
+```cs
+int x = 8;
+Foo(ref x); // Ask Foo to deal directly with x
+Console.WriteLine(x); // x is now 9
+
+static void Foo(ref int p)
+{
+    p = p + 1; // Increment p by 1
+    Console.WriteLine(p); // Write p to screen
+}
+```
+
+Now assigning `p` a new value changes the contents of `x`.
+
+Notice how the `ref` modifier is required both when writing and when calling the method.  
+This makes it very clear what’s going on.
+
+The ref modifier is essential in implementing a swap method:
+
+```cs
+var x = "Penn";
+var y = "Teller";
+
+Swap(ref x, ref y);
+
+Console.WriteLine(x); // Teller
+Console.WriteLine(y); // Penn
+
+static void Swap(ref string a, ref string b)
+{
+    var temp = a;
+    a = b;
+    b = temp;
+}
+```
