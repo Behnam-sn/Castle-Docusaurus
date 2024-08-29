@@ -234,3 +234,8 @@ static void Fo (StringBuilder fooSB)
     fooSB = null;
 }
 ```
+
+Because `fooSB` is a copy of a reference,  
+Setting it to `null` doesn’t make `sb` `null`.
+
+<!-- (If, however, `fooSB` was declared and called with the ref modifier, sb would become null.) -->
