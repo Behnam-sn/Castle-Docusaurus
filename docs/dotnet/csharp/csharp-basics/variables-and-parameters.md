@@ -191,7 +191,7 @@ You can control how parameters are passed with the `ref`, `in`, and `out` modifi
 | in                 | Reference (read-only) | Going in                             |
 | out                | Reference             | Going out                            |
 
-## Passing Arguments By Value
+### Passing Arguments By Value
 
 By default,  
 Arguments in C# are passed by value,  
@@ -240,7 +240,7 @@ Setting it to `null` doesn’t make `sb` `null`.
 
 (If, however, `fooSB` was declared and called with the `ref` modifier, `sb` would become `null`.)
 
-## The ref Modifier
+### The ref Modifier
 
 To pass by reference,  
 C# provides the `ref` parameter modifier.
@@ -282,3 +282,170 @@ static void Swap(ref string a, ref string b)
     b = temp;
 }
 ```
+
+### The Out Modifier
+
+An `out` argument is like a `ref` argument except for the following:
+
+- It doesn't need to be assigned before going into the function.
+- It must be assigned before it comes out of the function.
+
+The `out` modifier is most commonly used to get multiple return values back from a method;  
+For example:
+
+```cs
+string a, b;
+Split("Stevie Ray Vaughn", out a, out b);
+Console.WriteLine(a); // Stevie Ray
+Console.WriteLine(b); // Vaughn
+
+void Split(string name, out string firstNames, out string lastName)
+{
+    var i = name.LastIndexOf(' ');
+    firstNames = name.Substring(0, i);
+    lastName = name.Substring(i + 1);
+}
+```
+
+Like a `ref` parameter, an `out` parameter is passed by reference.
+
+### Out Variables And Discards
+
+You can declare variables on the fly when calling methods with `out` parameters.  
+We can replace the first two lines in our preceding example with this:
+
+```cs
+Split("Stevie Ray Vaughan", out string a, out string b);
+```
+
+When calling methods with multiple `out` parameters,  
+Sometimes you’re not interested in receiving values from all the parameters.
+
+In such cases,  
+You can “discard” the ones in which you’re uninterested by using an underscore:
+
+```cs
+Split("Stevie Ray Vaughan", out string a, out _); // Discard 2nd param
+Console.WriteLine(a);
+```
+
+In this case,  
+The compiler treats the underscore as a special symbol, called a discard.
+
+You can include multiple discards in a single call.  
+Assuming `SomeBigMethod` has been defined with seven `out` parameters,  
+We can ignore all but the fourth,  
+As follows:
+
+```cs
+SomeBigMethod(out _, out _, out _, out int x, out _, out _, out _);
+```
+
+For backward compatibility,  
+This language feature will not take effect if a real underscore variable is in scope:
+
+```cs
+string _;
+Split("Stevie Ray Vaughan", out string a, out _);
+Console.WriteLine(_); // Vaughan
+```
+
+### Implications Of Passing By Reference
+
+When you pass an argument by reference,  
+You alias the storage location of an existing variable rather than create a new storage location.  
+In the following example,  
+The variables `x` and `y` represent the same instance:
+
+```cs
+class Test
+{
+    static int x;
+
+    static void Main()
+    {
+        Foo(out x);
+    }
+
+    static void Foo(out int y)
+    {
+        Console.WriteLine(x); // x is 0
+        y = 1; // Mutate y
+        Console.WriteLine(x); // x is 1
+    }
+}
+```
+
+### The in modifier
+
+An `in` parameter is similar to a `ref` parameter,  
+Except that the argument’s value cannot be modified by the method.  
+(Doing so generates a compile-time error)
+
+This modifier is most useful when passing a large value type to the method,  
+Because it allows the compiler to avoid the overhead of copying the argument prior to passing it in,  
+While still protecting the original value from modification.
+
+Overloading solely on the presence of `in` is permitted:
+
+```cs
+void Foo(SomeBigStruct a)
+{ ... }
+
+void Foo(in SomeBigStruct a)
+{ ... }
+```
+
+To call the second overload,  
+The caller must use the `in` modifier:
+
+```cs
+SomeBigStruct x = ...;
+Foo(x); // Calls the first overload
+Foo(in x); // Calls the second overload
+```
+
+When there’s no ambiguity:
+
+```cs
+void Bar(in SomeBigStruct a)
+{ ... }
+```
+
+use of the `in` modifier is optional for the caller:
+
+```cs
+Bar(x); // OK (calls the 'in' overload)
+Bar(in x); // OK (calls the 'in' overload)
+```
+
+### The params Modifier
+
+The `params` modifier,  
+If applied to the last parameter of a method,  
+Allows the method to accept any number of arguments of a particular type.
+
+The parameter type must be declared as a (single-dimensional) array,  
+As shown in the following example:
+
+```cs
+int total = Sum(1, 2, 3, 4);
+Console.WriteLine(total); // 10
+
+// The call to Sum above is equivalent to:
+int total2 = Sum(new int[] { 1, 2, 3, 4 });
+
+int Sum(params int[] ints)
+{
+    var sum = 0;
+    for (var i = 0; i < ints.Length; i++)
+    {
+        sum += ints [i]; // Increase sum by ints[i]
+    }
+    return sum;
+}
+```
+
+:::note
+If there are zero arguments in the params position, a zero-length array is created.
+:::
