@@ -651,3 +651,85 @@ But only if the `struct` is marked as readonly;
 Otherwise, the compiler will perform a defensive copy.
 
 Attempting to define an explicit set accessor on a `ref` return property or indexer is illegal.
+
+## var Keyword
+
+var or implicitly typed local variables
+
+It is often the case that you declare and initialize a variable in one step.  
+If the compiler is able to infer the type from the initialization expression,  
+You can use the keyword var in place of the type declaration;  
+For example:
+
+```cs
+var x = "hello";
+var y = new System.Text.StringBuilder();
+var z = (float)Math.PI;
+```
+
+This is precisely equivalent to the following:
+
+```cs
+string x = "hello";
+System.Text.StringBuilder y = new System.Text.StringBuilder();
+float z = (float)Math.PI;
+```
+
+Because of this direct equivalence,  
+Implicitly typed variables are statically typed.
+
+For example, the following generates a compile-time error:
+
+```cs
+var x = 5;
+x = "hello"; // Compile-time error; x is of type int
+```
+
+### Target-Typed new Expressions
+
+Another way to reduce lexical repetition is with target-typed `new` expressions (from C# 9):
+
+```cs
+System.Text.StringBuilder sb1 = new();
+System.Text.StringBuilder sb2 = new("Test");
+```
+
+This is precisely equivalent to:
+
+```cs
+System.Text.StringBuilder sb1 = new System.Text.StringBuilder();
+System.Text.StringBuilder sb2 = new System.Text.StringBuilder ("Test");
+```
+
+The principle is that you can call `new`,  
+Without specifying a type name,  
+If the compiler is able to unambiguously infer it.
+
+Target-typed new expressions are particularly useful when the variable declaration and initialization are in different parts of your code.
+
+A common example is when you want to initialize a field in a constructor:
+
+```cs
+class Foo
+{
+    System.Text.StringBuilder sb;
+
+    public Foo(string initialValue)
+    {
+        sb = new(initialValue);
+    }
+}
+```
+
+Target-typed `new` expressions are also helpful in the following scenario:
+
+```cs
+MyMethod(new ("test"));
+
+void MyMethod(System.Text.StringBuilder sb)
+{ ... }
+```
+
+## References
+
+- C# 12 in a Nutshell - Joseph Albahari - OReilly
