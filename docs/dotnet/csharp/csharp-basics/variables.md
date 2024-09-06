@@ -175,3 +175,7 @@ decimal d = default;
 
 The default value in a custom value type (i.e., struct),
 Is the same as the default value for each field defined by the custom type. -->
+
+## References
+
+- C# 12 in a Nutshell - Joseph Albahari - OReilly
