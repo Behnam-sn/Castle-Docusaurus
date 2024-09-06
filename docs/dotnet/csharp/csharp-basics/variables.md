@@ -102,3 +102,76 @@ An unreferenced object is eventually collected by the garbage collector.
 The heap also stores static fields.  
 Unlike objects allocated on the heap (which can be garbage-collected),  
 These live until the process ends.
+
+## Definite Assignment
+
+C# enforces a definite assignment policy.  
+This means, outside of an `unsafe` or `interop` context,  
+You can’t accidentally access uninitialized memory.
+
+Definite assignment has 3 implications:
+
+- Local variables must be assigned a value before they can be read.
+
+  For example,  
+  The following code results in a compile-time error:
+
+  ```cs
+  int x;
+  Console.WriteLine(x); // Compile-time error
+  ```
+
+- Function arguments must be supplied when a method is called.
+
+- All other variables such as fields and array elements,  
+  Are automatically initialized with the default values for their type by the runtime.
+
+  For example,  
+  The following code outputs `0`,  
+  Because fields are implicitly assigned a default value (whether instance or static):
+
+  ```cs
+  Console.WriteLine(Test.X); // 0
+
+  class Test
+  {
+      public static int x;
+  }
+  ```
+
+  Or,  
+  The following code outputs `0`,  
+  Because array elements are implicitly assigned to their default values:
+
+  ```cs
+  var ints = new int[2];
+  Console.WriteLine(ints[0]); // 0
+  ```
+
+<!-- ## Default Values
+
+All type instances have a default value.
+
+The default value for the predefined types is the result of a bitwise zeroing of memory:
+
+| Type Default                               | value |
+| :----------------------------------------- | :---- |
+| Reference types (and nullable value types) | null  |
+| Numeric and enum types                     | 0     |
+| char type                                  | '\0'  |
+| bool type                                  | false |
+
+You can obtain the default value for any type via the default keyword:
+
+```cs
+Console.WriteLine(default(decimal)); // 0
+```
+
+You can optionally omit the type when it can be inferred:
+
+```cs
+decimal d = default;
+```
+
+The default value in a custom value type (i.e., struct),
+Is the same as the default value for each field defined by the custom type. -->
