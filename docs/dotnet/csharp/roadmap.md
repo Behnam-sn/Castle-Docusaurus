@@ -16,6 +16,21 @@
   - Casting
 - OOP
   - Inheritance
+- The Stack And The Heap
+- Definite Assignment
+- Defualt Values
+- Target-Typed New Expressions
+- Variables
+  - Var Keyword
+  - Ref Locals
+  - Ref Returns
+- Parameters
+  - The Ref Modifier
+  - The Out Modifier
+  - The In Modifier
+  - The Params Modifier
+  - Optional Parameters
+  - Named Arguments
 - Program Structure
 - Asynchronous
 - Garbage Collector (Automatic Memory Management)
