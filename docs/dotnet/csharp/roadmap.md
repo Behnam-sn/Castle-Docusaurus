@@ -32,5 +32,9 @@
   - Optional Parameters
   - Named Arguments
 - Program Structure
+- Null Operators
+  - Null-Coalescing Operator
+  - Null-Coalescing Assignment Operator
+  - Null-Conditional Operator
 - Asynchronous
 - Garbage Collector (Automatic Memory Management)
