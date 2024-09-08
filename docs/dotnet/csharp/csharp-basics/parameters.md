@@ -81,7 +81,7 @@ Setting it to `null` doesn’t make `sb`, `null`.
 <!-- If `fooSB` was declared and called with the `ref` modifier,
 `sb` would become `null`. -->
 
-### The ref Modifier
+### The Ref Modifier
 
 To pass by reference,  
 C# provides the `ref` parameter modifier.
@@ -125,7 +125,7 @@ static void Swap(ref string a, ref string b)
 }
 ```
 
-### The out Modifier
+### The Out Modifier
 
 The `out` modifier is most commonly used to get multiple return values back from a method.
 
@@ -224,7 +224,7 @@ class Test
 }
 ```
 
-### The in Modifier
+### The In Modifier
 
 An `in` parameter is similar to a `ref` parameter,  
 Except that the argument’s value cannot be modified by the method.  
@@ -267,7 +267,7 @@ Bar(x); // OK (calls the 'in' overload)
 Bar(in x); // OK (calls the 'in' overload)
 ```
 
-### The params Modifier
+### The Params Modifier
 
 The `params` modifier,  
 If applied to the last parameter of a method,  
