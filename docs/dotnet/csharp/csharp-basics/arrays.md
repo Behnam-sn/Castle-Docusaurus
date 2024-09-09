@@ -136,3 +136,61 @@ The following is legal:
 ```cs
 int[] a = null;
 ```
+
+## Indices
+
+Indices let you refer to elements relative to the end of an array,  
+With the `^` operator.
+
+`^1` refers to the last element,  
+`^2` refers to the second-to-last element,  
+And so on:
+
+```cs
+var vowels = new char[] {'a','e','i','o','u'};
+var lastElement = vowels[^1];  // 'u'
+var secondToLast = vowels[^2]; // 'o'
+```
+
+:::note
+`^0` equals the length of the array,  
+So `vowels[^0]` generates an error.
+:::
+
+C# implements indices with the help of the `Index` type,  
+So you can also do the following:
+
+```cs
+Index first = 0;
+Index last = ^1;
+var firstElement = vowels[first]; // 'a'
+var lastElement = vowels[last]; // 'u'
+```
+
+## Ranges
+
+Ranges let you _slice_ an array by using the `..` operator:
+
+```cs
+var firstTwo = vowels[..2]; // 'a', 'e'
+var lastThree = vowels[2..]; // 'i', 'o', 'u'
+var middleOne = vowels[2..3]; // 'i'
+```
+
+The second number in the range is exclusive,  
+So `..2` returns the elements before `vowels[2]`.
+
+You can also use the `^` symbol in ranges.  
+The following returns the last two characters:
+
+```cs
+var lastTwo = vowels[^2..]; // 'o', 'u'
+```
+
+C# implements ranges with the help of the `Range` type,  
+So you can also do the following:
+
+```cs
+Range firstTwoRange = 0..2;
+var firstTwo = vowels[firstTwoRange]; // 'a', 'e'
+```
