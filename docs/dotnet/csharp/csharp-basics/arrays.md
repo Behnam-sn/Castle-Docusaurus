@@ -194,3 +194,87 @@ So you can also do the following:
 Range firstTwoRange = 0..2;
 var firstTwo = vowels[firstTwoRange]; // 'a', 'e'
 ```
+
+## Multidimensional Arrays
+
+Multidimensional arrays come in two varieties:
+
+### Rectangular Arrays
+
+Rectangular arrays represent an n-dimensional block of memory.
+
+Rectangular arrays are declared using commas to separate each dimension.  
+The following declares a rectangular two-dimensional array for which the dimensions are 3 by 3:
+
+```cs
+int[,] matrix = new int[3,3];
+```
+
+The `GetLength` method of an array returns the length for a given dimension (starting at 0):
+
+```cs
+for(var i = 0; i < matrix.GetLength(0); i++)
+{
+    for(var j = 0; j < matrix.GetLength(1); j++)
+    {
+        matrix[i,j] = i * 3 + j;
+    }
+}
+```
+
+You can initialize a rectangular array with explicit values.  
+The following code creates an array identical to the previous example:
+
+```cs
+var matrix = new int[,]
+{
+    { 0, 1, 2 },
+    { 3, 4, 5 },
+    { 6, 7, 8 }
+};
+
+```
+
+### Jagged Arrays
+
+Jagged arrays are arrays of arrays.
+
+Jagged arrays are declared using successive square brackets to represent each dimension.  
+Here is an example of declaring a jagged two-dimensional array,  
+For which the outermost dimension is 3:
+
+```cs
+int[][] matrix = new int[3][];
+```
+
+The inner dimensions aren’t specified in the declaration because,  
+Unlike a rectangular array,  
+Each inner array can be an arbitrary length.
+
+Each inner array is implicitly initialized to `null` rather than an empty array.  
+You must manually create each inner array:
+
+```cs
+for(var i = 0; i < matrix.Length; i++)
+{
+    matrix[i] = new int[3]; // Create inner array
+    for (var j = 0; j < matrix[i].Length; j++)
+    {
+        matrix[i][j] = i * 3 + j;
+    }
+}
+
+```
+
+You can initialize a jagged array with explicit values.  
+The following code creates an array identical to the previous example,  
+With an additional element at the end:
+
+```cs
+var matrix = new int[][]
+{
+    new int[] { 0, 1, 2 },
+    new int[] { 3, 4, 5 },
+    new int[] { 6, 7, 8, 9 }
+};
+```
