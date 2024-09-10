@@ -278,3 +278,20 @@ var matrix = new int[][]
     new int[] { 6, 7, 8, 9 }
 };
 ```
+
+## Bounds Checking
+
+All array indexing is bounds checked by the runtime.
+
+An `IndexOutOfRangeException` is thrown if you use an invalid index:
+
+```cs
+var arr = new int[3];
+arr[3] = 1; // IndexOutOfRangeException thrown
+```
+
+Array bounds checking is necessary for type safety and simplifies debugging
+
+## References
+
+- C# 12 in a Nutshell - Joseph Albahari - OReilly
