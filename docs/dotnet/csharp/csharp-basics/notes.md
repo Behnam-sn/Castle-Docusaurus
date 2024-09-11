@@ -72,3 +72,9 @@ MyMethod(new ("test"));
 void MyMethod(System.Text.StringBuilder sb)
 { ... }
 ```
+
+## Top level statewment
+
+Each of the programs in the preceding section began directly with a series of statements (called top-level statements).  
+The presence of top-level statements implicitly creates an entry point for a console or Windows application.  
+(Without top-level statements, a Main method denotes an application’s entry point)
