@@ -1,5 +1,9 @@
 # Roadmap
 
+- Compilation
+  - Assembly
+    - Application
+    - Library
 - Types
   - Reference Type
     - Class
