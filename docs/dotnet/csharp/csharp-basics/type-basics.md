@@ -20,7 +20,7 @@ In contrast, a constant always represents the same value:
 const int y = 360;
 ```
 
-## Predefined Type Examples
+## Predefined Type
 
 Predefined types are types that are specially supported by the compiler.
 
@@ -156,3 +156,68 @@ public UnitConverter(int unitRatio)
     ratio = unitRatio;
 }
 ```
+
+### Instance Versus Static Members
+
+The data members and function members that operate on the instance of the type are called instance members.
+
+The `UnitConverter`’s `Convert` method and the `int`’s `ToString` method are examples of instance members.  
+By default, members are instance members.
+
+Data members and function members that don’t operate on the instance of the type can be marked as `static`.  
+To refer to a static member from outside its type,  
+You specify its type name rather than an instance.
+
+An example is the `WriteLine` method of the `Console` class.  
+Because this is static,  
+We call `Console.WriteLine()` and not `new Console().WriteLine()`.
+
+In the following code,  
+The instance field `Name` pertains to an instance of a particular `Panda`,  
+Whereas `Population` pertains to the set of all `Panda` instances.
+
+We create two instances of the `Panda`,  
+Print their names,  
+And then print the total population:
+
+```cs
+public class Panda
+{
+    // Instance field
+    public string Name;
+    // Static field
+    public static int Population;
+    // Constructor
+    public Panda(string n)
+    {
+        Name = n; // Assign the instance field
+        Population = Population + 1; // Increment the static Population field
+    }
+}
+```
+
+```cs
+var p1 = new Panda("Pan Dee");
+var p2 = new Panda("Pan Dah");
+
+Console.WriteLine(p1.Name); // Pan Dee
+Console.WriteLine(p2.Name); // Pan Dah
+Console.WriteLine(Panda.Population); // 2
+```
+
+Attempting to evaluate `p1.Population` or `Panda.Name` will generate a compile-time error.
+
+### The Public Keyword
+
+The `public` keyword exposes members to other classes.
+
+In this example,  
+If the `Name` field in `Panda` was not marked as `public`,  
+It would be `private` and could not be accessed from outside the class.
+
+Marking a member `public` is how a type communicates:  
+“Here is what I want other types to see,
+Everything else is my own private implementation details.”
+
+In object-oriented terms,  
+We say that the public members encapsulate the private members of the class.
