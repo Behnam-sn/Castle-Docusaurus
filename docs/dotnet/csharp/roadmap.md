@@ -36,6 +36,7 @@
   - Optional Parameters
   - Named Arguments
 - Program Structure
+  - Top-Level Statements
 - Null Operators
   - Null-Coalescing Operator
   - Null-Coalescing Assignment Operator
