@@ -34,7 +34,7 @@ int x = 12 * 30;
 ```
 
 Another predefined C# type is string.  
-The string type represents a sequence of characters, such as “.NET” or http://oreilly.com.
+The string type represents a sequence of characters, such as “.NET”.
 You can work with strings by calling functions on them, as follows:
 
 ```cs
@@ -74,3 +74,85 @@ are recognized with a C# keyword. The System namespace
 in .NET contains many important types that are not prede‐
 fined by C# (e.g., DateTime).
 :::
+
+## Custom Types
+
+Just as we can write our own methods,  
+We can write our own types.
+
+In this next example,  
+We define a custom type named `UnitConverter`,  
+It's a class that serves as a blueprint for unit conversions:
+
+```cs
+public class UnitConverter
+{
+    // Field
+    int ratio;
+
+    // Constructor
+    public UnitConverter(int unitRatio)
+    {
+        ratio = unitRatio;
+    }
+
+    // Method
+    public int Convert(int unit)
+    {
+        return unit * ratio;
+    }
+}
+```
+
+```cs
+var feetToInchesConverter = new UnitConverter(12);
+var milesToFeetConverter = new UnitConverter(5280);
+
+Console.WriteLine(feetToInchesConverter.Convert(30)); // 360
+Console.WriteLine(feetToInchesConverter.Convert(100)); // 1200
+
+Console.WriteLine(feetToInchesConverter.Convert(milesToFeetConverter.Convert(1))); // 63360
+```
+
+### Members Of A Type
+
+A type contains data members and function members.
+
+The data member of `UnitConverter` is the field called `ratio`.  
+The function members of `UnitConverter` are the `Convert` method and the `UnitConverter`’s constructor.
+
+### Symmetry Of Predefined Types And Custom Types
+
+A beautiful aspect of C# is that predefined types and custom types have few differences.
+
+The predefined `int` type serves as a blueprint for integers.  
+It holds data—32 bits—and provides function members that use that data, such as `ToString`.
+
+Similarly, our custom `UnitConverter` type acts as a blueprint for unit conversions.  
+It holds data—the ratio—and provides function members to use that data.
+
+### Constructors And Instantiation
+
+Data is created by instantiating a type.
+
+Predefined types can be instantiated simply by using a literal such as `12` or `"Hello world"`.
+
+The `new` operator creates instances of a custom type.  
+We created and declared an instance of the `UnitConverter` type with this statement:
+
+```cs
+var feetToInchesConverter = new UnitConverter(12);
+```
+
+Immediately after the `new` operator instantiates an object,  
+The object’s constructor is called to perform initialization.
+
+A constructor is defined like a method,  
+Except that the method name and return type are reduced to the name of the enclosing type:
+
+```cs
+public UnitConverter(int unitRatio)
+{
+    ratio = unitRatio;
+}
+```
