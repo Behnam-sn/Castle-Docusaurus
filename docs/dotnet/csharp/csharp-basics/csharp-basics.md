@@ -1,74 +1,5 @@
 # C# Basics
 
-### Custom Types
-
-Just as we can write our own methods, we can write our own types. In this next
-example, we define a custom type named UnitConverter—a class that serves as a
-blueprint for unit conversions:
-
-```cs
-public class UnitConverter
-{
-    int ratio; // Field
-
-    public UnitConverter(int unitRatio) // Constructor
-    {
-        ratio = unitRatio;
-    }
-
-    public int Convert(int unit) // Method
-    {
-        return unit * ratio;
-    }
-}
-```
-
-```cs
-var feetToInchesConverter = new UnitConverter(12);
-var milesToFeetConverter = new UnitConverter(5280);
-
-Console.WriteLine(feetToInchesConverter.Convert(30)); // 360
-Console.WriteLine(feetToInchesConverter.Convert(100)); // 1200
-
-Console.WriteLine(feetToInchesConverter.Convert(milesToFeetConverter.Convert(1))); // 63360
-```
-
-#### Members of a type
-
-A type contains data members and function members. The data member of
-UnitConverter is the field called ratio. The function members of UnitConverter
-are the Convert method and the UnitConverter’s constructor.
-
-#### Symmetry of predefined types and custom types
-
-A beautiful aspect of C# is that predefined types and custom types have few
-differences. The predefined int type serves as a blueprint for integers. It holds
-data—32 bits—and provides function members that use that data, such as ToString.
-Similarly, our custom UnitConverter type acts as a blueprint for unit conversions. It
-holds data—the ratio—and provides function members to use that data.
-
-#### Constructors and instantiation
-
-Data is created by instantiating a type. Predefined types can be instantiated simply
-by using a literal such as 12 or "Hello world". The new operator creates instances of
-a custom type. We created and declared an instance of the UnitConverter type with
-this statement:
-
-```cs
-UnitConverter feetToInchesConverter = new UnitConverter (12);
-```
-
-Immediately after the new operator instantiates an object, the object’s constructor is
-called to perform initialization. A constructor is defined like a method, except that
-the method name and return type are reduced to the name of the enclosing type:
-
-```cs
-public UnitConverter(int unitRatio)
-{
-    ratio = unitRatio;
-}
-```
-
 #### Instance versus static members
 
 The data members and function members that operate on the instance of the type
@@ -128,8 +59,6 @@ accessed from outside the class. Marking a member public is how a type communi�
 cates: “Here is what I want other types to see—everything else is my own private
 implementation details.” In object-oriented terms, we say that the public members
 encapsulate the private members of the class.
-
-### Top-Level Statements
 
 ### Types and Conversions
 
