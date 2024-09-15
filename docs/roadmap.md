@@ -59,6 +59,7 @@ sidebar_position: 1
   - [ ] SOLID
     - [ ] Covariant
   - [ ] Design Patterns
+    - [ ] Specification Design Pattern
 - [ ] Testing
   - [ ] Unit Testing
   - [ ] Integration Testing
