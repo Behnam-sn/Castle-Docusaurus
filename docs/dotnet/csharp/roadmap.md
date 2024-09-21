@@ -7,7 +7,6 @@
 - Types
   - Pre-defined Types
   - Defining a Type
-  - Object
     - Members
       - Fields
       - Methods
