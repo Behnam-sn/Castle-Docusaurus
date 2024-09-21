@@ -116,3 +116,82 @@ A `static readonly` field’s value can potentially differ each time the program
 ```cs
 static readonly DateTime StartupTime = DateTime.Now;
 ```
+
+A static readonly field is also advantageous when exposing to other assemblies a value that might change in a later version.  
+For instance, suppose that assembly X exposes a constant as follows:
+
+```cs
+public const decimal ProgramVersion = 2.3;
+```
+
+If assembly Y references X and uses this constant,  
+The value `2.3` will be baked into assembly Y when compiled.
+
+This means that if X is later recompiled with the constant set to `2.4`,  
+Y will still use the old value of 2.3 until Y is recompiled.
+
+A static readonly field avoids this problem.
+
+Another way of looking at this is that any value that might change in the future is not constant by definition;  
+Thus, it should not be represented as one.
+
+Constants can also be declared local to a method:
+
+```cs
+void Test()
+{
+    const double twoPI = 2 * System.Math.PI;
+    ...
+}
+```
+
+### Methods
+
+A method performs an action in a series of statements.
+
+A method can receive input data from the caller,  
+By specifying parameters,  
+And output data back to the caller,  
+By specifying a return type.
+
+A method can specify a void return type,  
+Indicating that it doesn’t return any value to its caller.
+
+<!-- A method can also output data back to the caller via ref/out parameters. -->
+
+A method’s signature must be unique within the type.  
+A method’s signature comprises its name and parameter types in order,  
+But not the parameter names, nor the return type.
+
+<!-- Methods allow the following modifiers:
+Static modifierstatic
+Access modifierspublic internal private protected
+Inheritance modifiersnew virtual abstract override sealed
+Partial method modifierpartial
+Unmanaged code modifiersunsafe extern
+Asynchronous code modifier async -->
+
+#### Expression-bodied methods
+
+A method that comprises a single expression,  
+Such as:
+
+```cs
+int Foo(int x)
+{
+    return x * 2;
+}
+```
+
+can be written more tersely as an expression-bodied method.  
+A fat arrow replaces the braces and `return` keyword:
+
+```cs
+int Foo(int x) => x * 2;
+```
+
+Expression-bodied functions can also have a `void` return type:
+
+```cs
+void Foo(int x) => Console.WriteLine (x);
+```
