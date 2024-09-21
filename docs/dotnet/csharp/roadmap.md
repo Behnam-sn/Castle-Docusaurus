@@ -5,36 +5,42 @@
     - Application
     - Library
 - Types
-  - Reference Type
-    - Class
-    - Record Class
-    - Delegate
-    - Array
-    - Interface
-  - Value Type
-    - Struct
-    - Struct Class
-    - Enum
+  - Pre-defined Types
   - Defining a Type
-  - Variable Declaration
+  - Object
+    - Members
+      - Fields
+      - Methods
+        - Parameters
+          - The Ref Modifier
+          - The Out Modifier
+          - The In Modifier
+          - The Params Modifier
+          - Optional Parameters
+          - Named Arguments
+  - Kinds of Types
+    - Reference Type
+      - Class
+      - Record Class
+      - Delegate
+      - Array
+      - Interface
+    - Value Type
+      - Struct
+      - Struct Class
+      - Enum
   - Casting
+  - Defualt Values
 - OOP
   - Inheritance
 - The Stack And The Heap
 - Definite Assignment
-- Defualt Values
 - Target-Typed New Expressions
+- Variable Declaration
 - Variables
   - Var Keyword
   - Ref Locals
   - Ref Returns
-- Parameters
-  - The Ref Modifier
-  - The Out Modifier
-  - The In Modifier
-  - The Params Modifier
-  - Optional Parameters
-  - Named Arguments
 - Program Structure
   - Top-Level Statements
 - Null Operators
