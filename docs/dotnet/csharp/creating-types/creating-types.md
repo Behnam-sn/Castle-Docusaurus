@@ -58,7 +58,7 @@ static readonly string TempFolder = System.IO.Path.GetTempPath();
 #### Declaring multiple fields together
 
 For convenience,  
-You can declare multiple fields of the same type in a commaseparated list.
+You can declare multiple fields of the same type in a comma separated list.
 
 This is a convenient way for all the fields to share the same attributes and field modifiers:
 
@@ -194,4 +194,96 @@ Expression-bodied functions can also have a `void` return type:
 
 ```cs
 void Foo(int x) => Console.WriteLine (x);
+```
+
+#### Local methods
+
+You can define a method within another method:
+
+```cs
+void WriteCubes()
+{
+    Console.WriteLine(Cube(3));
+    Console.WriteLine(Cube(4));
+    Console.WriteLine(Cube(5));
+
+    int Cube(int value) => value * value * value;
+}
+```
+
+The local method is visible only to the enclosing method.  
+This simplifies the containing type,  
+And instantly signals to anyone looking at the code that method is used nowhere else.
+
+Another benefit of local methods is that they can access the local variables and parameters of the enclosing method.
+
+Local methods can appear within other function kinds,  
+Such as property accessors, constructors, and so on.
+
+You can even put local methods inside other local methods,  
+And inside lambda expressions that use a statement block.
+
+Local methods can be iterators or asynchronous.
+
+#### Static local methods
+
+Adding the `static` modifier to a local method (from C# 8),  
+Prevents it from seeing the local variables and parameters of the enclosing method.
+
+This helps to reduce coupling and prevents the local method from accidentally referring to variables in the containing method.
+
+#### Local methods and top-level statements
+
+Any methods that you declare in top-level statements are treated as local methods.
+
+This means that (unless marked as static),  
+They can access the variables in the top-level statements:
+
+```cs
+int x = 3;
+Foo();
+
+void Foo() => Console.WriteLine(x);
+```
+
+Local methods cannot be overloaded.
+
+This means that methods declared in top-level statements,  
+Which are treated as local methods, cannot be overloaded.
+
+#### Overloading methods
+
+Overloading methods means define multiple methods with the same name.
+
+A type can overload methods as long as the signatures are different.  
+For example,  
+The following methods can all coexist in the same type:
+
+```cs
+void Foo(int x) {...}
+void Foo(double x) {...}
+void Foo(int x, float y) {...}
+void Foo(float x, int y) {...}
+```
+
+However, the following pairs of methods cannot coexist in the same type,  
+Because the return type and the params modifier are not part of a method’s signature:
+
+```cs
+void Foo(int x) {...}
+float Foo(int x) {...} // Compile-time error
+
+void Goo(int[] x) {...}
+void Goo(params int[] x) {...} // Compile-time error
+```
+
+Whether a parameter is pass-by-value or pass-by-reference is also part of the signature.  
+For example, `Foo(int)` can coexist with either `Foo(ref int)` or `Foo(out int)`.
+
+However, `Foo(ref int)` and `Foo(out int)` cannot coexist:
+
+```cs
+void Foo(int x) {...}
+void Foo(ref int x) {...} // OK so far
+void Foo(out int x) {...} // Compile-time error
 ```
