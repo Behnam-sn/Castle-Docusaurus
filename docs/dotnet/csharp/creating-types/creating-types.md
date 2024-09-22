@@ -287,3 +287,68 @@ void Foo(int x) {...}
 void Foo(ref int x) {...} // OK so far
 void Foo(out int x) {...} // Compile-time error
 ```
+
+### Instance Constructors
+
+Constructors run initialization code on a class or struct.
+
+A constructor is defined like a method,  
+Except that the method name and return type are reduced to the name of the enclosing type:
+
+```cs
+var p = new Panda("Petey"); // Call constructor
+
+public class Panda
+{
+    string name; // Define field
+
+    public Panda(string n) // Define constructor
+    {
+        name = n; // Initialization code (set up field)
+    }
+}
+```
+
+Instance constructors allow the following modifiers:
+
+<!--
+Access modifiers
+public internal private protected
+Unmanaged code modifiers unsafe extern -->
+
+Single-statement constructors can also be written as expression-bodied members:
+
+```cs
+public Panda(string n) => name = n;
+```
+
+#### Overloading constructors
+
+A class or struct may overload constructors.  
+To avoid code duplication, one constructor can call another, using the `this` keyword:
+
+```cs
+public class Wine
+{
+    public decimal Price;
+    public int Year;
+
+    public Wine(decimal price) => Price = price;
+    public Wine(decimal price, int year) : this (price) => Year = year;
+}
+```
+
+When one constructor calls another,  
+The called constructor executes first.
+
+You can pass an expression into another constructor,  
+As follows:
+
+```cs
+public Wine(decimal price, DateTime year) : this (price, year.Year) { }
+```
+
+The expression can access static members of the class but not instance members.
+
+This is enforced because the object has not been initialized by the constructor at this stage,  
+So any methods that you call on it are likely to fail.
