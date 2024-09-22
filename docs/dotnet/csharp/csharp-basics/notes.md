@@ -91,3 +91,11 @@ Nonlocal constants allow the following modifiers:
 Access modifiers
 public internal private protected
 Inheritance modifier new
+
+If a parameter name (or any variable name, for that matter)
+conflicts with a field name, you can disambiguate by prefixing
+the field with a this reference:
+
+```cs
+public Panda (string name) => this.name = name;
+```
