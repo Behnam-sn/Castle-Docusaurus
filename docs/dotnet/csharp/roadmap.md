@@ -17,6 +17,7 @@
           - The Params Modifier
           - Optional Parameters
           - Named Arguments
+      - Constructors
   - Kinds of Types
     - Reference Type
       - Class
@@ -29,7 +30,7 @@
       - Struct Class
       - Enum
   - Casting
-  - Defualt Values
+  - Default Values
 - OOP
   - Inheritance
 - The Stack And The Heap
