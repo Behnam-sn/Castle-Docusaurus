@@ -18,6 +18,7 @@
           - Optional Parameters
           - Named Arguments
       - Constructors
+      - Deconstructors
   - Kinds of Types
     - Reference Type
       - Class
