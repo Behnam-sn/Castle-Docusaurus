@@ -488,3 +488,57 @@ You can offer the caller a range of deconstruction options by overloading the De
 The Deconstruct method can be an extension method.  
 This is a useful trick if you want to deconstruct types that you did not author.
 :::
+
+### Object Initializers
+
+To simplify object initialization,  
+Any accessible fields or properties of an object can be set via an object initializer directly after construction.  
+For example, consider the following class:
+
+```cs
+public class Bunny
+{
+    public string Name;
+    public bool LikesCarrots, LikesHumans;
+
+    public Bunny () {}
+    public Bunny (string n) => Name = n;
+}
+```
+
+Using object initializers,  
+You can instantiate `Bunny` objects as follows:
+
+```cs
+// Note parameterless constructors can omit empty parentheses
+var b1 = new Bunny
+{
+    Name = "Bo",
+    LikesCarrots = true,
+    LikesHumans = false
+};
+
+var b2 = new Bunny("Bo")
+{
+    LikesCarrots = true,
+    LikesHumans = false
+};
+```
+
+The code to construct `b1` and `b2` is precisely equivalent to the following:
+
+```cs
+var temp1 = new Bunny(); // temp1 is a compiler-generated name
+temp1.Name = "Bo";
+temp1.LikesCarrots = true;
+temp1.LikesHumans = false;
+var b1 = temp1;
+
+var temp2 = new Bunny("Bo");
+temp2.LikesCarrots = true;
+temp2.LikesHumans = false;
+var b2 = temp2;
+```
+
+The temporary variables are to ensure that if an exception is thrown during initialization,  
+You can’t end up with a half-initialized object.
