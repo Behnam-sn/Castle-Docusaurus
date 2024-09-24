@@ -19,6 +19,7 @@
           - Named Arguments
       - Constructors
       - Deconstructors
+      - Object Initializers
   - Kinds of Types
     - Reference Type
       - Class
