@@ -542,3 +542,68 @@ var b2 = temp2;
 
 The temporary variables are to ensure that if an exception is thrown during initialization,  
 You can’t end up with a half-initialized object.
+
+#### Object Initializers Versus Optional Parameters
+
+Instead of relying on object initializers,  
+We could write `Bunny`’s constructor as follows,  
+With one mandatory and two optional parameters:
+
+```cs
+public Bunny (string name, bool likesCarrots = false, bool likesHumans = false)
+{
+    Name = name;
+    LikesCarrots = likesCarrots;
+    LikesHumans = likesHumans;
+}
+```
+
+This would allow us to construct a `Bunny` as follows:
+
+```cs
+var b1 = new Bunny(name: "Bo", likesCarrots: true);
+```
+
+Historically,  
+Relying on constructors for object initialization could be advantageous,  
+In that it allowed us to make `Bunny`’s fields or properties read-only.
+
+Making fields or properties read-only is good practice,  
+When there’s no valid reason for them to change throughout the life of the object.
+
+However in properties, the init modifier that was introduced in C# 9 lets us achieve this goal with object initializers.
+
+Optional parameters have two drawbacks.  
+The first is that while their use in constructors allows for read-only types,  
+They don’t (easily) allow for non-destructive mutation.
+
+The second drawback of optional parameters is that when used in public libraries,  
+They hinder backward compatibility.
+
+This is because the act of adding an optional parameter at a later date,  
+Breaks the assembly’s binary compatibility with existing consumers.
+
+This is particularly important when a library is published on NuGet:  
+The problem becomes intractable when a consumer references packages A and B,  
+If A and B each depend on incompatible versions of L.
+
+The difficulty is that each optional parameter value is baked into the calling site.  
+In other words, C# translates our constructor call into this:
+
+```cs
+var b1 = new Bunny("Bo", true, false);
+```
+
+This is problematic,  
+If we instantiate the Bunny class from another assembly and later modify Bunny by adding another optional parameter—such as likesCats.
+Unless the referencing assembly is also recompiled, it will continue to call the
+(now nonexistent) constructor with three parameters and fail at runtime. (A subtler
+problem is that if we changed the value of one of the optional parameters, callers
+in other assemblies would continue to use the old optional value until they were
+recompiled.)
+
+A final consideration is the effect of constructors on subclassing (which we will
+cover in “Inheritance” on page 126). Having multiple constructors with long param‐
+eter lists makes subclassing cumbersome; therefore, it can help to keep constructors
+to a minimum in number and complexity and use object initializers to fill in the
+details.
