@@ -201,4 +201,8 @@ Many websites now display cookie banners that allow users to review and control 
 
 ## References
 
-- [www.cloudflare.com/learning/privacy/what-are-cookies/](https://www.cloudflare.com/learning/privacy/what-are-cookies/)
+- [cloudflare.com/learning/privacy/what-are-cookies/](https://www.cloudflare.com/learning/privacy/what-are-cookies/)
+- [kaspersky.com/resource-center/definitions/cookies](https://www.kaspersky.com/resource-center/definitions/cookies)
+- [trendmicro.com/vinfo/us/security/definition/cookies](https://www.trendmicro.com/vinfo/us/security/definition/cookies)
+- [developer.mozilla.org/en-US/docs/Web/HTTP/Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+- [en.wikipedia.org/wiki/HTTP_cookie](https://en.wikipedia.org/wiki/HTTP_cookie)
