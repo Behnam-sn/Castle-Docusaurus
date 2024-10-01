@@ -17,6 +17,20 @@ This information can be verified and trusted because it is digitally signed.
 JWTs can be signed using a secret with the **HMAC** algorithm,  
 Or a public/private key pair using **RSA** or **ECDSA**.
 
+Let’s explain some concepts of this definition further.
+
+- **Compact**
+
+  Because of its size,  
+  It can be sent through an URL, POST parameter, or inside an HTTP header.
+
+  Additionally, due to its size its transmission is fast.
+
+- **Self-Contained**
+
+  The payload contains all the required information about the user,  
+  To avoid querying the database more than once.
+
 <!-- It's about encrypted JWTs -->
 <!--
 :::note
