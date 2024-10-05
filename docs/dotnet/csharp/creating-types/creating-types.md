@@ -595,15 +595,52 @@ var b1 = new Bunny("Bo", true, false);
 ```
 
 This is problematic,  
-If we instantiate the Bunny class from another assembly and later modify Bunny by adding another optional parameter—such as likesCats.
-Unless the referencing assembly is also recompiled, it will continue to call the
-(now nonexistent) constructor with three parameters and fail at runtime. (A subtler
-problem is that if we changed the value of one of the optional parameters, callers
-in other assemblies would continue to use the old optional value until they were
-recompiled.)
+If we instantiate the Bunny class from another assembly,  
+And later modify Bunny by adding another optional parameter such as likesCats.
 
-A final consideration is the effect of constructors on subclassing (which we will
-cover in “Inheritance” on page 126). Having multiple constructors with long param‐
-eter lists makes subclassing cumbersome; therefore, it can help to keep constructors
-to a minimum in number and complexity and use object initializers to fill in the
-details.
+Unless the referencing assembly is also recompiled,  
+It will continue to call the (now nonexistent) constructor with three parameters and fail at runtime.
+
+A subtler problem is that if we changed the value of one of the optional parameters,  
+Callers in other assemblies would continue to use the old optional value until they were recompiled.
+
+A final consideration is the effect of constructors on subclassing.  
+Having multiple constructors with long parameter lists makes subclassing cumbersome;  
+Therefore, it can help to keep constructors to a minimum in number and complexity and use object initializers to fill in the details.
+
+### The this Reference
+
+The `this` reference refers to the instance itself.
+
+In the following example,  
+The `Marry` method uses `this` to set the `partner`’s mate field:
+
+```cs
+public class Panda
+{
+    public Panda Mate;
+
+    public void Marry(Panda partner)
+    {
+        Mate = partner;
+        partner.Mate = this;
+    }
+}
+```
+
+The `this` reference also disambiguates a local variable or parameter from a field;  
+For example:
+
+```cs
+public class Test
+{
+    string name;
+
+    public Test(string name)
+    {
+        this.name = name;
+    }
+}
+```
+
+The `this` reference is valid only within non-static members of a class or struct.
