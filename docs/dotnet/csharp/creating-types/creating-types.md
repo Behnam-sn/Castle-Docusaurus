@@ -644,3 +644,74 @@ public class Test
 ```
 
 The `this` reference is valid only within non-static members of a class or struct.
+
+### Properties
+
+Properties look like fields from the outside,  
+But internally they contain logic,  
+Like methods do.
+
+For example,  
+You can’t tell by looking at the following code whether `CurrentPrice` is a field or a property:
+
+```cs
+var msft = new Stock();
+msft.CurrentPrice = 30;
+msft.CurrentPrice -= 3;
+Console.WriteLine(msft.CurrentPrice);
+```
+
+A property is declared like a field but with a get/set block added.  
+Here’s how to implement `CurrentPrice` as a property:
+
+```cs
+public class Stock
+{
+    decimal currentPrice; // The private "backing" field
+
+    public decimal CurrentPrice // The public property
+    {
+        get { return currentPrice; }
+        set { currentPrice = value; }
+    }
+}
+```
+
+get and set denote property accessors.
+
+The get accessor runs when the property is read.  
+It must return a value of the property’s type.
+
+The set accessor runs when the property is assigned.  
+It has an implicit parameter named value,  
+Of the property’s type that you typically assign to a private field.
+
+Although properties are accessed in the same way as fields,  
+They differ in that they give the implementer complete control over getting and setting its value.
+
+This control enables the implementer to choose whatever internal representation is needed without exposing the internal details to the user of the property.  
+In this example, the set method could throw an exception if value was outside a valid range of values.
+
+<!-- Properties allow the following modifiers:
+Static modifier static
+Access modifiers public internal private protected
+Inheritance modifiers new virtual abstract override sealed
+Un-managed code modifiers unsafe extern -->
+
+#### Read-only and calculated properties
+
+A property is read-only if it specifies only a get accessor,  
+And it is write-only if it specifies only a set accessor.  
+(Write-only properties are rarely used.)
+
+A property typically has a dedicated backing field to store the underlying data.  
+However, a property can also be computed from other data:
+
+```cs
+decimal currentPrice, sharesOwned;
+
+public decimal Worth
+{
+    get { return currentPrice * sharesOwned; }
+}
+```
