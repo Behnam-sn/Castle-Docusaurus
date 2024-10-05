@@ -715,3 +715,46 @@ public decimal Worth
     get { return currentPrice * sharesOwned; }
 }
 ```
+
+#### Expression-bodied properties
+
+You can declare a read-only property,  
+Such as the one in the preceding example,
+more tersely as an expression-bodied property.  
+A fat arrow replaces all the braces and the get and return keywords:
+
+```cs
+public decimal Worth => currentPrice * sharesOwned;
+```
+
+With a little extra syntax,  
+Set accessors can also be expression-bodied:
+
+```cs
+public decimal Worth
+{
+    get => currentPrice * sharesOwned;
+    set => sharesOwned = value / currentPrice;
+}
+```
+
+#### Automatic properties
+
+The most common implementation for a property is a getter and/or setter,  
+That simply reads and writes to a private field of the same type as the property.
+
+An automatic property declaration instructs the compiler to provide this implementation.  
+We can improve the first example in this section by declaring `CurrentPrice` as an automatic property:
+
+```cs
+public class Stock
+{
+    ...
+    public decimal CurrentPrice { get; set; }
+}
+```
+
+The compiler automatically generates a private backing field of a compiler generated name that cannot be referred to.  
+The set accessor can be marked private or protected if you want to expose the property as read-only to other types.
+
+Automatic properties were introduced in C# 3.0.
