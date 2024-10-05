@@ -17,9 +17,11 @@
           - The Params Modifier
           - Optional Parameters
           - Named Arguments
+      - Properties
       - Constructors
       - Deconstructors
       - Object Initializers
+      - The This Reference
   - Kinds of Types
     - Reference Type
       - Class
