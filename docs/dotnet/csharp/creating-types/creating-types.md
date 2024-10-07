@@ -872,3 +872,20 @@ Notice that the `_pitch` field is read-only:
 Init-only setters are permitted to modify readonly fields in their own class.  
 Without this feature, `_pitch` would need to be writable,  
 And the class would fail at being internally immutable.
+
+#### CLR Property Implementation
+
+C# property accessors internally compile to methods called get_XXX and set_XXX:
+
+```cs
+public decimal get_CurrentPrice {...}
+public void set_CurrentPrice (decimal value) {...}
+```
+
+An init accessor is processed like a set accessor,  
+But with an extra flag encoded into the set accessor’s “modreq” metadata.
+
+Simple non-virtual property accessors are inlined by the Just-In-Time (JIT) compiler,  
+Eliminating any performance difference between accessing a property and a field.
+
+Inlining is an optimization in which a method call is replaced with the body of that method.
