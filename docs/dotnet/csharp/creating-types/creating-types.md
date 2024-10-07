@@ -758,3 +758,117 @@ The compiler automatically generates a private backing field of a compiler gener
 The set accessor can be marked private or protected if you want to expose the property as read-only to other types.
 
 Automatic properties were introduced in C# 3.0.
+
+#### Property Initializers
+
+You can add a property initializer to automatic properties,  
+Just as with fields:
+
+```cs
+public decimal CurrentPrice { get; set; } = 123;
+```
+
+This gives `CurrentPrice` an initial value of `123`.
+
+Properties with an initializer can be read-only:
+
+```cs
+public int Maximum { get; } = 999;
+```
+
+Just as with read-only fields,  
+Read-only automatic properties can also be assigned in the type’s constructor.
+
+This is useful in creating **immutable (read-only)** types.
+
+#### Get And Set Accessibility
+
+The get and set accessors can have different access levels.
+
+The typical use case for this is to have a public property with an internal or private access modifier on the setter:
+
+```cs
+public class Foo
+{
+    private decimal x;
+    public decimal X
+    {
+        get { return x; }
+        private set { x = Math.Round (value, 2); }
+    }
+}
+```
+
+Notice that you declare the property itself with the more permissive access level (public, in this case),  
+And add the modifier to the accessor you want to be less accessible.
+
+#### Init-Only Setters
+
+From C# 9, you can declare a property accessor with init instead of set:
+
+```cs
+public class Note
+{
+    public int Pitch { get; init; } = 20; // “Init-only” property
+    public int Duration { get; init; } = 100; // “Init-only” property
+}
+```
+
+These init-only properties act like read-only properties,  
+Except that they can also be set via an object initializer:
+
+```cs
+var note = new Note { Pitch = 50 };
+```
+
+After that, the property cannot be altered:
+
+```cs
+note.Pitch = 200; // Error – init-only setter!
+```
+
+Init-only properties cannot even be set from inside their class,  
+Except via their property initializer, the constructor, or another init-only accessor.
+
+The alternative to init-only properties is to have read-only properties that you populate via a constructor:
+
+```cs
+public class Note
+{
+    public int Pitch { get; }
+    public int Duration { get; }
+
+    public Note(int pitch = 20, int duration = 100)
+    {
+        Pitch = pitch;
+        Duration = duration;
+    }
+}
+```
+
+Should the class be part of a public library,
+This approach makes versioning difficult,
+In that adding an optional parameter to the constructor at a later date breaks binary compatibility with consumers,  
+(whereas adding a new init-only property breaks nothing).
+
+:::note
+Init-only properties have another significant advantage,  
+Which is that they allow for nondestructive mutation when used in conjunction with records.
+:::
+
+Just as with ordinary set accessors,  
+Init-only accessors can provide an implementation:
+
+```cs
+public class Note
+{
+    readonly int _pitch;
+    public int Pitch { get => _pitch; init => _pitch = value; }
+    ...
+}
+```
+
+Notice that the `_pitch` field is read-only:  
+Init-only setters are permitted to modify readonly fields in their own class.  
+Without this feature, `_pitch` would need to be writable,  
+And the class would fail at being internally immutable.
