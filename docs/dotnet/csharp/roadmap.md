@@ -22,6 +22,7 @@
       - Deconstructors
       - Object Initializers
       - The This Reference
+      - Indexers
   - Kinds of Types
     - Reference Type
       - Class
