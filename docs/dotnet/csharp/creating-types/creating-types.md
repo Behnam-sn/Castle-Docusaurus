@@ -911,7 +911,7 @@ Except that the index argument(s) can be of any type(s).
 Indexers have the same modifiers as properties,  
 And can be called null-conditionally by inserting a question mark before the square bracket:
 
-```css
+```cs
 string s = null;
 Console.WriteLine(s?[0]); // Writes nothing; no error.
 ```
@@ -927,7 +927,7 @@ class Sentence
 {
     string[] words = "The quick brown fox".Split();
 
-    public string this [int wordNum] // indexer
+    public string this[int wordNum] // indexer
     {
         get { return words[wordNum]; }
         set { words[wordNum] = value; }
@@ -950,7 +950,7 @@ Each with parameters of different types.
 An indexer can also take more than one parameter:
 
 ```cs
-public string this [int arg1, string arg2]
+public string this[int arg1, string arg2]
 {
     get { ... }
     set { ... }
@@ -962,5 +962,35 @@ An indexer becomes read-only,
 And you can use expression-bodied syntax to shorten its definition:
 
 ```cs
-public string this [int wordNum] => words[wordNum];
+public string this[int wordNum] => words[wordNum];
+```
+
+#### CLR Indexer Implementation
+
+Indexers internally compile to methods called get_Item and set_Item,  
+As follows:
+
+```cs
+public string get_Item(int wordNum) {...}
+public void set_Item(int wordNum, string value) {...}
+```
+
+#### Using Indices And Ranges With Indexers
+
+You can support indices and ranges in your own classes by defining an indexer with a parameter type of Index or Range.
+
+We could extend our previous example,  
+By adding the following indexers to the Sentence class:
+
+```cs
+public string this[Index index] => words[index];
+public string[] this[Range range] => words[range];
+```
+
+This then enables the following:
+
+```cs
+var s = new Sentence();
+Console.WriteLine(s[^1]); // fox
+var firstTwoWords = s[..2]; // (The, quick)
 ```
