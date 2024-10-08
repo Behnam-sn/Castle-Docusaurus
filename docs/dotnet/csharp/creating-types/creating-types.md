@@ -889,3 +889,78 @@ Simple non-virtual property accessors are inlined by the Just-In-Time (JIT) comp
 Eliminating any performance difference between accessing a property and a field.
 
 Inlining is an optimization in which a method call is replaced with the body of that method.
+
+### Indexers
+
+Indexers provide a natural syntax for accessing elements in a class or struct that encapsulate a list or dictionary of values.
+
+Indexers are similar to properties,  
+But are accessed via an index argument rather than a property name.
+
+The string class has an indexer that lets you access each of its char values via an int index:
+
+```cs
+var s = "hello";
+Console.WriteLine(s[0]); // 'h'
+Console.WriteLine(s[3]); // 'l'
+```
+
+The syntax for using indexers is like that for using arrays,  
+Except that the index argument(s) can be of any type(s).
+
+Indexers have the same modifiers as properties,  
+And can be called null-conditionally by inserting a question mark before the square bracket:
+
+```css
+string s = null;
+Console.WriteLine(s?[0]); // Writes nothing; no error.
+```
+
+#### Implementing an indexer
+
+To write an indexer,  
+Define a property called this,  
+Specifying the arguments in square brackets:
+
+```cs
+class Sentence
+{
+    string[] words = "The quick brown fox".Split();
+
+    public string this [int wordNum] // indexer
+    {
+        get { return words[wordNum]; }
+        set { words[wordNum] = value; }
+    }
+}
+```
+
+Here’s how we could use this indexer:
+
+```cs
+var s = new Sentence();
+Console.WriteLine(s[3]); // fox
+s[3] = "kangaroo";
+Console.WriteLine(s[3]); // kangaroo
+```
+
+A type can declare multiple indexers,  
+Each with parameters of different types.
+
+An indexer can also take more than one parameter:
+
+```cs
+public string this [int arg1, string arg2]
+{
+    get { ... }
+    set { ... }
+}
+```
+
+If you omit the set accessor,  
+An indexer becomes read-only,  
+And you can use expression-bodied syntax to shorten its definition:
+
+```cs
+public string this [int wordNum] => words[wordNum];
+```
