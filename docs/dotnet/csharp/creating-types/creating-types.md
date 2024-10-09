@@ -994,3 +994,103 @@ var s = new Sentence();
 Console.WriteLine(s[^1]); // fox
 var firstTwoWords = s[..2]; // (The, quick)
 ```
+
+### Primary Constructors
+
+From C# 12,  
+You can include a parameter list directly after a class (or struct) declaration:
+
+```cs
+class Person(string firstName, string lastName)
+{
+    public void Print() => Console.WriteLine(firstName + " " + lastName);
+}
+```
+
+This instructs the compiler to automatically build a primary constructor,  
+Using the primary constructor parameters (firstName and lastName),  
+So that we can instantiate our class as follows:
+
+```cs
+var p = new Person("Alice", "Jones");
+p.Print(); // Alice Jones
+```
+
+Primary constructors are useful for prototyping and other simple scenarios.  
+The alternative would be to define fields and write a constructor explicitly:
+
+```cs
+class Person // (without primary constructors)
+{
+    string firstName, lastName; // Field declarations
+
+    public Person(string firstName, string lastName) // Constructor
+    {
+        this.firstName = firstName; // Assign field
+        this.lastName = lastName; // Assign field
+    }
+
+    public void Print() => Console.WriteLine(firstName + " " + lastName);
+}
+```
+
+The constructor that C# builds is called primary,  
+Because any additional constructors that you choose to (explicitly) write must invoke it:
+
+```cs
+class Person(string firstName, string lastName)
+{
+    public Person(string firstName, string lastName, int age)
+        : this (firstName, lastName) // Must call the primary constructor
+    {
+    ...
+    }
+}
+```
+
+This ensures that primary constructor parameters are always populated.
+
+Primary constructors are best suited to simple scenarios due to the following limitations:
+
+- You cannot add extra initialization code to a primary constructor.
+
+- Although it’s easy to expose a primary constructor parameter as a public property,  
+  You cannot easily incorporate validation logic unless the property is read-only.
+
+Primary constructors displace the default parameterless constructor that C# would otherwise generate.
+
+#### Primary constructor semantics
+
+To understand how primary constructors work,  
+Consider how an ordinary constructor behaves:
+
+```cs
+class Person
+{
+    public Person(string firstName, string lastName)
+    {
+        ... do something with firstName, lastName
+    }
+}
+```
+
+When the code inside this constructor finishes executing,  
+Parameters firstName and lastName disappear out of scope and cannot be subsequently accessed.
+
+In contrast, a primary constructor’s parameters do not disappear out of scope,  
+And can be subsequently accessed from anywhere within the class, for the life of the object.
+
+#### Primary Constructors And Field/Property Initializers
+
+The accessibility of primary constructor parameters extends to field and property initializers.
+
+In the following example,  
+We use field and property initializers to assign firstName to a public field, and lastName to a public property:
+
+```cs
+class Person(string firstName, string lastName)
+{
+    public readonly string FirstName = firstName; // Field
+    public string LastName { get; } = lastName; // Property
+}
+```
