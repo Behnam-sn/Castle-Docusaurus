@@ -1094,3 +1094,55 @@ class Person(string firstName, string lastName)
     public string LastName { get; } = lastName; // Property
 }
 ```
+
+#### Masking Primary Constructor Parameters
+
+Fields (or properties) can reuse primary constructor parameter names:
+
+```cs
+class Person(string firstName, string lastName)
+{
+    readonly string firstName = firstName;
+    readonly string lastName = lastName;
+
+    public void Print() => Console.WriteLine(firstName + " " + lastName);
+}
+```
+
+In this scenario,  
+The field or property takes precedence,  
+Thereby masking the primary constructor parameter,  
+Except on the right hand side of field and property initializers (shown in boldface).
+
+Just like ordinary parameters,  
+Primary constructor parameters are writable.
+
+Masking them with a same-named readonly field (as in our example),  
+Effectively protects them from subsequent modification.
+
+#### Validating Primary Constructor Parameters
+
+Sometimes it’s useful to perform computation in field initializers:
+
+```cs
+new Person ("Alice", "Jones").Print(); // Alice Jones
+
+class Person(string firstName, string lastName)
+{
+    public readonly string FullName = firstName + " " + lastName;
+    public void Print() => Console.WriteLine(FullName);
+}
+```
+
+In the next example,  
+We save an uppercase version of lastName to a field of the same name (masking the original value):
+
+```cs
+new Person("Alice", "Jones").Print(); // Alice JONES
+
+class Person(string firstName, string lastName)
+{
+    readonly string lastName = lastName.ToUpper();
+    public void Print() => Console.WriteLine(firstName + " " + lastName);
+}
+```
