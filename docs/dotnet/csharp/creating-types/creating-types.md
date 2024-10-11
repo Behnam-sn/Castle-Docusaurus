@@ -1146,3 +1146,41 @@ class Person(string firstName, string lastName)
     public void Print() => Console.WriteLine(firstName + " " + lastName);
 }
 ```
+
+You can throw exceptions when encountering scenarios such as invalid data.  
+Here’s how this can be used with primary constructors to validate lastName upon construction,  
+Ensuring that it cannot be null:
+
+```cs
+new Person("Alice", null); // throws ArgumentNullException
+
+class Person(string firstName, string lastName)
+{
+    readonly string lastName = (lastName == null)
+        ? throw new ArgumentNullException("lastName")
+        : lastName;
+}
+```
+
+Remember that code within a field or property initializer executes when the object is constructed,
+Not when the field or property is accessed.
+
+In the next example,  
+We expose a primary constructor parameter as a read/write property:
+
+```cs
+class Person(string firstName, string lastName)
+{
+    public string LastName { get; set; } = lastName;
+}
+```
+
+Adding validation to this example is not straightforward,  
+because you must validate in two places:  
+In a (manually implemented) property set accessor,  
+And in the property initializer.
+
+(The same problem exists if the property is defined as init-only.)
+
+At this point,  
+It’s easier to abandon the shortcut of primary constructors and define a constructor and backing fields explicitly.
