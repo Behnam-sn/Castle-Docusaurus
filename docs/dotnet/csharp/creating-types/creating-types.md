@@ -1184,3 +1184,33 @@ And in the property initializer.
 
 At this point,  
 It’s easier to abandon the shortcut of primary constructors and define a constructor and backing fields explicitly.
+
+### Static Constructors
+
+A static constructor executes once per type rather than once per instance.
+
+A type can define only one static constructor,  
+And it must be parameterless and have the same name as the type:
+
+```cs
+class Test
+{
+    static Test()
+    {
+        Console.WriteLine("Type Initialized");
+    }
+}
+```
+
+The runtime automatically invokes a static constructor just prior to the type being used.  
+Two things trigger this:
+
+- Instantiating the type
+- Accessing a static member in the type
+
+The only modifiers allowed by static constructors are `unsafe` and `extern`.
+
+:::warning
+If a static constructor throws an unhandled exception,  
+That type becomes unusable for the life of the application.
+:::
