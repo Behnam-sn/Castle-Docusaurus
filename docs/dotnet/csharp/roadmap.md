@@ -19,6 +19,7 @@
           - Named Arguments
       - Properties
       - Constructors
+        - Primary Constructors
       - Deconstructors
       - Object Initializers
       - The This Reference
