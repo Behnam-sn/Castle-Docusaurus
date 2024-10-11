@@ -6,7 +6,7 @@
     - Library
 - Types
   - Pre-defined Types
-  - Defining a Type
+  - Defining a Type (Object)
     - Members
       - Fields
       - Methods
