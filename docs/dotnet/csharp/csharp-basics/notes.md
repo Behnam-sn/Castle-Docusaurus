@@ -99,3 +99,17 @@ the field with a this reference:
 ```cs
 public Panda (string name) => this.name = name;
 ```
+
+From C# 9, you can also define module initializers, which
+execute once per assembly (when the assembly is first loaded).
+To define a module initializer, write a static void method
+and then apply the [ModuleInitializer] attribute to that
+method:
+
+```cs
+[System.Runtime.CompilerServices.ModuleInitializer]
+internal static void InitAssembly()
+{
+...
+}
+```
