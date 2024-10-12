@@ -28,6 +28,7 @@
   - Kinds of Types
     - Reference Type
       - Class
+        - Static Classes
       - Record Class
       - Delegate
       - Array
