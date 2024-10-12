@@ -20,6 +20,7 @@
       - Properties
       - Constructors
         - Primary Constructors
+        - Static Constructors
       - Deconstructors
       - Object Initializers
       - The This Reference
