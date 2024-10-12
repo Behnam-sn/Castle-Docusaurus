@@ -1214,3 +1214,47 @@ The only modifiers allowed by static constructors are `unsafe` and `extern`.
 If a static constructor throws an unhandled exception,  
 That type becomes unusable for the life of the application.
 :::
+
+#### Static Constructors And Field Initialization Order
+
+Static field initializers run just before the static constructor is called.
+
+If a type has no static constructor,  
+static field initializers will execute just prior to the type being used,  
+Or anytime earlier at the whim of the runtime.
+
+Static field initializers run in the order in which the fields are declared.  
+The following example illustrates this.
+
+X is initialized to 0,  
+And Y is initialized to 3:
+
+```cs
+class Foo
+{
+    public static int X = Y;
+    public static int Y = 3;
+}
+```
+
+If we swap the two field initializers around,  
+Both fields are initialized to 3.
+
+The next example prints 0 followed by 3,  
+Because the field initializer that instantiates a Foo,  
+Executes before X is initialized to 3:
+
+```cs
+Console.WriteLine(Foo.X); // 3
+
+class Foo
+{
+    public static Foo Instance = new Foo();
+    public static int X = 3;
+
+    Foo() => Console.WriteLine(X); // 0
+}
+```
+
+If we swap the two lines in boldface,  
+Rhe example prints 3 followed by 3.
