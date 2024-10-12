@@ -1258,3 +1258,10 @@ class Foo
 
 If we swap the two lines in boldface,  
 Rhe example prints 3 followed by 3.
+
+### Static Classes
+
+A class marked static cannot be instantiated or subclassed,  
+And must be composed solely of static members.
+
+The `System.Console` and `System.Math` classes are good examples of static classes.
