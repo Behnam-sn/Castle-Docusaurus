@@ -1295,7 +1295,7 @@ protected override void Finalize()
 }
 ```
 
-### Partial Types And Partial Methods
+### Partial Types
 
 Partial types allow a type definition to be split,
 Typically across multiple files.
@@ -1333,7 +1333,7 @@ In addition, each participant can independently specify interfaces to implement.
 
 The compiler makes no guarantees with regard to field initialization order between partial type declarations.
 
-#### Partial Methods
+### Partial Methods
 
 A partial type can contain partial methods.
 
