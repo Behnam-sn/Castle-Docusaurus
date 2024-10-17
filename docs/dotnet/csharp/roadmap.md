@@ -25,6 +25,8 @@
       - Object Initializers
       - The This Reference
       - Indexers
+      - Partial Types
+      - Partial Methods
   - Kinds of Types
     - Reference Type
       - Class
@@ -58,3 +60,4 @@
 - Asynchronous
 - Garbage Collector (Automatic Memory Management)
   - - Finalizers
+- The Nameof Operator
