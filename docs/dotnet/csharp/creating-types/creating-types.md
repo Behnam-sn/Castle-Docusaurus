@@ -1410,3 +1410,35 @@ public partial class Test
     internal partial bool TryParse(string number, out int result);
 }
 ```
+
+### The Nameof Operator
+
+The nameof operator returns the name of any symbol (type, member, variable, and so on) as a string:
+
+```cs
+int count = 123;
+var name = nameof(count); // name is "count"
+```
+
+Its advantage over simply specifying a string is that of static type checking.
+
+Tools such as Visual Studio can understand the symbol reference,  
+So if you rename the symbol in question,  
+All of its references will be renamed, too.
+
+To specify the name of a type member such as a field or property,  
+Include the type as well.
+
+This works with both static and instance members:
+
+```cs
+string name = nameof(StringBuilder.Length);
+```
+
+This evaluates to Length.  
+To return `StringBuilder.Length`,  
+You would do this:
+
+```cs
+nameof(StringBuilder) + "." + nameof(StringBuilder.Length);
+```
