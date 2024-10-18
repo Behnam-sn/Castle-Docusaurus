@@ -262,3 +262,97 @@ if (a is Stock) Console.WriteLine((Stock)a).SharesOwned);
 
 The is operator also evaluates to true if an unboxing conversion would succeed.  
 However, it does not consider custom or numeric conversions.
+
+### Introducing A Pattern Variable
+
+You can introduce a variable while using the is operator:
+
+```cs
+if (a is Stock s) Console.WriteLine(s.SharesOwned);
+```
+
+This is equivalent to the following:
+
+```cs
+Stock s;
+
+if (a is Stock)
+{
+    s = (Stock)a;
+    Console.WriteLine(s.SharesOwned);
+}
+```
+
+The variable that you introduce is available for “immediate” consumption,  
+So the following is legal:
+
+```cs
+if (a is Stock s && s.SharesOwned > 100000) Console.WriteLine("Wealthy");
+```
+
+And it remains in scope outside the is expression,  
+Allowing this:
+
+```cs
+if (a is Stock s && s.SharesOwned > 100000) Console.WriteLine("Wealthy");
+else s = new Stock(); // s is in scope
+
+Console.WriteLine(s.SharesOwned); // Still in scope
+```
+
+## Virtual Function Members
+
+A function marked as virtual can be overridden by subclasses wanting to provide a specialized implementation.  
+Methods, properties, indexers, and events can all be declared virtual:
+
+```cs
+public class Asset
+{
+    public string Name;
+    public virtual decimal Liability => 0; // Expression-bodied property
+}
+```
+
+A subclass overrides a virtual method by applying the override modifier:
+
+```cs
+public class Stock : Asset
+{
+    public long SharesOwned;
+}
+
+public class House : Asset
+{
+    public decimal Mortgage;
+    public override decimal Liability => Mortgage;
+}
+```
+
+By default, the Liability of an Asset is 0.
+
+A Stock does not need to specialize this behavior.
+
+However, the House specializes the Liability property to return the value of the Mortgage:
+
+```cs
+var mansion = new House { Name="McMansion", Mortgage=250000 };
+Asset a = mansion;
+
+Console.WriteLine(mansion.Liability); // 250000
+Console.WriteLine(a.Liability); // 250000
+```
+
+The signatures, return types, and accessibility of the virtual and overridden methods must be identical.  
+An overridden method can call its base class implementation via the base keyword.
+
+:::warning
+Calling virtual methods from a constructor is potentially dangerous;  
+Because authors of subclasses are unlikely to know,  
+When overriding the method,  
+That they are working with a partially initialized object.
+
+In other words,  
+The overriding method might end up accessing methods or properties that rely on fields not yet initialized by the constructor.
+:::
+
+### Covariant Return Types
