@@ -356,3 +356,45 @@ The overriding method might end up accessing methods or properties that rely on 
 :::
 
 ### Covariant Return Types
+
+From C# 9,  
+You can override a method (or property get accessor) such that it returns a more derived (subclassed) type.  
+For example:
+
+```cs
+public class Asset
+{
+    public string Name;
+    public virtual Asset Clone() => new Asset { Name = Name };
+}
+
+public class House : Asset
+{
+    public decimal Mortgage;
+    public override House Clone() => new House { Name = Name, Mortgage = Mortgage };
+}
+```
+
+This is permitted because it does not break the contract that Clone must return an Asset,  
+It returns a House, which is an Asset (and more).
+
+Prior to C# 9,  
+You had to override methods with the identical return type:
+
+```cs
+public override Asset Clone() => new House { ... }
+```
+
+This still does the job,  
+Because the overridden Clone method instantiates a House rather than an Asset.
+
+However,  
+To treat the returned object as a House,  
+You must then perform a downcast:
+
+```cs
+House mansion1 = new House { Name="McMansion", Mortgage=250000 };
+House mansion2 = (House)mansion1.Clone();
+```
+
+## Abstract Classes and Abstract Members
