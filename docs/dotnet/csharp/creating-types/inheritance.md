@@ -398,3 +398,150 @@ House mansion2 = (House)mansion1.Clone();
 ```
 
 ## Abstract Classes and Abstract Members
+
+A class declared as abstract can never be instantiated.  
+Instead, only its concrete subclasses can be instantiated.
+
+Abstract classes are able to define abstract members.  
+Abstract members are like virtual members except that they don’t provide a default implementation.
+
+That implementation must be provided by the subclass,  
+Unless that subclass is also declared abstract:
+
+```cs
+public abstract class Asset
+{
+    // Note empty implementation
+    public abstract decimal NetValue { get; }
+}
+
+public class Stock : Asset
+{
+    public long SharesOwned;
+    public decimal CurrentPrice;
+
+    // Override like a virtual method.
+    public override decimal NetValue => CurrentPrice * SharesOwned;
+}
+```
+
+## Hiding Inherited Members
+
+A base class and a subclass can define identical members.  
+For example:
+
+```cs
+public class A
+{
+    public int Counter = 1;
+}
+
+public class B : A
+{
+    public int Counter = 2;
+}
+```
+
+The Counter field in class B is said to hide the Counter field in class A.
+
+Usually,  
+This happens by accident,  
+When a member is added to the base type after an identical member was added to the subtype.
+
+For this reason,  
+The compiler generates a warning and then resolves the ambiguity as follows:
+
+- References to A (at compile time) bind to A.Counter.
+- References to B (at compile time) bind to B.Counter.
+
+Occasionally,  
+You want to hide a member deliberately,  
+In which case you can apply the `new` modifier to the member in the subclass.
+
+The new modifier does nothing more than suppress the compiler warning that would otherwise result:
+
+```cs
+public class A
+{
+    public int Counter = 1;
+}
+
+public class B : A
+{
+    public new int Counter = 2;
+}
+```
+
+The new modifier communicates your intent to the compiler and other programmers that the duplicate member is not an accident.
+
+:::tip
+C# overloads the new keyword to have independent meanings in different contexts.  
+Specifically, the new operator is different from the new member modifier.
+:::
+
+### New Versus Override
+
+Consider the following class hierarchy:
+
+```cs
+public class BaseClass
+{
+    public virtual void Foo()
+    {
+        Console.WriteLine("BaseClass.Foo");
+    }
+}
+
+public class Overrider : BaseClass
+{
+    public override void Foo()
+    {
+        Console.WriteLine("Overrider.Foo");
+    }
+}
+
+public class Hider : BaseClass
+{
+    public new void Foo()
+    {
+        Console.WriteLine("Hider.Foo");
+    }
+}
+```
+
+The differences in behavior between Overrider and Hider are demonstrated in the following code:
+
+```cs
+var over = new Overrider();
+BaseClass b1 = over;
+over.Foo(); // Overrider.Foo
+b1.Foo(); // Overrider.Foo
+
+var h = new Hider();
+BaseClass b2 = h;
+h.Foo(); // Hider.Foo
+b2.Foo(); // BaseClass.Foo
+```
+
+## Sealing Functions and Classes
+
+An overridden function member can seal its implementation,  
+With the sealed keyword to prevent it from being overridden by further subclasses.
+
+In our earlier virtual function member example,  
+We could have sealed House’s implementation of Liability,  
+Preventing a class that derives from House from overriding Liability,  
+As follows:
+
+```cs
+public sealed override decimal Liability
+{
+    get { return Mortgage; }
+}
+```
+
+You can also apply the sealed modifier to the class itself, to prevent subclassing.  
+Sealing a class is more common than sealing a function member.
+
+Although you can seal a function member against overriding,  
+You can’t seal a member against being hidden.
