@@ -545,3 +545,31 @@ Sealing a class is more common than sealing a function member.
 
 Although you can seal a function member against overriding,  
 You can’t seal a member against being hidden.
+
+## The base Keyword
+
+The `base` keyword is similar to the `this` keyword.
+
+It serves two essential purposes:
+
+- Accessing an overridden function member from the subclass
+- Calling a base-class constructor
+
+In this example,  
+House uses the base keyword to access Asset’s implementation of Liability:
+
+```cs
+public class House : Asset
+{
+    public override decimal Liability => base.Liability + Mortgage;
+}
+```
+
+With the base keyword,  
+We access Asset’s Liability property non-virtually.
+
+This means that we will always access Asset’s version of this property,
+Regardless of the instance’s actual runtime type.
+
+The same approach works if Liability is hidden rather than overridden.  
+(You can also access hidden members by casting to the base class before invoking the function.)
