@@ -2,7 +2,7 @@
 
 ## Coding Clean Reliable and Safe REST APIs with ASP.NET Core
 
-## Designing Data-Intensive Applications
+<!-- ## Designing Data-Intensive Applications -->
 
 <!-- ## Dive Into Design Patterns -->
 
