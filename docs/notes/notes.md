@@ -4,16 +4,16 @@
 
 ## Designing Data-Intensive Applications
 
-## Dive Into Design Patterns
+<!-- ## Dive Into Design Patterns -->
 
-## Fundamentals of Software Architecture
+<!-- ## Fundamentals of Software Architecture -->
 
-## System Design Interview 2nd Edition
+<!-- ## System Design Interview 2nd Edition -->
 
-## The Passionate Programmer
+<!-- ## The Passionate Programmer -->
 
 ## The Pragmatic Programmer
 
-## Unit Testing
+<!-- ## Unit Testing -->
 
 ## The Art of Readable Code
