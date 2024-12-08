@@ -87,3 +87,4 @@ sidebar_position: 1
 - [ ] Micro Service
 - [ ] MVP
 - [ ] Daisy UI
+- [ ] Cross-Cutting Concerns
