@@ -7,6 +7,9 @@
 1. You Have Agency
 1. Provide Options, Don’t Make Lame Excuses
 1. Don’t Live with Broken Windows
+1. Be a Catalyst for Change
+1. Remember the Big Picture
+1. Make Quality a Requirements Issue
 
 ## Quotes
 
