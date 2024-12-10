@@ -10,6 +10,11 @@
 1. Be a Catalyst for Change
 1. Remember the Big Picture
 1. Make Quality a Requirements Issue
+1. Invest Regularly in Your Knowledge Portfolio
+1. Critically Analyze What You Read and Hear
+1. English is Just Another Programming Language
+1. It’s Both What You Say and the Way You Say It
+1. Build Documentation In, Don’t Bolt It On
 
 ## Quotes
 
