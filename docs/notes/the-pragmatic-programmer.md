@@ -16,6 +16,11 @@
 1. It’s Both What You Say and the Way You Say It
 1. Build Documentation In, Don’t Bolt It On
 
+### A Pragmatic Approach
+
+1. Good Design Is Easier to Change Than Bad Design
+1. DRY—Don’t Repeat Yourself
+
 ## Quotes
 
 Programming is a craft.  
@@ -70,3 +75,7 @@ Then you should have had a contingency plan.
 If your mass storage melts—taking all of your source code with it—and you don’t have a backup,  
 It’s your fault.  
 Telling your boss “the cat ate my source code’’ just won’t cut it.
+
+## Principles
+
+ETC principle: Easier to Change
