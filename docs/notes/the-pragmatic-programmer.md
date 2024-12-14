@@ -15,6 +15,7 @@
 1. English is Just Another Programming Language
 1. It’s Both What You Say and the Way You Say It
 1. Build Documentation In, Don’t Bolt It On
+1. DRY—Don’t Repeat Yourself
 
 ### A Pragmatic Approach
 
