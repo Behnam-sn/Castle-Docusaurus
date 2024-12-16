@@ -15,13 +15,13 @@
 1. English is Just Another Programming Language
 1. It’s Both What You Say and the Way You Say It
 1. Build Documentation In, Don’t Bolt It On
-1. DRY—Don’t Repeat Yourself
-1. Make It Easy to Reuse
 
 ### A Pragmatic Approach
 
 1. Good Design Is Easier to Change Than Bad Design
 1. DRY—Don’t Repeat Yourself
+1. Make It Easy to Reuse
+1. Eliminate Effects Between Unrelated Things
 
 ## Quotes
 
