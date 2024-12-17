@@ -22,6 +22,8 @@
 1. DRY—Don’t Repeat Yourself
 1. Make It Easy to Reuse
 1. Eliminate Effects Between Unrelated Things
+1. There Are No Final Decisions
+1. Forgo Following Fads
 
 ## Quotes
 
