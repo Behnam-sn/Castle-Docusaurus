@@ -24,6 +24,7 @@
 1. Eliminate Effects Between Unrelated Things
 1. There Are No Final Decisions
 1. Forgo Following Fads
+1. Use Tracer Bullets to Find the Target
 
 ## Quotes
 
