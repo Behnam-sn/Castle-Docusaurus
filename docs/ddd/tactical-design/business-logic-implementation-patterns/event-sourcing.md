@@ -6,7 +6,8 @@ sidebar_position: 4
 
 ## What is Event Sourcing?
 
-Event Sourcing ensures that all changes to application state are stored as a sequence of events.  
+Event Sourcing ensures that all changes to application state are stored as a sequence of events.
+
 Not just can we query these events,  
 We can also use the event log to reconstruct past states,  
 And as a foundation to automatically adjust the state to cope with retroactive changes.
@@ -14,7 +15,8 @@ And as a foundation to automatically adjust the state to cope with retroactive c
 Instead of storing just the current state of the data in a domain,  
 Use an append-only store to record the full series of actions taken on that data.
 
-The store acts as the system of record and can be used to materialize the domain objects.
+The store acts as the system of record,  
+And can be used to materialize the domain objects.
 
 This can simplify tasks in complex domains,  
 By avoiding the need to synchronize the data model and the business domain,  
@@ -25,14 +27,19 @@ And maintain full audit trails and history that can enable compensating actions.
 
 ## What Problem is Event Sourcing Trying to Solve?
 
-> Show me your flowchart and conceal your tables, and I shall continue to be mystified.  
-> Show me your tables, and I won’t usually need your flowchart; it’ll be obvious.  
+> Show me your flowchart and conceal your tables,  
+> And I shall continue to be mystified.
+>
+> Show me your tables,  
+> And I won’t usually need your flowchart;  
+> It’ll be obvious.
+>
 > — Fred Brooks
 
 Let’s use Fred Brooks’s reasoning to understand,  
 How the event sourcing pattern differs from traditional modeling and persisting of data.
 
-For example, take a look at this table:
+Take a look at this table for example:
 
 | lead-id | first-name | last-name |     status      | phone-number |       followup-on        |        created-on        |        updated-on        |
 | :-----: | :--------: | :-------: | :-------------: | :----------: | :----------------------: | :----------------------: | :----------------------: |
