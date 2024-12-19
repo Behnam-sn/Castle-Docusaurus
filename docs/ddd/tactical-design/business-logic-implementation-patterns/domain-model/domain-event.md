@@ -45,7 +45,8 @@ And for what reason:
 
 :::tip
 As with almost everything in software engineering, naming is important.  
-Make sure the names of the domain events succinctly reflect exactly what has happened in the business domain.
+Make sure the names of the domain events,  
+Succinctly reflect exactly what has happened in the business domain.
 :::
 
 ## How to Implement Domain Events?
