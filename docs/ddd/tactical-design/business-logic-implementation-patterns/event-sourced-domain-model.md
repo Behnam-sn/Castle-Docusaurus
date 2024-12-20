@@ -15,8 +15,6 @@ Is based on the same premise as the domain model pattern:
   - Aggregates
   - And Domain Events
 
-<!-- maybe the difference -->
-
 _The difference between these implementation patterns lies in the way the aggregates state is persisted._
 
 The event-sourced domain model uses the **Event Sourcing Pattern**,  
