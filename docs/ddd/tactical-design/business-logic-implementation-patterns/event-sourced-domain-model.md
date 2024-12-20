@@ -10,8 +10,10 @@ The event-sourced domain model pattern,
 Is based on the same premise as the domain model pattern:
 
 - The business logic is complex and belongs to a core subdomain.
-- And it uses the same tactical patterns as the domain model:  
-  Value Objects, Aggregates, and Domain Events.
+- And it uses the same tactical patterns as the domain model:
+  - Value Objects
+  - Aggregates
+  - And Domain Events
 
 <!-- maybe the difference -->
 
@@ -24,45 +26,26 @@ Instead of persisting an aggregate’s state,
 The model generates domain events describing each change,  
 And uses them as the source of truth for the aggregate’s data.
 
-### Conclusion
-
-In an event-sourced domain model,  
-All changes to an aggregate’s state are expressed as a series of domain events.
-
-That’s in contrast to the more traditional approaches in which a state change just updates a record in the databases.  
-The resultant domain events can be used to project the aggregate’s current state.
-
-Moreover, the event-based model gives us the flexibility to project the events into multiple representation models, each optimized for a specific task.
-
-This pattern fits cases in which it’s crucial to have deep insight into the system’s data,  
-Whether for analysis and optimization or because an audit log is required by law.
-
-state-based and event-sourced aggregates
-
-### Why Use The Term _Event-Sourced Domain Model_ Rather Than Just _Event Sourcing_?
-
-Using events to represent state transitions (the event sourcing pattern),  
-Is possible with or without the domain model’s building blocks.
-
-Therefore, it's preferred to use the longer term,  
-To explicitly state that we are using event sourcing,  
-To represent changes in the lifecycles of the domain model’s aggregates.
-
 ## How to Implement Event-Sourced Domain Model Pattern?
 
-The original domain model maintains a state representation of its aggregates and emits select domain events.  
-The event-sourced domain model uses domain events exclusively for modeling the aggregates’ lifecycles.
+The original domain model,  
+Maintains a state representation of its aggregates,  
+And emits select domain events.
 
-All changes to an aggregate’s state have to be expressed as domain events.
+The event-sourced domain model,  
+Uses domain events exclusively for modeling the aggregates’ lifecycles.
+
+_All changes to an aggregate’s state have to be expressed as domain events._
 
 Each operation on an event-sourced aggregate follows this script:
 
 - Load the aggregate’s domain events.
 
 - Reconstitute a state representation,  
-  By projecting the events into a state representation that can be used to make business decisions.
+  By projecting the events into a state representation,  
+  That can be used to make business decisions.
 
-- Execute the aggregate’s command to execute the business logic,  
+- Execute the aggregate’s command to execute the business logic.  
   And consequently, produce new domain events.
 
 - Commit the new domain events to the event store.
@@ -74,9 +57,9 @@ Let’s see how it would be implemented as an event-sourced aggregate.
 
 The application service follows the script described earlier:
 
-- It loads the relevant ticket’s events,
-- Rehydrates the aggregate instance,
-- Calls the relevant command,
+- It loads the relevant ticket’s events
+- Rehydrates the aggregate instance
+- Calls the relevant command
 - And persists changes back to the database
 
 ```cs
@@ -133,13 +116,13 @@ public class Ticket
 }
 ```
 
-The `AppendEvent` passes the incoming events to the `TicketState` projection logic,  
-Thus generating the in-memory representation of the ticket’s current state:
-
 Contrary to the implementation we saw in the previously,  
 The event-sourced aggregate’s `RequestEscalation` method,  
-Doesn’t explicitly set the `IsEscalated` flag to `true`.  
-Instead, it instantiates the appropriate event and passes it to the `AppendEvent` method.
+Doesn’t explicitly set the `IsEscalated` flag to `true`.
+
+Instead,  
+It instantiates the appropriate event,  
+And passes it to the `AppendEvent` method.
 
 All events added to the aggregate’s events collection,  
 Are passed to the state projection logic in the `TicketState` class,  
@@ -167,13 +150,14 @@ public class TicketState
 }
 ```
 
-## What are The Advantages of Event-Sourced Domain Model Pattern?
+## What Are The Advantages Of Event-Sourced Domain Model Pattern?
 
 Compared to the more traditional model,  
 In which the aggregates’ current states are persisted in a database,  
 The event-sourced domain model requires more effort to model the aggregates.
 
-However, this approach brings significant advantages that make the pattern worth considering in many scenarios:
+However this approach brings significant advantages,  
+That make the pattern worth considering in many scenarios:
 
 - ### Time Traveling
 
@@ -267,6 +251,15 @@ And instead can be addressed by a simpler design.
 
 When engineers are introduced to the event sourcing pattern,  
 They often ask several common questions.
+
+- ### Why Use The Term _Event-Sourced Domain Model_ Rather Than Just _Event Sourcing_?
+
+  Using events to represent state transitions (the event sourcing pattern),  
+  Is possible with or without the domain model’s building blocks.
+
+  Therefore, it's preferred to use the longer term,  
+  To explicitly state that we are using event sourcing,  
+  To represent changes in the lifecycles of the domain model’s aggregates.
 
 - ### Performance
 
@@ -364,6 +357,19 @@ They often ask several common questions.
     Why the fields were changed.
 
     The lack of “why” drastically limits the ability to project additional models.
+
+## Recap
+
+In an event-sourced domain model,  
+All changes to an aggregate’s state are expressed as a series of domain events.
+
+That’s in contrast to the more traditional approaches in which a state change just updates a record in the databases.  
+The resultant domain events can be used to project the aggregate’s current state.
+
+Moreover, the event-based model gives us the flexibility to project the events into multiple representation models, each optimized for a specific task.
+
+This pattern fits cases in which it’s crucial to have deep insight into the system’s data,  
+Whether for analysis and optimization or because an audit log is required by law.
 
 ## References
 
