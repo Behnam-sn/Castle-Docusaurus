@@ -6,24 +6,11 @@ sidebar_position: 4
 
 ## What is Event Sourcing?
 
-Event Sourcing ensures that all changes to application state are stored as a sequence of events.
+_Event sourcing ensures that all changes to application state are stored as a sequence of events._
 
 Not just can we query these events,  
 We can also use the event log to reconstruct past states,  
 And as a foundation to automatically adjust the state to cope with retroactive changes.
-
-Instead of storing just the current state of the data in a domain,  
-Use an append-only store to record the full series of actions taken on that data.
-
-The store acts as the system of record,  
-And can be used to materialize the domain objects.
-
-This can simplify tasks in complex domains,  
-By avoiding the need to synchronize the data model and the business domain,  
-While improving performance, scalability, and responsiveness.
-
-It can also provide consistency for transactional data,  
-And maintain full audit trails and history that can enable compensating actions.
 
 ## What Problem is Event Sourcing Trying to Solve?
 
@@ -260,10 +247,11 @@ Consider the following scenarios.
 
 ### Search
 
-If you have to implement a search.  
 Since a lead’s contact information including first name, last name, and phone number can be updated;  
 Sales agents may not be aware of the changes applied by other agents,  
-And may want to locate leads using their contact information, including historical values.  
+And may want to locate leads using their contact information,  
+Including historical values.
+
 We can easily project the historical information:
 
 ```cs
@@ -335,9 +323,14 @@ Version: 6
 
 ### Analysis
 
-Your business intelligence department asks you to provide a more analysis-friendly representation of the leads data.  
-For their current research, they want to get the number of follow-up calls scheduled for different leads.  
-Later they will filter the converted and closed leads data and use the model to optimize the sales process.  
+Your business intelligence department asks you to provide a more analysis-friendly representation of the leads data.
+
+For their current research,  
+They want to get the number of follow-up calls scheduled for different leads.
+
+Later they will filter the converted and closed leads data,  
+And use the model to optimize the sales process.
+
 Let’s project the data they are asking for:
 
 ```cs
@@ -388,7 +381,8 @@ public class AnalysisModelProjection
 ```
 
 The preceding logic maintains a counter of the number of times follow-up events appeared in the lead’s events.  
-If we were to apply this projection to the example of the aggregate’s events, it would generate the following state:
+If we were to apply this projection to the example of the aggregate’s events,  
+It would generate the following state:
 
 ```txt
 LeadId: 12
@@ -399,8 +393,12 @@ Version: 6
 
 ## How to Persist Events?
 
-The logic implemented in the preceding examples projects the search-optimized and analysis-optimized models in-memory.  
-However, to actually implement the required functionality, we have to persist the projected models in a database.
+The logic implemented in the preceding examples,  
+Projects the search-optimized and analysis-optimized models in-memory.
+
+However,  
+To actually implement the required functionality,  
+We have to persist the projected models in a database.
 
 ### Source of Truth
 
@@ -417,8 +415,10 @@ The accepted name for the database that is used for persisting events is **Event
 ### Event Store
 
 The event store is a append-only storage.  
-And should not allow modifying or deleting the events.  
-Except for exceptional cases, such as data migration.
+And should not allow modifying or deleting the events.
+
+Except for exceptional cases,  
+Such as data migration.
 
 To support implementation of the event sourcing pattern,  
 At a minimum the event store has to support the following functionality:
@@ -436,15 +436,15 @@ interface IEventStore
 }
 ```
 
-The `expectedVersion` argument in the `Append` method is needed to implement optimistic concurrency management:
-
+The `expectedVersion` argument in the `Append` method is needed to implement optimistic concurrency management:  
 When you append new events,  
 You also specify the version of the entity on which you are basing your decisions.
 
 If it’s stale, that is, new events were added after the expected version,  
 The event store should raise a concurrency exception.
 
-In most systems, additional endpoints are needed for implementing the CQRS pattern.
+In most systems,  
+Additional endpoints are needed for implementing the CQRS pattern.
 
 You will learn about a pattern that allows us to do that:  
 command-query responsibility segregation (CQRS).
