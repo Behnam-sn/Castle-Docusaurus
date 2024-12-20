@@ -8,10 +8,6 @@ sidebar_position: 4
 
 _Event sourcing ensures that all changes to application state are stored as a sequence of events._
 
-Not just can we query these events,  
-We can also use the event log to reconstruct past states,  
-And as a foundation to automatically adjust the state to cope with retroactive changes.
-
 ## What Problem is Event Sourcing Trying to Solve?
 
 > Show me your flowchart and conceal your tables,  
@@ -455,6 +451,25 @@ The financial industry uses events to represent changes in a ledger.
 A ledger is an append-only log that documents transactions.  
 A current state (e.g., account balance) can always be deduced by “projecting” the ledger’s records.
 :::
+
+## Recap
+
+Not just can we query these events,  
+We can also use the event log to reconstruct past states,  
+And as a foundation to automatically adjust the state to cope with retroactive changes.
+
+Instead of storing just the current state of the data in a domain,  
+You can use an append-only store to record the full series of actions taken on that data.
+
+The store acts as the system of record,  
+And can be used to materialize the domain objects.
+
+This can simplify tasks in complex domains,  
+By avoiding the need to synchronize the data model and the business domain,  
+While improving performance, scalability, and responsiveness.
+
+It can also provide consistency for transactional data,  
+And maintain full audit trails and history that can enable compensating actions.
 
 ## References
 
