@@ -227,6 +227,36 @@ If all conditions are met, the ticket is requested to be reassigned to a differe
 The aggregate ensures that all the conditions are checked against strongly consistent data,  
 And it won’t change after the checks are completed by ensuring that all changes to the aggregate’s data are performed as one atomic transaction.
 
+## The Aggregate Root
+
+We saw earlier that an aggregate’s state can only be modified by executing one of its commands.  
+Since an aggregate represents a hierarchy of entities,  
+Only one of them should be designated as the aggregate’s public interface—the aggregate root.
+
+Consider the following excerpt of the `Ticket` aggregate:
+
+```cs
+public class Ticket
+{
+    private List<Message> _messages;
+
+    public void Execute(AcknowledgeMessage cmd)
+    {
+        var message = _messages.Where(x => x.Id == cmd.id).First();
+        message.WasRead = true;
+    }
+}
+```
+
+In this example,  
+The aggregate exposes a command that allows marking a specific message as read.
+
+Although the operation modifies an instance of the Message entity,  
+It is accessible only through its aggregate root: Ticket.
+
+In addition to the aggregate root’s public interface,  
+There is another mechanism through which the outer world can communicate with aggregates: domain events.
+
 <!-- out of place -->
 
 <!-- also page 112 of the book is out of place -->
@@ -284,33 +314,6 @@ In other words, it would be reasonable to receive reading acknowledgment after a
 In that case, it’s safe to expect a considerable number of tickets to be unnecessarily reassigned.  
 That, of course, would corrupt the system’s state.  
 Therefore, the data in the messages belongs to the aggregate’s boundary.
-
-## The aggregate root
-
-We saw earlier that an aggregate’s state can only be modified by executing one of its commands.  
-Since an aggregate represents a hierarchy of entities,  
-Only one of them should be designated as the aggregate’s public interface—the aggregate root.
-
-Consider the following excerpt of the `Ticket` aggregate:
-
-```cs
-public class Ticket
-{
-    private List<Message> _messages;
-
-    public void Execute(AcknowledgeMessage cmd)
-    {
-        var message = _messages.Where(x => x.Id == cmd.id).First();
-        message.WasRead = true;
-    }
-}
-```
-
-In this example, the aggregate exposes a command that allows marking a specific message as read.  
-Although the operation modifies an instance of the Message entity, it is accessible only through its aggregate root: Ticket.
-
-In addition to the aggregate root’s public interface,  
-There is another mechanism through which the outer world can communicate with aggregates: domain events.
 
 ## Ubiquitous language
 
