@@ -162,3 +162,7 @@ The distinction is important enough to warrant repeating.
 Prototyping generates disposable code.
 Tracer code is lean but complete, and forms part of the skeleton of the final system.
 Think of prototyping as the reconnaissance and intelligence gathering that takes place before a single tracer bullet is fired.
+
+## References
+
+- The Pragmatic Programmer 2nd Edition - Andrew Hunt, David Thomas - Addison-Wesley
