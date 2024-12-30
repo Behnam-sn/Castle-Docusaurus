@@ -26,6 +26,7 @@
 1. Forgo Following Fads
 1. Use Tracer Bullets to Find the Target
 1. Prototype to Learn
+1. Program Close to the Problem Domain
 
 ## Quotes
 
