@@ -28,6 +28,7 @@
 1. Prototype to Learn
 1. Program Close to the Problem Domain
 1. Estimate to Avoid Surprises
+1. Iterate the Schedule with the Code
 
 ## Quotes
 
