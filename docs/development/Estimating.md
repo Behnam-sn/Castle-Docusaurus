@@ -102,3 +102,127 @@ traffic at a node).
 You’ll find that each component will typically have parameters that affect how
 it contributes to the overall model. At this stage, simply identify each
 parameter.
+
+### Give Each Parameter a Value
+
+Once you have the parameters broken out, you can go through and assign
+each one a value. You expect to introduce some errors in this step. The trick
+is to work out which parameters have the most impact on the result, and
+concentrate on getting them about right. Typically, parameters whose values
+are added into a result are less significant than those that are multiplied or
+divided. Doubling a line speed may double the amount of data received in an
+hour, while adding a 5ms transit delay will have no noticeable effect.
+
+You should have a justifiable way of calculating these critical parameters.
+For the queuing example, you might want to measure the actual transaction
+arrival rate of the existing system, or find a similar system to measure. Simi-
+larly, you could measure the current time taken to serve a request, or come
+up with an estimate using the techniques described in this section. In fact,
+you’ll often find yourself basing an estimate on other subestimates. This is
+where your largest errors will creep in.
+
+### Calculate the Answers
+
+Only in the simplest of cases will an estimate have a single answer. You might
+be happy to say “I can walk five cross-town blocks in 15 minutes.” However,
+as the systems get more complex, you’ll want to hedge your answers. Run
+multiple calculations, varying the values of the critical parameters, until you
+work out which ones really drive the model. A spreadsheet can be a big help.
+Then couch your answer in terms of these parameters. “The response time
+is roughly three quarters of a second if the system has SSDs and 32GB of
+memory, and one second with 16GB memory.” (Notice how “three quarters
+of a second” conveys a different feeling of accuracy than 750ms.)
+
+During the calculation phase, you get answers that seem strange. Don’t be
+too quick to dismiss them. If your arithmetic is correct, your understanding
+of the problem or your model is probably wrong. This is valuable information.
+
+### Keep Track of Your Estimating Prowess
+
+We think it’s a great idea to record your estimates so you can see how close
+you were. If an overall estimate involved calculating subestimates, keep track
+of these as well. Often you’ll find your estimates are pretty good—in fact, after
+a while, you’ll come to expect this.
+
+When an estimate turns out wrong, don’t just shrug and walk away—find out
+why. Maybe you chose some parameters that didn’t match the reality of the
+problem. Maybe your model was wrong. Whatever the reason, take some time
+to uncover what happened. If you do, your next estimate will be better.
+
+## Estimating Project Schedules
+
+Normally you’ll be asked to estimate how long something will take. If that
+“something” is complex, the estimate can be very difficult to produce. In this
+section, we’ll look at two techniques for reducing that uncertainty.
+
+### Painting the Missile
+
+“How long will it take to paint the house?”
+
+“Well, if everything goes right, and this paint has the coverage they claim, it
+might be as few as 10 hours. But that’s unlikely: I’d guess a more realistic
+figure is closer to 18 hours. And, of course, if the weather turns bad, that could
+push it out to 30 or more.”
+
+That’s how people estimate in the real world. Not with a single number (unless
+you force them to give you one) but with a range of scenarios.
+
+When the U.S. Navy needed to plan the Polaris submarine project, they
+adopted this style of estimating with a methodology they called the Program
+Evaluation Review Technique, or PERT.
+
+Every PERT task has an optimistic, a most likely, and a pessimistic estimate.
+The tasks are arranged into a dependency network, and then you use some
+simple statistics to identify likely best and worst times for the overall project.
+
+Using a range of values like this is a great way to avoid one of the most com-
+mon causes of estimation error: padding a number because you’re unsure.
+Instead, the statistics behind PERT spreads the uncertainty out for you, giving
+you better estimations of the whole project.
+
+However, we’re not big fans of this. People tend to produce wall-sized charts
+of all the tasks in a project, and implicitly believe that, just because they used
+a formula, they have an accurate estimate. The chances are they don’t, because
+they have never done this before.
+
+### Eating the Elephant
+
+We find that often the only way to determine the timetable for a project is by
+gaining experience on that same project. This needn’t be a paradox if you
+practice incremental development, repeating the following steps with very
+thin slices of functionality:
+
+• Check requirements
+• Analyze risk (and prioritize riskiest items earlier)
+• Design, implement, integrate
+• Validate with the users
+
+Initially, you may have only a vague idea of how many iterations will be
+required, or how long they may be. Some methods require you to nail this
+down as part of the initial plan; however, for all but the most trivial of projects
+this is a mistake. Unless you are doing an application similar to a previous
+one, with the same team and the same technology, you’d just be guessing.
+
+So you complete the coding and testing of the initial functionality and mark
+this as the end of the first iteration. Based on that experience, you can refine
+your initial guess on the number of iterations and what can be included in
+each. The refinement gets better and better each time, and confidence in the
+schedule grows along with it. This kind of estimating is often done during the
+team’s review at the end of each iterative cycle.
+
+That’s also how the old joke says to eat an elephant: one bite at a time.
+
+This may not be popular with management, who typically want a single, hard-
+and-fast number before the project even starts. You’ll have to help them
+understand that the team, their productivity, and the environment will
+determine the schedule. By formalizing this, and refining the schedule as
+part of each iteration, you’ll be giving them the most accurate scheduling
+estimates you can.
+
+## What to Say When Asked for an Estimate
+
+You say “I’ll get back to you.”
+
+You almost always get better results if you slow the process down and spend
+some time going through the steps we describe in this section. Estimates
+given at the coffee machine will (like the coffee) come back to haunt you.
