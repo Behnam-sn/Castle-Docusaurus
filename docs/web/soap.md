@@ -195,11 +195,11 @@ SOAP specification can be broadly defined to be consisting of the following 3 co
 
 ### Data Encapsulation Concepts
 
-- SOAP message
+- SOAP Message
 
   Represents the information being exchanged between 2 SOAP nodes.
 
-- SOAP envelope
+- SOAP Envelope
 
   It is the enclosing element of an XML message identifying it as a SOAP message.
 
@@ -267,9 +267,21 @@ SOAP specification can be broadly defined to be consisting of the following 3 co
 
 ## Specification
 
-The SOAP specification defines the messaging framework, which consists of:
+The SOAP specification defines the messaging framework,  
+Which consists of:
 
-- The SOAP processing model, defining the rules for processing a SOAP message
-- The SOAP extensibility model defining the concepts of SOAP features and SOAP modules
-- The SOAP underlying protocol binding framework describing the rules for defining a binding to an underlying protocol that can be used for exchanging SOAP messages between SOAP nodes
-- The SOAP message construct defining the structure of a SOAP message
+- **The SOAP processing model**
+
+  Defining the rules for processing a SOAP message
+
+- **The SOAP extensibility model**
+
+  Defining the concepts of SOAP features and SOAP modules
+
+- **The SOAP underlying protocol binding framework**
+
+  Describing the rules for defining a binding to an underlying protocol that can be used for exchanging SOAP messages between SOAP nodes
+
+- **The SOAP message construct**
+
+  Defining the structure of a SOAP message
