@@ -6,11 +6,12 @@ The Web Services Description Language (WSDL),
 Is an XML-based interface description language,  
 That is used for describing the functionality offered by a web service.
 
+WSDL is often used in combination with SOAP and an XML Schema,  
+To provide web services over the Internet.
+
 ## How Does WSDL Work?
 
-WSDL is often used in combination with SOAP and an XML Schema to provide Web services over the Internet.
-
-A client program connecting to a Web service can read the WSDL file,  
+A client program connecting to a web service can read the WSDL file,  
 To determine what operations are available on the server.
 
 Any special data-types used are embedded in the WSDL file in the form of XML Schema.
@@ -24,28 +25,31 @@ Using for example XML over HTTP.
 
 In the year 2000,  
 WSDL 1.0 was developed by IBM, Microsoft, and Ariba;  
-To describe Web Services for their SOAP toolkit.
+To describe web services for their SOAP toolkit.
 
-It was built by combining two service description languages:  
-NASSL (Network Application Service Specification Language) from IBM,  
-And SDL (Service Description Language) from Microsoft.
+It was built by combining two service description languages:
+
+- NASSL (Network Application Service Specification Language) from IBM
+- And SDL (Service Description Language) from Microsoft
 
 ### WSDL 1.1
 
 WSDL 1.1, published in 2001, is the formalization of WSDL 1.0.  
 No major changes were introduced between 1.0 and 1.1.
 
-Version 1.1 has not been endorsed by the W3C but version 2.0 is a W3C recommendation.
+Version 1.1 has not been endorsed by the W3C,  
+But version 2.0 is a W3C recommendation.
 
 ### WSDL 1.2
 
-In 2003 WSDL 1.2 was a working draft at W3C, but has become WSDL 2.0.
+In 2003 WSDL 1.2 was a working draft at W3C,  
+But has become WSDL 2.0.
 
 According to W3C:  
 WSDL 1.2 is easier and more flexible for developers than the previous version.  
 WSDL 1.2 attempts to remove non-interoperable features,  
 And also defines the HTTP 1.1 binding better,  
-By accepting binding to all the HTTP request methods (not only GET and POST as in version 1.1),
+By accepting binding to all the HTTP request methods (not only GET and POST as in version 1.1).
 
 The WSDL 1.2 specification offers better support for RESTful web services,  
 And is much simpler to implement.
@@ -66,6 +70,9 @@ The changes are the following:
 - PortTypes renamed to interfaces
 - Ports renamed to endpoints
 
+However support for this specification is still poor in software development kits for web services,  
+Which often offer tools only for WSDL 1.1.
+
 ## Building Blocks
 
 - ### Service
@@ -74,7 +81,7 @@ The changes are the following:
 
 - ### Port
 
-  Defines the address or connection point to a Web service.  
+  Defines the address or connection point to a web service.  
   It is typically represented by a simple HTTP URL string.
 
 - ### Binding
@@ -84,7 +91,7 @@ The changes are the following:
 
 - ### PortType
 
-  Defines a Web service,  
+  Defines a web service,  
   The operations that can be performed,  
   And the messages that are used to perform the operation.
 
@@ -133,6 +140,49 @@ The changes are the following:
 | Types         | Types         |
 
 ## Examples
+
+The main structure of a WSDL document looks like this:
+
+```xml
+<definitions>
+
+   <types>
+      data type definitions........
+   </types>
+
+   <message>
+      definition of the data being communicated....
+   </message>
+
+   <portType>
+      set of operations......
+   </portType>
+
+   <binding>
+      protocol and data format specification....
+   </binding>
+
+</definitions>
+```
+
+This is a simplified fraction of a WSDL document:
+
+```xml
+<message name="getTermRequest">
+  <part name="term" type="xs:string"/>
+</message>
+
+<message name="getTermResponse">
+  <part name="value" type="xs:string"/>
+</message>
+
+<portType name="glossaryTerms">
+  <operation name="getTerm">
+    <input message="getTermRequest"/>
+    <output message="getTermResponse"/>
+  </operation>
+</portType>
+```
 
 A WSDL 2.0 example:
 
