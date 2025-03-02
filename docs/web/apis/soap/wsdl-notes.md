@@ -32,6 +32,33 @@ In this way, WSDL describes the public interface to the Web service.
 
 ## WSDL Structure
 
+A WSDL Document follows a specific structure,  
+Consisting of six main sections:
+
+- **Types**
+
+  Defines Data Types
+
+- **Message**
+
+  Defines Messages
+
+- **PortType**
+
+  Defines Operations
+
+- **Binding**
+
+  Defines Protocol & Format
+
+- **Service**
+
+  Defines Service Location
+
+- **Definitions**
+
+  Root Element
+
 The main structure of a WSDL document looks like this:
 
 ```xml
@@ -94,3 +121,97 @@ Notification The operation can send a message but will not wait for a response
 
 WSDL One-Way Operation
 A one-way operation example:
+
+## Structure of a WSDL File
+
+### Definitions (Root Element)
+
+The `<definitions>` element is the root of a WSDL document.  
+It contains the namespace and the service name.
+
+```xml
+<definitions name="MyService"
+             targetNamespace="http://example.com/service"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://example.com/service"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+```
+
+📌 Key Attributes:
+
+targetNamespace → Unique identifier for the service
+
+xmlns attributes → Define XML namespaces
+
+### Types (Defines Data Types)
+
+This section defines the data types used in the messages.  
+It typically contains an **XML Schema (XSD)**.
+
+```xml
+<types>
+  <xsd:schema targetNamespace="http://example.com/service">
+    <xsd:complexType name="User">
+      <xsd:sequence>
+        <xsd:element name="Name" type="xsd:string"/>
+        <xsd:element name="Age" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:schema>
+</types>
+```
+
+📌 What’s Inside?
+
+- Defines complex types (User)
+- Defines primitive types (string, int, etc.)
+- Used to structure messages and operations
+
+### Message
+
+A message is a set of parameters exchanged in a web service call.
+
+```xml
+<message name="GetUserRequest">
+  <part name="Body" element="tns:GetUser"/>
+</message>
+
+<message name="GetUserResponse">
+  <part name="Body" element="tns:User"/>
+</message>
+```
+
+📌 What’s Inside?
+
+- Each message has one or more `part` elements
+- A part refers to an element in `<types>`
+
+💡 Example:
+
+- GetUserRequest contains GetUser (which is mapped to User)
+- GetUserResponse returns User data
+
+### PortType
+
+This section defines what operations the service provides.
+
+```xml
+<portType name="UserServicePort">
+  <operation name="GetUser">
+    <input message="tns:GetUserRequest"/>
+    <output message="tns:GetUserResponse"/>
+  </operation>
+</portType>
+```
+
+📌 What’s Inside?
+
+- A `<portType>` contains multiple `<operation>` elements
+- Each `<operation>` has:
+  - `<input>` → Defines request message
+  - `<output>` → Defines response message
+
+💡 Example:
+
+The operation `GetUser` takes a `GetUserRequest` and returns `GetUserResponse`.
