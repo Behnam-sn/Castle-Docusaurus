@@ -73,61 +73,139 @@ The changes are the following:
 However support for this specification is still poor in software development kits for web services,  
 Which often offer tools only for WSDL 1.1.
 
-## Building Blocks
+## WSDL Structure
 
-- ### Service
+A WSDL Document follows a specific structure,  
+Consisting of 6 main sections:
 
-  Contains a set of system functions that have been exposed to the Web-based protocols.
+### Definitions
 
-- ### Port
+The `<definitions>` element is the **root of a WSDL document**.  
+It contains the namespace and the service name.
 
-  Defines the address or connection point to a web service.  
-  It is typically represented by a simple HTTP URL string.
+```xml
+<definitions name="MyService"
+             targetNamespace="http://example.com/service"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://example.com/service"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+```
 
-- ### Binding
+Key Attributes:
 
-  Specifies the interface and defines the SOAP binding style (RPC/Document) and transport (SOAP Protocol).  
-  The binding section also defines the operations.
+- `targetNamespace`
 
-- ### PortType
+  Unique identifier for the service
 
-  Defines a web service,  
-  The operations that can be performed,  
-  And the messages that are used to perform the operation.
+- `xmlns` attributes
 
-- ### Operation
+  Define XML namespaces
 
-  Defines the SOAP actions and the way the message is encoded,  
-  For example: "literal"
+### Types
 
-  An operation is like a method or function call in a traditional programming language.
+This section **defines the data types** used in the messages.  
+It typically contains an **XML Schema (XSD)**.
 
-- ### Message
+```xml
+<types>
+  <xsd:schema targetNamespace="http://example.com/service">
+    <xsd:complexType name="User">
+      <xsd:sequence>
+        <xsd:element name="Name" type="xsd:string"/>
+        <xsd:element name="Age" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:schema>
+</types>
+```
 
-  Typically, a message corresponds to an operation.  
-  The message contains the information needed to perform the operation.
+### Message
 
-  Each message is made up of one or more logical parts.  
-  Each part is associated with a message-typing attribute.
+A `message` is a set of parameters exchanged in a web service call.
 
-  The message name attribute provides a unique name among all messages.  
-  The part name attribute provides a unique name among all the parts of the enclosing message.
+Each `message` has one or more `part` elements.  
+A `part` refers to an element in `<types>`.
 
-  Parts are a description of the logical content of a message.  
-  In RPC binding, a binding may reference the name of a part in order to specify binding-specific information about the part.  
-  A part may represent a parameter in the message;  
-  The bindings define the actual meaning of the part.
+```xml
+<message name="GetUserRequest">
+  <part name="Body" element="tns:GetUser"/>
+</message>
 
-  Messages were removed in WSDL 2.0,  
-  In which XML schema types for defining bodies of inputs,  
-  Outputs and faults are referred to simply and directly.
+<message name="GetUserResponse">
+  <part name="Body" element="tns:User"/>
+</message>
+```
 
-- ### Types
+### PortType
 
-  Describes the data.  
-  The XML Schema language (also known as XSD) is used (inline or referenced) for this purpose.
+This section defines what **operations** the service provides.
 
-### Terms
+A `<portType>` contains multiple `<operation>` elements.  
+Each `<operation>` has:
+
+- `<input>`
+
+  Defines request message
+
+- `<output>`
+
+  Defines response message
+
+```xml
+<portType name="UserServicePort">
+  <operation name="GetUser">
+    <input message="tns:GetUserRequest"/>
+    <output message="tns:GetUserResponse"/>
+  </operation>
+</portType>
+```
+
+### Binding
+
+The `<binding>` section specifies:
+
+- Which `portType` it binds to.
+- Which communication protocol (e.g., SOAP, HTTP).
+- How messages are encoded.
+
+```xml
+<binding name="UserServiceBinding" type="tns:UserServicePort">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+  <operation name="GetUser">
+    <soap:operation soapAction="http://example.com/GetUser"/>
+
+    <input>
+      <soap:body use="literal"/>
+    </input>
+
+    <output>
+      <soap:body use="literal"/>
+    </output>
+  </operation>
+</binding>
+```
+
+### Service
+
+This section specifies where the service is hosted.
+
+The `<service>` element contains one or more `<port>` elements.  
+Each `<port>` has a binding and an endpoint URL.
+
+```xml
+<service name="UserService">
+  <port name="UserServicePort" binding="tns:UserServiceBinding">
+    <soap:address location="http://example.com/service"/>
+  </port>
+</service>
+```
+
+For example:  
+The `UserService` is available at `http://example.com/service`.
+
+### Terms Difference
 
 | WSDL 1.1 Term | WSDL 2.0 Term |
 | ------------- | ------------- |
@@ -144,44 +222,64 @@ Which often offer tools only for WSDL 1.1.
 The main structure of a WSDL document looks like this:
 
 ```xml
-<definitions>
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="UserService"
+             targetNamespace="http://example.com/service"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://example.com/service"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
 
-   <types>
-      data type definitions........
-   </types>
+  <types>
+    <xsd:schema targetNamespace="http://example.com/service">
+      <xsd:complexType name="User">
+        <xsd:sequence>
+          <xsd:element name="Name" type="xsd:string"/>
+          <xsd:element name="Age" type="xsd:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
 
-   <message>
-      definition of the data being communicated....
-   </message>
+      <xsd:element name="GetUser" type="xsd:string"/>
+      <xsd:element name="User" type="tns:User"/>
+    </xsd:schema>
+  </types>
 
-   <portType>
-      set of operations......
-   </portType>
+  <message name="GetUserRequest">
+    <part name="Body" element="tns:GetUser"/>
+  </message>
 
-   <binding>
-      protocol and data format specification....
-   </binding>
+  <message name="GetUserResponse">
+    <part name="Body" element="tns:User"/>
+  </message>
+
+  <portType name="UserServicePort">
+    <operation name="GetUser">
+      <input message="tns:GetUserRequest"/>
+      <output message="tns:GetUserResponse"/>
+    </operation>
+  </portType>
+
+  <binding name="UserServiceBinding" type="tns:UserServicePort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+    <operation name="GetUser">
+      <soap:operation soapAction="http://example.com/GetUser"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="UserService">
+    <port name="UserServicePort" binding="tns:UserServiceBinding">
+      <soap:address location="http://example.com/service"/>
+    </port>
+  </service>
 
 </definitions>
-```
-
-This is a simplified fraction of a WSDL document:
-
-```xml
-<message name="getTermRequest">
-  <part name="term" type="xs:string"/>
-</message>
-
-<message name="getTermResponse">
-  <part name="value" type="xs:string"/>
-</message>
-
-<portType name="glossaryTerms">
-  <operation name="getTerm">
-    <input message="getTermRequest"/>
-    <output message="getTermResponse"/>
-  </operation>
-</portType>
 ```
 
 A WSDL 2.0 example:
@@ -247,3 +345,4 @@ A WSDL 2.0 example:
 ## References
 
 - [en.wikipedia.org/wiki/Web_Services_Description_Language](https://en.wikipedia.org/wiki/Web_Services_Description_Language)
+- [https://www.w3schools.com/Xml/xml_wsdl.asp](https://www.w3schools.com/Xml/xml_wsdl.asp)
