@@ -6,6 +6,10 @@ The Web Services Description Language (WSDL),
 Is an XML-based interface description language,  
 That is used for describing the functionality offered by a web service.
 
+WSDL provides a machine-readable description of how the service can be called,  
+What parameters it expects,  
+And what data structures it returns.
+
 WSDL is often used in combination with SOAP and an XML Schema,  
 To provide web services over the Internet.
 
@@ -161,6 +165,9 @@ Each `<operation>` has:
 </portType>
 ```
 
+The abstract definitions of `portTypes` and `messages` are separated from their concrete use or instance,  
+Allowing the reuse of these definitions.
+
 ### Binding
 
 The `<binding>` section specifies:
@@ -202,6 +209,7 @@ Each `<port>` has a binding and an endpoint URL.
 </service>
 ```
 
+A `port` is defined by associating a network address with a reusable `binding`.  
 For example:  
 The `UserService` is available at `http://example.com/service`.
 
@@ -345,4 +353,10 @@ A WSDL 2.0 example:
 ## References
 
 - [en.wikipedia.org/wiki/Web_Services_Description_Language](https://en.wikipedia.org/wiki/Web_Services_Description_Language)
-- [https://www.w3schools.com/Xml/xml_wsdl.asp](https://www.w3schools.com/Xml/xml_wsdl.asp)
+- [w3schools.com/Xml/xml_wsdl.asp](https://www.w3schools.com/Xml/xml_wsdl.asp)
+
+## Read More
+
+- [w3.org/TR/wsdl.html](https://www.w3.org/TR/wsdl.html)
+- [w3.org/TR/wsdl20/](https://www.w3.org/TR/wsdl20/)
+- [w3.org/TR/wsdl/](https://www.w3.org/TR/wsdl/)
