@@ -114,6 +114,12 @@ It typically contains an **XML Schema (XSD)**.
 ```xml
 <types>
   <xsd:schema targetNamespace="http://example.com/service">
+    <xsd:element name="GetUser">
+      <xsd:complexType>
+        <xsd:element name="id" type="xsd:int"/>
+      </xsd:complexType>
+    </xsd:element>
+
     <xsd:complexType name="User">
       <xsd:sequence>
         <xsd:element name="Name" type="xsd:string"/>
@@ -129,7 +135,7 @@ It typically contains an **XML Schema (XSD)**.
 A `message` is a set of parameters exchanged in a web service call.
 
 Each `message` has one or more `part` elements.  
-A `part` refers to an element in `<types>`.
+A `part` can refers to an `element` or a `complexType` in `<types>`.
 
 ```xml
 <message name="GetUserRequest">
@@ -137,7 +143,7 @@ A `part` refers to an element in `<types>`.
 </message>
 
 <message name="GetUserResponse">
-  <part name="Body" element="tns:User"/>
+  <part name="Body" type="tns:User"/>
 </message>
 ```
 
@@ -240,15 +246,18 @@ The main structure of a WSDL document looks like this:
 
   <types>
     <xsd:schema targetNamespace="http://example.com/service">
+      <xsd:element name="GetUser">
+        <xsd:complexType>
+          <xsd:element name="id" type="xsd:int"/>
+        </xsd:complexType>
+      </xsd:element>
+
       <xsd:complexType name="User">
         <xsd:sequence>
           <xsd:element name="Name" type="xsd:string"/>
           <xsd:element name="Age" type="xsd:int"/>
         </xsd:sequence>
       </xsd:complexType>
-
-      <xsd:element name="GetUser" type="xsd:string"/>
-      <xsd:element name="User" type="tns:User"/>
     </xsd:schema>
   </types>
 
@@ -257,7 +266,7 @@ The main structure of a WSDL document looks like this:
   </message>
 
   <message name="GetUserResponse">
-    <part name="Body" element="tns:User"/>
+    <part name="Body" type="tns:User"/>
   </message>
 
   <portType name="UserServicePort">
