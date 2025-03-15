@@ -2,6 +2,10 @@
 
 https://en.wikipedia.org/wiki/XML_Schema_(W3C)
 https://www.w3schools.com/xml/schema_intro.asp
+https://www.techtarget.com/whatis/definition/XSD-XML-Schema-Definition
+https://www.ibm.com/docs/en/iis/11.5?topic=types-xml-schema-definition-xsd-assets
+https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ms765537(v=vs.85)
+https://learn.microsoft.com/en-us/dotnet/standard/serialization/xml-schema-definition-tool-xsd-exe
 
 ## What
 
@@ -337,3 +341,181 @@ Good summaries of the criticisms are provided by James Clark, Anders Møller and
 - The set of XSD datatypes on offer is highly arbitrary.[10]
 
 - The two tasks of validation and augmentation (adding type information and default values) should be kept separate.
+
+## Elements
+
+### Schema
+
+The `<schema>` element is the root element of every XML Schema:
+
+<?xml version="1.0"?>
+
+```xml
+<xs:schema>
+...
+...
+</xs:schema>
+```
+
+The `<schema>` element may contain some attributes. A schema declaration often looks something like this:
+
+```xml
+<?xml version="1.0"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="https://www.w3schools.com"
+xmlns="https://www.w3schools.com"
+elementFormDefault="qualified">
+...
+...
+</xs:schema>
+```
+
+The following fragment:
+
+```xml
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+```
+
+indicates that the elements and data types used in the schema come from the `http://www.w3.org/2001/XMLSchema` namespace.
+
+It also specifies that the elements and data types that come from the `http://www.w3.org/2001/XMLSchema` namespace should be prefixed with xs:
+
+```xml
+targetNamespace="https://www.w3schools.com"
+```
+
+indicates that the elements defined by this schema (note, to, from, heading, body.) come from the "https://www.w3schools.com" namespace.
+
+This fragment:
+
+```xml
+xmlns="https://www.w3schools.com"
+```
+
+indicates that the default namespace is "https://www.w3schools.com".
+
+This fragment:
+
+```xml
+elementFormDefault="qualified"
+```
+
+indicates that any elements used by the XML instance document which were declared in this schema must be namespace qualified.
+
+### Simple Element
+
+#### What is a Simple Element?
+
+A simple element is an XML element that can contain only text.  
+It cannot contain any other elements or attributes.
+
+However, the "only text" restriction is quite misleading.  
+The text can be of many different types.  
+It can be one of the types included in the XML Schema definition (boolean, string, date, etc.),  
+Or it can be a custom type that you can define yourself.
+
+You can also add restrictions (facets) to a data type in order to limit its content,  
+Or you can require the data to match a specific pattern.
+
+#### Defining a Simple Element
+
+The syntax for defining a simple element is:
+
+```xml
+<xs:element name="xxx" type="yyy"/>
+```
+
+Where xxx is the name of the element and yyy is the data type of the element.
+
+Example:
+
+```xml
+<xs:element name="lastname" type="xs:string"/>
+<xs:element name="age" type="xs:integer"/>
+<xs:element name="dateborn" type="xs:date"/>
+```
+
+#### Default and Fixed Values for Simple Elements
+
+Simple elements may have a default value OR a fixed value specified.  
+A default value is automatically assigned to the element when no other value is specified.
+
+In the following example the default value is "red":
+
+```xml
+<xs:element name="color" type="xs:string" default="red"/>
+```
+
+A fixed value is also automatically assigned to the element, and you cannot specify another value.  
+In the following example the fixed value is "red":
+
+```xml
+<xs:element name="color" type="xs:string" fixed="red"/>
+```
+
+### Attributes
+
+#### What is an Attribute?
+
+Simple elements cannot have attributes.  
+If an element has attributes, it is considered to be of a complex type.  
+But the attribute itself is always declared as a simple type.
+
+#### How to Define an Attribute?
+
+The syntax for defining an attribute is:
+
+```xml
+<xs:attribute name="xxx" type="yyy"/>
+```
+
+Where xxx is the name of the attribute and yyy specifies the data type of the attribute.
+
+Example:
+
+```xml
+<xs:attribute name="lang" type="xs:string"/>
+```
+
+#### Default and Fixed Values for Attributes
+
+Attributes may have a default value OR a fixed value specified.  
+A default value is automatically assigned to the attribute when no other value is specified.
+
+In the following example the default value is "EN":
+
+```xml
+<xs:attribute name="lang" type="xs:string" default="EN"/>
+```
+
+A fixed value is also automatically assigned to the attribute,  
+And you cannot specify another value.
+
+In the following example the fixed value is "EN":
+
+```xml
+<xs:attribute name="lang" type="xs:string" fixed="EN"/>
+```
+
+#### Optional and Required Attributes
+
+Attributes are optional by default.  
+To specify that the attribute is required, use the "use" attribute:
+
+```xml
+<xs:attribute name="lang" type="xs:string" use="required"/>
+```
+
+#### Restrictions on Content
+
+When an XML element or attribute has a data type defined,  
+It puts restrictions on the element's or attribute's content.
+
+If an XML element is of type "xs:date"  
+And contains a string like "Hello World",  
+The element will not validate.
+
+With XML Schemas,  
+You can also add your own restrictions to your XML elements and attributes.  
+These restrictions are called facets.
