@@ -1,6 +1,7 @@
 # XSD Notes
 
 https://en.wikipedia.org/wiki/XML_Schema_(W3C)
+https://www.w3schools.com/xml/schema_intro.asp
 
 ## What
 
@@ -18,6 +19,39 @@ However, unlike most other schema languages,
 XSD was also designed with the intent that determination of a document's validity would produce a collection of information adhering to specific data types.
 
 Such a post-validation `infoset` can be useful in the development of XML document processing software.
+
+An XML Schema describes the structure of an XML document.
+
+The XML Schema language is also referred to as XML Schema Definition (XSD).
+
+The purpose of an XML Schema is to define the legal building blocks of an XML document:
+
+- The elements and attributes that can appear in a document
+- The number of (and order of) child elements
+- Data types for elements and attributes
+- Default and fixed values for elements and attributes
+
+## Example
+
+```xml
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="note">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="to" type="xs:string"/>
+        <xs:element name="from" type="xs:string"/>
+        <xs:element name="heading" type="xs:string"/>
+        <xs:element name="body" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+```
+
+## Why
 
 ## History
 
