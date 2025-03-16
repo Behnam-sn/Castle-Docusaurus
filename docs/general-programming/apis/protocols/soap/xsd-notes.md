@@ -1264,3 +1264,394 @@ The `<maxOccurs>` indicator specifies the maximum number of times an element can
 ```
 
 The example above indicates that the "child_name" element can occur a minimum of one time (the default value for minOccurs is 1) and a maximum of ten times in the "person" element.
+
+##### minOccurs Indicator
+
+The `<minOccurs>` indicator specifies the minimum number of times an element can occur:
+
+```xml
+<xs:element name="person">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="full_name" type="xs:string"/>
+      <xs:element name="child_name" type="xs:string"
+      maxOccurs="10" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+```
+
+The example above indicates that the "child_name" element can occur a minimum of zero times and a maximum of ten times in the "person" element.
+
+Tip: To allow an element to appear an unlimited number of times, use the maxOccurs="unbounded" statement:
+
+A working example:
+
+An XML file called "Myfamily.xml":
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persons xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="family.xsd">
+
+  <person>
+    <full_name>Hege Refsnes</full_name>
+    <child_name>Cecilie</child_name>
+  </person>
+
+  <person>
+    <full_name>Tove Refsnes</full_name>
+    <child_name>Hege</child_name>
+    <child_name>Stale</child_name>
+    <child_name>Jim</child_name>
+    <child_name>Borge</child_name>
+  </person>
+
+  <person>
+    <full_name>Stale Refsnes</full_name>
+  </person>
+
+</persons>
+```
+
+#### Group Indicators
+
+Group indicators are used to define related sets of elements.
+
+##### Element Groups
+
+Element groups are defined with the group declaration, like this:
+
+```xml
+<xs:group name="groupname">
+...
+</xs:group>
+```
+
+You must define an all, choice, or sequence element inside the group declaration.  
+The following example defines a group named "persongroup",  
+That defines a group of elements that must occur in an exact sequence:
+
+```xml
+<xs:group name="persongroup">
+  <xs:sequence>
+    <xs:element name="firstname" type="xs:string"/>
+    <xs:element name="lastname" type="xs:string"/>
+    <xs:element name="birthday" type="xs:date"/>
+  </xs:sequence>
+</xs:group>
+```
+
+After you have defined a group,  
+You can reference it in another definition,  
+Like this:
+
+```xml
+<xs:group name="persongroup">
+  <xs:sequence>
+    <xs:element name="firstname" type="xs:string"/>
+    <xs:element name="lastname" type="xs:string"/>
+    <xs:element name="birthday" type="xs:date"/>
+  </xs:sequence>
+</xs:group>
+
+<xs:element name="person" type="personinfo"/>
+
+<xs:complexType name="personinfo">
+  <xs:sequence>
+    <xs:group ref="persongroup"/>
+    <xs:element name="country" type="xs:string"/>
+  </xs:sequence>
+</xs:complexType>
+```
+
+##### Attribute Groups
+
+Attribute groups are defined with the attributeGroup declaration,  
+Like this:
+
+```xml
+<xs:attributeGroup name="groupname">
+...
+</xs:attributeGroup>
+```
+
+The following example defines an attribute group named "personattrgroup":
+
+```xml
+<xs:attributeGroup name="personattrgroup">
+  <xs:attribute name="firstname" type="xs:string"/>
+  <xs:attribute name="lastname" type="xs:string"/>
+  <xs:attribute name="birthday" type="xs:date"/>
+</xs:attributeGroup>
+```
+
+After you have defined an attribute group,  
+You can reference it in another definition,  
+Like this:
+
+```xml
+<xs:attributeGroup name="personattrgroup">
+  <xs:attribute name="firstname" type="xs:string"/>
+  <xs:attribute name="lastname" type="xs:string"/>
+  <xs:attribute name="birthday" type="xs:date"/>
+</xs:attributeGroup>
+
+<xs:element name="person">
+  <xs:complexType>
+    <xs:attributeGroup ref="personattrgroup"/>
+  </xs:complexType>
+</xs:element>
+```
+
+### any
+
+The `<any>` element enables us to extend the XML document with elements not specified by the schema.
+
+The following example is a fragment from an XML schema called "family.xsd".  
+It shows a declaration for the "person" element.  
+By using the `<any>` element we can extend (after `<lastname>`) the content of "person" with any element:
+
+```xml
+<xs:element name="person">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="firstname" type="xs:string"/>
+      <xs:element name="lastname" type="xs:string"/>
+      <xs:any minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+```
+
+Now we want to extend the "person" element with a "children" element.  
+In this case we can do so,  
+Even if the author of the schema above never declared any "children" element.
+
+Look at this schema file, called "children.xsd":
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="https://www.w3schools.com"
+xmlns="https://www.w3schools.com"
+elementFormDefault="qualified">
+
+<xs:element name="children">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="childname" type="xs:string"
+      maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>
+```
+
+The XML file below (called "Myfamily.xml"),  
+Uses components from two different schemas;  
+"family.xsd" and "children.xsd":
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persons xmlns="http://www.microsoft.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.microsoft.com family.xsd
+https://www.w3schools.com children.xsd">
+
+  <person>
+    <firstname>Hege</firstname>
+    <lastname>Refsnes</lastname>
+    <children>
+      <childname>Cecilie</childname>
+    </children>
+  </person>
+
+  <person>
+    <firstname>Stale</firstname>
+    <lastname>Refsnes</lastname>
+  </person>
+
+</persons>
+```
+
+The XML file above is valid because the schema "family.xsd" allows us to extend the "person" element with an optional element after the "lastname" element.
+
+The `<any>` and `<anyAttribute>` elements are used to make EXTENSIBLE documents!  
+They allow documents to contain additional elements that are not declared in the main XML schema.
+
+#### anyAttribute
+
+The `<anyAttribute>` element enables us to extend the XML document with attributes not specified by the schema.
+
+The following example is a fragment from an XML schema called "family.xsd".  
+It shows a declaration for the "person" element.  
+By using the `<anyAttribute>` element we can add any number of attributes to the "person" element:
+
+```xml
+<xs:element name="person">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="firstname" type="xs:string"/>
+      <xs:element name="lastname" type="xs:string"/>
+    </xs:sequence>
+    <xs:anyAttribute/>
+  </xs:complexType>
+</xs:element>
+```
+
+Now we want to extend the "person" element with a "eyecolor" attribute.  
+In this case we can do so, even if the author of the schema above never declared any "eyecolor" attribute.
+
+Look at this schema file, called "attribute.xsd":
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="https://www.w3schools.com"
+xmlns="https://www.w3schools.com"
+elementFormDefault="qualified">
+
+<xs:attribute name="eyecolor">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="blue|brown|green|grey"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:attribute>
+
+</xs:schema>
+```
+
+The XML file below (called "Myfamily.xml"),  
+Uses components from two different schemas;  
+"family.xsd" and "attribute.xsd":
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persons xmlns="http://www.microsoft.com"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:SchemaLocation="http://www.microsoft.com family.xsd
+  https://www.w3schools.com attribute.xsd">
+
+  <person eyecolor="green">
+    <firstname>Hege</firstname>
+    <lastname>Refsnes</lastname>
+  </person>
+
+  <person eyecolor="blue">
+    <firstname>Stale</firstname>
+    <lastname>Refsnes</lastname>
+  </person>
+
+</persons>
+```
+
+The XML file above is valid because the schema "family.xsd" allows us to add an attribute to the "person" element.
+
+The `<any>` and `<anyAttribute>` elements are used to make EXTENSIBLE documents!  
+They allow documents to contain additional elements that are not declared in the main XML schema.
+
+#### Substitution
+
+With XML Schemas, one element can substitute another element.
+
+Let's say that we have users from two different countries: England and Norway.  
+We would like the ability to let the user choose whether he or she would like to use the Norwegian element names or the English element names in the XML document.
+
+To solve this problem, we could define a substitutionGroup in the XML schema.  
+First, we declare a head element and then we declare the other elements which state that they are substitutable for the head element.
+
+```xml
+<xs:element name="name" type="xs:string"/>
+<xs:element name="navn" substitutionGroup="name"/>
+```
+
+In the example above, the "name" element is the head element and the "navn" element is substitutable for "name".  
+Look at this fragment of an XML schema:
+
+```xml
+<xs:element name="name" type="xs:string"/>
+<xs:element name="navn" substitutionGroup="name"/>
+
+<xs:complexType name="custinfo">
+  <xs:sequence>
+    <xs:element ref="name"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:element name="customer" type="custinfo"/>
+<xs:element name="kunde" substitutionGroup="customer"/>
+```
+
+A valid XML document (according to the schema above) could look like this:
+
+```xml
+<customer>
+  <name>John Smith</name>
+</customer>
+```
+
+or like this:
+
+```xml
+<kunde>
+  <navn>John Smith</navn>
+</kunde>
+```
+
+##### Blocking Element Substitution
+
+To prevent other elements from substituting with a specified element, use the block attribute:
+
+```xml
+<xs:element name="name" type="xs:string" block="substitution"/>
+```
+
+Look at this fragment of an XML schema:
+
+```xml
+<xs:element name="name" type="xs:string" block="substitution"/>
+<xs:element name="navn" substitutionGroup="name"/>
+
+<xs:complexType name="custinfo">
+  <xs:sequence>
+    <xs:element ref="name"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:element name="customer" type="custinfo" block="substitution"/>
+<xs:element name="kunde" substitutionGroup="customer"/>
+```
+
+A valid XML document (according to the schema above) looks like this:
+
+```xml
+<customer>
+  <name>John Smith</name>
+</customer>
+```
+
+BUT THIS IS NO LONGER VALID:
+
+```xml
+<kunde>
+  <navn>John Smith</navn>
+</kunde>
+```
+
+##### Using substitutionGroup
+
+The type of the substitutable elements must be the same as, or derived from, the type of the head element.  
+If the type of the substitutable element is the same as the type of the head element you will not have to specify the type of the substitutable element.
+
+Note that all elements in the substitutionGroup (the head element and the substitutable elements) must be declared as global elements, otherwise it will not work!
+
+##### What are Global Elements?
+
+Global elements are elements that are immediate children of the "schema" element!  
+Local elements are elements nested within other elements.
