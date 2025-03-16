@@ -987,3 +987,280 @@ And let the "product" element have a type attribute that refers to the name of t
   <xs:attribute name="prodid" type="xs:positiveInteger"/>
 </xs:complexType>
 ```
+
+### Elements Only
+
+#### Complex Types Containing Elements Only
+
+An "elements-only" complex type contains an element that contains only other elements.
+
+An XML element, "person", that contains only other elements:
+
+```xml
+<person>
+  <firstname>John</firstname>
+  <lastname>Smith</lastname>
+</person>
+```
+
+You can define the "person" element in a schema, like this:
+
+```xml
+<xs:element name="person">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="firstname" type="xs:string"/>
+      <xs:element name="lastname" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+```
+
+Notice the `<xs:sequence>` tag.  
+It means that the elements defined ("firstname" and "lastname") must appear in that order inside a "person" element.
+
+Or you can give the complexType element a name,  
+And let the "person" element have a type attribute that refers to the name of the complexType  
+(if you use this method, several elements can refer to the same complex type):
+
+```xml
+<xs:element name="person" type="persontype"/>
+
+<xs:complexType name="persontype">
+  <xs:sequence>
+    <xs:element name="firstname" type="xs:string"/>
+    <xs:element name="lastname" type="xs:string"/>
+  </xs:sequence>
+</xs:complexType>
+```
+
+### Text-Only Elements
+
+#### What
+
+A complex text-only element can contain text and attributes.
+
+This type contains only simple content (text and attributes),  
+Therefore we add a simpleContent element around the content.
+
+When using simple content,  
+You must define an extension OR a restriction within the simpleContent element, like this:
+
+```xml
+<xs:element name="somename">
+  <xs:complexType>
+    <xs:simpleContent>
+      <xs:extension base="basetype">
+        ....
+        ....
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:element>
+```
+
+OR
+
+```xml
+<xs:element name="somename">
+  <xs:complexType>
+    <xs:simpleContent>
+      <xs:restriction base="basetype">
+        ....
+        ....
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:element>
+```
+
+:::tip
+Use the extension/restriction element to expand or to limit the base simple type for the element.
+:::
+
+Here is an example of an XML element, "shoesize", that contains text-only:
+
+```xml
+<shoesize country="france">35</shoesize>
+```
+
+The following example declares a complexType, "shoesize".  
+The content is defined as an integer value, and the "shoesize" element also contains an attribute named "country":
+
+```xml
+<xs:element name="shoesize">
+  <xs:complexType>
+    <xs:simpleContent>
+      <xs:extension base="xs:integer">
+        <xs:attribute name="country" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:element>
+```
+
+We could also give the complexType element a name,  
+And let the "shoesize" element have a type attribute that refers to the name of the complexType  
+(if you use this method, several elements can refer to the same complex type):
+
+```xml
+<xs:element name="shoesize" type="shoetype"/>
+
+<xs:complexType name="shoetype">
+  <xs:simpleContent>
+    <xs:extension base="xs:integer">
+      <xs:attribute name="country" type="xs:string" />
+    </xs:extension>
+  </xs:simpleContent>
+</xs:complexType>
+```
+
+### Mixed Content
+
+#### Complex Types with Mixed Content
+
+A mixed complex type element can contain attributes, elements, and text.
+
+An XML element, "letter", that contains both text and other elements:
+
+```xml
+<letter>
+  Dear Mr. <name>John Smith</name>.
+  Your order <orderid>1032</orderid>
+  will be shipped on <shipdate>2001-07-13</shipdate>.
+</letter>
+```
+
+The following schema declares the "letter" element:
+
+```xml
+<xs:element name="letter">
+  <xs:complexType mixed="true">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="orderid" type="xs:positiveInteger"/>
+      <xs:element name="shipdate" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+```
+
+:::note
+To enable character data to appear between the child-elements of "letter", the mixed attribute must be set to "true".  
+The `<xs:sequence>` tag means that the elements defined (name, orderid and shipdate) must appear in that order inside a "letter" element.
+:::
+
+We could also give the complexType element a name, and let the "letter" element have a type attribute that refers to the name of the complexType (if you use this method, several elements can refer to the same complex type):
+
+```xml
+<xs:element name="letter" type="lettertype"/>
+
+<xs:complexType name="lettertype" mixed="true">
+  <xs:sequence>
+    <xs:element name="name" type="xs:string"/>
+    <xs:element name="orderid" type="xs:positiveInteger"/>
+    <xs:element name="shipdate" type="xs:date"/>
+  </xs:sequence>
+</xs:complexType>
+```
+
+### Indicators
+
+We can control HOW elements are to be used in documents with indicators.
+
+There are 7 indicators:
+
+Order indicators:
+
+- All
+- Choice
+- Sequence
+
+Occurrence indicators:
+
+- maxOccurs
+- minOccurs
+
+Group indicators:
+
+- Group name
+- attributeGroup name
+
+#### Order Indicators
+
+Order indicators are used to define the order of the elements.
+
+##### All Indicator
+
+The `<all>` indicator specifies that the child elements can appear in any order,  
+And that each child element must occur only once:
+
+```xml
+<xs:element name="person">
+  <xs:complexType>
+    <xs:all>
+      <xs:element name="firstname" type="xs:string"/>
+      <xs:element name="lastname" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+</xs:element>
+```
+
+:::note
+When using the `<all>` indicator you can set the `<minOccurs>` indicator to 0 or 1 and the `<maxOccurs>` indicator can only be set to 1 (the `<minOccurs>` and `<maxOccurs>` are described later).
+:::
+
+##### Choice Indicator
+
+The `<choice>` indicator specifies that either one child element or another can occur:
+
+```xml
+<xs:element name="person">
+  <xs:complexType>
+    <xs:choice>
+      <xs:element name="employee" type="employee"/>
+      <xs:element name="member" type="member"/>
+    </xs:choice>
+  </xs:complexType>
+</xs:element>
+```
+
+##### Sequence Indicator
+
+The `<sequence>` indicator specifies that the child elements must appear in a specific order:
+
+```xml
+<xs:element name="person">
+   <xs:complexType>
+    <xs:sequence>
+      <xs:element name="firstName" type="xs:string"/>
+      <xs:element name="lastName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+```
+
+#### Occurrence Indicators
+
+Occurrence indicators are used to define how often an element can occur.
+
+:::note
+For all "Order" and "Group" indicators (any, all, choice, sequence, group name, and group reference) the default value for maxOccurs and minOccurs is 1.
+:::
+
+##### maxOccurs Indicator
+
+The `<maxOccurs>` indicator specifies the maximum number of times an element can occur:
+
+```xml
+<xs:element name="person">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="full_name" type="xs:string"/>
+      <xs:element name="child_name" type="xs:string" maxOccurs="10"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+```
+
+The example above indicates that the "child_name" element can occur a minimum of one time (the default value for minOccurs is 1) and a maximum of ten times in the "person" element.
