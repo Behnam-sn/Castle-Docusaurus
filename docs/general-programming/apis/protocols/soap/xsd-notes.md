@@ -11,6 +11,18 @@ It is primarily used to define the elements, attributes and data types the docum
 
 The information in the XSD is used to verify if each element, attribute or data type in the document matches its description.
 
+An XSD is similar to earlier XML schema languages,  
+Such as Document Type Definition (DTD),  
+But it is a more powerful alternative as it provides greater control over the XML structure.
+
+### XML schema details
+
+In general, a schema is an abstract representation of an object's characteristics and relationship to other objects in a document.
+
+An XML schema represents the relationships between the attributes and elements of an XML object.
+
+The process of creating a schema involves analyzing the document's structure and defining each structural element encountered. For example, a schema for a document describing a website would define a website element, a webpage element and other elements that describe possible content divisions within any page on that site. These elements are defined within a set of tags in HTML and also in XML.
+
 ## Features
 
 The purpose of an XML Schema is to define the legal building blocks of an XML document:
