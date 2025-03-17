@@ -1,7 +1,5 @@
 # XSD Notes
 
-https://en.wikipedia.org/wiki/XML_Schema_(W3C)
-https://www.w3schools.com/xml/schema_intro.asp
 https://www.techtarget.com/whatis/definition/XSD-XML-Schema-Definition
 https://www.ibm.com/docs/en/iis/11.5?topic=types-xml-schema-definition-xsd-assets
 https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ms765537(v=vs.85)
@@ -9,24 +7,11 @@ https://learn.microsoft.com/en-us/dotnet/standard/serialization/xml-schema-defin
 
 ## What
 
-XSD (XML Schema Definition), specifies how to formally describe the elements in an Extensible Markup Language (XML) document.
+It is primarily used to define the elements, attributes and data types the document can contain.
 
-It can be used by programmers to verify each piece of item content in a document,  
-To assure it adheres to the description of the element it is placed in.
+The information in the XSD is used to verify if each element, attribute or data type in the document matches its description.
 
-XSD is a recommendation of the World Wide Web Consortium (W3C).
-
-Like all XML schema languages,  
-XSD can be used to express a set of rules to which an XML document must conform to be considered "valid" according to that schema.
-
-However, unlike most other schema languages,  
-XSD was also designed with the intent that determination of a document's validity would produce a collection of information adhering to specific data types.
-
-Such a post-validation `infoset` can be useful in the development of XML document processing software.
-
-An XML Schema describes the structure of an XML document.
-
-The XML Schema language is also referred to as XML Schema Definition (XSD).
+## Features
 
 The purpose of an XML Schema is to define the legal building blocks of an XML document:
 
@@ -35,27 +20,21 @@ The purpose of an XML Schema is to define the legal building blocks of an XML do
 - Data types for elements and attributes
 - Default and fixed values for elements and attributes
 
-## Example
+### Automation
 
-```xml
-<?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+It can be used by programmers to verify each piece of item content in a document,  
+To assure it adheres to the description of the element it is placed in.
 
-  <xs:element name="note">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="to" type="xs:string"/>
-        <xs:element name="from" type="xs:string"/>
-        <xs:element name="heading" type="xs:string"/>
-        <xs:element name="body" type="xs:string"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+### Log
 
-</xs:schema>
-```
+Like all XML schema languages,  
+XSD can be used to express a set of rules,  
+To which an XML document must conform to be considered **valid** according to that schema.
 
-## Why
+However, unlike most other schema languages,  
+XSD was also designed with the intent that determination of a document's validity would produce a collection of information adhering to specific data types.
+
+Such a post-validation infoset can be useful in the development of XML document processing software.
 
 ## History
 
@@ -348,9 +327,8 @@ Good summaries of the criticisms are provided by James Clark, Anders Møller and
 
 The `<schema>` element is the root element of every XML Schema:
 
-<?xml version="1.0"?>
-
 ```xml
+<?xml version="1.0"?>
 <xs:schema>
 ...
 ...
