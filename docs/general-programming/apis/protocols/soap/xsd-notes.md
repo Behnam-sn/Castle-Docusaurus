@@ -21,7 +21,11 @@ In general, a schema is an abstract representation of an object's characteristic
 
 An XML schema represents the relationships between the attributes and elements of an XML object.
 
-The process of creating a schema involves analyzing the document's structure and defining each structural element encountered. For example, a schema for a document describing a website would define a website element, a webpage element and other elements that describe possible content divisions within any page on that site. These elements are defined within a set of tags in HTML and also in XML.
+The process of creating a schema involves analyzing the document's structure and defining each structural element encountered.
+
+For example, a schema for a document describing a website would define a website element,  
+A webpage element and other elements that describe possible content divisions within any page on that site.  
+These elements are defined within a set of tags in HTML and also in XML.
 
 ## Features
 
