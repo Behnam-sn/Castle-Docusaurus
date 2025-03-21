@@ -1,52 +1,102 @@
 # Tracer Bullets
 
-We often talk about hitting targets when we develop software.
-We’re not actually firing anything at the shooting range, but it’s still a useful and very visual metaphor.
-In particular, it’s interesting to consider how to hit a target in a complex and shifting world.
+## What are Tracer Bullets?
 
-The answer, of course, depends on the nature of the device you’re aiming with.
-With many you only get one chance to aim, and then get to see if you hit the bullseye or not.
+We often talk about hitting targets when we develop software.  
+We’re not actually firing anything at the shooting range,  
+But it’s still a useful and very visual metaphor.
+
+In particular,  
+It’s interesting to consider how to hit a target in a complex and shifting world.
+
+The answer, of course,  
+Depends on the nature of the device you’re aiming with.  
+With many you only get one chance to aim,  
+And then get to see if you hit the bullseye or not.
+
 But there’s a better way.
 
-You know all those movies, TV shows, and video games where people are shooting machine guns?
-In these scenes, you’ll often see the path of bullets as bright streaks in the air.
+You know all those movies, TV shows, and video games where people are shooting machine guns?  
+In these scenes,  
+You’ll often see the path of bullets as bright streaks in the air.  
 These streaks come from tracer bullets.
 
-Tracer bullets are loaded at intervals alongside regular ammunition.
-When they’re fired, their phosphorus ignites and leaves a pyrotechnic trail from the gun to whatever they hit.
-If the tracers are hitting the target, then so are the regular bullets.
-Soldiers use these tracer rounds to refine their aim: it’s pragmatic, real-time feedback under actual conditions.
+Tracer bullets are loaded at intervals alongside regular ammunition.  
+When they’re fired,  
+Their phosphorus ignites and leaves a pyrotechnic trail from the gun to whatever they hit.
 
-That same principle applies to projects, particularly when you’re building something that hasn’t been built before.
-We use the term tracer bullet development to visually illustrate the need for immediate feedback under actual conditions with a moving goal.
+If the tracers are hitting the target,  
+Then so are the regular bullets.
 
-Like the gunners, you’re trying to hit a target in the dark.
-Because your users have never seen a system like this before, their requirements may be vague.
-Because you may be using algorithms, techniques, languages, or libraries you aren’t familiar with, you face a large number of unknowns.
-And because projects take time to complete, you can pretty much guarantee the environment you’re working in will change before you’re done.
+Soldiers use these tracer rounds to refine their aim:  
+It’s pragmatic, real-time feedback, under actual conditions.
 
-The classic response is to specify the system to death.
-Produce reams of paper itemizing every requirement, tying down every unknown, and constraining the environment.
-Fire the gun using dead reckoning.
-One big calculation up front, then shoot and hope.
+That same principle applies to projects,  
+Particularly when you’re building something that hasn’t been built before.
 
-Pragmatic Programmers, however, tend to prefer using the software equivalent of tracer bullets.
+We use the term tracer bullet development,  
+To visually illustrate the need for immediate feedback,  
+Under actual conditions with a moving goal.
+
+Like the gunners,  
+You’re trying to hit a target in the dark.
+
+Because your users have never seen a system like this before,  
+Their requirements may be vague.
+
+Because you may be using algorithms, techniques, languages, or libraries you aren’t familiar with,  
+You face a large number of unknowns.
+
+And because projects take time to complete,  
+You can pretty much guarantee the environment you’re working in will change before you’re done.
+
+The classic response is to specify the system to death.  
+Produce reams of paper itemizing every requirement,  
+Tying down every unknown,  
+And constraining the environment.
+
+Fire the gun using dead reckoning.  
+One big calculation up front,  
+Then shoot and hope.
+
+Pragmatic Programmers, however,  
+Tend to prefer using the software equivalent of tracer bullets.
 
 ## Code That Glows in the Dark
 
-Tracer bullets work because they operate in the same environment and under the same constraints as the real bullets.
-They get to the target fast, so the gunner gets immediate feedback.
+Tracer bullets work,  
+Because they operate in the same environment,  
+And under the same constraints as the real bullets.
+
+They get to the target fast,  
+So the gunner gets immediate feedback.  
 And from a practical standpoint they’re a relatively cheap solution.
 
-To get the same effect in code, we look for something that gets us from a requirement to some aspect of the final system quickly, visibly, and repeatably.
+To get the same effect in code,  
+We look for something that gets us from a requirement to some aspect of the final system quickly, visibly, and repeatably.
 
-Look for the important requirements, the ones that define the system.
-Look for the areas where you have doubts, and where you see the biggest risks.
+Look for the important requirements,  
+The ones that define the system.
+
+Look for the areas where you have doubts,  
+And where you see the biggest risks.
+
 Then prioritize your development so that these are the first areas you code.
 
-In fact, given the complexity of today’s project setup, with swarms of external dependencies and tools, tracer bullets become even more important.
-For us, the very first tracer bullet is simply create the project, add a “hello world!,” and make sure it compiles and runs.
-Then we look for areas of uncertainty in the overall application and add the skeleton needed to make it work.
+:::note
+In fact,  
+Given the complexity of today’s project setup,  
+With swarms of external dependencies and tools,  
+Tracer bullets become even more important.
+:::
+
+For us,  
+The very first tracer bullet is simply create the project,  
+Add a “hello world!”,  
+And make sure it compiles and runs.
+
+Then we look for areas of uncertainty in the overall application,  
+And add the skeleton needed to make it work.
 
 Have a look at the following diagram. This system has five architectural layers.
 We have some concerns about how they’d integrate, so we look for a simple feature that lets us exercise them together.
