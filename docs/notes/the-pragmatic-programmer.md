@@ -47,6 +47,7 @@
 ### Pragmatic Paranoia
 
 1. You Can’t Write Perfect Software
+1. Design with Contracts
 
 ## Quotes
 
