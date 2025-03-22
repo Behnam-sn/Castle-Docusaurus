@@ -30,6 +30,20 @@
 1. Estimate to Avoid Surprises
 1. Iterate the Schedule with the Code
 
+### The Basic Tools
+
+1. Keep Knowledge in Plain Text
+1. Use the Power of Command Shells
+1. Achieve Editor Fluency
+1. Always Use Version Control
+1. Fix the Problem, Not the Blame
+1. Don’t Panic
+1. Failing Test Before Fixing Code
+1. Read the Damn Error Message
+1. “select” Isn’t Broken
+1. Don’t Assume It—Prove It
+1. Learn a Text Manipulation Language
+
 ## Quotes
 
 Programming is a craft.  
