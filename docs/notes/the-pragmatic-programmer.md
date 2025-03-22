@@ -44,6 +44,10 @@
 1. Don’t Assume It—Prove It
 1. Learn a Text Manipulation Language
 
+### Pragmatic Paranoia
+
+1. You Can’t Write Perfect Software
+
 ## Quotes
 
 Programming is a craft.  
