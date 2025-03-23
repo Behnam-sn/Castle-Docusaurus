@@ -48,6 +48,8 @@
 
 1. You Can’t Write Perfect Software
 1. Design with Contracts
+1. Crash Early
+1. Use Assertions to Prevent the Impossible
 
 ## Quotes
 
