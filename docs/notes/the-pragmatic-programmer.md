@@ -50,6 +50,10 @@
 1. Design with Contracts
 1. Crash Early
 1. Use Assertions to Prevent the Impossible
+1. Finish What You Start
+1. Act Locally
+1. Take Small Steps—Always
+1. Avoid Fortune-Telling
 
 ## Quotes
 
