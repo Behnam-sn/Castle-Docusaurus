@@ -54,6 +54,23 @@
 1. Act Locally
 1. Take Small Steps—Always
 1. Avoid Fortune-Telling
+1. Decoupled Code Is Easier to Change
+1. Tell, Don’t Ask
+1. Don’t Chain Method Calls
+1. Avoid Global Data
+1. If It’s Important Enough to Be Global, Wrap It in an API
+1. Programming Is About Code, But Programs Are About Data
+1. Don’t Hoard State; Pass It Around
+1. Don’t Pay Inheritance Tax
+1. Prefer Interfaces to Express Polymorphism
+1. Delegate to Services: Has-A Trumps Is-A
+1. Use Mixins to Share Functionality
+1. Parameterize Your App Using External Configuration
+
+## Topics I Want to Document
+
+- Bend, or Break
+  - Decoupling
 
 ## Quotes
 
