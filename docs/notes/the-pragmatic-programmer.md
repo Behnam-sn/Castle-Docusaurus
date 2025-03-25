@@ -78,6 +78,11 @@
 1. Use Actors For Concurrency Without Shared State
 1. Use Blackboards to Coordinate Workflow
 
+### While You Are Coding
+
+1. Listen to Your Inner Lizard
+1. Don’t Program by Coincidence
+
 ## Topics I Want to Document
 
 - Bend, or Break
@@ -87,8 +92,13 @@
   - Configuration
 
 - Concurrency
+
   - Breaking Temporal Coupling
   - Shared State Is Incorrect State
+
+- While You Are Coding
+  - Listen to Your Lizard Brain
+  - Programming by Coincidence
 
 ## Quotes
 
