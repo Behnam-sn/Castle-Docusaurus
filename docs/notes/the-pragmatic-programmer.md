@@ -54,6 +54,9 @@
 1. Act Locally
 1. Take Small Steps—Always
 1. Avoid Fortune-Telling
+
+### Bend, or Break
+
 1. Decoupled Code Is Easier to Change
 1. Tell, Don’t Ask
 1. Don’t Chain Method Calls
@@ -67,10 +70,25 @@
 1. Use Mixins to Share Functionality
 1. Parameterize Your App Using External Configuration
 
+### Concurrency
+
+1. Analyze Workflow to Improve Concurrency
+1. Shared State Is Incorrect State
+1. Random Failures Are Often Concurrency Issues
+1. Use Actors For Concurrency Without Shared State
+1. Use Blackboards to Coordinate Workflow
+
 ## Topics I Want to Document
 
 - Bend, or Break
+
   - Decoupling
+  - Transforming Programming
+  - Configuration
+
+- Concurrency
+  - Breaking Temporal Coupling
+  - Shared State Is Incorrect State
 
 ## Quotes
 
