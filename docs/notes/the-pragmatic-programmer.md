@@ -82,6 +82,12 @@
 
 1. Listen to Your Inner Lizard
 1. Don’t Program by Coincidence
+1. Estimate the Order of Your Algorithms
+1. Test Your Estimates
+1. Refactor Early, Refactor Often
+1. Testing Is Not About Finding Bugs
+1. A Test Is the First User of Your Code
+1. Build End-to-End, Not Top-Down or Bottom Up
 
 ## Topics I Want to Document
 
@@ -99,6 +105,8 @@
 - While You Are Coding
   - Listen to Your Lizard Brain
   - Programming by Coincidence
+  - Algorithm Speed
+  - Refactoring
 
 ## Quotes
 
