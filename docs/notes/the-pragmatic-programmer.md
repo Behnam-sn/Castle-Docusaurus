@@ -88,6 +88,9 @@
 1. Testing Is Not About Finding Bugs
 1. A Test Is the First User of Your Code
 1. Build End-to-End, Not Top-Down or Bottom Up
+1. Design to Test
+1. Test Your Software, or Your Users Will
+1. Use Property-Based Tests to Validate Your Assumptions
 
 ## Topics I Want to Document
 
@@ -107,6 +110,10 @@
   - Programming by Coincidence
   - Algorithm Speed
   - Refactoring
+  - Test to Code
+  - Property-Based Testing
+  - Stay Safe Out There
+  - Naming Things
 
 ## Quotes
 
