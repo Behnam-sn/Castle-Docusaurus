@@ -91,6 +91,13 @@
 1. Design to Test
 1. Test Your Software, or Your Users Will
 1. Use Property-Based Tests to Validate Your Assumptions
+1. Keep It Simple and Minimize Attack Surfaces
+1. Apply Security Patches Quickly
+1. Name Well; Rename When Needed
+
+### Before the Project
+
+### Pragmatic Projects
 
 ## Topics I Want to Document
 
@@ -106,6 +113,7 @@
   - Shared State Is Incorrect State
 
 - While You Are Coding
+
   - Listen to Your Lizard Brain
   - Programming by Coincidence
   - Algorithm Speed
@@ -114,6 +122,12 @@
   - Property-Based Testing
   - Stay Safe Out There
   - Naming Things
+
+- Before the Project
+
+- Pragmatic Projects
+
+- Postface
 
 ## Quotes
 
