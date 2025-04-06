@@ -4,18 +4,22 @@
 > J.B. Bossuet, Politics from Holy Writ, 1709
 
 One of the cornerstones of the pragmatic philosophy,  
-Is the idea of taking responsibility for yourself,  
-And your actions in terms of your career advancement,  
+Is the idea of taking responsibility for yourself and your actions,  
+In terms of your career advancement,  
 Your learning and education,  
 Your project,  
 And your day-to-day work.
 
 Pragmatic Programmers take charge of their own career,  
-And aren’t afraid to admit ignorance or error.  
+And aren’t afraid to admit ignorance or error.
+
 It’s not the most pleasant aspect of programming,  
 But it will happen, even on the best of projects.
 
-Despite thorough testing, good documentation, and solid automation, things go wrong.  
+Despite thorough testing,  
+Good documentation,  
+And solid automation,  
+Things go wrong.  
 Deliveries are late.  
 Unforeseen technical problems come up.
 
@@ -42,10 +46,11 @@ Without trust, well…
 
 Imagine a high-tech,  
 Stealth ninja team infiltrating the villain’s evil lair.  
-After months of planning and delicate execution, you’ve made it on site.  
+After months of planning and delicate execution,  
+You’ve made it on site.
+
 Now it’s your turn to set up the laser guidance grid:  
-“Sorry, folks, I don’t have the laser.  
-The cat was playing with the red dot and I left it at home.”
+“Sorry, folks, I don’t have the laser. the cat was playing with the red dot and I left it at home.”
 
 That sort of breach of trust might be hard to repair.
 
@@ -71,9 +76,16 @@ You should expect to be held accountable for it.
 When you make a mistake (as we all do) or an error in judgment,  
 Admit it honestly and try to offer options.
 
-Don’t blame someone or something else, or make up an excuse.  
-Don’t blame all the problems on a vendor, a programming language, management, or your coworkers.  
-Any and all of these may play a role, but it is up to you to provide solutions, not excuses.
+Don’t blame someone or something else,  
+Or make up an excuse.
+
+Don’t blame all the problems on a vendor,  
+A programming language,  
+Management,  
+Or your coworkers.
+
+Any and all of these may play a role,  
+But it is up to you to provide solutions, not excuses.
 
 If there was a risk that the vendor wouldn’t come through for you,  
 Then you should have had a contingency plan.
@@ -87,7 +99,11 @@ Telling your boss **“the cat ate my source code’’** just won’t cut it.
 
 ## Provide Options, Don’t Make Lame Excuses
 
-Before you approach anyone to tell them why something can’t be done, is late, or is broken, stop and listen to yourself.  
+Before you approach anyone to tell them why something can’t be done,  
+Is late,  
+Or is broken,  
+Stop and listen to yourself.
+
 Talk to the rubber duck on your monitor, or the cat.
 
 Does your excuse sound reasonable, or stupid?  
@@ -95,34 +111,37 @@ How’s it going to sound to your boss?
 
 Run through the conversation in your mind.  
 What is the other person likely to say?  
-Will they ask, “Have you tried this…”  
-Or “Didn’t you consider that?”
+Will they ask, “Have you tried this…” or “Didn’t you consider that?”
 
 How will you respond?  
 Before you go and tell them the bad news,  
 Is there anything else you can try?
 
-Sometimes, you just know what they are going to say, so save them the trouble.
+Sometimes you just know what they are going to say,  
+So save them the trouble.
 
-Instead of excuses, provide options.  
+Instead of excuses, provide options.
+
 Don’t say it can’t be done;  
-Explain what can be done to salvage the situation.
+Explain what can be done to salvage the situation:
 
-Does code have to be deleted?  
-Tell them so, and explain the value of refactoring.
+- Does code have to be deleted?  
+  Tell them so, and explain the value of refactoring.
 
-Do you need to spend time prototyping to determine the best way to proceed?
+- Do you need to spend time prototyping to determine the best way to proceed?
 
-Do you need to introduce better testing or automation to prevent it from happening again?
+- Do you need to introduce better testing or automation to prevent it from happening again?
 
-Perhaps you need additional resources to complete this task.
+- Perhaps you need additional resources to complete this task.
 
-Or maybe you need to spend more time with the users?
+- Or maybe you need to spend more time with the users?
 
-Or maybe it’s just you:  
-Do you need to learn some technique or technology in greater depth?  
-Would a book or a course help?  
-Don’t be afraid to ask, or to admit that you need help.
+- Or maybe it’s just you:  
+  Do you need to learn some technique or technology in greater depth?  
+  Would a book or a course help?
+
+  Don’t be afraid to ask,  
+  Or to admit that you need help.
 
 Try to flush out the lame excuses before voicing them aloud.
 
