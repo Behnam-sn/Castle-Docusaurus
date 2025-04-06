@@ -149,3 +149,7 @@ Even if there’s a fire raging (deadline, release date, trade show demo, etc.),
 You don’t want to be the first one to make a mess and inflict additional damage.
 
 Just tell yourself, **“No broken windows”**.
+
+## References
+
+- The Pragmatic Programmer 2nd Edition - Andrew Hunt, David Thomas - Addison-Wesley
