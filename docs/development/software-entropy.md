@@ -1,5 +1,7 @@
 # Software Entropy
 
+## What is Software Entropy?
+
 While software development is immune from almost all physical laws,  
 The inexorable increase in entropy hits us hard.
 
@@ -10,7 +12,8 @@ The entropy in the universe tends toward a maximum.
 
 When disorder increases in software, we call it **software rot**.
 
-Some folks might call it by the more optimistic term, **technical debt**.  
+Some folks might call it by the more optimistic term, **technical debt**.
+
 With the implied notion that they’ll pay it back someday.
 
 They probably won’t.
@@ -38,14 +41,16 @@ Some buildings are beautiful and clean,
 While others are rotting hulks.
 
 Why?  
-Researchers in the field of crime and urban decay discovered a fascinating trigger mechanism,  
-One that very quickly turns a clean, intact, inhabited building into a smashed and abandoned derelict.
+Researchers in the field of crime and urban decay,  
+Discovered a fascinating trigger mechanism,  
+One that very quickly turns a clean, intact, inhabited building,  
+Into a smashed and abandoned derelict:
 
 A broken window.
 
-One broken window,  
-Left unrepaired for any substantial length of time,  
-Instills in the inhabitants of the building a sense of abandonment,
+One broken window left unrepaired,  
+For any substantial length of time,  
+Instills in the inhabitants of the building a sense of abandonment,  
 A sense that the powers that be don’t care about the building.
 
 So another window gets broken.  
