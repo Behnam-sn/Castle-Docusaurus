@@ -3,22 +3,22 @@
 While software development is immune from almost all physical laws,  
 The inexorable increase in entropy hits us hard.
 
-Entropy is a term from physics that refers to the amount of **“disorder”** in a system.
+Entropy is a term from physics that refers to the amount of **disorder** in a system.
 
-Unfortunately, the laws of thermodynamics guarantee that the entropy in the universe tends toward a maximum.
+Unfortunately, the laws of thermodynamics guarantee that,  
+The entropy in the universe tends toward a maximum.
 
-When disorder increases in software,  
-We call it **“software rot”**.
+When disorder increases in software, we call it **software rot**.
 
-Some folks might call it by the more optimistic term, **“technical debt”**,  
+Some folks might call it by the more optimistic term, **technical debt**.  
 With the implied notion that they’ll pay it back someday.
 
 They probably won’t.
 
-Whatever the name, though, both debt and rot can spread uncontrollably.
+Whatever the name, both debt and rot can spread uncontrollably.
 
 There are many factors that can contribute to software rot.  
-The most important one seems to be the psychology, or culture, at work on a project.
+The most important one seems to be the psychology or culture, at work on a project.
 
 Even if you are a team of one,  
 Your project’s psychology can be a very delicate thing.
@@ -26,11 +26,12 @@ Your project’s psychology can be a very delicate thing.
 Despite the best-laid plans and the best people,  
 A project can still experience ruin and decay during its lifetime.
 
-Yet there are other projects that,  
-Despite enormous difficulties and constant setbacks,  
+Yet there are other projects that despite enormous difficulties and constant setbacks,  
 Successfully fight nature’s tendency toward disorder and manage to come out pretty well.
 
 What makes the difference?
+
+## Broken Windows
 
 In inner cities,  
 Some buildings are beautiful and clean,  
