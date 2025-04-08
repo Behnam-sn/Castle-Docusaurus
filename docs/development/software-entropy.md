@@ -48,7 +48,7 @@ Into a smashed and abandoned derelict:
 
 A broken window.
 
-One broken window left unrepaired,  
+One broken window left un-repaired,  
 For any substantial length of time,  
 Instills in the inhabitants of the building a sense of abandonment,  
 A sense that the powers that be don’t care about the building.
@@ -67,7 +67,9 @@ Psychologists have done studies that show hopelessness can be contagious.
 
 Think of the flu virus in close quarters.
 
-Ignoring a clearly broken situation reinforces the ideas that perhaps nothing can be fixed,  
+Ignoring a clearly broken situation,  
+Reinforces the ideas that,  
+Perhaps nothing can be fixed,  
 That no one cares,  
 All is doomed.
 
@@ -76,7 +78,7 @@ Creating a vicious spiral.
 
 ## Don’t Live with Broken Windows
 
-Don’t leave “broken windows’’ (bad designs, wrong decisions, or poor code) unrepaired.
+Don’t leave broken windows (bad designs, wrong decisions, or poor code) un-repaired.
 
 Fix each one as soon as it is discovered.
 
@@ -89,7 +91,8 @@ Or substitute dummy data instead.
 
 Take some action to prevent further damage and to show that you’re on top of the situation.
 
-We’ve seen clean, functional systems deteriorate pretty quickly once windows start breaking.
+We’ve seen clean and functional systems deteriorate pretty quickly,  
+Once windows start breaking.
 
 There are other factors that can contribute to software rot,  
 But neglect accelerates the rot faster than any other factor.
@@ -109,7 +112,8 @@ His house was immaculate,
 Loaded with priceless antiques,  
 Objets d’art, and so on.
 
-One day, a tapestry that was hanging a little too close to a fireplace caught on fire.  
+One day, a tapestry that was hanging a little too close to a fireplace caught on fire.
+
 The fire department rushed in to save the day, and his house.
 
 But before they dragged their big dirty hoses into the house,  
