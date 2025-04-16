@@ -119,3 +119,43 @@ tables.
 
 - Foreign key
   One or more columns that can be used together to identify a single row in another table.
+
+## query optimizer
+
+query optimizer job is to determine the
+most efficient way to execute your query. The optimizer looks
+at such things as the order in which to join the tables named in
+your from clause and what indexes are available, and then it
+picks an execution plan, which the server uses to execute your
+query.
+
+## Query Clauses
+
+| Clause | name Purpose                                                                          |
+| ------ | ------------------------------------------------------------------------------------- |
+| select | Determines which columns to include in the query’s result set                         |
+| from   | Identifies the tables from which to retrieve data and how the tables should be joined |
+| where  | Filters out unwanted data                                                             |
+| group  | by Used to group rows together by common column values                                |
+| having | Filters out unwanted groups                                                           |
+| order  | by Sorts the rows of the final result set by one or more columns                      |
+
+### The select Clause
+
+Even though the select clause is the first clause of a select statement, it is one of the last clauses that the database server
+evaluates. The reason for this is that before you can determine
+what to include in the final result set, you need to know all of
+the possible columns that could be included in the final result
+set. In order to fully understand the role of the select clause,
+therefore, you will need to understand a bit about the from
+clause.
+
+### Distinct
+
+:::WARNING
+Keep in mind that generating a distinct set of results requires the data to
+be sorted, which can be time consuming for large result sets. Don’t fall
+into the trap of using distinct just to be sure there are no duplicates;
+instead, take the time to understand the data you are working with so that
+you will know whether duplicates are possible.
+:::
