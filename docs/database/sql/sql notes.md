@@ -159,3 +159,10 @@ into the trap of using distinct just to be sure there are no duplicates;
 instead, take the time to understand the data you are working with so that
 you will know whether duplicates are possible.
 :::
+
+### The where Clause
+
+In some cases, you may want to retrieve all rows from a table, especially for small
+tables such as language. Most of the time, however, you will not want to retrieve
+every row from a table but will want a way to filter out those rows that are not of
+interest. This is a job for the where clause.
