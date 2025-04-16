@@ -13,5 +13,24 @@
 - Query Optimizer
 
 - Keywords
-  - AS
-  - Distinct
+  - Create Table
+  - Alter Table
+  - Drop Table
+  - Constraint
+  - References
+    - Modify
+  - Insert Into
+  - Update
+    - Set
+  - Select
+    - From
+    - As
+    - Distinct
+  - Where
+    - And
+    - Or
+  - Group By
+  - Having
+  - Order By
+    - Desc
+  - Limit
