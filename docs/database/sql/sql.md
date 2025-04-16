@@ -29,6 +29,7 @@
   - Where
     - And
     - Or
+    - In
   - Group By
   - Having
   - Order By
