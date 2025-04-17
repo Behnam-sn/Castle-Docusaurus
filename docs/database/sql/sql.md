@@ -10,6 +10,8 @@
   - Database Connection
   - Views
 
+  - Normalization
+
 - Query Optimizer
 
 - Keywords
@@ -23,15 +25,18 @@
   - Update
     - Set
   - Select
-    - From
     - As
-    - Distinct
+  - From
+  - Distinct
+  - Delete
   - Where
     - And
     - Or
     - In
+    - Not
   - Group By
   - Having
   - Order By
     - Desc
   - Limit
+  - Join
