@@ -166,3 +166,29 @@ In some cases, you may want to retrieve all rows from a table, especially for sm
 tables such as language. Most of the time, however, you will not want to retrieve
 every row from a table but will want a way to filter out those rows that are not of
 interest. This is a job for the where clause.
+
+### Null: That Four-Letter Word
+
+null is the absence of a value;  
+Before an employee is terminated, for example,  
+Their `end_date` column in the employee table should be null.
+
+There is no value that can be assigned to the `end_date` column that would make sense in this situation.
+
+null is a bit slippery, however,  
+As there are various flavors of null:  
+Not applicable  
+Such as the employee ID column for a transaction that took place at an ATM machine Value not yet known Such as when the federal ID is not known at the time a customer row is created Value undefined
+Such as when an account is created for a product that has not yet been added to the database
+
+:::note
+Some theorists argue that there should be a different expression to
+cover each of these (and more) situations, but most practitioners
+would agree that having multiple null values would be far too con‐
+fusing.
+:::
+
+### What Is a Join?
+
+Queries against a single table are certainly not rare,  
+But you will find that most of your queries will require two, three, or even more tables.
