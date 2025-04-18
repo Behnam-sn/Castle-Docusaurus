@@ -34,9 +34,14 @@
     - Or
     - In
     - Not
+    - Between
+    - Wildcards
+    - Regular Expressions
+    - Is
   - Group By
   - Having
   - Order By
     - Desc
   - Limit
   - Join
+    - Inner Join
