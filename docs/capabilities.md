@@ -157,23 +157,14 @@ sidebar_position: 2
 - Logging
 
   - SeriLog
-
   - NLog
-    - NLog Configuration
-      - XML File
-      - Json File
-      - Code
-    - NLog Options
-      - Targets
-      - Rules
-      - Extensions
 
 - Messaging
 
   - MassTransit
   - NServiceBus
 
-- Mappers
+- Mapper
 
   - Mapster
   - AutoMapper
@@ -187,7 +178,7 @@ sidebar_position: 2
   - Autofac
   - Castle Windsor
 
-- Security Tools
+- Security
 
   - ASP.NET Identity
   - Duende Identity Server
@@ -202,7 +193,7 @@ sidebar_position: 2
 - SQLAlchemy
 - Pydantic
 
-## SQl
+## SQL
 
 ## HTML
 
@@ -223,6 +214,11 @@ sidebar_position: 2
 
   - Next
 
+- Routing
+
+  - React Router
+  - TanStack Router
+
 - UI
 
   - Shadcn UI
@@ -236,10 +232,10 @@ sidebar_position: 2
 
 - State Management
 
-  - Zustand
-  - Pinia
   - Redux
     - Redux Toolkit
+  - Zustand
+  - Pinia
 
 - Animate Library
 
@@ -247,6 +243,7 @@ sidebar_position: 2
 
 - Form Management
 
+  - React Hook Form
   - Formik
 
 - JSON
