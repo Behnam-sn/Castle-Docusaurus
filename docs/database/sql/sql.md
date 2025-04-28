@@ -11,10 +11,12 @@
   - Views
 
   - Normalization
+  - Set Theory
 
 - Query Optimizer
 
 - Keywords
+
   - Create Table
   - Alter Table
   - Drop Table
@@ -45,3 +47,9 @@
   - Limit
   - Join
     - Inner Join
+  - Union
+    - Union All
+  - Intersect
+    - Intersect All
+  - Except
+    - Except All
