@@ -6,6 +6,20 @@ sidebar_position: 2
 
 ## Architecture
 
+- Architectural Patterns
+
+  - Layered Architecture
+  - Clean Architecture
+  - Ports & Adapters
+  - CQRS
+  - Event-Sourcing
+
+- Communication Patterns
+
+  - Outbox
+  - Saga
+  - Process Manager
+
 ## OOP
 
 - OOP Features
@@ -77,7 +91,7 @@ sidebar_position: 2
 
   - Bounded Context
     - Contracts
-      - Cooperation
+      - Co-operation
         - Partnership Pattern
         - Shared Kernel Pattern
       - Customer & Supplier
@@ -100,18 +114,6 @@ sidebar_position: 2
       - Domain Event
       - Domain Service
     - Event-Sourced Domain Model
-
-  - Architectural Patterns
-
-    - Layered Architecture
-    - Ports & Adapters
-    - CQRS
-
-  - Communication Patterns
-
-    - Outbox
-    - Saga
-    - Process Manager
 
 ## .NET
 
