@@ -4,6 +4,8 @@ sidebar_position: 2
 
 # Capabilities
 
+## Architecture
+
 ## OOP
 
 - OOP Features
@@ -119,7 +121,10 @@ sidebar_position: 2
 
 - ASP.NET
 
-- Entity Framework
+- ORM
+
+  - Entity Framework
+  - Dapper
 
 - Testing
 
@@ -134,6 +139,7 @@ sidebar_position: 2
   - Mocking Tools
 
     - NSubstitute
+    - Moq
 
   - Assertions Tools
 
@@ -147,6 +153,9 @@ sidebar_position: 2
       - Hooks
 
 - Logging
+
+  - SeriLog
+
   - NLog
     - NLog Configuration
       - XML File
@@ -156,6 +165,34 @@ sidebar_position: 2
       - Targets
       - Rules
       - Extensions
+
+- Messaging
+
+  - MassTransit
+  - NServiceBus
+
+- Mappers
+
+  - Mapster
+  - AutoMapper
+
+- Mediator
+
+  - MediatR
+
+- IoC Container
+
+  - Autofac
+  - Castle Windsor
+
+- Security Tools
+
+  - ASP.NET Identity
+  - Duende Identity Server
+
+- Resiliency
+
+  - Polly
 
 ## Python
 
@@ -171,6 +208,7 @@ sidebar_position: 2
 
 - SCSS
 - Tailwind CSS
+- Bootstrap
 
 ## JavaScript (TypeScript)
 
@@ -178,16 +216,20 @@ sidebar_position: 2
 
   - React
   - Vue
-  - Electron
-  - Anime.js
 
 - Frameworks
 
   - Next
 
+- UI
+
+  - Shadcn UI
+  - Electron
+
 - Query
 
   - Axios
+  - TanStack Query
   - SWR
 
 - State Management
@@ -196,6 +238,10 @@ sidebar_position: 2
   - Pinia
   - Redux
     - Redux Toolkit
+
+- Animate Library
+
+  - Anime.js
 
 - Form Management
 
@@ -259,6 +305,7 @@ sidebar_position: 2
   - Pessimistic Concurrency
     - Locking
     - Double-checked Locking
+    - Dead Lock
   - Optimistic Concurrency
 
 - Programming Paradigms
@@ -268,6 +315,8 @@ sidebar_position: 2
   - Multi-Threaded Programming
 
 ## Database
+
+- CAP Theorem
 
 - Relational Database
 
@@ -281,11 +330,14 @@ sidebar_position: 2
 
   - Microsoft SQL Server
   - PostgreSQL
+  - MySQL
   - SQLite
 
 - NoSQL Database
 
 - NoSQL Databases
+
+  - Elastic Search
 
 - ORM
 
@@ -323,6 +375,7 @@ sidebar_position: 2
   - RPC
   - SOAP
   - Rest API
+  - gRPC
 
 - Rendering Types
 
@@ -335,11 +388,6 @@ sidebar_position: 2
   - OAuth
   - OpenID Connect
   - JWT (JSON Web Token)
-
-- Security Tools
-
-  - ASP.NET Identity
-  - Duende Identity Server
 
 ## Logging
 
@@ -356,10 +404,14 @@ sidebar_position: 2
     - Critical
     - None
 
-- Logging Tools
-  - Logstash
-  - Elastic
-  - Kibana
+## Monitoring
+
+- Grafana
+
+## Messaging
+
+- Kafka
+- RabbitMQ
 
 ## DevOps
 
