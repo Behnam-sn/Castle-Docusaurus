@@ -152,7 +152,7 @@ clause.
 
 ### Distinct
 
-:::WARNING
+:::warning
 Keep in mind that generating a distinct set of results requires the data to
 be sorted, which can be time consuming for large result sets. Don’t fall
 into the trap of using distinct just to be sure there are no duplicates;
