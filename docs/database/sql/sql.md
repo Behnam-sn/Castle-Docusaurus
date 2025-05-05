@@ -41,7 +41,7 @@
     - Regular Expressions
     - Is
   - Group By
-  - Having
+    - Having
   - Order By
     - Desc
   - Limit
@@ -52,4 +52,12 @@
   - Intersect
     - Intersect All
   - Except
+
     - Except All
+
+  - Aggregate Functions
+    - max()
+    - min()
+    - avg()
+    - sum()
+    - count()
