@@ -401,7 +401,7 @@ sidebar_position: 2
 
   - OAuth
   - OpenID Connect
-  - JWT (JSON Web Token)
+  - JWT
 
 ## Logging
 
@@ -421,11 +421,16 @@ sidebar_position: 2
 ## Monitoring
 
 - Grafana
+- Kibana
 
 ## Messaging
 
 - Kafka
 - RabbitMQ
+
+## ETL
+
+- Logstash
 
 ## DevOps
 
