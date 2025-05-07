@@ -224,7 +224,7 @@ sidebar_position: 2
   - Shadcn UI
   - Electron
 
-- Query
+- Query Management
 
   - Axios
   - TanStack Query
@@ -235,7 +235,6 @@ sidebar_position: 2
   - Redux
     - Redux Toolkit
   - Zustand
-  - Pinia
 
 - Animate Library
 
@@ -246,14 +245,30 @@ sidebar_position: 2
   - React Hook Form
   - Formik
 
-- JSON
+- Schema Validator
 
-- JS Tools
-  - NPM
-  - ESLint
-  - PostCSS
-  - WebPack
+  - Zod
+  - Yup
+
+- Bundler
+
   - Vite
+  - WebPack
+
+- Package Manager
+
+  - Npm
+  - Pnpm
+
+- Linter
+
+  - ESLint
+
+- Formatter
+
+  - Prettier
+
+- JSON
 
 ## Markdown
 
