@@ -321,6 +321,7 @@ sidebar_position: 2
     - Double-checked Locking
     - Dead Lock
   - Optimistic Concurrency
+    - Versioning
 
 - Programming Paradigms
 
@@ -339,6 +340,7 @@ sidebar_position: 2
   - Colum
   - Primary Key
   - Foreign Key
+  - View
 
 - Relational Databases
 
