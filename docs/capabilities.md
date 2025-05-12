@@ -456,7 +456,25 @@ sidebar_position: 2
   - SAAS (Software as a service)
 
 - Docker
+
+  - Container
+  - Image
+
+  - Architecture
+
+    - Server
+      - Docker Daemon
+    - Client
+      - Docker Client
+      - Docker Compose
+    - Docker Registries
+
+  - Objects
+    - Images
+    - Containers
+
 - Kubernetes
+
 - Terraform
 
 ## Little Experience
