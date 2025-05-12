@@ -81,3 +81,7 @@ Increasing resource utilization and reducing costs.
 ## References
 
 - [docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/)
+
+## More
+
+- https://www.docker.com/resources/what-container/
