@@ -439,7 +439,6 @@ sidebar_position: 2
 - Web Servers
 
   - Apache
-  - Nginx
   - Microsoft IIS
 
 - Web Hosting
@@ -476,6 +475,12 @@ sidebar_position: 2
 - Kubernetes
 
 - Terraform
+
+## Reverse Proxy
+
+- Nginx
+- Traefik
+- Yarp
 
 ## Little Experience
 
