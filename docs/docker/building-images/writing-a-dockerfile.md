@@ -59,6 +59,20 @@ Some of the most common instructions in a Dockerfile include:
 - `CMD ["<command>", "<arg1>"]`  
   This instruction sets the default command a container using this image will run.
 
+:::note
+This Dockerfile isn't production-ready yet
+
+It's important to note that this Dockerfile is not following all of the best practices yet (by design). It will build the app, but the builds won't be as fast, or the images as secure, as they could be.
+
+Keep reading to learn more about how to make the image maximize the build cache, run as a non-root user, and multi-stage builds.
+:::
+
+:::note
+Containerize new projects quickly with docker init
+
+The docker init command will analyze your project and quickly create a Dockerfile, a compose.yaml, and a .dockerignore, helping you get up and going. Since you're learning about Dockerfiles specifically here, you won't use it now.
+:::
+
 ## Reference
 
 - [docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/)
