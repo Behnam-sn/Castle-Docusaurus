@@ -2,11 +2,12 @@
 
 ## Explanation
 
-As you learned in What is an image?, container images are composed of layers.
+As you learned in What is an image,  
+container images are composed of layers.
 
 And each of these layers, once created, are immutable.
 
-But, what does that actually mean?  
+But what does that actually mean?  
 And how are those layers used to create the filesystem a container can use?
 
 ## Image layers
