@@ -75,6 +75,7 @@
     "tempfile",
     "toolkits",
     "Totty",
+    "Traefik",
     "transactionally",
     "typeof",
     "uncrawled",
@@ -88,6 +89,7 @@
     "virtualizes",
     "Vladik",
     "Wirfs",
+    "Yarp",
     "Zustand"
   ]
 }
