@@ -72,3 +72,57 @@ docker run sha256:9924dfd9350407b3df01d1a0e1033b1e543523ce7d5d5e2c83a724480ebe8f
 
 That name certainly isn't memorable,  
 Which is where tagging becomes useful.
+
+## Tagging images
+
+Tagging images is the method to provide an image with a memorable name.  
+However, there is a structure to the name of an image.
+
+A full image name has the following structure:
+
+```bash
+[HOST[:PORT_NUMBER]/]PATH[:TAG]
+```
+
+- `HOST`
+  The optional registry hostname where the image is located.  
+  If no host is specified,  
+  Docker's public registry at `docker.io` is used by default.
+
+- `PORT_NUMBER`
+  The registry port number if a hostname is provided.
+
+- `PATH`
+  The path of the image,  
+  Consisting of slash-separated components.
+
+  For Docker Hub,  
+  The format follows `[NAMESPACE/]REPOSITORY`,  
+  Where namespace is either a user's or organization's name.
+
+  If no namespace is specified,  
+  Library is used,  
+  Which is the namespace for Docker Official Images.
+
+- `TAG`  
+  A custom and human-readable identifier,  
+  That's typically used to identify different versions or variants of an image.
+
+  If no tag is specified,  
+  Latest is used by default.
+
+Some examples of image names include:
+
+- `nginx`  
+  equivalent to `docker.io/library/nginx:latest`:
+
+  This pulls an image from the `docker.io` registry,  
+  The `library` namespace,  
+  The `nginx` image repository,  
+  And the `latest` tag.
+
+- docker/welcome-to-docker,  
+  equivalent to docker.io/docker/welcome-to-docker:latest  
+  This pulls an image from the docker.io registry, the docker namespace, the welcome-to-docker image repository, and the latest tag
+
+ghcr.io/dockersamples/example-voting-app-vote:pr-311: this pulls an image from the GitHub Container Registry, the dockersamples namespace, the example-voting-app-vote image repository, and the pr-311 tag
