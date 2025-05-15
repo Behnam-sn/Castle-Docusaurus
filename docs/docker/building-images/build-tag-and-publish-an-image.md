@@ -113,16 +113,56 @@ A full image name has the following structure:
 
 Some examples of image names include:
 
-- `nginx`  
-  equivalent to `docker.io/library/nginx:latest`:
+- `nginx` equivalent to `docker.io/library/nginx:latest`:
 
   This pulls an image from the `docker.io` registry,  
   The `library` namespace,  
   The `nginx` image repository,  
   And the `latest` tag.
 
-- docker/welcome-to-docker,  
-  equivalent to docker.io/docker/welcome-to-docker:latest  
-  This pulls an image from the docker.io registry, the docker namespace, the welcome-to-docker image repository, and the latest tag
+- `docker/welcome-to-docker` equivalent to `docker.io/docker/welcome-to-docker:latest`:
 
-ghcr.io/dockersamples/example-voting-app-vote:pr-311: this pulls an image from the GitHub Container Registry, the dockersamples namespace, the example-voting-app-vote image repository, and the pr-311 tag
+  This pulls an image from the `docker.io` registry,  
+  The `docker` namespace,  
+  The `welcome-to-docker` image repository,  
+  And the `latest` tag.
+
+- `ghcr.io/dockersamples/example-voting-app-vote:pr-311`:
+
+  this pulls an image from the `GitHub Container` Registry,  
+  the `dockersamples` namespace,  
+  The `example-voting-app-vote` image repository,  
+  And the `pr-311` tag.
+
+To tag an image during a build,  
+Add the `-t` or `--tag` flag:
+
+```bash
+docker build -t my-username/my-image .
+```
+
+If you've already built an image,  
+You can add another tag to the image,  
+By using the docker image tag command:
+
+```bash
+docker image tag my-username/my-image another-username/another-image:v1
+```
+
+## Publishing images
+
+Once you have an image built and tagged,  
+You're ready to push it to a registry.
+
+To do so, use the `docker push` command:
+
+```bash
+docker push my-username/my-image
+```
+
+Within a few seconds,  
+All of the layers for your image will be pushed to the registry.
+
+## References
+
+- [https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/)
