@@ -26,7 +26,8 @@ Volumes are a storage mechanism,
 That provide the ability to persist data,  
 Beyond the lifecycle of an individual container.
 
-Think of it like providing a shortcut or symlink from inside the container to outside the container.
+Think of it like providing a shortcut or symlink,  
+From inside the container to outside the container.
 
 As an example,  
 Imagine you create a volume named `log-data`.
@@ -49,4 +50,33 @@ When the container runs,
 All files it writes into the `/logs` folder will be saved in this volume,  
 Outside of the container.
 
-If you delete the container and start a new container using the same volume, the files will still be there.
+If you delete the container and start a new container using the same volume,  
+The files will still be there.
+
+:::note
+Sharing files using volumes
+
+You can attach the same volume to multiple containers to share files between containers.
+
+This might be helpful in scenarios such as log aggregation, data pipelines, or other event-driven applications.
+:::
+
+## Managing volumes
+
+Volumes have their own lifecycle beyond that of containers,  
+And can grow quite large depending on the type of data and applications you’re using.
+
+The following commands will be helpful to manage volumes:
+
+- `docker volume ls`
+  List all volumes
+
+- `docker volume rm <volume-name-or-id>`  
+  Remove a volume (only works when the volume is not attached to any containers)
+
+- `docker volume prune`  
+  Remove all unused (unattached) volumes
+
+## References
+
+- [https://docs.docker.com/get-started/workshop/](https://docs.docker.com/get-started/workshop/)
