@@ -75,8 +75,8 @@ sidebar_position: 1
   - [ ] Redis
   - [ ] Neo4j
 - [ ] Messaging Queue
-  - [ ] RabbitMQ
   - [ ] Kafka
+  - [ ] RabbitMQ
 - [ ] DevOps
   - [ ] Docker
 - [ ] Logging
