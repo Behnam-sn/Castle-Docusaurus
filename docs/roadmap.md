@@ -19,7 +19,7 @@ sidebar_position: 1
     - [ ] How to Calculate Complexity?
   - [ ] Problem Solving Techniques
     - [ ] Backtracking
-    - [ ] Randomised Algorithms
+    - [ ] Randomized Algorithms
     - [ ] Sliding Window Technique
   - [ ] Sorting Algorithms
   - [ ] Search Algorithms
