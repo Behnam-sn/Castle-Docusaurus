@@ -54,6 +54,8 @@
     "NASSL",
     "navigations",
     "nvarchar",
+    "OLAP",
+    "OLTP",
     "overengineered",
     "Overrider",
     "parameterless",
