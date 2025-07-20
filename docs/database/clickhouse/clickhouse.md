@@ -126,6 +126,87 @@ It starts with fast hash joins and falls back to merge joins if there's more tha
 
 ClickHouse is well known for having extremely fast query performance.
 
+## Why is ClickHouse so fast?
+
+Many other factors contribute to a database's performance besides its data orientation.
+
+We will next explain in more detail what makes ClickHouse so fast,  
+Especially compared to other column-oriented databases.
+
+From an architectural perspective,  
+Databases consist (at least) of a storage layer and a query processing layer.
+
+While the storage layer is responsible for saving, loading, and maintaining the table data,  
+The query processing layer executes user queries.
+
+Compared to other databases,  
+ClickHouse provides innovations in both layers that enable extremely fast inserts and Select queries.
+
+### Storage layer: concurrent inserts are isolated from each other
+
+In ClickHouse,  
+Each table consists of multiple "table parts".
+
+A part is created whenever a user inserts data into the table (INSERT statement).
+
+A query is always executed against all table parts that exist at the time the query starts.
+
+To avoid that too many parts accumulate,  
+ClickHouse runs a merge operation in the background,  
+Which continuously combines multiple smaller parts into a single bigger part.
+
+This approach has several advantages:  
+All data processing can be offloaded to background part merges,  
+Keeping data writes lightweight and highly efficient.
+
+Individual inserts are "local" in the sense that they do not need to update global,  
+i.e. per-table data structures.
+
+As a result,  
+Multiple simultaneous inserts need no mutual synchronization or synchronization with existing table data,  
+And thus inserts can be performed almost at the speed of disk I/O.
+
+the holistic performance optimization section of the VLDB paper.
+
+### Storage layer: concurrent inserts and selects are isolated
+
+Inserts are fully isolated from SELECT queries,  
+And merging inserted data parts happens in the background without affecting concurrent queries.
+
+### Storage layer: merge-time computation
+
+Unlike other databases,  
+ClickHouse keeps data writes lightweight and efficient by performing all additional data transformations during the merge background process.
+
+Examples of this include:
+
+- Replacing merges  
+  Which retain only the most recent version of a row in the input parts and discard all other row versions.  
+  Replacing merges can be thought of as a merge-time cleanup operation.
+
+- Aggregating merges  
+  Which combine intermediate aggregation states in the input part to a new aggregation state.  
+  While this seems difficult to understand,  
+  It really actually only implements an incremental aggregation.
+
+- TTL (time-to-live) merges  
+  Compress, move, or delete rows based on certain time-based rules.
+
+The point of these transformations is to shift work (computation) from the time user queries run to merge time.  
+This is important for two reasons:
+
+- On the one hand,  
+  User queries may become significantly faster,  
+  Sometimes by 1000x or more,  
+  If they can leverage "transformed" data,  
+  e.g. pre-aggregated data.
+
+- On the other hand,  
+  The majority of the runtime of merges is consumed by loading the input parts and saving the output part.  
+  The additional effort to transform the data during merge does usually not impact the runtime of merges too much.  
+  All of this magic is completely transparent and does not affect the result of queries (besides their performance).
+
 ## References
 
 - [clickhouse.com/docs/intro](https://clickhouse.com/docs/intro)
+- [clickhouse.com/docs/concepts/why-clickhouse-is-so-fast](https://clickhouse.com/docs/concepts/why-clickhouse-is-so-fast)
