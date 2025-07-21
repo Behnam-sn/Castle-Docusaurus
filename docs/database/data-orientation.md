@@ -57,6 +57,30 @@ Of course, this is an oversimplification. Even a minimally resourced row-oriente
 
 The amount of data stored has a huge influence on the performance gap between columnar databases and row-oriented databases.
 
+### Use columnar databases for real-time analytics
+
+Columnar databases generally excel at real-time analytics, where high write throughput and low latency on complex, analytical queries are required.
+
+Or consider event-driven architectures or event sourcing approaches, where state is maintained by aggregating a long history of timestamped events, rather than in a table using upserts or replaces. Storing and aggregating time series data can be very difficult for row-oriented, relational databases, but columnar databases handle time-series analytics very well.
+
+Ultimately, it comes down to basic physics. Data in most databases is stored on disk and accessed from disk, and column-oriented databases store data differently than row-oriented databases. An analytical, columnar database provides distinct advantages when you want to access data in columns very quickly while eschewing some of the benefits that make transactional, row-oriented databases useful.
+
+## When should I avoid columnar databases?
+
+You should avoid columnar databases when you don't intend to do complex analytics and you want to retain the benefits of transactional, row-oriented databases. For example, columnar databases are generally not optimized for frequent single-row updates or deletes, both of which are important functions of traditional databases used for online transaction processing.
+
+The benefits of columnar databases become much more pronounced when working with large amounts of data, but you might want a columnar database even for small datasets (especially if you expect that data to grow).
+
+Similarly, you may not need to use a columnar database if you are working with smaller amounts of data. While there's nothing technically "wrong" with using a columnar database with smaller data sets, these databases generally have a steeper learning curve, and you can likely achieve what you need with more comfortable and broadly supported relational databases like Postgres or MySQL.
+
+USE COLUMNAR DATABASES WHEN... - USE ROW-ORIENTED DATABASES WHEN...
+Your primary use case is analytics - Your primary use case is transactions
+You need low query latency - You don't need low query latency (for analytics)
+You have large amounts of data - You're working with smaller data (for analytics)
+You don't need strict ACID compliance - You need strict ACID compliance
+You're using event sourcing principles - You need to do frequent, small replaces and deletes
+You need to store and analyze lots of time series data - You need to store and access records with unique IDs
+
 ## References
 
 - [https://www.tinybird.co/blog-posts/what-is-a-columnar-database](https://www.tinybird.co/blog-posts/what-is-a-columnar-database)
