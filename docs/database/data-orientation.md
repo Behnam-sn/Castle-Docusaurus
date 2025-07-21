@@ -81,6 +81,8 @@ You don't need strict ACID compliance - You need strict ACID compliance
 You're using event sourcing principles - You need to do frequent, small replaces and deletes
 You need to store and analyze lots of time series data - You need to store and access records with unique IDs
 
+Keep in mind that column-oriented storage isn't a silver bullet for query latency on complex analytics. Even with the most performant columnar databases, you still must consider proper indexing, sorting, partitioning, and replication mechanisms to maintain and optimize the performance of column-oriented databases at scale.
+
 ## References
 
 - [https://www.tinybird.co/blog-posts/what-is-a-columnar-database](https://www.tinybird.co/blog-posts/what-is-a-columnar-database)
