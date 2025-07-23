@@ -68,7 +68,7 @@ Containers are:
   The container that runs on your development machine,  
   Will work the same way in a data center or anywhere in the cloud!
 
-## Containers Versus Virtual Machines
+## Containers Vs. Virtual Machines
 
 Without getting too deep,  
 A VM is an entire operating system,  
