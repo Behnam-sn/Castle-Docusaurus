@@ -1,31 +1,5 @@
 # Docker Notes
 
-## What is Docker?
-
-Docker is an open platform for developing, shipping, and running applications.
-
-Docker enables you to separate your applications from your infrastructure,  
-So you can deliver software quickly.
-
-<!-- unambiguous -->
-<!-- With Docker, you can manage your infrastructure in the same ways you manage your applications. -->
-
-By taking advantage of Docker's methodologies for shipping, testing, and deploying code,  
-You can significantly reduce the delay between writing code and running it in production.
-
-## What is a Container?
-
-Docker provides the ability to package and run an application,  
-In a loosely isolated environment called a container.
-
-The isolation and security lets you run many containers simultaneously on a given host.
-
-Containers are lightweight and contain everything needed to run the application,  
-So you don't need to rely on what's installed on the host.
-
-You can share containers while you work,  
-And be sure that everyone you share with gets the same container that works in the same way.
-
 ## The Docker Platform
 
 Docker provides tooling and a platform to manage the lifecycle of your containers:
