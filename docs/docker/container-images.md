@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Images
+# Container Images
 
 ## What Is A Image?
 
