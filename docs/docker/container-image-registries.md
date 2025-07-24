@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Image Registries
+# Container Image Registries
 
 Now that you know what a container image is and how it works,  
 You might wonder, where do you store these images?
